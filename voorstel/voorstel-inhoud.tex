@@ -3,22 +3,57 @@
 \section{Inleiding}%
 \label{sec:inleiding}
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
+Het komt steeds vaker in het nieuws: jongvolwassenen die geconfronteerd worden met stress, angst of burn-out. Na hun middelbare school staan ze voor tal van belangrijke keuzes: verder studeren, aan het werk gaan, of kiezen voor een sabbatjaar. Bovendien valt het combineren van studies, werk en een eigen sociaal leven zeker niet te onderschatten. Dit leidt namelijk tot aanzienlijke druk op deze groep. Wat ook duidelijk wordt in het recente onderzoeksrapport van \textcite{RIZIV2023_invaliditeit_burnout}: het aantal burn-outs bij twintigers is sinds 2018 \textbf{meer dan verdubbeld}, terwijl de stijging in andere leeftijdsgroepen veel minder groot is.
 
-\begin{itemize}
-  \item kaderen thema
-  \item de doelgroep
-  \item de probleemstelling en (centrale) onderzoeksvraag
-  \item de onderzoeksdoelstelling
-\end{itemize}
+\vspace{1em}
 
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
+Parallel verloopt alle contact vandaag de dag steeds meer via online platformen. Niet alleen voor het onderhouden van sociale contacten, maar ook voor het uitvoeren van werk- en studie gerelateerde activiteiten. Hoewel websites en apps veel voordelen bieden, zorgt deze continue digitale aanwezigheid ervoor dat de grens tussen werk, studie en ontspanning steeds meer vervaagt, wat op zijn beurt weer bijdraagt aan meer werkdruk en dus ook een groter risico op burn-out. 
 
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
+\vspace{1em}
 
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
+Hierdoor is mentale gezondheid één van de meest urgente maatschappelijke uitdagingen voor Vlaamse twintigers.
 
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
+\vspace{1em}
+
+Om dit probleem aan te pakken hebben verscheidene software- en productontwikkelaars geprobeerd de situatie te verbeteren. Dit leidde tot een explosieve groei van meer dan \textbf{1.400 mentaal welzijn apps} die stress, angst en burn-out beweren tegen te gaan \autocite{Larsen2019}.
+Echter lijken deze een beperkt effect met zich mee te brengen. Dit roept dan ook verschillende vragen op over het huidige aanbod van mentaal welzijn apps: in hoeverre zijn ze wetenschappelijk onderbouwd, zijn ze afgestemd op de doelgroep en implementeren ze bovendien effectief de principes van ``\emph{calm design}'' zonder onnodige cognitieve belasting? Daarnaast, vanuit een develop-ment- en designperspectief, kan er zich ook worden afgevraagd wat exact valt onder ``\emph{calm design}``. Meer concreet: Welke interface elementen bevorderen mentale rust, en welke eerder tegen? Hoe dragen kleurgebruik, overzichtelijkheid, animaties, pushmeldingen en gamification bij binnen deze filosofie? Op basis van bovenstaande inzichten wordt volgende centrale onderzoeksvraag geformuleerd: 
+
+\vspace{1em}
+
+    \textit{``Hoe kunnen apps voor stress- en burn-out-preventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?''}
+
+\vspace{1em}
+
+Om de onderzoeksvraag te beantwoorden, werden de volgende deelvragen opgesteld, met speciale aandacht voor de doelgroep, bestaande apps en alternatieve initiatieven, app-functionaliteiten, interfaceontwerp, gebruiksvriendelijkheid, en ten slotte herbruikbaarheid.
+
+\vspace{1em}
+\textbf{\newline Deelvragen probleemdomein:}
+
+\begin{enumerate}
+    \item Welke categorieën bestaan er onder Belgische twintigers en wat zijn hun individuele specifieke noden op vlak van mentale gezondheid?
+    \item Hoe beïnvloeden persoonlijke en externe factoren (werk-, studie- en sociale druk) de gebruikerservaring van digitale toepassingen, en welke functies en ondersteuning verwachten de verschillende subgroepen?
+    
+    \item Welke functies en ontwerpprincipes worden momenteel gebruikt in apps voor mentaal welzijn, en hoe effectief zijn deze?
+    \item Welke UI/UX-elementen dragen bij aan mentale rust en welke verhogen juist cognitieve belasting?
+    \item Waar falen bestaande apps in het ondersteunen van mentale gezondheid en het verminderen van stress of burn-out?
+    \item Welke succesvolle ontwerpprincipes zijn herbruikbaar voor andere digitale toepassingen?
+    
+    \item Welke initiatieven, buiten apps, ondersteunen het mentale welzijn van twintigers, en welke best practices uit deze initiatieven kunnen worden vertaald naar digitale toepassingen?
+\end{enumerate}
+
+\textbf{\newline Deelvragen oplossingsdomein:}
+
+\begin{enumerate}
+    \item Welke functionele en niet-functionele vereisten zijn essentieel voor een app die stress en burn-out bij twintigers helpt voorkomen?
+    
+    \item Hoe kan de interface van een app ontworpen worden om mentale rust te bevorderen en cognitieve belasting te minimaliseren?
+    \item Hoe kunnen meldingen en gamification zodanig worden ingezet dat ze ondersteunen zonder cognitief te overweldigen?
+    
+    \item Welke generieke ontwerpprincipes en functionaliteiten kunnen worden toegepast op andere digitale toepassingen voor mentale gezondheid?
+    \item Hoe kunnen deze richtlijnen praktisch geïmplementeerd worden in andere apps?
+\end{enumerate}
+
+Op basis van deze onderzoeksvraag en deelvragen wordt de basis gevormd voor het analyseren van bestaande mentaal welzijn apps, het doelgericht identificeren van effectieve ontwerpprincipes, en uiteindelijk het ontwikkelen van een proof-of-concept app ter ondersteuning van burn-out-preventie bij Vlaamse twintigers. Het uiteindelijke doel is namelijk om hen een effectief, wetenschappelijk onderbouwd hulpmiddel te bieden ter preventie van burn-out, dat bovendien psychologen ondersteunt en hun werkdruk verlicht.
 
 %---------- Stand van zaken ---------------------------------------------------
 
@@ -29,17 +64,17 @@ Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein,
 
 Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+%Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
 
 Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
 
 Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
 
-Een testje om te zien hoe die autocite werkt zonder tilde... \autocite{Hasyim2024}
-
-Een testje om te zien hoe die autocite werkt met tilde~\autocite{Hasyim2024}
-
-Een testje om te zien hoe autocite werkt binnen een zin volgens \textcite{Hasyim2024}.
+%Een testje om te zien hoe die autocite werkt zonder tilde... \autocite{Hasyim2024}
+%
+%Een testje om te zien hoe die autocite werkt met tilde~\autocite{Hasyim2024}
+%
+%Een testje om te zien hoe autocite werkt binnen een zin volgens \textcite{Hasyim2024}.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
