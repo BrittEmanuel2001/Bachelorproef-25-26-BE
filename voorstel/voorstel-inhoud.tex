@@ -1,80 +1,231 @@
 %---------- Inleiding ---------------------------------------------------------
+\vspace{1em}
 
 \section{Inleiding}%
 \label{sec:inleiding}
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
+\vspace{1em}
 
-\begin{itemize}
-  \item kaderen thema
-  \item de doelgroep
-  \item de probleemstelling en (centrale) onderzoeksvraag
-  \item de onderzoeksdoelstelling
-\end{itemize}
+Het komt steeds vaker in het nieuws: jongvolwassenen die geconfronteerd worden met stress, angst of burn-out. Na hun middelbare school staan ze voor tal van belangrijke keuzes: verder studeren, aan het werk gaan, of kiezen voor een sabbatjaar. Bovendien valt het combineren van studies, werk en een eigen sociaal leven zeker niet te onderschatten. Dit leidt namelijk tot aanzienlijke druk op deze groep. Wat ook duidelijk wordt in het recente onderzoeksrapport van \textcite{RIZIV2023_invaliditeit_burnout}: het aantal burn-outs bij twintigers is sinds 2018 \textbf{meer dan verdubbeld}, terwijl de \newline groei bij andere leeftijden beperkter bleef. 
 
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
+\vspace{1em}
 
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
+Parallel verloopt alle contact vandaag de dag steeds meer via online platformen. Niet alleen voor het onderhouden van sociale contacten, maar ook voor het uitvoeren van werk- en studie gerelateerde activiteiten. Hoewel websites en apps veel voordelen bieden, zorgt deze continue digitale aanwezigheid ervoor dat de grens tussen werk, studie en ontspanning steeds meer vervaagt, wat op zijn beurt weer bijdraagt aan meer werkdruk en dus ook een groter risico op burn-out. Hierdoor is mentale gezondheid één van de meest urgente maatschappelijke uitdagingen voor Vlaamse twintigers.
 
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
+\vspace{1em}
 
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
+Om dit probleem aan te pakken hebben verscheidene software- en productontwikkelaars geprobeerd de situatie te verbeteren. Dit leidde tot een explosieve groei van meer dan \textbf{1.400 mentaal welzijn apps} die stress, angst en burn-out beweren tegen te gaan \autocite{Larsen2019}. Echter lijken deze een beperkt effect met zich mee te brengen. Dit roept dan ook verschillende vragen op over het huidige aanbod van mentaal welzijn apps: in hoeverre zijn ze wetenschappelijk onderbouwd, zijn ze afgestemd op de doelgroep en implementeren ze bovendien effectief de principes van ``\emph{calm design}'' zonder onnodige cognitieve belasting? Daarnaast, vanuit een develop-ment- en designperspectief, kan er zich ook worden afgevraagd wat exact valt onder ``\emph{calm design}``. Meer concreet: Welke interface elementen bevorderen mentale rust, en welke eerder tegen? Hoe dragen kleurgebruik, overzichtelijkheid, animaties, pushmeldingen en gamification bij binnen deze filosofie? Op basis van bovenstaande inzichten wordt volgende centrale onderzoeksvraag geformuleerd: 
+
+\vspace{1em}
+
+    \textit{``Hoe kunnen apps voor stress- en burn-out-preventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?''}
+
+\vspace{1em}
+
+Om de onderzoeksvraag te beantwoorden, werden de volgende deelvragen opgesteld, met speciale aandacht voor de doelgroep, bestaande apps en alternatieve initiatieven, app-functionaliteiten, interfaceontwerp, gebruiksvriendelijkheid, en ten slotte herbruikbaarheid.
+
+\vspace{1em}
+
+\textbf{\newline Deelvragen probleemdomein:}
+
+\begin{enumerate}
+    \item Welke categorieën bestaan er onder Belgische twintigers en wat zijn hun individuele specifieke noden op vlak van mentale gezondheid?
+    \item Hoe beïnvloeden persoonlijke en externe factoren (werk-, studie- en sociale druk) de gebruikerservaring van digitale toepassingen, en welke functies en ondersteuning verwachten de verschillende subgroepen? \newpage
+    
+    \item Welke functies en ontwerpprincipes worden momenteel gebruikt in apps voor mentaal welzijn, en hoe effectief zijn deze?
+    \item Welke UI/UX-elementen dragen bij aan mentale rust en welke verhogen juist cognitieve belasting?
+    \item Waar falen bestaande apps in het ondersteunen van mentale gezondheid en het verminderen van stress of burn-out?
+    \item Welke succesvolle ontwerpprincipes zijn herbruikbaar voor andere digitale toepassingen?
+    
+    \item Welke initiatieven, buiten apps, ondersteunen het mentale welzijn van twintigers, en welke best practices uit deze initiatieven kunnen worden vertaald naar digitale toepassingen?
+\end{enumerate}
+
+\textbf{\newline Deelvragen oplossingsdomein:}
+
+\begin{enumerate}
+    \item Welke functionele en niet-functionele vereisten zijn essentieel voor een app die stress en burn-out bij twintigers helpt voorkomen?
+    
+    \item Hoe kan de interface van een app ontworpen worden om mentale rust te bevorderen en cognitieve belasting te minimaliseren?
+    \item Hoe kunnen meldingen en gamification zodanig worden ingezet dat ze ondersteunen zonder cognitief te overweldigen?
+    
+    \item Welke generieke ontwerpprincipes en functionaliteiten kunnen worden toegepast op andere digitale toepassingen voor mentale gezondheid?
+    \item Hoe kunnen deze richtlijnen praktisch geïmplementeerd worden in andere apps?
+\end{enumerate}
+
+\vspace{1em}
+
+Op basis van deze onderzoeksvraag en deelvragen wordt de basis gevormd voor het analyseren van bestaande mentaal welzijn apps, het doelgericht identificeren van effectieve ontwerpprincipes, en uiteindelijk het ontwikkelen van een proof-of-concept app ter ondersteuning van burn-out-preventie bij Vlaamse twintigers. Het uiteindelijke doel is namelijk om hen een wetenschappelijk onderbouwd hulpmiddel te bieden ter preventie van burn-out, dat bovendien psychologen ondersteunt en hun werkdruk verlicht.
+
+\vspace{1em}
 
 %---------- Stand van zaken ---------------------------------------------------
+
+\newpage
 
 \section{Literatuurstudie}%
 \label{sec:literatuurstudie}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+\vspace{1em}
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+\subsection{Twintigers onder druk: \newline mentale gezondheid onder de loep}%
+\label{subsec:twintigers_gezondheid}
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+\vspace{1em}
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+Volgens recente cijfers van \textcite{RIZIV2023_invaliditeit_burnout} is het aantal jongvolwassenen, onder 30 jaar, met langdurige arbeidsongeschiktheid wegens burn-out tussen 2018 en 2023 gestegen met maar liefst 107\%. De sterkste toename van alle leeftijdsgroepen binnen hun onderzoek. \textcite{SERV2024_werkbaarwerk} bevestigt daarbij de omvang van het probleem: maar liefst 35,9\% van deze leeftijdscategorie ervaart \newline werkstress, en 13\% rapporteert burn-out \newline -symptomen.
 
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
+\vspace{1em}
 
-Een testje om te zien hoe die autocite werkt zonder tilde... \autocite{Hasyim2024}
+De oorzaak van dit verontrustend probleem kan zowel te vinden zijn binnen werkcontext als daarbuiten. Op de werkvloer stelt, volgens een analyse van \textcite{Veen2022}, dat hoge werkdruk, lage autonomie en gebrek aan steun of erkenning op het werk het risico op burn-out bij jonge werknemers het meest verhogen. Buiten de werkcontext wordt het probleem aangewakkerd door uitdagingen binnen de doelgroep die gepaard gaan binnen hun specifieke levensfase. Zo speelt volgens \textcite{Hasyim2024} de \textbf{QLC (\emph{Quarter-Life Crisis})} een prominente rol. In deze levensfase heerst er namelijk heel wat onzekerheid. Jongvolwassenen die twijfelen over hun identiteit, toekomst, capaciteiten en hun doel in het leven (“\emph{purpose in life}”). Externe factoren zoals de noodzaak om financieel zelfstandig te worden en bezorgdheden rond carrièreontwikkeling versterken dan ook deze druk.
 
-Een testje om te zien hoe die autocite werkt met tilde~\autocite{Hasyim2024}
+\vspace{1em}
 
-Een testje om te zien hoe autocite werkt binnen een zin volgens \textcite{Hasyim2024}.
+\subsection{De rol van digitalisering in stress en cognitieve belasting}%
+\label{subsec:digitalisering_stress}
 
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
+\vspace{1em}
 
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
+Sinds de COVID-pandemie nam de hoeveelheid aan telewerk aanzienlijk toe. Hoewel het volgens \textcite{Bondanini2025} zijn voordelen kan hebben, waaronder flexibiliteit en een betere \emph{work-life balance}, tonen \textcite{Costin2023} dat telewerk ook zijn negatieve effecten kent. Zo kan het leiden tot technologische vermoeidheid, sociaal isolement en psychologische belasting, welke op hun beurt productiviteit, betrokkenheid en werktevredenheid verminderen. Daarnaast speelt \textbf{technostress} ook een cruciale rol en gaat deze vaak hand in hand met burn-out: hoe hoger de ervaren stress, hoe groter de kans op burn-out \autocite{Consiglio2023}. Zo dragen techno-overload \emph{(sneller kunnen werken en dus bijgevolg meer)}, techno-invasion \emph{(vervaagde grens tussen werk- en privéleven)} en techno-complexity \emph{(continu mo- eten bijleren van nieuwe technologieën)} ieder hun steentje bij tot meer cognitieve overbelasting.
+
+\vspace{1em}
+
+\textbf{Online vigilence}, en dus een constante aandacht voor inkomende berichten en notificaties, draagt eveneens bij aan stress en een verhoogde cognitieve belasting \autocite{Freytag2020}. Hierbij vormen salience \emph{(het voortdurend aan online toepassingen en meldingen denken)}, reactibility \emph{(direct willen reageren)} en monitoring \emph{(frequent onnodige controle op nieuwe meldingen)} prominente oorzaken van deze verhoogde mentale belasting. Het gebruik van meerdere digitale platformen kan deze druk bovendien verder intensiveren, waardoor het mentale welzijn van de gebruiker alsmaar meer negatief wordt beïnvloed \autocite{Ibrahim2025}.
+
+\vspace{1em}
+
+\subsection{Preventie- en behandelings- \newline maatregelen bij burn-out}%
+\label{subsec:preventiestrategieën}
+
+\vspace{1em}
+Burn-outpreventie en -behandeling gaan niet alleen over hoe het individu ermee omgaat, maar ook over hoe organisaties dit aanpakken. Op individueel niveau blijkt Rational Emotive Behavior Therapy (\textbf{REBT}), dat irrationele overtuigingen identificeert en herstructureert, het meest effectief \autocite{Madigan2023}. Ook \emph{psycho-educatie}, \emph{mindfulness} en \emph{cognitieve gedragstherapie} (\textbf{CBT}) kunnen bijdragen aan het verminderen van burn-out. Op organisatieniveau blijken volgens \textcite{Bes2023} vooral workload- en participatieve interventies effectief. Uit hun onderzoek blijkt een combinatie van individuele en organisatiegerichte strategieën het meest wenselijk en veelbelovend.
+\vspace{1em}
+
+\subsection{Effectiviteit van de huidige \newline mentale gezondheidsapps}%
+\label{subsec:effectiviteit_huidige_apps}
+
+\vspace{1em}
+
+Vandaag de dag bestaan er veel mentale ge-zondheidsapps, 1435 om precies te zijn \autocite{Larsen2019}. Velen hiervan beweren effectief te zijn en ondersteunen dit met wetenschappelijke termen. Uit het onderzoek van \textcite{Larsen2019} bleek echter dat  er relatief weinig wetenschappelijk bewijs aanwezig is. Er bestaat dus een duidelijke kenniskloof tussen wat apps beloven en wat wetenschappelijk bewezen is.
+
+\vspace{1em}
+
+Desalniettemin, indien wetenschappelijk onderbouwd, laten bepaalde apps behoorlijk positieve effecten zien op het verminderen van stress en burn-out. Zo zagen \textcite{Deriglazov2025} dat mindfulness- en meditatieapps een significant positief effect kunnen hebben op gevoelens van professionele voldoening, waardoor ze zo kunnen bijdragen aan het verminderen van burn-outsymptomen. Ook \textcite{wojtyna2023mobile} publiceerden dat mobiele CBT-apps effectief kunnen zijn in het reduceren van werkstress en burn-out. Ze zijn even effectief als face-to-face CBT en vormen daarmee een kostenefficiënt en toegankelijk alternatief. Regulatie en het vastleggen van richtlijnen blijken hieruit essentieel om de kenniskloof te verkleinen bij ontwikkelaars.
+
+\vspace{1em}
+
+\subsection{Principes van calm design in \newline productontwikkeling}%
+\label{subsec:calm_design_principes}
+
+\vspace{1em}
+
+Het werd al duidelijk in voorgaande paragrafen dat het gebruik van digitale middelen het psychologisch welzijn van gebruikers kan verminderen. \emph{Calm design} biedt hier een antwoord op door digitale producten niet alleen functioneel te maken, maar ook bij te dragen aan mentale rust en het verminderen van cognitieve belasting \autocite{Peters2022}. Op basis van de \textbf{Self-Determination Theory} identificeerde \textcite{Peters2022} drie basispsychologische behoeften die de kern vormen van \emph{calm design}: \emph{autonomy}, \emph{competence} en \emph{relatedness}. Concreet kan dit zich vertalen in ontwerpkeuzes zoals het beperken van interrupties, ondersteunen van focusmomenten of faciliteren van sociale interactie. Daarnaast benadrukt onderzoek dat digitale frictie, duidelijke feedback en sociale samenwerking kunnen helpen impulsief gebruik te beperken en betekenisvol gebruik te stimuleren \autocite{Almoallim2022}. 
+
+\vspace{1em}
+
+Het bestaan van \emph{calm design} principes zal zeker hun meerwaarde kunnen leveren binnen dit onderzoek, maar er is nog relatief weinig bekend over hoe specifieke interface-elementen precies bijdragen aan mentale rust ter ondersteuning van het behandelen van burn-outs. Toch vormen deze principes een nuttige leidraad en kunnen ze als basis dienen bij de ontwikkeling van de proof-of-concept app.
 
 %---------- Methodologie ------------------------------------------------------
+\vspace{1em}
 
 \section{Methodologie}%
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+\vspace{1em}
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+Om de hoofdonderzoeksvraag en bijhorende deelvragen zo volledig mogelijk te beantwoorden, wordt het onderzoek opgedeeld in zes fasen. De initiële onderzoeksperiode beslaat 11 weken, de daaropvolgende drie weken worden gereserveerd voor de voorbereiding van de presentatie, het toepassen van de laatste feedback en voor het aanbrengen van enkele verfijningen. Een overzicht van de zes fasen binnen de initiële onderzoeksperiode wordt weergegeven in Figuur~\ref{fig:gantt}.
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\vspace{1em}
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+Deze aanpak streeft ernaar het onderzoek zowel theoretisch onderbouwd als praktisch toepasbaar te maken. Geschat wordt dat er twee dagen per week aan de bachelorproef kan worden gewerkt, namelijk op de vaste bachelorproefdag en één dag in het weekend. Afhankelijk van de drukte rondom de stage, die tegelijkertijd plaatsvindt, zou er een derde dag in de week kunnen worden vrijgemaakt.
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+\begin{figure*}
+    \centering
+    \includegraphics[width=\textwidth]{../graphics/Gantt_BP_2026}
+    \caption{\label{fig:gantt}Visualisatie van de fasen in een Gantt-diagram.}
+\end{figure*}
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+\vspace{1em}
+
+\subsection{Fase 1: Probleemverkenning}%
+\label{subsec:probleemverkenning}
+Week 1 - 2 \hspace{1em}|\hspace{1em} 16/02/2026 - 01/03/2026
+
+\vspace{1em}
+
+De eerste fase zal zich focussen op een diepgaande verkenning van het probleemdomein. Een uitgebreide \textbf{literatuurstudie} naar de oorzaken van burn-out bij twintigers, alsook naar bestaande psychologische behandelingstechnieken, zal worden uitgevoerd. Hiervoor zullen Google Scholar, PubMed en SpringerLink gebruikt worden. Daar bijkomend zullen er één of meerdere \textbf{interviews} worden afgenomen met belanghebbenden, zoals de copromotor en eventuele andere psychologen. Dit om het probleem vanuit een professioneel perspectief beter te begrijpen en de literatuurstudie, met bijhorende bronnen, gedeeltelijk af te toetsen op factuele correctheid. 
+
+\vspace{1em}
+
+Het uiteindelijke doel van deze fase bestaat er uit een zo duidelijk mogelijk inzicht te verwerven in het probleem en in het kader waarin digitale oplossingen kunnen bijdragen. Dit vormt de basis voor de volgende fase: de requirementsanalyse. Het concrete resultaat van deze fase is een overzicht van de oorzaken van burn-out bij twintigers en hun belangrijkste risicofactoren, aangevuld met een eerste overzicht van bestaande behandelingsstrategieën.
+
+\vspace{1em}
+
+\subsection{Fase 2: Requirementsanalyse}%
+\label{subsec:requirementsanalyse}
+Week 3 \hspace{1em}|\hspace{1em} 02/03/2026 - 08/03/2026
+
+\vspace{1em}
+
+Op basis van de inzichten verkregen in de voorgaande stap zullen in deze fase de \textbf{functionele} en \textbf{niet-functionele requirements} voor de oplossing worden vastgelegd. De fase zal starten vanuit een aanvullende literatuurstudie rond \emph{calm design} en e-health vereisten, welke eventueel aangevuld kunnen worden met informatie uit een interview met de copromotor. De focus binnen deze studie zal liggen op het in kaart brengen van effectieve behandelingsmethoden en gebruikerseisen, welke op zijn beurt kunnen worden gedefinieerd als requirements. 
+
+\vspace{1em}
+
+De requirements zullen worden opgesteld volgens de \textbf{MoSCoW-methode} (\emph{Must, Should, Could, Won’t}). Deze aanpak maakt het niet alleen mogelijk om prioriteiten helder te definiëren, maar ook de kernfunctionaliteiten zo concreet mogelijk te maken. Het einde van deze fase zal resulteren in een gestructureerde en geprioriteerde lijst van requirements, die aan de basis zal liggen van de ontwikkeling van de proof-of-concept.
+
+\vspace{1em}
+
+\subsection{Fase 3: Long list}%
+\label{subsec:Longlist}
+Week 4 \hspace{1em}|\hspace{1em} 09/03/2026 - 15/03/2026
+
+\vspace{1em}
+
+In deze fase worden de huidige alternatieven onder de loep genomen. Er worden zoveel mogelijk kandidaat-oplossingen verzameld en geanalyseerd, waaronder apps, websites, wearables en andere conceptuele of analoge uitwerkingen. Deze alternatieven worden voornamelijk opgespoord via online bronnen, in de Google Play Store en via bestaande studies die reeds een selectie hebben gemaakt. Enkel fysieke alternatieven met een bruikbaar concept, dat naar digitale vorm vertaald kan worden, zullen worden meegenomen. Vervolgens zal elk alternatief worden afgetoetst op relevantie ten opzichte van de vooraf opgestelde requirements, op basis van de beschikbare informatie (\emph{zonder dat er al een beoordeling plaatsvindt}). Het concrete resultaat van deze fase is een overzicht van alle mogelijke alternatieven, inclusief bronvermelding, dat gebruikt zal worden in de volgende fase: de short list.
+
+\vspace{1em}
+
+\subsection{Fase 4: Short list}%
+\label{subsec:Shortlist}
+Week 5 \hspace{1em}|\hspace{1em} 16/03/2026 - 22/03/2026
+
+\vspace{1em}
+
+Na het verzamelen van tal van kandidaat-op-lossingen wordt in deze fase een selectie gemaakt van de meest interessante opties die verder onderzocht zullen worden. Hiervoor zal er gebruik worden gemaakt van een \textbf{overzichtelijke matrix} waarin de alternatieven zullen worden beoordeeld ten opzichte van de requirements. Dit zodat er geëvalueerd kan worden welke oplossingen het beste aansluiten bij de verzamelde requirements \emph{en dus meest bruikbare componenten bevatten}. Op het einde van deze fase zal een keuze worden gemaakt van één of enkele alternatieven met zijn bijhorende componenten welke meegenomen zullen worden in de \emph{proof-of-concept}.
+
+\subsection{Fase 5: Proof-of-concept}%
+\label{subsec:poc}
+Week 6 - 10 \hspace{1em}|\hspace{1em} 23/03/2026 - 26/04/2026
+
+\vspace{1em}
+
+In de “\emph{proof-of-concept}”-fase zal een prototype worden ontwikkeld dat de meest waardevolle componenten uit de short list integreert. Het doel is te onderzoeken of deze componenten Vlaamse twintigers effectief kunnen ondersteunen bij burn-outpreventie, met aandacht voor mentale rust en minimale cognitieve belasting. De ontwikkeling zal starten door het uitwerken van \textbf{mock-ups} in AdobeXD, waarna een \textbf{werkend prototype} zal worden uitgewerkt met behulp van React en Node.js, eventueel als Progressive Web App (\textbf{PWA}). Tijdens de ontwikkeling worden principes van \emph{calm design} geïntegreerd en wordt het prototype geregeld afgetoetst bij de copromotor of andere psychologen om validatie vanuit een professioneel standpunt te garanderen. De eindgebruikers, met een burn-out of het risico ervan, zullen niet betrokken worden in de evaluatie gezien ze geen objectief oordeel kunnen bieden over de effectiviteit van de oplossing op korte termijn.
+
+\vspace{1em}
+
+\subsection{Fase 6: Conclusie}%
+\label{subsec:conclusie}
+Week 11 \hspace{1em}|\hspace{1em} 27/04/2026 - 03/05/2026
+
+\vspace{1em}
+
+Tot slot, in de laatste fase, worden de resultaten van de \emph{proof-of-concept} geëvalueerd aan de hand van een \textbf{heuristische evaluatie}, \newline gebaseerd op de eerder opgestelde evaluatiecriteria en requirements. Deze evaluatie zal zowel op zelfstandige basis als door experts, zoals de copromotor, worden uitgevoerd. Overblijvende hiaten zullen worden geïdentificeerd en indien nodig zullen er suggesties voor toekomstig onderzoek worden geformuleerd. Het concrete resultaat is een afgeronde analyse van de effectiviteit van de gekozen oplossing, inclusief een lijst van requirements die ook relevant kunnen zijn voor andere burn-out gerelateerde IT-projecten.
 
 %---------- Verwachte resultaten ----------------------------------------------
 
-\section{Verwacht resultaat, conclusie}%
+\vspace{1em}
+
+\section{Verwachte conclusie}%
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
+\vspace{1em}
 
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
+Het beoogde resultaat van deze studie bestaat uit zowel richtlijnen voor cognitief minder prikkelende digitale toepassingen als een \emph{proof-of-concept} app die deze richtlijnen combineert met wetenschappelijk onderbouwde inzichten. De app zal moeten bevestigen dat de gebruikte componenten, gebaseerd op mindfulness, Rational Emotive Behavior Therapy en/of andere wetenschappelijk onderbouwde methoden, aansluiten bij de noden van Vlaamse twintigers voor stress- en burn-outpreventie. 
 
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+\vspace{1em}
+
+Uit de literatuurstudie wordt verwacht dat technieken zoals mindfulness, gezien de frequentie van vernoemingen, relatief vaak voorkomen, terwijl andere bewezen methoden zoals Rational Emotive Behavior Therapy (\textcite{Madigan2023}) mogelijk minder frequent toegepast worden. Door de implementatie van \emph{calm design} wordt verwacht dat de user experience cognitief minder prikkelend zal zijn, waardoor technostress binnen de applicatie vermindert. Verder wordt aangenomen dat veel bestaande burn-out bestrijdende apps, afgaande van het onderzoek van \textcite{Larsen2019} omtrent mental health apps, weinig wetenschappelijke onderbouwing zullen hebben en dat elementen zoals frequente meldingen of complexe interfaces cognitieve belasting kunnen verhogen. Voor Vlaamse twintigers wordt bovendien verwacht dat technostress en de druk van de Quarter-Life Crisis een significante rol zullen spelen, waardoor duidelijkheid, structuur en onder andere \emph{calm design} belangrijke heuristieken zullen zijn binnen dit onderzoek.
+
+\vspace{1em}
+
+Het uiteindelijke resultaat is een \emph{proof-of- \newline concept} app die niet alleen wetenschappelijk onderbouwde technieken en \emph{calm design} (\textcite{Peters2022}) combineert, maar ook concrete ondersteuning biedt bij burn-outpreventie en mentale rust bevordert. Daarnaast levert het onderzoek herbruikbare ontwerpprincipes voor andere apps en ondersteunt het zorgprofessionals bij begeleiding en tegelijkertijd preventie waardoor hun overvolle agenda wat verlicht kan worden, wat ook ten goede komt voor het algemene welzijn van onze maatschappij.
 
