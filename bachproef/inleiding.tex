@@ -5,32 +5,68 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+Burn-outs: een welbekend fenomeen en een steeds groter wordende maatschappelijke problematiek. In het dagelijkse leven belandt men als het ware in een vrij repetitief ritme bestaande uit werk, huishoudelijke taken en beperkte ontspanningsmomenten. Op het eerste gezicht lijkt deze routine vrij onschuldig en normaal. Echter, wanneer dit patroon zich dag na dag herhaalt zonder voldoende balans in het werk en privéleven, kan het bijdragen aan chronische stress en uitputting. 
 
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+\vspace{1em}
+
+Wat voor een lange tijd voornamelijk geassocieerd werd met ervaren werknemers in veeleisende functies, blijkt vandaag echter een fenomeen dat zich niet beperkt tot één specifieke leeftijdscategorie. Een burn-out kan in principe zich op elke leeftijd manifesteren. Toch wijzen recente cijfers erop dat vooral jongvolwassenen steeds vaker getroffen worden \autocite{RIZIV2023_invaliditeit_burnout}. Door belangrijke persoonlijke en professionele keuzes alsook de onzekerheden die eigen zijn aan deze levensfase, kampen ze steeds vaker met vragen over hun identiteit, toekomst, capaciteiten en doelen in het leven. Hierdoor is mentale gezondheid één van de meest urgente maatschappelijke uitdagingen voor deze generatie.
+
+\vspace{1em}
+
+Om dit probleem onder handen te nemen hebben verscheidene software- en productontwikkelaars een poging gewaagd tot het ontwikkelen van toepassingen die beogen stress en burn-out te verminderen, wat heeft geleid tot een explosieve groei van mentale welzijn-apps. De aanhoudende stijging van burn-outgevallen suggereren echter dat deze apps tot op heden slechts een beperkter effect hebben. Dit roept de vraag op hoe dergelijke toepassingen kunnen worden verbeterd en succesvol kunnen worden ingezet zodat ze jongvolwassenen effectiever ondersteunen bij het omgaan met de dagelijkse druk en de onzekerheden die onlosmakelijk verbonden zijn aan hun levensfase.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+Jongvolwassenen, en in het bijzonder Vlaamse twintigers, ervaren een steeds meer toenemende druk door persoonlijke, professionele en sociale uitdagingen. Hun semi-permanente digitale aanwezigheid bemoeilijkt het vinden van een goede werk-privébalans, met een verhoogd risico op stress en burn-out als gevolg. Tegelijkertijd kampen psychologen en andere hulpverleners die deze doelgroep begeleiden met lange wachttijden, volle agenda’s en soms zelfs een patiëntenstop, waardoor tijdige begeleiding voor deze jongvolwassenen steeds moeilijker wordt. 
+
+\vspace{1em}
+
+Digitale toepassingen zoals mentaal welzijn-apps kunnen in dit kader een nuttige rol spelen door extra ondersteuning te bieden, zowel tijdens deze wachttijd als gedurende een mogelijke behandeling. Uit onderzoek blijkt echter dat het effect van de huidige apps vaak beperkt blijft, wat vragen oproept over hun effectiviteit, doelgroepgerichtheid en gebruiksvriendelijkheid. Het analyseren van deze gebreken en het ontwikkelen van een \acrlong{poc} kunnen daarom bijdragen aan een beter afgestemde digitale ondersteuning, die Vlaamse twintigers effectief helpt bij stress- en burn-outpreventie, zorgprofessionals ondersteunt in hun begeleiding en tegelijkertijd hun overvolle agenda verlicht, met een positieve impact op het algemene welzijn van de maatschappij.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+\subsection{Hoofdonderzoeksvraag}
+\label{subsec:hoofdonderzoeksvraag}
+
+In het kader van dit onderzoek en het kunnen uitwerken van een \acrshort{poc}, werd volgende onderzoeksvraag geformuleerd: “Hoe kunnen apps voor stress- en burn-outpreventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?”.
+
+\subsection{Deelvragen}
+\label{subsec:deelvragen}
+
+Om de complexe en uitgebreide onderzoeksvraag zo goed mogelijk te beantwoorden werd de hoofdvraag opgedeeld in enkele deelvragen:
+
+\begin{itemize}
+    \item Welke categorieën bestaan er onder Belgische twintigers en wat zijn hun individuele specifieke noden op vlak van mentale gezondheid?
+    \item Hoe beïnvloeden persoonlijke en externe factoren (werk-, studie- en sociale druk) de gebruikerservaring van digitale toepassingen, en welke functies en ondersteuning verwachten de verschillende subgroepen?
+    \item Welke functies en ontwerpprincipes worden momenteel gebruikt in apps voor mentaal welzijn, en hoe effectief zijn deze?
+    \item Welk \acrshort{uiux}-elementen dragen bij aan mentale rust en welke verhogen juist cognitieve belasting?
+    \item Waar falen bestaande apps in het ondersteunen van mentale gezondheid en het verminderen van stress of burn-out?
+    \item Welke succesvolle ontwerpprincipes zijn herbruikbaar voor andere digitale toepassingen?
+    \item Welke initiatieven, buiten apps, ondersteunen het mentale welzijn van twintigers, en welke best practices uit deze initiatieven kunnen worden vertaald naar digitale toepassingen?
+\end{itemize}
+
+\begin{itemize}
+    \item Welke functionele en niet-functionele vereisten zijn essentieel voor een app die stress en burn-out bij twintigers helpt voorkomen?
+    \item Hoe kan de interface van een app ontworpen worden om mentale rust te bevorderen en cognitieve belasting te minimaliseren?
+    \item Hoe kunnen meldingen en gamification zodanig worden ingezet dat ze ondersteunen zonder cognitief te overweldigen?
+    \item Welke generieke ontwerpprincipes en functionaliteiten kunnen worden toegepast op andere digitale toepassingen voor mentale gezondheid?
+    \item Hoe kunnen deze richtlijnen praktisch geïmplementeerd worden in andere apps?
+\end{itemize}
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het beoogde resultaat van deze bachelorproef is het ontwikkelen van een \acrshort{poc}-app die wetenschappelijk onderbouwde technieken en interfaces implementeert om zo stress- en burn-outpreventie bij Vlaamse twintigers te ondersteunen. Daarnaast is het doel om uit het onderzoek een lijst aan concrete richtlijnen en herbruikbare ontwerpprincipes op te stellen welke geïmplementeerd kunnen worden in andere digitale toepassingen gericht op mentale gezondheid.
+
+\vspace{1em}
+
+Om dit te bereiken zal het probleemdomein eerst concreet in kaart worden gebracht via een literatuurstudie en interviews, waarna functionele en niet-functionel requirements worden geformuleerd om te kunnen gebruiken in een vergelijkende studie van apps, websites en andere concepten. Met deze inzichten, richtlijnen en ontwerpprincipes wordt een \acrshort{poc}-app ontwikkeld.
+
+\vspace{1em}
+
+Het onderzoek wordt als succesvol beschouwd wanneer de app aansluit bij de behoeften van de doelgroep, mentale rust bevordert en de geïmplementeerde componenten effectief en correct functioneren volgens de vastgestelde requirements.
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
 \label{sec:opzet-bachelorproef}

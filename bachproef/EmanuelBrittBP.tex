@@ -5,13 +5,20 @@
 
 \documentclass[dutch,dit,thesis]{hogentreport}
 
-% TODO:
 % - If necessary, replace the option `dit`' with your own department!
 %   Valid entries are dbo, dbt, dgz, dit, dlo, dog, dsa, soa
 % - If you write your thesis in English (remark: only possible after getting
 %   explicit approval!), remove the option "dutch," or replace with "english".
 
 \usepackage{lipsum} % For blind text, can be removed after adding actual content
+
+%% Glossaries and acronyms
+\usepackage[acronym,nomain,toc]{glossaries}
+
+\makeglossaries
+
+\newacronym{poc}{PoC}{Proof-of-Concept}
+\newacronym{uiux}{UI/UX}{User Interface / User Experience}
 
 %% Pictures to include in the text can be put in the graphics/ folder
 \graphicspath{{../graphics/}}
@@ -48,12 +55,11 @@
 % Other packages not already included can be imported here
 
 %%---------- Document metadata -------------------------------------------------
-% TODO: Replace this with your own information
-\author{Ernst Aarden}
-\supervisor{Dhr. F. Van Houte}
-\cosupervisor{Mevr. S. Beeckman}
-\title[Optionele ondertitel]%
-    {Titel van de bachelorproef}
+\author{Britt Emanuel}
+\supervisor{Mevr. C. De Leenheer}
+\cosupervisor{Mevr. N. Jacobs, Mevr. K. Van den Broeck}
+\title[Een vergelijkende analyse en proof-of-concept]%
+    {Burn-outpreventie bij Vlaamse twintigers: een vergelijkende studie van bestaande apps en de vertaling naar ontwerpprincipes voor een stressreducerende applicatie}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
 \examperiod{1}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
@@ -119,6 +125,7 @@
 % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
 % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
 % https://www.overleaf.com/learn/latex/Glossaries
+\printglossary[title=Acroniemen, toctitle=Acroniemen]
 
 %---------- Kern ---------------------------------------------------------------
 
@@ -152,10 +159,9 @@
 
 Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 
-%% TODO: 
-%\section*{Samenvatting}
+\section*{Samenvatting}
 
-% Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
+De afgelopen jaren stijgt het aantal burn-outs bij jongvolwassenen aanzienlijk, mede door de druk van de quarter-life-crisis en digitale overbelasting. Hoewel er steeds meer apps bestaan om mentaal welzijn te ondersteunen, blijkt hun effect beperkt en verhogen sommige toepassingen juist cognitieve belasting. Deze bachelorproef onderzoekt daarom de vraag: \emph{“Hoe kunnen apps voor stress- en burn-out-preventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?”}. Om dit te realiseren wordt een methodologie bestaande uit 6 fasen toegepast: eerst een probleemverkenning via literatuurstudie en interviews met professionals, gevolgd door een gestructureerde requirementsanalyse (MoSCoW), het opstellen van een long- en shortlist van bestaande oplossingen, en de ontwikkeling van een cognitief rustgevende proof-of-concept. Tot slot wordt de effectiviteit van het prototype geëvalueerd via een heuristische beoordeling door professionals. Het verwachte resultaat is een wetenschappelijk onderbouwde app die stress vermindert, mentale rust bevordert en cognitieve belasting minimaliseert, terwijl ze herbruikbare ontwerpprincipes oplevert voor andere digitale toepassingen en zo zorgprofessionals ondersteunt. Hiermee draagt het onderzoek bij aan het mentale welzijn van Vlaamse twintigers en biedt het een concrete meerwaarde voor gebruikers, professionals, en het bredere welzijn van de samenleving.
 
 % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
 \input{../voorstel/voorstel-inhoud}
