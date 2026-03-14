@@ -53,7 +53,16 @@
 
 % Inleiding
 
-\lipsum[1]
+Vooraleer er van start kan worden gegaan met een requirement-analyse en een vergelijkende studie van bestaande mentale gezondheidsapps, is het belangrijk het huidige probleemgebied eerst in kaart te brengen. Dit gebeurt aan de hand van een literatuurstudie, gebaseerd op wetenschappelijke artikelen, systematische reviews en relevante blogs die inzicht bieden in zowel het probleem- als het oplossingsdomein. Het onderzoek is opgebouwd rond zes centrale thema’s die samen de context vormen voor de verdere ontwikkeling van een \acrlong{poc}.
+
+\vspace{1em}
+
+Het onderzoek start met een analyse van stress en burn-out bij twintigers, waarbij wordt ingegaan op definities, actuele cijfers, kenmerken van deze doelgroep en specifieke risicofactoren bij Generatie Z. Vervolgens wordt de rol van digitalisering en cognitieve belasting behandeld, met aandacht voor de impact van voortdurende digitale connectiviteit, informatieoverload, technostress en online vigilance op het mentale welzijn. Daarna komen verschillende preventiestrategieën aan bod, waaronder primaire, secundaire en tertiaire preventie, cognitieve gedragstherapie, psycho-educatie en mindfulness. Hierop volgt een bespreking van bestaande digitale interventies voor mentale gezondheid, waarbij het potentieel, de randvoorwaarden voor effectiviteit en de uitdagingen rond engagement en retentie worden belicht. Ten slotte wordt aandacht besteed aan UI/UX-ontwerp en cognitieve belasting, evenals aan de selectie van geschikte app-technologieën. Hierbij worden ontwerpprincipes, motivatie- en betrokkenheidsstrategieën en de keuze van technologieën besproken.
+
+\vspace{1em}
+
+Deze opbouw vormt de basis voor de volgende fasen van het onderzoek, waarin requirements worden opgesteld en bestaande apps met elkaar worden vergeleken, met aandacht voor zowel effectiviteit als gebruiksvriendelijkheid.
+
 
 
 % Deel 1 - stress en burn-out bij twintigers
@@ -132,11 +141,10 @@ Recente cijfers van het \textcite{RIZIV2023_invaliditeit_burnout} tonen aan dat 
 \end{figure}
 
 \vspace{1em}
-\vspace{1em}
-\vspace{1em}
-\vspace{1em}
 
 \textcite{SERV2024_werkbaarwerk} bevestigt via hun Vlaamse Werkbaarheidsmonitor daarbij de omvang van het probleem: maar liefst \textbf{13\%} van de jonge werknemers (18-35 jaar) rapporteert symptomen van burn-out, terwijl 35,9\% werkstressklachten ervaart. Dit toont aan dat naast langdurige arbeidsongeschiktheid, ook beginnende burn-outklachten aanzienlijk aanwezig zijn bij jonge werknemers.
+
+\vspace{1em}
 
 
 
@@ -418,7 +426,11 @@ Empirische studies bevestigen bovendien dat deze vormen van digitale belasting c
 
 \vspace{1em}
 
-Ook \textcite{Bondanini2025} wijzen op de impact van digitale connectiviteit op welzijn en productiviteit op de werkvloer. Digitale technologieën bieden aanzienlijke voordelen, zoals grotere flexibiliteit en efficiëntie bij thuiswerken, wat kan bijdragen aan een betere werk-privébalans en hogere productiviteit. Anderzijds kan overmatig gebruik leiden tot digitale vermoeidheid, burn-out en slaapgerelateerde stoornissen, waarbij langdurige blootstelling aan schermen cognitieve overbelasting en stressniveaus kan verhogen. De impact verschilt bovendien per sector: zorgmedewerkers ervaren vaker stress en burn-out door constante digitale communicatie, terwijl werknemers in het bedrijfsleven juist profiteren van flexibele digitale werkregelingen \autocite{Bondanini2025}.
+Ook \textcite{Bondanini2025} wijzen op de impact van digitale connectiviteit op welzijn en productiviteit op de werkvloer. Digitale technologieën bieden aanzienlijke voordelen, zoals grotere flexibiliteit en efficiëntie bij thuiswerken, wat kan bijdragen aan een betere werk-privébalans en hogere productiviteit. Anderzijds kan overmatig gebruik leiden tot digitale vermoeidheid, burn-out en slaapgerelateerde stoornissen, waarbij langdurige blootstelling aan schermen cognitieve overbelasting en stressniveaus kan verhogen. 
+
+\newpage
+
+De impact verschilt bovendien per sector: zorgmedewerkers ervaren vaker stress en burn-out door constante digitale communicatie, terwijl werknemers in het bedrijfsleven juist profiteren van flexibele digitale werkregelingen \autocite{Bondanini2025}.
 
 \vspace{1em}
 
@@ -443,7 +455,11 @@ Bovenstaande bevindingen over de mentale belasting door digitale connectiviteit 
 
 \vspace{1em}
 
-\acrshort{clt}, geïntroduceerd door John Sweller in de jaren tachtig, biedt een fundamenteel kader voor het analyseren van de leer- en verwerkingscapaciteiten van mensen \autocite{Ibrahim2025}. Volgens deze theorie bestaat leren uit drie belangrijke kerncomponenten: 
+\acrshort{clt}, geïntroduceerd door John Sweller in de jaren tachtig, biedt een fundamenteel kader voor het analyseren van de leer- en verwerkingscapaciteiten van mensen \autocite{Ibrahim2025}. 
+
+\newpage
+
+Volgens deze theorie bestaat leren uit drie belangrijke kerncomponenten: 
 
 \begin{itemize}
     \item Het leerproces zelf;
@@ -472,7 +488,11 @@ Naast de kwantiteit van digitale platformen kan ook de overmaat aan informatie e
 
 \vspace{1em}
 
-Deze vorm van overweldiging blijkt bovendien samen te hangen met concrete stressindicatoren in de digitale werkomgeving. Zo rapporteren \textcite{Marsh2024} uit hun onderzoek dat 76\% van de wereldwijd bevraagde werknemers information overload beschouwt als een factor die bijdraagt aan hun dagelijkse stress. Daarnaast tonen \textcite{Marsh2024} aan dat digital workplace stress, \acrlong{io} en Informational Fear of Missing Out (\acrshort{ifomo}) de sterkste correlaties vertonen met uitputting en mentale gezondheid. Hoewel \acrlong{io} niet rechtstreeks burnout veroorzaakt, verhoogt het wel de ervaren stressniveaus, wat op zijn beurt samenhangt met uitputting en mentale gezondheidsproblemen.
+Deze vorm van overweldiging blijkt bovendien samen te hangen met concrete stressindicatoren in de digitale werkomgeving. Zo rapporteren \textcite{Marsh2024} uit hun onderzoek dat 76\% van de wereldwijd bevraagde werknemers information overload beschouwt als een factor die bijdraagt aan hun dagelijkse stress. Daarnaast tonen \textcite{Marsh2024} aan dat digital workplace stress, \acrlong{io} en Informational Fear of Missing Out (\acrshort{ifomo}) de sterkste correlaties vertonen met uitputting en mentale gezondheid. 
+
+\newpage
+
+Hoewel \acrlong{io} niet rechtstreeks burnout veroorzaakt, verhoogt het wel de ervaren stressniveaus, wat op zijn beurt samenhangt met uitputting en mentale gezondheidsproblemen.
 
 \vspace{1em}
 
@@ -520,7 +540,7 @@ Online vigilance (\acrshort{ov}) beschrijft het psychologisch patroon waarbij in
 
 Uit het onderzoek van \textcite{Freytag2020} kan er geconcludeerd worden dat uit deze drie dimensies vooral salience sterk samenhangt met hogere stressniveaus. De aanhoudende cognitieve belasting kan voornamelijk gevoelens van uitputting en mentale vermoeidheid veroorzaken. Deze verhoogde stress kan bovendien op termijn bijdragen aan het ontstaan van burn-out \autocite{Petkovski2025}.
 
-\vspace{2em}
+\newpage
 
 
 
@@ -593,7 +613,7 @@ Belangrijke principes binnen \acrshort{rebt} zijn zelfacceptatie, acceptatie van
 
 \vspace{1em}
 
-Naast \acrshort{cbt} en \acrshort{rebt} wordt psycho-educatie ook als een nuttige interventie beschouwd bij preventie van burn-out, met een medium grote effectgrootte \autocite{Madigan2023}. 
+Naast \acrlong{cbt} en \acrlong{rebt} wordt psycho-educatie ook als een nuttige interventie beschouwd bij preventie van burn-out, met een medium grote effectgrootte \autocite{Madigan2023}. 
 
 \vspace{1em}
 
@@ -620,7 +640,7 @@ Mindfulness wordt omschreven als het vermogen om volledig aanwezig te zijn in he
 
 Gekende technieken om mindfulness te beoefenen zijn onder andere meditatie (in zittende, staande of bewegende houdingen), korte dagelijkse pauzes, of meditatie gecombineerd met activiteiten zoals yoga of sport \autocite{mindful2020}.
 
-\vspace{1em}
+\newpage
 
 
 
@@ -727,7 +747,7 @@ Om dat afhaken te voorkomen, stellen \textcite{Portz2024} dat het succes van ret
 
 Hoewel een hoge retentie het doel is, hoeft deze betrokkenheid niet altijd constant te zijn. Het is volgens \textcite{Portz2024} juist een kracht als een app de ruimte biedt om even afstand te nemen, zodat gebruikers de draad weer kunnen oppakken op het moment dat de noodzaak er echt is. De kunst is dan ook om voldoende interactie te voorzien die ondersteunt, zonder dat het ooit overweldigend wordt of als een verplichting aanvoelt.
 
-\vspace{1em}
+\newpage
 
 
 
@@ -763,19 +783,18 @@ Om \textit{wellbeing supportive design}, te kunnen definiëren baseerde \textcit
 Op basis van de \acrshort{sdt} met zijn behoeften kunnen er volgens \textcite{Peters2022} specifieke keuzes gemaakt worden in de ontwerpfase:
 
 \vspace{1em}
+\vspace{1em}
 
 \textbf{Ondersteunen van de autonomie:}
 
-\vspace{1em}
-
 \begin{itemize}
-    \item Volg de \textit{WCAG}-richtlijnen voor toegankelijkheid van je app;
+    \item Volg de \acrshort{wcag}-richtlijnen voor toegankelijkheid van je app;
     \item Maak betekenvolle keuzes die passen bij de doelen van de gebruiker;
     \item Geef genoeg uitleg zodat mensen zelf beslissingen kunnen nemen. Gebruik hierbij autonomie-ondersteunende communicatie \textit{(bijv. “Je kunt …” in plaats van “Je moet …”)};
     \item Beperk afleidingen, vereenvoudig interfaces en laat pas informatie zien wanneer het nodig is (\textit{progressive disclosure}) om zo \acrshort{io} te vermijden.
 \end{itemize}
 
-\vspace{1em}
+\newpage
 
 \textbf{Ondersteunen van competentie:}
 \begin{itemize}
@@ -793,6 +812,7 @@ Op basis van de \acrshort{sdt} met zijn behoeften kunnen er volgens \textcite{Pe
 \end{itemize}
 
 \vspace{1em}
+\vspace{1em}
 
 \subsubsection{Hoe verlaag je de cognitieve belasting aan de hand van UI-design?}
 \label{subsubsec:cognitieve-belasting-ui}
@@ -809,7 +829,7 @@ Volgens \textcite{thealien2025cognitiveload} ligt de focus daarbij vooral op het
 
 \textcite{anoda2024ux} vult dit aan met het principe van \textbf{emotional design}. Hierbij speelt het \textit{aesthetic-usability effect} een grote rol: gebruikers ervaren een mooi en verzorgd ontwerp automatisch als makkelijker in gebruik. Door de juiste kleuren, typografie en animaties te gebruiken die een consistente emotionele toon uitstralen, wordt de interactie aangenamer. Ook het toevoegen van kleine visuele beloningen bij het voltooien van een taak verhoogt de motivatie en verlaagt de ervaren mentale druk.
 
-\vspace{1em}
+\newpage
 
 
 \subsection{Motivatie- en betrokkenheidsstrategieën}
@@ -863,6 +883,7 @@ Naast gamification bespreken \textcite{Auf2021} ook het gebruik van nudgingtechn
 \textcite{Auf2021} geven zelf geen concrete ontwerpaanbevelingen voor nudging, maar benadrukten wel dat één type nudge niet voor alle gebruikers effectief is. Om deze reden kan \textbf{personalized nudging}, waarbij nudges worden afgestemd op persoonlijke kenmerken, effectiever zijn in het ondersteunen van duurzame gedragsverandering. Echter waarschuwden \textcite{Auf2021} wel dat deze personalisatie zorgvuldig moet worden aangepakt, gezien verkeerd gebruik risico’s met zich kan meebrengen op het gebied van privacy en ethiek.
 
 \vspace{1em}
+\vspace{1em}
 
 \subsection{Notificatiestrategieën}
 \label{subsec:notificatie-strat}
@@ -898,7 +919,7 @@ Volgens \textcite{Woodward2021} spelen de volgende richtlijnen een cruciale rol 
     \item \textbf{Focus op autonomie}: Beperk het aantal herinneringen om te voorkomen dat gebruikers afhankelijk worden van de app in plaats van zelf gezonde gewoonten te ontwikkelen.
 \end{itemize}
 
-\vspace{1em}
+\newpage
 
 
 
@@ -942,6 +963,7 @@ Hoewel de bovenstaande definities een goed beeld geven van de verschillende soor
 \vspace{1em}
 \vspace{1em}
 
+{
 \small % kleiner lettertype voor de hele tabel
 \begin{longtable}{>{\raggedright\arraybackslash}p{3cm} 
         >{\raggedright\arraybackslash}p{3cm} 
@@ -1040,6 +1062,7 @@ Hoewel de bovenstaande definities een goed beeld geven van de verschillende soor
     \end{minipage} & 
     \textit{Native} \newline \textit{PWA} \newline \autocite{Samsyudin2025} \newline \textit{Hybrid} \newline \autocite{Gerges2024} \\
 \end{longtable}
+}
 
 \vspace{1em}
 
@@ -1066,7 +1089,7 @@ Hoewel een \textbf{native} applicatie normaal gezien de beste prestaties en de m
 
 \vspace{1em}
 
-Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware-functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
+Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware- \newline functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
 
 \vspace{1em}
 
