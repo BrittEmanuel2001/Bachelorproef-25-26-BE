@@ -741,12 +741,7 @@ Hoewel een hoge retentie het doel is, hoeft deze betrokkenheid niet altijd const
 
 \vspace{1em}
 
-Zoals eerder in sectie \ref{sec:digitalisering-cognitief} werd beschreven, hebben digitale technologieën en online platformen een steeds grotere impact op ons mentaal welzijn. Daarom is het belangrijk om hier in de ontwerpfase rekening mee te houden. Binnen \acrshort{uiux}-ontwerp is cognitieve belasting een cruciale factor: als een interface te ingewikkeld is, leidt dat simpelweg tot frustratie, fouten en minder motivatie bij de gebruiker \autocite{thealien2025cognitiveload}.
-
-\vspace{1em}
-
-\subsubsection{Self-Determination Theory (SDT)}
-\label{subsubsec:sdt}
+Zoals eerder in sectie \ref{sec:digitalisering-cognitief} werd beschreven, hebben digitale technologieën en online platformen een steeds grotere impact op ons mentaal welzijn. Daarom is het belangrijk om hier in de ontwerpfase rekening mee te houden. Binnen \acrshort{ui}/\acrshort{ux}-ontwerp is cognitieve belasting een cruciale factor: als een interface te ingewikkeld is, leidt dat simpelweg tot frustratie, fouten en minder motivatie bij de gebruiker \autocite{thealien2025cognitiveload}.
 
 \vspace{1em}
 
@@ -804,7 +799,7 @@ Op basis van de \acrshort{sdt} met zijn behoeften kunnen er volgens \textcite{Pe
 
 \vspace{1em}
 
-Naast UX-principes, welke eerder kijkt naar structuur en een proces, kan er ook gefocust worden op hoe deze informatie visueel vertaald wordt. Recente inzichten van designers \textcite{thealien2025cognitiveload} en \textcite{anoda2024ux}, die ook mooi aansloten op het onderzoek van \textcite{Peters2022}, verklaarden zo dat een interface pas effectief is wanneer zowel de visuele structuur (UI) als de psychologische belevingen kloppen (UX).
+Naast \acrshort{ux}-principes, welke eerder kijkt naar structuur en een proces, kan er ook gefocust worden op hoe deze informatie visueel vertaald wordt. Recente inzichten van designers \textcite{thealien2025cognitiveload} en \textcite{anoda2024ux}, die ook mooi aansloten op het onderzoek van \textcite{Peters2022}, verklaarden zo dat een interface pas effectief is wanneer zowel de visuele structuur (\acrshort{ui}) als de psychologische belevingen kloppen (\acrshort{ux}).
 
 \vspace{1em}
 
@@ -822,11 +817,11 @@ Volgens \textcite{thealien2025cognitiveload} ligt de focus daarbij vooral op het
 
 \vspace{1em}
 
-Gezien de huidige retentieproblematiek binnen mentale gezondheidsapps, zoals beschreven in sectie \ref{subsec:engagement-retentie}, is het essentieel om te achterhalen hoe \acrshort{uiux}-design hierop kan inspelen en dus de motivatie en betrokkenheid van gebruikers kan verhogen.
+Gezien de huidige retentieproblematiek binnen mentale gezondheidsapps, zoals beschreven in sectie \ref{subsec:engagement-retentie}, is het essentieel om te achterhalen hoe \acrshort{ui}/\acrshort{ux}-design hierop kan inspelen en dus de motivatie en betrokkenheid van gebruikers kan verhogen.
 
 \vspace{1em}
 
-Volgens \textcite{Portz2024} speelt '\textbf{bidirectional engagement}' (\textit{tweezijdige betrokkenheid}) hierin een cruciale rol. Zo stellen ze dat deze vorm van interactie het gevoel van autonomie bij de gebruiker vergroot, wat direct bijdraagt aan hun \textit{empowerment} in het beheren van de eigen mentale gezondheid. In de praktijk houdt dit in dat elke uitwisseling van informatie, feedback of actie altijd in twee richtingen verloopt. Dit principe vertaalt zich binnen \acrshort{uiux}-design naar concrete elementen zoals \textit{personalisatie}, \textit{gamification} en \textit{sociale ondersteuning} onder de vorm van een community \autocite{Portz2024}.
+Volgens \textcite{Portz2024} speelt '\textbf{bidirectional engagement}' (\textit{tweezijdige betrokkenheid}) hierin een cruciale rol. Zo stellen ze dat deze vorm van interactie het gevoel van autonomie bij de gebruiker vergroot, wat direct bijdraagt aan hun \textit{empowerment} in het beheren van de eigen mentale gezondheid. In de praktijk houdt dit in dat elke uitwisseling van informatie, feedback of actie altijd in twee richtingen verloopt. Dit principe vertaalt zich binnen \acrshort{ui}/\acrshort{ux}-design naar concrete elementen zoals \textit{personalisatie}, \textit{gamification} en \textit{sociale ondersteuning} onder de vorm van een community \autocite{Portz2024}.
 
 \vspace{1em}
 
@@ -912,9 +907,178 @@ Volgens \textcite{Woodward2021} spelen de volgende richtlijnen een cruciale rol 
 \section{Technologieselectie}
 \label{sec:technologieselectie}
 
+\vspace{1em}
+
+Bij de ontwikkeling van een mobiele applicatie zijn er verschillende technologische benaderingen mogelijk. Elke aanpak heeft eigen voor- en nadelen op het vlak van prestaties, ontwikkelcomplexiteit, onderhoud, platformcompatibiliteit en gebruikerservaring. 
 
 \vspace{1em}
 
-...
+Binnen de context van deze bachelorproef is het essentieel om een technologie te selecteren die niet alleen technisch haalbaar is binnen de beschikbare tijd, maar ook nauw aansluit bij de wensen en noden van de doelgroep zoals die uit de literatuurstudie naar voren zijn gekomen. De gekozen technologie moet immers toelaten om de probleemstelling uit hoofdstuk \ref{ch:inleiding} effectief aan te pakken in de uiteindelijke \acrshort{poc}.
+
+\vspace{1em}
+
+\subsection{Beschikbare app-technologieën}
+\label{subsec:app-tech}
+
+\vspace{1em}
+
+Zoals hierboven aangehaald bestaan er verschillende technologische benaderingen voor de ontwikkeling van mobiele applicaties. De meest voorkomende categorieën zijn: native applicaties, hybride/cross-platform applicaties en \acrlong{pwa}s. Elk van deze benaderingen verschilt in gebruik van technologieën en heeft zo zijn eigen kenmerken. \textcite{Gerges2024} beschrijven deze soorten applicaties als volgt:
+
+\begin{itemize}
+    \item \textbf{Native applicaties}: Zijn platformafhankelijke applicaties die specifiek worden ontwikkeld op basis van één besturingssysteem \autocite{Gerges2024};
+    \item \textbf{Hybride of cross-platform applicaties}: Zijn applicaties die worden ontwikkeld met standaard webtechnologieën zoals HTML, CSS en JavaScript die vervolgens worden verpakt als een native app via cross-platform frameworks en tools. Ze zijn als het ware native apps die niet specifiek toegespitst zijn op één besturingssysteem \autocite{Gerges2024};
+    \item \textbf{Progressive Web Apps} (\acrshort{pwa}): Zijn speciale webapplicaties die gebruik maken van de functionaliteiten die native apps kunnen bieden. Zo zijn ze ontworpen om offline gebruik, snelle toegang en push-notificaties te ondersteunen, terwijl ze bereikbaar zijn via een internetbrowser op vrijwel elk platform. Daarnaast kunnen PWA’s ook op het startscherm van een toestel worden toegevoegd, waardoor ze voor de gebruiker functioneren en ogen als een gewone mobiele applicatie \autocite{Gerges2024}.
+\end{itemize}
+
+\vspace{1em}
+
+\subsection{Overzichtstabel}
+\label{subsec:app-tech-overzicht}
+
+\vspace{1em}
+
+Hoewel de bovenstaande definities een goed beeld geven van de verschillende soorten applicaties, is het voor een gegronde technologiekeuze nuttig om de belangrijkste kenmerken en mogelijkheden van native, hybride en PWA-applicaties op een rijtje te zetten. De informatie in de volgende vergelijkingstabel is gebaseerd op de analyse van \textcite{Gerges2024} en \textcite{Samsyudin2025} welke een overzicht geeft van de significante verschillen tussen deze benaderingen.
+
+\vspace{1em}
+\vspace{1em}
+
+\small % kleiner lettertype voor de hele tabel
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{2cm}}
+    \toprule
+    \textbf{} & \textbf{Native} & \textbf{Hybrid} & \textbf{PWA} & \textbf{Bron} \\
+    \midrule
+    \endfirsthead
+    
+    \multicolumn{5}{c}%
+    {\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+    \toprule
+    \textbf{Kenmerk} & \textbf{Native} & \textbf{Hybrid} & \textbf{PWA} & \textbf{Bron} \\
+    \midrule
+    \endhead
+    
+    \midrule \multicolumn{5}{r}{Vervolg op volgende pagina} \\
+    \endfoot
+    
+    \bottomrule
+    \caption[Vergelijking van ontwikkelmethoden]{Vergelijking van Native, Cross-platform en \acrshort{pwa} ontwikkeling.} \\
+    \endlastfoot
+    
+    \textbf{Ontwikkeling} & Platformspecifiek \newline \underline{iOS}: Swift / Objective-C \newline \underline{Android}: \newline Java / Kotlin \newline & 
+    HTML, CSS, JavaScript verpakt in een cross-platform framework &
+    Webapplicatie met service workers en Web App Manifest & 
+    \autocite{Gerges2024} \\
+    
+    \textbf{Cross-platform} & Nee & Ja & Ja & \autocite{Gerges2024} \\
+    
+    \textbf{Hardware toegang} & Ja & Beperkter \newline \textit{(via plug-ins)} & Beperkt \textit{(niet alle functies beschikbaar)} \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Offline functionaliteit} & Ja & Ja & Ja & \autocite{Gerges2024} \\
+    
+    \textbf{Installatie} & Appstore & Appstore & Optionele download via browser \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Prestaties} & Hoogste & Goed & Gemiddeld \textit{(niet geschikt voor resource intensieve apps)} \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Ontwikkelkost} & Hoog & Gemiddeld & Laag & \autocite{Gerges2024} \\
+    \textbf{Ontwikkeltijd} & Lang & Gemiddeld & Kort & \autocite{Gerges2024} \\
+    
+    \textbf{\acrshort{ux}} & 
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Volledig afgestemd op OS
+            \item Intuïtief
+            \item Optimale UX
+            \item Hoge tevredenheid \newline
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Native-achtige ervaring
+            \item Redelijk soepel
+            \item Consistente UX tussen OS
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Redelijke UX
+            \item Minder responsief
+        \end{itemize}
+    \end{minipage} & 
+    \textit{Native} \newline \textit{PWA} \newline \textit{Hybrid} \newline
+    \autocite{Gerges2024} \\
+    
+    \textbf{Aanbeveling} & 
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Resource-intensieve apps, games, bankieren
+            \item Apps met hardware-integratie
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Apps die op meerdere platformen moeten draaien met snelle ontwikkeling
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Apps voor snel veranderende markten
+            \item Lage kosten
+        \end{itemize}
+    \end{minipage} & 
+    \textit{Native} \newline \textit{PWA} \newline \autocite{Samsyudin2025} \newline \textit{Hybrid} \newline \autocite{Gerges2024} \\
+\end{longtable}
+
+\vspace{1em}
+
+\subsection{Motivatie en keuze van technologie}
+\label{subsec:app-tech-keuze}
+
+\vspace{1em}
+
+Gezien de focus van deze bachelorproef op de ontwikkeling van een mentale gezondheidsapplicatie, is de technologiekeuze cruciaal. De geselecteerde technologie moet enerzijds technisch haalbaar zijn binnen de beschikbare tijd en middelen, en anderzijds een gebruikerservaring bieden die aansluit bij de specifieke behoeften van de doelgroep.
+
+\vspace{1em}
+
+\subsubsection{Native}
+\label{subsubsec:native}
+
+\vspace{1em}
+
+Hoewel een \textbf{native} applicatie normaal gezien de beste prestaties en de meest optimale gebruikerservaring biedt \autocite{Samsyudin2025}, vereist deze aanpak aparte codebases per besturingssysteem en een gespecialiseerde kennis van meerdere programmeertalen. Met andere woorden: aanzienlijk meer tijd en middelen zijn vereist \autocite{Gerges2024}. Voor de ontwikkeling van de \acrshort{poc}, waarin slechts één ontwikkelaar ter beschikking voor is met beperkte tijd, is een native benadering daarom niet haalbaar.
+
+\vspace{1em}
+
+\subsubsection{PWA}
+\label{subsubsec:pwa}
+
+\vspace{1em}
+
+Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware-functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
+
+\vspace{1em}
+
+\subsubsection{Cross-platform}
+\label{subsubsec:cross-platform}
+
+\vspace{1em}
+
+Daarom wordt er binnen de scope van dit project geopteerd voor een \textbf{cross-platform} benadering. Deze aanpak biedt een native-achtige gebruikerservaring \autocite{Gerges2024} die intuïtief en consistent is over verschillende platformen, terwijl de ontwikkeltijd aanzienlijk korter is dan bij native ontwikkeling. Omdat op het eerste gezicht de huidige functionele vereisten geen diepe integratie met complexe hardware \textit{(zoals sensoren)} vereisen, volstaat deze technologie volledig. Binnen de cross-platform benadering bestaan verschillende frameworks, zoals React Native, Flutter en Xamarin \autocite{Souha2024}. Onder het mom van efficiëntie wordt voor deze \acrshort{poc} geopteerd voor \textbf{React Native}. Gezien de aanwezige voorkennis van React biedt dit framework de laagste leercurve. Dit garandeert een tijdsefficiënt ontwikkelproces voor de \acrshort{poc}.
+
+\vspace{1em}
+
+Kortom: de keuze voor een cross-platform oplossing gebruikmakend van React Native vormt een optimale balans tussen haalbaarheid, \acrshort{ux} en technische functionaliteit. Het maakt de ontwikkeling van een \acrshort{poc} mogelijk binnen de beschikbare tijd, waarbij de gebruiker geniet van een comfortabele, frustratievrije ervaring.
 
 \vspace{1em}
