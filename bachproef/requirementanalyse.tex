@@ -7,6 +7,114 @@
 
 ...
 
+\section{Ontwerpprincipes}
+\label{sec:ontwerpprincipes}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{3cm}    % Principe
+            >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing
+            >{\raggedright\arraybackslash}p{4.0cm}  % Onderbouwing
+        }
+        \toprule
+        \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht principes]{Overzicht van ontwerpprincipes voor de ontwikkeling van een stressreducerende app.}
+        \label{tab:principes}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        1. Bevorder de gebruikers-autonomie & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Gebruik uitnodigende, niet dwingende-taal \newline \textit{(vermijd woorden als "moet")}
+                \item Implementeer functionaliteiten waarmee de gebruiker de ervaring kan personaliseren \textit{(zoals het kiezen van eigen doelen, thema's...)}
+                \item Pas \textit{progressive disclosure} toe \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+        
+        2. Ondersteun competentie-gevoel & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Pas \textit{chunking} toe \newline \textit{(deel complexe processen op in kleine, logische stappen)}
+                \item Onmiddellijke positieve feedback na een actie
+                \item Gebruik een intuïtieve en consistente UI om de leercurve en foutmarge te minimaliseren \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:clt}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+        
+        3. Creëer verbondenheid & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Ontwikkel functies die sociale steun bieden \newline \textit{(zoals een forum of de mogelijkheid om successen te delen)}
+                \item Bouw opties in voor directe communicatie met zorgprofessionals
+                \item Bouw een "\textit{community}" binnen de app \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:engagement-retentie}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+        
+        4. Zet notificaties strategisch in & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Voorzie een instellingenmenu waarin gebruikers frequentie en timing per meldingstype bepalen
+                \item Stuur gepersonaliseerde notificaties
+                \item Stuur waardevolle notificaties die bijdragen aan het persoonlijke traject
+                \item Formuleer meldingen subtiel, rekening houdend met zichtbaarheid voor anderen en gevoeligheid van de context
+                \item Vermijd herhaaldelijke of dwingende meldingen \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:online-vigilance}, \newline Sectie \ref{subsec:notificatie-strat} \\ \addlinespace[10pt]
+        
+        5. Calm Design \& visuele rust & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Minimaliseer afleiding door overbodige knoppen, advertenties en drukke animaties te vermijden
+                \item Gebruik een rustig kleurenpalet
+                \item Zorg voor voldoende witruimte in de layout
+                \item Focus op een overzichtelijke hiërarchie in de interface \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+        
+        6. Implementeer betekenisvolle gamification & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Koppel spelelementen aan echte voortgang in welzijn aan de hand van \textit{SMARTER-principes} \newline \textit{(zoals badges of voortgangsbalken)}
+                \item Gebruik storytelling en personages \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:motivatie-betrokkenheid-strat} \\ \addlinespace[10pt]
+        
+        7. Selecteer de ontwikkel-strategie met de preventie van technostress in het achterhoofd & 
+        \begin{minipage}[t]{\hsize}
+            \raggedright
+            \begin{itemize}[leftmargin=*, itemsep=2mm]
+                \item Kies voor een performante ontwikkelingstechnologie voor een zo vlot mogelijke gebruikerservaring
+                \item Zorg voor snelle laadtijden en een stabiele werking van de app. \newline
+            \end{itemize}
+        \end{minipage} & Sectie \ref{subsec:technostress}, \newline Sectie \ref{subsec:app-tech-keuze} \\ \addlinespace[10pt]
+        
+    \end{longtable}
+}
+
+\vspace{1em}
+
 \section{Requirements}
 \label{sec:requirements}
 
@@ -15,7 +123,7 @@
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
             >{\raggedright\arraybackslash}p{1.5cm}  % ID
-            >{\raggedright\arraybackslash}p{7.7cm}    % Requirement
+            >{\raggedright\arraybackslash}p{7.7cm}  % Requirement
             >{\raggedright\arraybackslash}p{4.0cm}  % Bron
             >{\raggedright\arraybackslash}p{2.0cm}  % Prioriteit
         }
@@ -41,45 +149,6 @@
         
         %==============================
         ... & ... & ... & ... \\ \addlinespace[6pt]
-        
-    \end{longtable}
-}
-
-...
-
-\section{Ontwerpprincipes}
-\label{sec:ontwerpprincipes}
-
-{
-    \small
-    \setlength\tabcolsep{3pt}
-    \begin{longtable}{
-            >{\raggedright\arraybackslash}p{3.5cm}  % Principe
-            >{\raggedright\arraybackslash}p{7.9cm}    % Beschrijving / toepassing
-            >{\raggedright\arraybackslash}p{4.0cm}  % Onderbouwing
-        }
-        \toprule
-        \textbf{Principe} & \textbf{Beschrijving / Toepassing} & \textbf{Onderbouwing} \\
-        \midrule
-        \endfirsthead
-        
-        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
-        \toprule
-        \textbf{Principe} & \textbf{Beschrijving / Toepassing} & \textbf{Onderbouwing} \\
-        \midrule
-        \endhead
-        
-        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
-        \endfoot
-        
-        \bottomrule
-        \caption[Overzicht principes]{Lege longtable voor principes, toepassingen en onderbouwing.}
-        \label{tab:principes}
-        \endlastfoot
-        \addlinespace[6pt]
-        
-        %==============================
-        ... & ... & ... \\ \addlinespace[6pt]
         
     \end{longtable}
 }
