@@ -1,11 +1,8 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
-% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
-% dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
-% bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
 
-% Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+Vooraleer er van start kan worden gegaan met een requirement-analyse en een vergelijkende studie van bestaande mentale gezondheidsapps, is het belangrijk het huidige probleemgebied eerst in kaart te brengen. Dit gebeurt aan de hand van een literatuurstudie, gebaseerd op wetenschappelijke artikelen, systematische reviews en relevante blogs die inzicht bieden in zowel het probleem- als het oplossingsdomein. Het onderzoek is opgebouwd rond zes centrale thema’s die samen de context vormen voor de verdere ontwikkeling van een \acrlong{poc}.
 
 % Commentaar = ctrl + t
 
@@ -259,7 +256,7 @@ Daarnaast kan, volgens \textcite{Chong2025}, het intensieve gebruik van digitale
 
 \vspace{1em}
 
-\textcite{Chong2025} benadrukte tot slot dat sociale en familiale steun een beschermende factor te zijn. Betrokkenheid van familie, het ervaren van respect en begrip, en de mogelijkheid om hulp te vragen hangen samen met een hogere cognitieve betrokkenheid en lagere burn-outniveaus bij studenten.
+\textcite{Chong2025} benadrukte tot slot dat sociale en familiale steun een beschermende factor zijn. Betrokkenheid van familie, het ervaren van respect en begrip, en de mogelijkheid om hulp te vragen hangen samen met een hogere cognitieve betrokkenheid en lagere burn-outniveaus bij studenten.
 
 \vspace{1em}
 
@@ -1103,5 +1100,196 @@ Daarom wordt er binnen de scope van dit project geopteerd voor een \textbf{cross
 \vspace{1em}
 
 Kortom: de keuze voor een cross-platform oplossing gebruikmakend van React Native vormt een optimale balans tussen haalbaarheid, \acrshort{ux} en technische functionaliteit. Het maakt de ontwikkeling van een \acrshort{poc} mogelijk binnen de beschikbare tijd, waarbij de gebruiker geniet van een comfortabele, frustratievrije ervaring.
+
+\newpage
+
+
+
+% Deel 7 - Longlist
+
+\section{Longlist}
+\label{sec:longlist}
+
+\vspace{1em}
+
+Vanwege een zekere \textit{explosie} aan \acrshort{mhealth}-applicaties, waarvan slechts 53\% wetenschappelijk onderbouwde technieken gebruikt \autocite{Larsen2019}, is voor dit onderzoek niet gekozen voor een willekeurige zoektocht in app-stores. Om de kloof tussen commerciële beloften en feitelijke effectiviteit te overbruggen, is een gerichte longlist samengesteld op basis van professioneel gescreende databanken. 
+
+\vspace{1em}
+
+De onderstaande longlist werd samengesteld door het raadplegen van betrouwbare kwaliteitsplatformen zoals \textit{onlinehulp-apps.be} en \textit{mind.orchahealth.com}. Deze platformen beoordelen apps op basis van strikte criteria rondom klinische veiligheid, gegevensbeveiliging en gebruiksvriendelijkheid. Bij het doorzoeken van deze databanken werd gebruikgemaakt van relevante zoektermen zoals \textit{"anti-burn-out", "stress", "REBT", "CBT"} en \textit{"mindfulness"}. Aanvullend werden enkele veelbelovende applicaties opgenomen uit de selectie van \textit{Bradley University}.
+
+\vspace{1em}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{2.6cm}  % Naam
+            >{\raggedright\arraybackslash}p{4.2cm}  % Beschrijving
+            >{\raggedright\arraybackslash}p{1.6cm}  % Type
+            >{\raggedright\arraybackslash}p{1.4cm}  % Gratis
+            >{\raggedright\arraybackslash}p{1.6cm}  % Reviews
+            >{\raggedright\arraybackslash}p{3.2cm}  % Therapie
+        }
+        \toprule
+        \textbf{Naam} & \textbf{Omschrijving} & \textbf{Type} & \textbf{Gratis} & \textbf{Reviews} & \textbf{Techniek} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{6}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Naam} & \textbf{Omschrijving} & \textbf{Type} & \textbf{Gratis} & \textbf{Reviews} & \textbf{Techniek} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{6}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht burn-out interventies]{Overzicht en vergelijking van bestaande digitale toepassingen gebaseerd op gecureerde databanken.} 
+        \label{tab:digitale-toepassingen-burnout}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Mindfulness / Meditatie}} \\ \midrule
+        VGZ Mindfulness Coach & Biedt vijf programma’s met dagelijkse oefeningen en meer dan 70 losse oefeningen rond mindfulness, yoga en ademhaling, met extra functies zoals offline gebruik en favorieten opslaan. \autocite{onlinehulpapps} & App & \vink & 4.4 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Headspace & Biedt interactieve meditatie- en mindfulnessoefeningen met functies zoals begeleide sessies, slaapgeluiden, voortgang delen en pushmelding herinneringen. \autocite{onlinehulpapps} & App & \vink \kruis & 4.3 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Calm & Biedt meditatie-, ademhalings-, stretch- en mindfulnessoefeningen, aangevuld met slaapverhalen en rustgevende muziek. \autocite{onlinehulpapps} & App & \vink \kruis & 4.5 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Smiling Mind & Biedt mindfulness- en meditatieprogramma’s op maat van kinderen, jongeren, volwassenen en families rond thema’s zoals slaap, stress en concentratie, in de vorm van audio- en videomodules met duidelijke duur en opbouw. \autocite{onlinehulpapps} & App & \vink & 4.6 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Mindfulness Coach & Biedt een stapsgewijs trainingsprogramma met 14 niveaus, losse oefeningen, voortgangs- en doeltracking alsook extra informatie om mindfulness aan te leren en op te volgen. \autocite{onlinehulpapps} & App & \vink & 4.8 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Petit BamBou & Biedt meditatie- en ademhalingsprogramma’s alsook losse sessies rond diverse thema’s zoals slaap, emoties en gezondheid. \autocite{onlinehulpapps} & App & \vink \kruis & 4.7 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Immersive Mental Health App & Biedt VR-ontspanning in drie natuur- omgevingen met optionele begeleide mindfulness- en spierontspanningsoefeningen. \autocite{onlinehulpapps} & App & \vink & - \ster & Mindfulness \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Zelfreflectie / Tracking}} \\ \midrule       
+        MindDoc & Helpt volwassenen hun mentale gezondheid te volgen via een dagboek, screenings, gepersonaliseerd advies en de mogelijkheid om resultaten met een hulpverlener te delen. \autocite{onlinehulpapps} & App & \vink & 4.4 \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Sipi & Digitaal signaleringsplan waarmee patiënten hun probleemsignalen kunnen bijhouden, bewust worden van stressopbouw en terugvalpreventie toepassen, met functies zoals persoonlijke signalen, notities, grafieken en delen met meerdere begeleiders. \autocite{onlinehulpapps} & App & \vink \kruis & - \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Moodfit & Biedt journaling, mindfulness-oefeningen en CBT-technieken, met dagelijkse doelen, meldingen en rapporten om gedragspatronen inzichtelijk te maken. \autocite{bradley_apps} & App & \vink & - \ster & Mindfulness, CBT \\ \addlinespace[8pt]
+        
+        Stappvoorstap & Monitort en visualiseert stresspatronen, biedt gepersonaliseerde tips en ontspanningsoefeningen, alsook audio / video- fragmenten en ervaringsverhalen ter versterking van veerkracht. \autocite{onlinehulpapps} & App & \vink & - \ster & Mindfulness, psycho-educatie, CBT \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{CBT}} \\ \midrule
+        MindShift & Biedt CBT-tools, een dagboek, coping- statements, een communityforum en functies om doelen te stellen en gezonde gewoonten te ontwikkelen. \autocite{bradley_apps} & App & \vink & 3.0 \ster & CBT, psycho-educatie  \\ \addlinespace[8pt]
+        
+        Wysa Mental Health Support & Biedt emotionele ondersteuning via AI-chatgesprekken, aangevuld met vragenlijsten en zelfhulp-oefeningen zoals yoga, mindfulness, meditatie en cognitieve technieken om stress, angst en welzijn te verbeteren. \autocite{onlinehulpapps} & App & \vink & 4.6 \ster & CBT, mindfulness  \\ \addlinespace[8pt]
+        
+        Sorted: Mental Health & Biedt audio-modules gebaseerd op Positive Mental Training, met oefeningen voor stress, angst, depressie, slaap en motivatie, inclusief progress tracking, persoonlijke doelen en relaxatie-oefeningen. \autocite{orcha_mind} & App & \vink & 3.1 \ster & CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Vaardig Leven & Een toolkit voor (jong)volwassenen die hun veerkracht en psychische vaardigheden willen versterken, met ervaringsgerichte oefeningen, persoonlijke trajecten en een ‘brain gym’-pagina om vooruitgang bij te houden en emotionele balans te cultiveren. \autocite{onlinehulpapps} & Web & \vink & - \ster & CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Cerina & Biedt een volledig CBT-programma via zeven gestructureerde sessies, met oefeningen zoals worry diary, worry tree, geloofstest en zelfmanagement van onzekerheid, aangevuld met een therapielogboek, voortgangscontrole en mindfulness- audio voor ontspanning. \autocite{orcha_mind} & App & \kruis & - \ster & CBT, mindfulness \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Psycho-educatie}} \\ \midrule
+        MoodSpace & Biedt betrouwbare informatie, zelftests, contactgegevens voor hulp, zelfhulpmodules over stress, angst, levensstijl en zelfbeschadiging, alsook getuigenissen, podcasts en motivatiekaartjes. \autocite{onlinehulpapps} & Web & \vink & - \ster & Psycho-educatie, mindfulness \\ \addlinespace[8pt]
+        
+        BloomUp Learn & Biedt leermodules over mentale gezondheid met oefeningen, video’s, audio’s en huiswerkopdrachten, waarmee veerkracht, stress-, emotiehantering en mindfulness getraind worden, inclusief consultatiemogelijkheid met een psycholoog. \autocite{onlinehulpapps} & Web & \kruis & - \ster & Psycho-educatie, CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Student Health App & Biedt betrouwbare informatie en advies over meer dan 125 gezondheidsonderwerpen, inclusief mentale gezondheid, ter ondersteuning van zelfmanagement en welzijn. \autocite{orcha_mind} & App & \vink & - \ster & Psycho-educatie \\ \addlinespace[8pt]
+        
+        Burnoutapp.be & Biedt gratis gevalideerde burnout‑vragenlijsten (zoals de BAT) om je risico en symptomen van burn‑out in kaart te brengen, met premium opties voor extra ondersteuning en inzicht. \autocite{bat2020} & PWA & \vink \kruis & - \ster & Psycho-educatie, CBT \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Community / Peer Support}} \\ \midrule
+        Kooth & Biedt een veilige, anonieme omgeving voor mentale ondersteuning met functies zoals één-op-één counseling, artikelen, discussieborden, een dagelijks dagboek, doeltracking en welzijnsactiviteiten. \autocite{orcha_mind} & Web & \vink & - \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Tellmi & Een anonieme community voor tieners om ervaringen te delen, veilig begeleid door counselors en met doorverwijzing naar professionele hulp. \autocite{bradley_apps} & App & \vink & - \ster & Psycho-educatie \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Habit Coach}} \\ \midrule
+        Gro Health \autocite{orcha_mind} & Helpt volwassenen hun gezondheid en welzijn te verbeteren met functies zoals coaching, community support, slaap- en meditatiegidsen, voedings- en bewegingsregistratie, recepten en koppeling met smartwatches. & App & \kruis & - \ster & Mindfulness, CBT \\ \addlinespace[8pt]
+        
+        Holly Health Habit Coach & Biedt via een AI-chatbot begeleiding bij voeding, beweging, slaap, stress en mentale gezondheid, met checklists, challenges, een gezondheids- dagboek, mindfulness- en meditatie- oefeningen, en artikelen om gezonde gewoonten op te bouwen. \autocite{orcha_mind} & App & \kruis & 3.5 \ster & Mindfulness, CBT, psycho-educatie \\ \addlinespace[8pt]
+    \end{longtable}
+}
+
+\newpage
+
+\subsection{Bevindingen}
+\label{subsec:longlist-bevindingen}
+
+\vspace{1em}
+
+Uit deze longlist blijkt dat veel apps zich richten op mindfulness, meditatie en aanvullend \acrshort{cbt}, terwijl sommige ook functies bieden zoals community-ondersteuning of AI-gebaseerde coaching. Ondanks dat \acrshort{rebt} volgens sectie \ref{subsec:preventie-types} een effectieve therapievorm is, werd geen app gevonden die deze techniek specifiek toepast.
+
+\vspace{1em}
+
+Daarnaast zijn er nauwelijks apps die expliciet gericht zijn op burn-outpreventie of behandeling. Zoeken op termen als “burn-out” of “anti-burnout” leverde geen resultaten op in de geselecteerde databanken. Daarom werd één app, \textit{Burnoutapp.be}, toegevoegd op basis van een Google-search en de validatie van de BAT door KU Leuven. Het merendeel van de apps bevat bovendien paywalls of premium-opties, wat het effect van de interventies kan beperken, omdat niet alle functies vrij toegankelijk zijn.
+
+\newpage
+
+
+
+% Deel 8 - Kort samengevat
+
+\section{Kort samengevat}
+\label{sec:bevindingen-samengevat}
+
+\vspace{1em}
+
+\begin{table}[H]
+    \centering
+    \small % Houd het op small om zeker te zijn dat het op één pagina past
+    \begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.65\linewidth}}
+        \toprule
+        \textbf{Hoofdstuk} & \textbf{Kerninzichten} \\
+        \midrule
+        
+        \nameref{sec:burnout-bij-twintigers} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Kerncomponenten:} Uitputting, cynisme en verminderde effectiviteit.
+            \item \textbf{Soorten:} \textit{frenetic}, \textit{underchallenged} en \textit{worn-out}.
+            \item \textbf{Gen Z Risico's:} Lage autonomie, gebrek aan steun, hoge ambitie en prestatiedruk.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:digitalisering-cognitief} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Constante connectiviteit leidt tot cognitieve overbelasting.
+            \item \textbf{Stressoren:} \textit{Information overload}, \textit{technostress} en \textit{online vigilance}.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:preventie-behandeling} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Preventie:} primair, secundair, tertiair.
+            \item \textbf{REBT:} Meest effectieve methodiek voor directe stress- reductie \textit{(boven Mindfulness, psycho-educatie en CBT)}.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:digitale-interventies} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item M-health apps verlagen de drempel naar hulpverlening.
+            \item \textbf{Knelpunten:} Lage retentie en een gebrek aan wetenschappelijke basis.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:ux-ontwerp} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Calm design:} UI moet mentale rust bevorderen i.p.v. belasting creëren.
+            \item \textbf{Strategieën:} Slimme notificaties en motivatie zoals gamification zonder stressoren.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:technologieselectie} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{React Native} als optimaal cross-platform framework voor de PoC.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:longlist} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Er werden heel veel mindfulness apps teruggevonden.
+            \item Apps welke REBT toepassen waren niet aanwezig.
+        \end{itemize} \\ \addlinespace[8pt]
+        \bottomrule
+    \end{tabular}
+    \caption{Synthese van de literatuurstudie naar kerninzichten.}
+    \label{tab:synthese-literatuur-eind}
+\end{table}
 
 \vspace{1em}

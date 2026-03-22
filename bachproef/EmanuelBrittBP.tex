@@ -75,7 +75,7 @@
 \supervisor{Mevr. C. De Leenheer}
 \cosupervisor{Mevr. N. Jacobs, Mevr. K. Van den Broeck}
 \title[Een vergelijkende analyse en proof-of-concept]%
-    {Burn-outpreventie bij Vlaamse twintigers: een vergelijkende studie van bestaande apps en de vertaling naar ontwerpprincipes voor een stressreducerende applicatie}
+{Burn-outpreventie bij Vlaamse twintigers: een vergelijkende studie van bestaande apps en de vertaling naar ontwerpprincipes voor een stressreducerende applicatie}
 \academicyear{\advance\year by -1 \the\year--\advance\year by 1 \the\year}
 \examperiod{1}
 \degreesought{\IfLanguageName{dutch}{Professionele bachelor in de toegepaste informatica}{Bachelor of applied computer science}}
@@ -97,101 +97,101 @@
 
 %% Content starts here.
 \begin{document}
-
-%---------- Front matter -------------------------------------------------------
-
-\frontmatter
-
-\hypersetup{pageanchor=false} %% Disable page numbering references
-%% Render a Dutch outer title page if the main language is English
-\IfLanguageName{english}{%
-    %% If necessary, information can be changed here
-    \degreesought{Professionele Bachelor toegepaste informatica}%
-    \begin{otherlanguage}{dutch}%
-       \maketitle%
-    \end{otherlanguage}%
-}{}
-
-%% Generates title page content
-\maketitle
-\hypersetup{pageanchor=true}
-
-\input{voorwoord}
-\input{samenvatting}
-
-%---------- Inhoud, lijst figuren, ... -----------------------------------------
-
-\tableofcontents
-
-% In a list of figures, the complete caption will be included. To prevent this,
-% ALWAYS add a short description in the caption!
-%
-%  \caption[short description]{elaborate description}
-%
-% If you do, only the short description will be used in the list of figures
-
-\listoffigures
-
-% If you included tables and/or source code listings, uncomment the appropriate
-% lines.
-\listoftables
-
-\listoflistings
-
-% Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
-% hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
-% https://www.overleaf.com/learn/latex/Glossaries
-\printglossary[title=Acroniemen, toctitle=Acroniemen]
-
-%---------- Kern ---------------------------------------------------------------
-
-\mainmatter{}
-
-% De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
-% het onderwerp, literatuurstudie en verantwoording methodologie.
-% Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
-% om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
-% te verspreiden!
-
-\input{inleiding}
-\input{standvanzaken}
-\input{methodologie}
-
-% Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
-% vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
-% elke fase in je onderzoek in een apart hoofdstuk bespreken.
-
-%\input{...}
-%\input{...}
-%...
-
-\input{conclusie}
-
-%---------- Bijlagen -----------------------------------------------------------
-
-\appendix
-
-\chapter{Onderzoeksvoorstel}
-
-Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
-
-\section*{Samenvatting}
-
-De afgelopen jaren stijgt het aantal burn-outs bij jongvolwassenen aanzienlijk, mede door de druk van de quarter-life-crisis en digitale overbelasting. Hoewel er steeds meer apps bestaan om mentaal welzijn te ondersteunen, blijkt hun effect beperkt en verhogen sommige toepassingen juist cognitieve belasting. Deze bachelorproef onderzoekt daarom de vraag: \emph{“Hoe kunnen apps voor stress- en burn-out-preventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?”}. Om dit te realiseren wordt een methodologie bestaande uit 6 fasen toegepast: eerst een probleemverkenning via literatuurstudie en interviews met professionals, gevolgd door een gestructureerde requirementsanalyse (MoSCoW), het opstellen van een long- en shortlist van bestaande oplossingen, en de ontwikkeling van een cognitief rustgevende proof-of-concept. Tot slot wordt de effectiviteit van het prototype geëvalueerd via een heuristische beoordeling door professionals. Het verwachte resultaat is een wetenschappelijk onderbouwde app die stress vermindert, mentale rust bevordert en cognitieve belasting minimaliseert, terwijl ze herbruikbare ontwerpprincipes oplevert voor andere digitale toepassingen en zo zorgprofessionals ondersteunt. Hiermee draagt het onderzoek bij aan het mentale welzijn van Vlaamse twintigers en biedt het een concrete meerwaarde voor gebruikers, professionals, en het bredere welzijn van de samenleving.
-
-% Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
-\input{../voorstel/voorstel-inhoud}
-
-%%---------- Andere bijlagen --------------------------------------------------
-% TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
-% tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
-%\input{...}
-
-%%---------- Backmatter, referentielijst ---------------------------------------
-
-\backmatter{}
-
-\setlength\bibitemsep{2pt} %% Add Some space between the bibliograpy entries
-\printbibliography[heading=bibintoc]
-
+    
+    %---------- Front matter -------------------------------------------------------
+    
+    \frontmatter
+    
+    \hypersetup{pageanchor=false} %% Disable page numbering references
+    %% Render a Dutch outer title page if the main language is English
+    \IfLanguageName{english}{%
+        %% If necessary, information can be changed here
+        \degreesought{Professionele Bachelor toegepaste informatica}%
+        \begin{otherlanguage}{dutch}%
+            \maketitle%
+        \end{otherlanguage}%
+    }{}
+    
+    %% Generates title page content
+    \maketitle
+    \hypersetup{pageanchor=true}
+    
+    \input{voorwoord}
+    \input{samenvatting}
+    
+    %---------- Inhoud, lijst figuren, ... -----------------------------------------
+    
+    \tableofcontents
+    
+    % In a list of figures, the complete caption will be included. To prevent this,
+    % ALWAYS add a short description in the caption!
+    %
+    %  \caption[short description]{elaborate description}
+    %
+    % If you do, only the short description will be used in the list of figures
+    
+    \listoffigures
+    
+    % If you included tables and/or source code listings, uncomment the appropriate
+    % lines.
+    \listoftables
+    
+    \listoflistings
+    
+    % Als je een lijst van afkortingen of termen wil toevoegen, dan hoort die
+    % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
+    % https://www.overleaf.com/learn/latex/Glossaries
+    \printglossary[title=Acroniemen, toctitle=Acroniemen]
+    
+    %---------- Kern ---------------------------------------------------------------
+    
+    \mainmatter{}
+    
+    % De eerste hoofdstukken van een bachelorproef zijn meestal een inleiding op
+    % het onderwerp, literatuurstudie en verantwoording methodologie.
+    % Aarzel niet om een meer beschrijvende titel aan deze hoofdstukken te geven of
+    % om bijvoorbeeld de inleiding en/of stand van zaken over meerdere hoofdstukken
+    % te verspreiden!
+    
+    \input{inleiding}
+    \input{standvanzaken}
+    \input{methodologie}
+    
+    % Voeg hier je eigen hoofdstukken toe die de ``corpus'' van je bachelorproef
+    % vormen. De structuur en titels hangen af van je eigen onderzoek. Je kan bv.
+    % elke fase in je onderzoek in een apart hoofdstuk bespreken.
+    
+    %\input{...}
+    %\input{...}
+    %...
+    
+    \input{conclusie}
+    
+    %---------- Bijlagen -----------------------------------------------------------
+    
+    \appendix
+    
+    \chapter{Onderzoeksvoorstel}
+    
+    Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
+    
+    \section*{Samenvatting}
+    
+    De afgelopen jaren stijgt het aantal burn-outs bij jongvolwassenen aanzienlijk, mede door de druk van de quarter-life-crisis en digitale overbelasting. Hoewel er steeds meer apps bestaan om mentaal welzijn te ondersteunen, blijkt hun effect beperkt en verhogen sommige toepassingen juist cognitieve belasting. Deze bachelorproef onderzoekt daarom de vraag: \emph{“Hoe kunnen apps voor stress- en burn-out-preventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?”}. Om dit te realiseren wordt een methodologie bestaande uit 6 fasen toegepast: eerst een probleemverkenning via literatuurstudie en interviews met professionals, gevolgd door een gestructureerde requirementsanalyse (MoSCoW), het opstellen van een long- en shortlist van bestaande oplossingen, en de ontwikkeling van een cognitief rustgevende proof-of-concept. Tot slot wordt de effectiviteit van het prototype geëvalueerd via een heuristische beoordeling door professionals. Het verwachte resultaat is een wetenschappelijk onderbouwde app die stress vermindert, mentale rust bevordert en cognitieve belasting minimaliseert, terwijl ze herbruikbare ontwerpprincipes oplevert voor andere digitale toepassingen en zo zorgprofessionals ondersteunt. Hiermee draagt het onderzoek bij aan het mentale welzijn van Vlaamse twintigers en biedt het een concrete meerwaarde voor gebruikers, professionals, en het bredere welzijn van de samenleving.
+    
+    % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
+    \input{../voorstel/voorstel-inhoud}
+    
+    %%---------- Andere bijlagen --------------------------------------------------
+    % TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
+    % tweede keer indient, een overzicht van de verbeteringen t.o.v. het origineel.
+    %\input{...}
+    
+    %%---------- Backmatter, referentielijst ---------------------------------------
+    
+    \backmatter{}
+    
+    \setlength\bibitemsep{2pt} %% Add Some space between the bibliograpy entries
+    \printbibliography[heading=bibintoc]
+    
 \end{document}
