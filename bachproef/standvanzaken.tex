@@ -1,51 +1,1247 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
-% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
-% dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
-% bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
 
-% Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+Vooraleer er van start kan worden gegaan met een requirement-analyse en een vergelijkende studie van bestaande mentale gezondheidsapps, is het belangrijk het huidige probleemgebied eerst in kaart te brengen. Dit gebeurt aan de hand van een literatuurstudie, gebaseerd op wetenschappelijke artikelen, systematische reviews en relevante blogs die inzicht bieden in zowel het probleem- als het oplossingsdomein. Het onderzoek is opgebouwd rond zes centrale thema’s die samen de context vormen voor de verdere ontwikkeling van een \acrlong{poc}.
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+\vspace{1em}
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+Het onderzoek start met een analyse van stress en burn-out bij twintigers, waarbij wordt ingegaan op definities, actuele cijfers, kenmerken van deze doelgroep en specifieke risicofactoren bij Generatie Z. Vervolgens wordt de rol van digitalisering en cognitieve belasting behandeld, met aandacht voor de impact van voortdurende digitale connectiviteit, informatieoverload, technostress en online vigilance op het mentale welzijn. Daarna komen verschillende preventiestrategieën aan bod, waaronder primaire, secundaire en tertiaire preventie, cognitieve gedragstherapie, psycho-educatie en mindfulness. Hierop volgt een bespreking van bestaande digitale interventies voor mentale gezondheid, waarbij het potentieel, de randvoorwaarden voor effectiviteit en de uitdagingen rond engagement en retentie worden belicht. Ten slotte wordt aandacht besteed aan UI/UX-ontwerp en cognitieve belasting, evenals aan de selectie van geschikte app-technologieën. Hierbij worden ontwerpprincipes, motivatie- en betrokkenheidsstrategieën en de keuze van technologieën besproken.
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+\vspace{1em}
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+Deze opbouw vormt de basis voor de volgende fasen van het onderzoek, waarin requirements worden opgesteld en bestaande apps met elkaar worden vergeleken, met aandacht voor zowel effectiviteit als gebruiksvriendelijkheid.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{grail.jpg}
-  \caption[Voorbeeld figuur.]{\label{fig:grail}Voorbeeld van invoegen van een figuur. Zorg altijd voor een uitgebreid bijschrift dat de figuur volledig beschrijft zonder in de tekst te moeten gaan zoeken. Vergeet ook je bronvermelding niet!}
+
+
+% Deel 1 - stress en burn-out bij twintigers
+
+\section{Stress en burn-out bij twintigers}
+\label{sec:burnout-bij-twintigers}
+
+\subsection{Wat is een burn-out?}
+\label{subsec:wat-is-burnout}
+
+\vspace{1em}
+
+Hoewel de term \textit{burn-out} in het dagelijkse taalgebruik steeds frequenter voorkomt, bestaat er vaak onduidelijkheid over de precieze betekenis en afbakening ervan. Een concrete definiëring is dan ook noodzakelijk om het begrip binnen dit onderzoek correct te situeren.
+
+\vspace{1em}
+
+Volgens de elfde herziening van de \acrlong{icd} (\acrshort{icd}-11) van de \acrshort{who} wordt burn-out sinds 2019 omschreven als een syndroom dat het gevolg is van chronische werk gerelateerde stress die onvoldoende werd aangepakt \autocite{WHOW2019}. Hoewel het begrip werd opgenomen in de \acrshort{icd}, wordt het niet geclassificeerd als een medische aandoening, maar als een werkgerelateerd fenomeen.
+
+\vspace{1em}
+
+Dit beroepsgerelateerd syndroom wordt gekenmerkt door drie kerncomponenten:
+\begin{itemize}
+    \item \textbf{Uitputting}: een aanhoudend gevoel van vermoeidheid of mentale uitputting;
+    \item \textbf{Cynisme}: een toenemende mentale afstand tot het werk, of een negatieve en cynische houding tegenover de functie;
+    \item \textbf{Verminderd gevoel van effectiviteit}: een verminderd gevoel van bekwaamheid en effectiviteit in het uitvoeren van professioneel werk.
+\end{itemize}
+
+\vspace{1em}
+
+Ook \textcite{MonteroMarin2011} omschreven burn-out reeds als een syndroom ten gevolge van chronische werkstress, gekenmerkt door uitputting, cynisme en verminderde professionele effectiviteit. Zij benadrukken dat burn-out niet bij iedereen op dezelfde manier tot uiting komt en onderscheiden drie subtypen: \textit{“frenetic”}, \textit{“underchallenged”} en \textit{“worn-out”}.
+
+\vspace{1em}
+
+\subsubsection{Frenetic burnout}
+\label{subsubsec:frenetic}
+
+Een hectische burn-out wordt door \textcite{MonteroMarin2011} beschreven als gekenmerkt door passie, ambitie en een sterke betrokkenheid, waarbij personen veel tijd en energie in hun werk steken. Dit kan leiden tot gevoelens van overbelasting en uiteindelijk tot uitputting.
+
+\vspace{1em}
+
+\subsubsection{Underchallenged burnout}
+\label{subsubsec:underchallenged}
+
+Bij dit type burnout, aldus \textcite{MonteroMarin2011}, ervaren personen te weinig uitdaging of persoonlijke ontwikkeling in hun werk. Dit gaat vaak gepaard met verveling en onverschilligheid, wat kan resulteren in cynisme. Daarnaast kan de oppervlakkige of repetitieve uitvoering van taken leiden tot een verminderd gevoel van effectiviteit.
+
+\vspace{1em}
+
+\subsubsection{Worn-out burnout}
+\label{subsubsec:worn-out}
+
+Wanneer personen het gevoel hebben weinig controle over hun werkzaamheden te hebben en onvoldoende erkenning krijgen voor hun inspanningen, ontstaat het laatste subtype, zoals beschreven door \textcite{MonteroMarin2011}. Dit kan leiden tot passief gedrag, een verminderd gevoel van effectiviteit, versterkt cynisme en bijdragen aan mentale uitputting, vooral door aanhoudende stress en gevoelens van machteloosheid.
+
+\vspace{1em}
+
+
+
+\subsection{De huidige burn-out cijfers onder de loep}
+\label{subsec:burnout-cijfers}
+
+\vspace{1em}
+
+Recente cijfers van het \textcite{RIZIV2023_invaliditeit_burnout} tonen aan dat burn-out steeds vaker voorkomt in onze samenleving. Eind 2023 werden maar liefst \textbf{45.771} personen gerapporteerd als langdurig arbeidsongeschikt door burn-out, een stijging van bijna 71\% ten opzichte van 26.835 gevallen in 2018. Binnen deze algemene stijging valt vooral de jongste leeftijdscategorie op. Het aantal burn-outgevallen bij volwassenen onder de 30 jaar verdubbelde van 825 in 2018 naar 1.707 in 2023, een \textbf{toename} van \textbf{107\%}, wat de maatschappelijke relevantie van burn-out onder twintigers extra benadrukt \autocite{RIZIV2023_invaliditeit_burnout}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../graphics/burnout-cijfers-2}
+    \caption{Totale evolutie van het aantal personen in invaliditeit door burn-out in België tussen 2018 en 2023 (bron: \autocite{RIZIV2023_invaliditeit_burnout}).}
 \end{figure}
 
-\begin{listing}
-  \begin{minted}{python}
-    import pandas as pd
-    import seaborn as sns
+\vspace{1em}
 
-    penguins = sns.load_dataset('penguins')
-    sns.relplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
-  \end{minted}
-  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
-\end{listing}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{../graphics/burnout-cijfers-1}
+    \caption{\label{fig:procent-stijging-burnout}Procentuele toename van burn-out gerelateerde invaliditeit per leeftijdsgroep tussen 2018 en 2023. Deze verticale staafdiagram maakt duidelijk welke leeftijdsgroepen relatief het sterkst gestegen zijn, met name de groep <30 jaar (bron: \autocite{RIZIV2023_invaliditeit_burnout}).}
+\end{figure}
 
-\lipsum[7-20]
+\vspace{1em}
 
-\begin{table}
-  \centering
-  \begin{tabular}{lcr}
-    \toprule
-    \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Kolom 3} \\
-    $\alpha$         & $\beta$          & $\gamma$         \\
-    \midrule
-    A                & 10.230           & a                \\
-    B                & 45.678           & b                \\
-    C                & 99.987           & c                \\
-    \bottomrule
-  \end{tabular}
-  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
+\textcite{SERV2024_werkbaarwerk} bevestigt via hun Vlaamse Werkbaarheidsmonitor daarbij de omvang van het probleem: maar liefst \textbf{13\%} van de jonge werknemers (18-35 jaar) rapporteert symptomen van burn-out, terwijl 35,9\% werkstressklachten ervaart. Dit toont aan dat naast langdurige arbeidsongeschiktheid, ook beginnende burn-outklachten aanzienlijk aanwezig zijn bij jonge werknemers.
+
+\vspace{1em}
+
+
+
+\subsection{Kenmerken van de doelgroep}
+\label{subsec:kenmerken-generatieZ}
+
+\vspace{1em}
+
+Burn-out is een begrip dat leeft binnen tal van leeftijdscategorieën. In dit onderzoek ligt de focus echter op de groep jonge volwassenen, aangezien uit de voorgaande sectie “Huidige burn-out cijfers onder de loep” blijkt dat bij hen de burn-outcijfers het sterkst stijgen. Om zo specifiek mogelijk te werk te gaan, wordt de doelgroep herleid tot één generatie: \textbf{generatie Z}.
+
+\vspace{1em}
+
+Voordat we ingaan op de risicofactoren die deze generatie kwetsbaar maken voor burn-out, is het eerst essentieel om de kenmerken van generatie Z in kaart te brengen. Dit zowel op het vlak van normen, waarden als van hun gedrag en houding op de werkvloer. 
+
+\vspace{1em}
+
+\subsubsection{Demografische en algemene kenmerken}
+\label{subsubsec:demografic-z}
+
+\vspace{1em}
+
+Generatie Z, ook wel gen Z genoemd, is een verzameling aan individuen die geboren zijn tussen 1995 en 2012 \autocite{Cnossen2024}. Het grootste kenmerk aan deze groep, ook wel 14-31 jarigen, is dat ze opgegroeid zijn in een volledig digitale, verbonden wereld waardoor ze al vaak omschreven worden als \textbf{“digital natives”} \autocite{Peredy2024}. Zo zijn ze volgens \textcite{Peredy2024} technisch zeer vaardig, gebruiken ze intensief digitale tools (\textit{zoals sociale media}) en communiceren ze vaak via visuele middelen (\textit{zoals GIFs, memes en korte video’s}). Daarnaast staat deze generatie bekend om haar zeer inclusieve en diverse mindset, sterke maatschappelijke betrokkenheid en ondernemingszin \autocite{Peredy2024}.
+
+\vspace{1em}
+
+\subsubsection{Persoonlijkheidskenmerken}
+\label{subsubsec:perskenmerken-z}
+
+\vspace{1em}
+
+Volgens \textcite{Cnossen2024} wordt deze generatie gekenmerkt door een opvallende combinatie van ambitie, perfectionisme, creativiteit en een sterke werkethiek. Ze streven ernaar om uit te blinken in wat ze doen en leggen daarbij veel nadruk op kwaliteit en persoonlijke prestaties. Tegelijkertijd hechten ze veel waarde aan zelfexpressie en persoonlijke ontwikkeling, wat hun verlangen naar autonomie en het vormen van hun eigen identiteit benadrukt \autocite{Zahra2025}.
+
+\vspace{1em}
+
+Ondanks deze sterkte kanten vertoont deze groep ook zwakkere en soms tegenstrijdige eigenschappen. Zo kunnen ze kwetsbaar, zelfgericht en gevoelig voor stress zijn \autocite{Cnossen2024}. Deze combinatie van hoge ambitie en kwetsbaarheid maakt volgens \textcite{Zahra2025} dat individuele erkenning van hun prestaties voor hen van groot belang is.
+
+\vspace{1em}
+
+Samengevat vormt deze generatie een mix van gedrevenheid en creativiteit, gecombineerd met een opvallende gevoeligheid, waarbij persoonlijke ontwikkeling en erkenning centraal staan in hun dagelijks handelen en keuzes.
+
+\vspace{1em}
+
+\subsubsection{Psychologische basisbehoeften op de werkvloer}
+\label{subsubsec:psychbehoeften-z}
+
+\vspace{1em}
+
+Steeds meer individuen van generatie Z betreden de werkvloer. Het wordt alsmaar duidelijker dat deze generatie bepaalde psychologische basisbehoeften heeft ontwikkeld die hun functioneren en welzijn sterk beïnvloeden. Volgens \textcite{Cnossen2024} zijn drie kernbehoeften hierbij essentieel: autonomie, competentie en verbondenheid.
+
+\begin{itemize}
+    \item \textbf{Autonomie}: het vermogen om zelf keuzes te kunnen maken en controle te hebben over de toegewezen taken;
+    \item \textbf{Competentie}: het ervaren van succes en effectiviteit op het werk;
+    \item \textbf{Verbondenheid}: ondanks een zekere neiging tot zelfgerichtheid blijft samenwerking, sociale steun en erkenning binnen hun netwerk van groot belang.
+\end{itemize}
+
+\vspace{1em}
+
+Naast deze basisbehoeften toont generatie Z een duidelijke focus op mentaal welzijn \autocite{Cnossen2024}. Factoren zoals een gezonde werk-privé balans, erkenning, flexibiliteit en mogelijkheden voor persoonlijke groei zijn voor hen cruciaal. Wanneer deze behoeften onvoldoende vervuld worden, kan dit leiden tot een verhoogd risico op stress, futloosheid en zelfs burn-out \autocite{Zahra2025}. Dit benadrukt dat organisaties die generatie Z optimaal willen ondersteunen niet alleen moeten inzetten op prestaties, maar ook op een omgeving die persoonlijke ontwikkeling en welzijn actief stimuleert.
+
+\vspace{1em}
+
+\subsubsection{Werkhouding, verwachtingen en stressfactoren}
+\label{subsubsec:werkhouding-z}
+
+\vspace{1em}
+
+Volgens \textcite{Zahra2025} streeft generatie Z naar zinvol werk, flexibiliteit en mogelijkheden voor persoonlijke groei. Ze willen niet enkel functioneren als “tandwieltjes” in een organisatie, maar vinden het belangrijk dat hun werk bijdraagt aan een groter doel en dat ze zich continu kunnen ontwikkelen.
+
+\vspace{1em}
+
+Echter, door hun ambitieus en perfectionistisch karakter, worden ze regelmatig geconfronteerd met hoge prestatiedruk. De constante blootstelling aan digitale informatie en sociale media zorgt ervoor dat velen zich bijna continu “aan” voelen staan, waardoor het moeilijk is om te ontspannen en echt los te koppelen van werk en verplichtingen \autocite{Cnossen2024}. Bovendien maakt deze generatie zich constant zorgen over hun toekomst, carrièrekansen, financiële situatie, gezondheid, het klimaat en politieke ontwikkelingen, wat bijdraagt aan verhoogde stressniveaus \autocite{Cnossen2024}. 
+
+\vspace{1em}
+
+Hoewel hun technologische vaardigheden de productiviteit en efficiëntie kunnen verhogen, kan overmatig gebruik van digitale tools en sociale media juist leiden tot mentale overbelasting en extra stress \autocite{Zahra2025}. Dit maakt duidelijk dat generatie Z niet alleen behoefte heeft aan uitdagend en betekenisvol werk, maar ook aan een werkomgeving die hen ondersteunt bij het reguleren van werkdruk en het behouden van hun mentale welzijn.
+
+\vspace{1em}
+
+
+
+\subsection{Specifieke risicofactoren bij generatie Z}
+\label{subsec:risicofactoren-twintigers}
+
+\vspace{1em}
+
+Nu de doelgroep werd afgebakend en hun basisbehoeften, werkhouding, verwachtingen en algemene stressfactoren in kaart werden gebracht, kan dieper worden ingegaan op specifieke risicofactoren die generatie Z bijzonder kwetsbaar maken voor burn-out. Hoewel burn-out in essentie een werkgerelateerd fenomeen is, zoals omschreven in de \acrshort{icd}-11 van de \textcite{WHOW2019}, werd in de voorgaande secties reeds aangetoond dat verschillende kenmerken en contextfactoren eigen aan generatie Z hun stressniveau kunnen beïnvloeden. Het is daarom relevant om na te gaan welke specifieke risicofactoren binnen deze generatie het ontstaan van burn-outklachten kunnen versterken.
+
+\vspace{1em}
+
+Generatie Z vormt bovendien geen homogene groep. Binnen deze generatie bestaan duidelijke verschillen in levensfase, verantwoordelijkheden en context. Om deze diversiteit te respecteren, wordt in deze sectie een onderscheid gemaakt tussen generatie Z die zich nog in een onderwijscontext bevindt en generatie Z die reeds actief is op de arbeidsmarkt. Daarnaast worden enkele generatie-specifieke fenomenen besproken die als bijkomende risicofactor kunnen fungeren, namelijk intensief sociale media gebruik en het fenomeen van de zogenaamde \acrlong{qlc}. 
+
+\vspace{1em}
+
+\subsubsection{Studenten}
+\label{subsubsec:studenten}
+
+\vspace{1em}
+
+Hoewel burn-out oorspronkelijk wordt geassocieerd met de arbeidscontext, worden ook studenten geconfronteerd met hoge academische eisen en verwachtingen die hun stressniveau aanzienlijk kunnen verhogen en uitputtingsklachten in de hand kunnen werken. Zo spelen volgens \textcite{Chong2025} tal van factoren een rol bij het ontstaan van burn-out onder studenten.
+
+\vspace{1em}
+
+\paragraph{Omgevingsfactoren}
+
+\vspace{1em}
+
+Een eerste belangrijke categorie betreft de omgevingsfactoren, die terug te vinden zijn in de schoolomgeving, het gebruik van digitale technologieën en de familiale context. Binnen de schoolomgeving spelen relaties, betrokkenheid en het gevoel van eigenwaarde een belangrijke rol bij het beïnvloeden van burn-outniveaus bij studenten. Een positieve en ondersteunende schoolomgeving wordt geassocieerd met lagere burn-outniveaus, terwijl een competitieve of afstandelijke leeromgeving het risico op uitputting en cynisme kan verhogen \autocite{Chong2025}. 
+
+\vspace{1em}
+
+Daarnaast kan, volgens \textcite{Chong2025}, het intensieve gebruik van digitale technologieën, zoals online leerplatformen en sociale media platformen, gevoelens van isolatie en verminderde motivatie versterken, wat het risico op burn-out verder kan verhogen. Dit effect was bijvoorbeeld sterk zichtbaar tijdens de COVID-19-pandemie, toen veel onderwijs online plaatsvonden. 
+
+\vspace{1em}
+
+\textcite{Chong2025} benadrukte tot slot dat sociale en familiale steun een beschermende factor zijn. Betrokkenheid van familie, het ervaren van respect en begrip, en de mogelijkheid om hulp te vragen hangen samen met een hogere cognitieve betrokkenheid en lagere burn-outniveaus bij studenten.
+
+\vspace{1em}
+
+\paragraph{Psychosociale factoren}
+
+\vspace{1em}
+
+Naast omgevingsfactoren spelen ook individuele kenmerken een belangrijke rol bij het ontstaan van burn-out onder studenten. Volgens \textcite{Chong2025} rapporteren studenten met sterke psychosociale vaardigheden (\textit{zoals emotionele intelligentie, zelfeffectiviteit, empathie en doorzettingsvermogen}) doorgaans lagere burn-outniveaus en hogere betrokkenheid bij hun studie. Tegelijkertijd stelden ze dat hoge niveaus van neuroticisme geassocieerd worden met een verhoogd risico op uitputting en cynisme.
+
+\vspace{1em}
+
+Copingstrategieën vormen hier echter volgens hun een belangrijke link. Adaptieve strategieën (\textit{zoals probleemoplossing, cognitieve herstructurering en het inschakelen van sociale steun}) blijken zo het risico op burn-out te verlagen en academische effectiviteit te ondersteunen. Daarentegen zorgen strategieën zoals vermijding, zelfkritiek en sociaal terugtrekken voor hogere niveaus van uitputting, cynisme en verminderde effectiviteit \autocite{Chong2025}. 
+
+\vspace{1em}
+
+Op deze manier lijken psychosociale competenties en de keuze van copingstrategieën het vermogen van studenten te beïnvloeden om stressvolle situaties het hoofd te bieden en betrokken te blijven bij hun studie.
+
+\vspace{1em}
+
+\paragraph{Andere factoren}
+
+\vspace{1em}
+
+Naast omgevingsfactoren en individuele competenties spelen ook andere factoren een rol bij burn-out onder studenten.
+
+\vspace{1em}
+
+\textcite{Chong2025} stelt dat academische prestaties zowel oorzaak als gevolg van burn-outklachten kunnen zijn. Emotionele uitputting, cynisme en een verminderd gevoel van academische effectiviteit hangen aldus samen met lagere cijfers en een verminderde betrokkenheid, terwijl tevredenheid over eigen prestaties en een gevoel van academische competentie juist beschermend werken en engagement bevorderen.
+
+\vspace{1em}
+
+Demografische kenmerken kunnen volgens \textcite{Chong2025} de kwetsbaarheid voor burn-out verder beïnvloeden. Zo rapporteren vrouwelijke studenten vaak hogere niveaus van uitputting en emotionele belasting dan mannelijke studenten, terwijl bepaalde etnische groepen een verhoogd risico vertonen. Daarnaast vulde \textcite{Chong2025} echter aan dat de werkstatus van studenten minder invloedrijk blijken. In sommige gevallen kan werk zelfs bijdragen aan de ontwikkeling van coping vaardigheden.
+
+\vspace{1em}
+
+Leefstijlkeuzes vormen tot slot een belangrijke beïnvloedende factor \autocite{Chong2025}. Ongezonde gewoonten zoals onvoldoende slaap, overmatig alcohol- of drugsgebruik en gebrek aan lichaamsbeweging worden geassocieerd met hogere burn-outniveaus. Terwijl gezonde routines, zoals voldoende slaap en regelmatige lichaamsbeweging, beschermend werken en betrokkenheid bij studie bevorderen \autocite{Chong2025}.
+
+\vspace{1em}
+
+\subsubsection{Jonge werknemers}
+\label{subsubsec:jonge-werknemers}
+
+\vspace{1em}
+
+Generatie Z, de jongste groep op de huidige arbeidsmarkt, blijkt bijzonder kwetsbaar voor burn-out door een combinatie van zowel organisatorische als psychosociale factoren.
+
+\vspace{1em}
+
+\paragraph{Organisatorische factoren}
+
+\vspace{1em}
+
+Uit het onderzoek van \textcite{KowalczykKroenke2026} bleek dat monotone en routinematige werkzaamheden en een slecht werkklimaat met weinig collegiale steun belangrijke stressoren zijn die motivatie en betrokkenheid verminderen. Daarnaast blijkt uit diezelfde studie dat beperkte mogelijkheden voor professionele ontwikkeling en hoge prestatiedruk het risico op burn-out verder verhogen. Het onderzoek van \textcite{Veen2022} ondersteunt dit en benadrukt dat een hoge werkdruk, gebrek aan autonomie, inefficiënte werkprocedures en een onevenwicht tussen inspanning en beloning bijkomende belangrijke organisatorische risicofactoren zijn.
+
+\vspace{1em}
+
+\paragraph{Psychosociale factoren}
+
+\vspace{1em}
+
+Op het vlak van psychosociale factoren rapporteert \textcite{KowalczykKroenke2026} dat een tekort aan vriendelijkheid binnen teaminteracties, ervaringen van pestgedrag en een gebrek aan vertrouwen in eigen competenties de kans op emotionele uitputting en cynisme verhogen. 
+
+\vspace{1em}
+
+\textcite{Veen2022} bevestigt dit en vult aan dat een beperkt sociaal vangnet op de werkvloer (\textit{zoals de steun van collega’s en leidinggevenden}), interpersoonlijke conflicten en onzekerheden over de eigen functie de kwetsbaarheid van generatie Z voor burn-out verder versterken. Ook emotioneel belastende taken en een onduidelijke rolverdeling worden genoemd als risicofactoren voor mentale uitputting.
+
+\vspace{1em}
+
+\subsubsection{Social media gebruik}
+\label{subsubsec:social-media-gebruik}
+
+\vspace{1em}
+
+Naast de factoren binnen onderwijs en werkcontext, vormt ook intensief gebruik van sociale media, zoals eerder aangekaart door \textcite{Chong2025}, een potentiële risicofactor voor stress en burn outklachten bij generatie Z. Uit een recent onderzoek van \textcite{CabezasKlinger2025} blijkt dat meerdere aspecten van online interactie samenhangen met een verhoogde mentale belasting en stressgevoeligheid.
+
+\vspace{1em}
+
+Zo zorgt, volgens van \textcite{CabezasKlinger2025}, overmatig gebruik van sociale media niet alleen voor een verminderde slaapkwaliteit, maar ook voor verhoogde angst, depressieve gevoelens en een zwakker algemeen welbevinden.
+
+\vspace{1em}
+
+Daarnaast speelt sociale vergelijking een belangrijke rol \autocite{CabezasKlinger2025}. Blootstelling aan “sprookjesachtige” beelden en succesverhalen van leeftijdsgenoten kan leiden tot gevoelens van ontoereikendheid en een negatief zelfbeeld. Zo een vergelijking kan de druk om te presteren of “bij te blijven” niet alleen vergroten, maar ook de bijkomende stress die hoort bij een \acrshort{qlc} versterken.
+
+\vspace{1em}
+
+Verder wijst deze studie \autocite{CabezasKlinger2025} op de negatieve impact van cyberbullying en online agressie, welke op hun beurt emotionele spanning en stress kunnen verhogen.
+
+\vspace{1em}
+
+\subsubsection{Quarter Life Crisis}
+\label{subsubsec:quarter-life-crisis}
+
+\vspace{1em}
+
+Naast factoren op school, werk en sociale media, kan de zogenaamde “\acrlong{qlc}” een bijkomend risico vormen voor burn-out binnen generatie Z.
+
+\vspace{1em}
+
+\textcite{Hasyim2024} definieert een \acrshort{qlc} als een crisis die meestal optreedt bij personen tussen 20 en 29 jaar, als het ware tijdens de overgang van adolescentie en volwassenheid. Het is een fenomeen die wordt gekenmerkt door gevoelens van angst, onzekerheid en stress over toekomstige carrièrekeuzes, relaties en levensprestaties \autocite{Hasyim2024}. Zo ervaren jongvolwassenen tijdens deze periode vaak twijfels over hun identiteit en waarden, een gevoel van machteloosheid en extreme stemmingswisselingen. Dit maakt volgens \textcite{Hasyim2024} dat personen die zich bevinden in een \acrshort{qlc} een verhoogd risico hebben op depressie, angststoornissen, stress en verminderde levensvoldoening. Met andere woorden: factoren die resoluut gelinkt worden met een burn-out.
+
+\vspace{1em}
+
+Het ontstaan van een \acrlong{qlc} wordt volgens \textcite{Hasyim2024} door zowel interne als externe factoren beïnvloedt. Interne factoren betreffen persoonlijke eigenschappen zoals doelgerichtheid, spiritualiteit en angst, welke bepalen hoe intens iemand de crisis ervaart. Externe factoren zoals sociale steun, leeftijd, geslacht, de verwachtingen van anderen en maatschappelijke druk, kunnen het risico verder verhogen. Tegelijkertijd speelt een verwarring over de eigen identiteit een cruciale rol: deze zekere onzekerheid vergroot de psychologische kwetsbaarheid en kan de impact van stress en burn-out versterken \autocite{Hasyim2024}.
+
+\vspace{1em}
+
+\subsubsection{Risicofactoren samengevat}
+\label{subsubsec:risicofactoren-samengevat}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{0.25\linewidth}p{0.7\linewidth}}
+        \toprule
+        \textbf{Subsectie} & \textbf{Risicofactoren} \\
+        \midrule
+        Studenten & * Betrokkenheid binnen de schoolomgeving \newline
+        * Gevoel van eigen waarde \newline
+        * Intensiteit technologiegebruik \newline
+        * Sociale media gebruik \newline
+        * Psychosociale vaardigheden \newline
+        * Academische prestaties \newline
+        * Quarter Life Crisis \\
+        \midrule
+        Jonge werknemers & * Monotone/routinematige taken \newline
+        * Slecht werkklimaat \newline
+        * Mogelijkheden tot professionele ontwikkeling \newline
+        * Hoge werkdruk en prestatiedruk \newline
+        * Beperkte autonomie \newline
+        * Sociale media gebruik \newline
+        * Quarter Life Crisis \\
+        \bottomrule
+    \end{tabular}
+    \caption[Overzicht risicofactoren generatie Z]{Kort overzicht van specifieke risicofactoren per subsectie bij generatie Z.}
+    \label{tab:risicofactoren-genZ}
 \end{table}
 
+\newpage
+
+
+
+% Deel 2 - digitalisering en cognitieve belasting
+
+\section{Digitalisering en cognitieve belasting}
+\label{sec:digitalisering-cognitief}
+
+\subsection{De impact van digitalisering op mentale gezondheid}
+\label{subsec:impact-digitalisering}
+
+\vspace{1em}
+
+Sinds de COVID-pandemie ervaarde de maatschappij een grote structurele wijziging en nam de hoeveelheid telewerk aanzienlijk toe, waardoor digitale connectiviteit een regelrechte norm werd. Hoewel digitalisering voordelen biedt, zoals meer flexibiliteit en een verbeterde werk-privébalans \autocite{Bondanini2025}, wijzen recente studies ook op aanzienlijke risico’s voor de mentale gezondheid.
+
+\vspace{1em}
+
+Volgens \textcite{Malik2025} kan intensief digitaal gebruik niet alleen leiden tot digitale overbelasting en verslaving, maar ook tot sociaal isolement en stress door constante connectiviteit. Veel gebruikers rapporteerden mentale vermoeidheid, gevoelens van isolatie en moeilijkheden bij het onderhouden van betekenisvolle relaties. Daarbij zijn er verschillen tussen mannen en vrouwen: mannen ervaren vaker complicaties bij het vinden van een balans tussen werk en privéleven, terwijl vrouwen een hoger risico lopen op online intimidatie en sociale vergelijking, wat gevoelens van kwetsbaarheid en stress versterkt.
+
+\vspace{1em}
+
+Onderzoekers hebben deze mentale belasting in verband gebracht met specifieke concepten die digitale overbelasting beschrijven. Zo worden in de literatuur begrippen als \textbf{information overload} \autocite{Schmitt2021}, \textbf{technostress} \autocite{SanjeevaKumar2024} en \textbf{online vigilance} \autocite{Reinecke2018} gebruikt om de effecten van digitale connectiviteit op cognitieve capaciteit en welzijn te analyseren. Deze begrippen zullen in de volgende subsecties verder worden uitgewerkt.
+
+\vspace{1em}
+
+Empirische studies bevestigen bovendien dat deze vormen van digitale belasting concrete gevolgen hebben voor gebruikers in verschillende contexten. Zo tonen \textcite{Costin2023} aan dat telewerk ook negatieve effecten kan hebben op productiviteit en werktevredenheid. Technologische vermoeidheid en psychologische belasting als gevolg van langdurige digitale interactie kunnen leiden tot verminderde betrokkenheid en lagere werkprestaties. Hieruit blijkt dat mentale belasting door digitale connectiviteit zowel persoonlijke als professionele gevolgen heeft.
+
+\vspace{1em}
+
+Ook \textcite{Bondanini2025} wijzen op de impact van digitale connectiviteit op welzijn en productiviteit op de werkvloer. Digitale technologieën bieden aanzienlijke voordelen, zoals grotere flexibiliteit en efficiëntie bij thuiswerken, wat kan bijdragen aan een betere werk-privébalans en hogere productiviteit. Anderzijds kan overmatig gebruik leiden tot digitale vermoeidheid, burn-out en slaapgerelateerde stoornissen, waarbij langdurige blootstelling aan schermen cognitieve overbelasting en stressniveaus kan verhogen. 
+
+\newpage
+
+De impact verschilt bovendien per sector: zorgmedewerkers ervaren vaker stress en burn-out door constante digitale communicatie, terwijl werknemers in het bedrijfsleven juist profiteren van flexibele digitale werkregelingen \autocite{Bondanini2025}.
+
+\vspace{1em}
+
+In onderwijscontexten wijst onderzoek op soortgelijke effecten. \textcite{Ibrahim2025} benadrukken dat onderwijsinstellingen het aantal gebruikte online platformen moeten beperken, omdat overmatig gebruik een negatieve invloed kan hebben op het welzijn van studenten en cognitieve stress kan verhogen. Een gereduceerd aantal digitale tools kan de mentale belasting verlichten en het welzijn verbeteren.
+
+\vspace{1em}
+
+Tegelijkertijd biedt digitalisering aanzienlijke kansen voor mentaal welzijn. Zo vergemakkelijkt het volgens \textcite{Malik2025} de toegang tot hulpbronnen en ondersteuningssystemen. Daarnaast bevordert het wereldwijde verbindingen en democratiseert het toegang tot geestelijke gezondheidszorg. Digitale interactie ondersteunt bovendien de vorming van online gemeenschappen, waardoor sociale steun en informatie gemakkelijker beschikbaar zijn.
+
+\vspace{1em}
+
+Men kan zich de vraag stellen hoe de voor- en nadelen op elkaar inspelen en hoe men kan evolueren van isolatie tot het vormen van online gemeenschappen. \textcite{Malik2025} benadrukt dat digitale geletterdheid hierbij een cruciale rol speelt: gebruikers met meer ervaring kunnen technologie effectief inzetten voor zelfzorg en het stellen van grenzen, terwijl minder ervaren gebruikers zich vaak overweldigd voelen. Het overbruggen van de digitale kloof is daarom essentieel om de voordelen van digitalisering maximaal te benutten en de negatieve effecten te beperken.
+
+\vspace{1em}
+
+\subsection{Cognitive Load Theory}
+\label{subsec:clt}
+
+\vspace{1em}
+
+Bovenstaande bevindingen over de mentale belasting door digitale connectiviteit en het gebruik van meerdere platforms laten duidelijk zien dat de beschikbare cognitieve capaciteit van gebruikers een cruciale rol speelt. Om deze belasting beter te begrijpen en te kaderen, kan het concept van \acrlong{clt} (\acrshort{clt}) worden gebruikt.
+
+\vspace{1em}
+
+\acrshort{clt}, geïntroduceerd door John Sweller in de jaren tachtig, biedt een fundamenteel kader voor het analyseren van de leer- en verwerkingscapaciteiten van mensen \autocite{Ibrahim2025}. 
+
+\newpage
+
+Volgens deze theorie bestaat leren uit drie belangrijke kerncomponenten: 
+
+\begin{itemize}
+    \item Het leerproces zelf;
+    \item De soorten cognitieve belasting die het leren beïnvloeden;
+    \item De betrokken geheugensystemen, namelijk werkgeheugen en langetermijngeheugen.
+\end{itemize}
+
+Een centraal principe van \acrshort{clt} is volgens \textcite{Ibrahim2025} dat het werkgeheugen een beperkte capaciteit heeft. Wanneer er te veel informatie tegelijkertijd wordt aangeboden of wanneer taken te complex zijn, kan deze capaciteit worden overschreden met verminderde leerprestaties en mentale verwerking als gevolg \autocite{Ibrahim2025}. 
+
+\vspace{1em}
+
+\textcite{Ibrahim2025} wijzen op een verhoogde cognitieve belasting in digitale onderwijssituaties wanneer studenten meerdere onlineplatforms gebruiken. In deze context wordt steeds vaker gesproken over \acrlong{dcl} (\acrshort{dcl}), een uitbreiding van \acrshort{clt} die verwijst naar de mentale stress die wordt veroorzaakt door het gelijktijdig verwerken van verschillende digitale informatiebronnen, meldingen en interfaces. Dit concept is een belangrijk theoretisch uitgangspunt voor verdere analyse van digitale overbelasting en informatie-intensieve omgevingen.
+
+\vspace{1em}
+
+\subsection{Information overload}
+\label{subsec:info-overload}
+
+\vspace{1em}
+
+Zoals eerder besproken in het kader van CLT heeft het werkgeheugen een beperkte capaciteit \autocite{Ibrahim2025}. Zo toonden \textcite{Ibrahim2025} aan dat het gebruik van meerdere digitale platformen kon leiden tot een verhoogde \acrshort{dcl} en dus een impact had op de mentale belasting van gebruikers.
+
+\vspace{1em}
+
+Naast de kwantiteit van digitale platformen kan ook de overmaat aan informatie een belangrijke rol spelen, wat in de literatuur wordt aangeduid als \acrlong{io} (\acrshort{io}) \autocite{Schmitt2021}. \acrshort{io} verwijst naar het ervaren van overweldiging door een grote en heterogene hoeveelheid informatie en functionaliteiten binnen digitale omgevingen.
+
+\vspace{1em}
+
+Deze vorm van overweldiging blijkt bovendien samen te hangen met concrete stressindicatoren in de digitale werkomgeving. Zo rapporteren \textcite{Marsh2024} uit hun onderzoek dat 76\% van de wereldwijd bevraagde werknemers information overload beschouwt als een factor die bijdraagt aan hun dagelijkse stress. Daarnaast tonen \textcite{Marsh2024} aan dat digital workplace stress, \acrlong{io} en Informational Fear of Missing Out (\acrshort{ifomo}) de sterkste correlaties vertonen met uitputting en mentale gezondheid. 
+
+\newpage
+
+Hoewel \acrlong{io} niet rechtstreeks burnout veroorzaakt, verhoogt het wel de ervaren stressniveaus, wat op zijn beurt samenhangt met uitputting en mentale gezondheidsproblemen.
+
+\vspace{1em}
+
+\subsection{Technostress}
+\label{subsec:technostress}
+
+\vspace{1em}
+
+Naast cognitieve overbelasting door informatie kan intensief technologiegebruik zelf stress veroorzaken, wat wordt bestudeerd onder de term \textit{technostress}.
+
+\vspace{1em}
+
+Technostress, geïntroduceerd door Brod in 1984, wordt omschreven als “\textit{a modern disease of adaptation caused by an inability to cope with new computer technologies healthily}” \autocite{SanjeevaKumar2024}. Het verwijst naar negatieve psychologische en fysieke effecten van intensief technologiegebruik, zoals angst, mentale vermoeidheid, gevoelens van ineffectiviteit en een verstoorde balans tussen werk en privéleven \autocite{SanjeevaKumar2024}. Om te begrijpen hoe technostress ontstaat, worden verschillende kernfactoren onderscheiden, ook wel “\textit{technostressoren}” genoemd \autocite{Consiglio2023}:
+
+\begin{itemize}
+    \item \textbf{Techno-overload}: De druk om sneller te werken en meer taken te volbrengen door technologie, wat cognitieve en fysieke belasting verhoogt \autocite{Consiglio2023};
+    \item \textbf{Techno-invasion}: De vervaging van grenzen tussen werk en privéleven door constante digitale connectiviteit, zoals e-mails buiten werktijd of meldingen van werkapps \autocite{SanjeevaKumar2024};
+    \item \textbf{Techno-complexity}: De noodzaak om voortdurend nieuwe technologieën te leren en complexe digitale systemen te beheersen, wat gevoelens van incompetentie en stress kan versterken \autocite{Consiglio2023}.
+\end{itemize}
+
+Langdurige blootstelling aan deze stressoren kan werktevredenheid verlagen en de productiviteit beïnvloeden \autocite{SanjeevaKumar2024}. Daarnaast verhoogt deze stress het risico op burn-out, mentale vermoeidheid en angstklachten \autocite{Consiglio2023}.
+
+\vspace{1em}
+
+\subsection{Online vigilance}
+\label{subsec:online-vigilance}
+
+\vspace{1em}
+
+Een andere dimensie van digitale belasting is online vigilance, waarbij permanente digitale alertheid de cognitieve capaciteit als het ware "opslokt" en de mentale betrokkenheid bij digitale omgevingen beïnvloedt \autocite{Reinecke2018}.
+
+\vspace{1em}
+
+Online vigilance (\acrshort{ov}) beschrijft het psychologisch patroon waarbij individuen permanent mentaal gericht zijn op hun digitale/online omgevingen, waardoor ze continu online-gerelateerde signalen verwerken en de motivatie hebben om online communicatie boven offline activiteiten te prioriteren \autocite{Reinecke2018}.
+
+\vspace{1em}
+
+\acrshort{ov} wordt volgens \textcite{Reinecke2018} daarnaast gekenmerkt door drie kerndimensies: salience, reactibility en monitoring.
+
+\begin{itemize}
+    \item \textbf{Salience}: voortdurend denken aan online toepassingen en meldingen, zelfs wanneer apparaten niet actief worden gebruikt;
+    \item \textbf{Reactibility}: neiging om direct te reageren op meldingen of online interacties, wat multitasking stimuleert en offline aandacht afleidt;
+    \item \textbf{Monitoring}: frequente controle van online content en sociale media om constant op de hoogte te blijven.
+\end{itemize}
+
+Uit het onderzoek van \textcite{Freytag2020} kan er geconcludeerd worden dat uit deze drie dimensies vooral salience sterk samenhangt met hogere stressniveaus. De aanhoudende cognitieve belasting kan voornamelijk gevoelens van uitputting en mentale vermoeidheid veroorzaken. Deze verhoogde stress kan bovendien op termijn bijdragen aan het ontstaan van burn-out \autocite{Petkovski2025}.
+
+\newpage
+
+
+
+% Deel 3 - Preventie- en behandelingsstrategieën bij stress en burn-out
+
+\section{Preventiestrategieën bij stress en burn-out}
+\label{sec:preventie-behandeling}
+
+\subsection{Primaire, secundaire en tertiaire preventie}
+\label{subsec:preventie-types}
+
+\vspace{1em}
+
+Burn-outpreventie kan, in lijn met het klassieke public health-model, op verschillende niveaus worden benaderd \autocite{AbdulRaheem2023}. Voor deze bachelorproef wordt dit vertaald naar drie niveaus: primaire, secundaire en tertiaire preventie.
+
+\begin{itemize}
+    \item \textbf{Primaire preventie}: dit eerste niveau richt zich volgens \textcite{AbdulRaheem2023} op het voorkomen van ziekte of klachten door risicofactoren aan te pakken. In de context van burn-out betekent dit het verminderen van werkgerelateerde stressfactoren en het bevorderen van een gezonde werkomgeving met een goede werk-privébalans \autocite{Leclercq2024};
+    \item \textbf{Secundaire preventie}: een vroege opsporing van klachten om verdere escalatie te voorkomen is de essentie van deze fase volgens \textcite{AbdulRaheem2023}. Een toepassing van dit niveau binnen burn-out is volgens \textcite{Leclercq2024} het herkennen van stress signalen en het inzetten van interventies of tools om hiermee om te kunnen gaan;
+    \item \textbf{Tertiaire preventie}: volgens \textcite{AbdulRaheem2023} draait dit laatste niveau om het beperken van complicaties en het bevorderen van herstel bij reeds aanwezige klachten. In burn-outcontext omvat dit psychologische begeleiding en aanpassingen in verantwoordelijkheden binnen de werkomgeving \autocite{Leclercq2024}.
+\end{itemize}
+
+Echter is er binnen burn-outpreventie geen eenzijdige oplossing. De meest effectieve aanpak combineert volgens \textcite{Leclercq2024} deze drie niveaus, waardoor zowel organisatiegerichte als individuele interventies worden ingezet.
+
+\vspace{1em}
+
+Binnen het secundair en tertiair preventieniveau bestaan daarnaast enkele bewezen therapeutische strategieën die gunstig zijn voor generatie Z, de doelgroep van deze bachelorproef. Zo rapporteerden \textcite{Madigan2023} dat interventies zoals Rational Emotive Behavior Therapy (\acrshort{rebt}), Mindfulness, Psycho-educatie en Cognitieve Gedragstherapie (\acrshort{cbt}) effectief waren bij burn-outpreventie, gerangschikt van meest naar minder gunstig. Deze strategieën worden hieronder afzonderlijk besproken.
+
+\vspace{1em}
+
+\subsection{Cognitieve-gedragstherapie}
+\label{subsec:cgt}
+
+\vspace{1em}
+
+Cognitieve gedragstherapie, ook wel \acrshort{cbt} genoemd, is een bewezen therapievorm, met kleine tot middelgrote effectgroottes \autocite{Madigan2023}, die zich richt op het opsporen en corrigeren van denkfouten die leiden tot afwijkend gedrag en psychische problemen \autocite{foolen-2013}.
+
+\vspace{1em}
+
+Binnen het kader van burn-out kan \acrshort{cbt} worden ingezet als tertiaire preventie om processen te doorbreken die de klachten in stand houden. Zo stelt \textcite{Almen2021} dat burn-out zichzelf in stand kan blijven houden, zelfs wanneer de oorspronkelijke stress al verminderd is. Er ontstaat als het ware een vicieuze cirkel waarbij een disbalans tussen eisen en middelen leidt tot extra inspanning, vermoeidheid en uiteindelijk uitputting \autocite{Almen2021}. Gedragspatronen die volgens \textcite{Almen2021} hierin een belangrijke rol spelen zijn onder andere overbetrokkenheid bij werk, prestatiedrang, maladaptief perfectionisme en piekeren, die herstel belemmeren.
+
+\vspace{1em}
+
+\acrshort{cbt}-interventies bij burn-out richten zich onder meer op het verminderen van vermijdingsgedrag en het stimuleren van toenaderingsgedrag, bijvoorbeeld door personen opnieuw geleidelijk activiteiten te laten opnemen \autocite{Almen2021}. Daarnaast wordt volgens \textcite{Almen2021} aandacht besteed aan herstelgedrag, zoals het leren loskoppelen van werk en het bevorderen van ontspanning. Ten slotte wordt gewerkt aan het herkennen en aanpassen van disfunctionele overtuigingen rond presteren en de angst om door anderen negatief beoordeeld te worden \autocite{Almen2021}.
+
+\vspace{1em}
+
+\subsubsection{Rational Emotive Behavior Therapy}
+\label{subsubsec:rebt}
+
+\vspace{1em}
+
+Rational Emotive Behavior Therapy (\acrshort{rebt}) is in essentie een vroege vorm van \acrshort{cbt} welke een belangrijke basis vormde voor de latere ontwikkeling van cognitieve gedragstherapie \autocite{reynolds-2025}. In onderzoek van \textcite{Madigan2023} werd, net zoals \acrshort{cbt}, aangetoond dat \acrshort{rebt}, met zeer grote effectgroottes, effectief kan zijn bij de behandeling en preventie van burn-out.
+
+\vspace{1em}
+
+\textbf{Waarin verschilt \acrshort{rebt} van \acrshort{cbt}?} In tegenstelling tot een nadruk op externe gebeurtenissen vertrekt \acrshort{rebt} vanuit het idee dat emotionele problemen voornamelijk voortkomen uit irrationele overtuigingen \autocite{reynolds-2025}. Volgens \textcite{Madigan2023} richt deze benadering zich op het identificeren, uitdagen en herstructureren van irrationele overtuigingen die negatieve gedragspatronen in stand houden. Binnen het kader van burn-out kan \acrshort{rebt} hierdoor worden beschouwd als een vorm van secundaire en tertiaire preventie, doordat de interventie zowel gericht is op het verminderen van stressgerelateerde klachten als op het behandelen van bestaande burn-outsymptomen.
+
+\vspace{1em}
+
+De theoretische basis van \acrshort{rebt} wordt beschreven aan de hand van het ABCDE-model, waarin een gebeurtenis (\textit{activating event}) leidt tot overtuigingen (\textit{beliefs}) die vervolgens emotionele en gedragsmatige consequenties (\textit{consequences}) veroorzaken \autocite{reynolds-2025}. Binnen therapie worden irrationele overtuigingen actief uitgedaagd (\textit{disputing irrational beliefs}) met als doel deze te vervangen door meer rationele en adaptieve denkpatronen, ook wel \textit{effective new beliefs genoemd} \autocite{reynolds-2025}.
+
+\vspace{1em}
+
+Belangrijke principes binnen \acrshort{rebt} zijn zelfacceptatie, acceptatie van anderen en acceptatie van de onvermijdelijke moeilijkheden van het leven \autocite{reynolds-2025}. Daarnaast wordt \acrshort{rebt} ook gekenmerkt door een actieve en directe aanpak met een sterke focus op huidige denkpatronen \autocite{reynolds-2025}. Om deze principes toe te passen bestaan er tal van technieken. Dit zijn onder andere: het identificeren en betwisten van irrationele overtuigingen, het herformuleren van negatieve gedachten naar rationele alternatieven, verbeeldingsoefeningen om belastende emoties te vervangen door gezondere reacties, confrontatietechnieken, rollenspellen en uit te voeren taken om mee naar huis te nemen \autocite{reynolds-2025}.
+
+\vspace{1em}
+
+\subsection{Psycho-educatie}
+\label{subsec:psycho-educatie}
+
+\vspace{1em}
+
+Naast \acrlong{cbt} en \acrlong{rebt} wordt psycho-educatie ook als een nuttige interventie beschouwd bij preventie van burn-out, met een medium grote effectgrootte \autocite{Madigan2023}. 
+
+\vspace{1em}
+
+\textcite{Sarkhel2020} beschrijven psycho-educatie als een proces waarbij patiënten, familieleden en mogelijk kwetsbare personen worden geïnformeerd over de oorsprong, gevolgen, prognose en behandelingsmogelijkheden van een psychische aandoening. Volgens dezelfde auteurs is het doel van psycho-educatie deze personen te voorzien van voldoende basiskennis en inzichten om zo op primair, secundair en tertiair niveau in te kunnen grijpen. Hierbij verwijst primair naar het vergroten van waakzaamheid en kennis over risicofactoren, secundair naar het vroegtijdig herkennen en behandelen van eerste klachten, en tertiair naar het bevorderen van herstel en terugvalpreventie \autocite{Sarkhel2020}.
+
+\vspace{1em}
+
+Psycho-educatie kan in diverse vormen plaatsvinden: individueel, binnen de familie, in groepsverband \textit{(idealiter in groepen van 8 personen met vergelijkbare klachten)} of op community-niveau \autocite{Sarkhel2020}. De educatie zelf kan actief worden gegeven, waarbij de therapeut interactief betrokken is, of passief via materiaal zoals brochures, audio- of videomateriaal dat zelfstandig wordt verwerkt \autocite{Sarkhel2020}.
+
+\vspace{1em}
+
+\subsection{Mindfulness}
+\label{subsec:mindfulness}
+
+\vspace{1em}
+
+Tot slot kan mindfulness een belangrijke rol spelen bij de preventie van burn-out, met een middelgrote effectgrootte volgens \textcite{Madigan2023}.
+
+\vspace{1em}
+
+Mindfulness wordt omschreven als het vermogen om volledig aanwezig te zijn in het hier en nu, bewust van gedachten, gevoelens, lichamelijke sensaties en wat er om ons heen gebeurt \autocite{mindful2020}. Het omvat daarbij een niet-oordelende en accepterende houding ten opzichte van deze ervaringen \autocite{Keng2011}. Het beoefenen van mindfulness kan stress verminderen, prestaties verbeteren, meer inzicht geven en het bewustzijn van zowel de eigen geest als het welzijn van anderen vergroten \autocite{mindful2020}. 
+
+\vspace{1em}
+
+Gekende technieken om mindfulness te beoefenen zijn onder andere meditatie (in zittende, staande of bewegende houdingen), korte dagelijkse pauzes, of meditatie gecombineerd met activiteiten zoals yoga of sport \autocite{mindful2020}.
+
+\newpage
+
+
+
+% Deel 4 - Digitale interventies voor mentale gezondheid
+
+\section{Digitale interventies voor mentale gezondheid}
+\label{sec:digitale-interventies}
+
+\vspace{1em}
+
+Ondanks de negatieve maatschappelijke impact van bepaalde technologische evoluties (zie \ref{subsec:impact-digitalisering}), vindt innovatie steeds vaker haar weg naar de medische sector. Zo laten \textcite{Zhang2025} een duidelijke stijging zien in de ontwikkeling van \acrshort{mhealth}-toepassingen voor mentale gezondheidszorg tussen 2005 en 2023. Deze trend onderstreept de groeiende interesse in digitale interventies, specifiek binnen de geestelijke gezondheidszorg.
+
+\vspace{1em}
+
+Waar \acrshort{ehealth} zich breed richt op het digitaliseren van communicatie tussen zorgverlener en patiënt \autocite{Hallberg2020}, gaat \acrshort{mhealth} een stap verder door mobiele technologieën in te zetten voor zorg op afstand. Deze evolutie heeft geleid tot “e-mental healthcare”: digitale oplossingen die psychologische ondersteuning toegankelijk maken voor groepen die de weg naar de traditionele hulpverlening moeilijk vinden \autocite{Timakum2022}.
+
+\vspace{1em}
+
+Deze snelle groei van \acrshort{mhealth}-toepassingen heeft inmiddels geleid tot een enorm aanbod van apps op de markt. Zo identificeerden \textcite{Larsen2019} al \textbf{meer dan 1.400 beschikbare applicaties} voor mentale gezondheid. Een aantal dat sindsdien alleen maar verder is toegenomen. Zo beweert 81\% van de onderzochte applicaties de mentale gezondheid te bevorderen en 64\% symptomen direct te kunnen verbeteren \autocite{Larsen2019}. De realiteit is echter dat slechts 53\% van de gebruikte technieken daadwerkelijk overeenkomt met methoden waarvan de literatuur positieve resultaten laat zien \autocite{Larsen2019}. Bovendien wijst datzelfde onderzoek uit dat slechts een fractie van deze apps onderworpen werd aan hoogwaardige studies of ontwikkeld werd in samenwerking met professionals uit de geestelijke gezondheidszorg \autocite{Larsen2019}. Dit creëert volgens \textcite{Larsen2019} een duidelijke kloof tussen commerciële beloften en de feitelijke wetenschappelijke onderbouwing.
+
+\vspace{1em}
+
+\subsection{Potentieel en randvoorwaarden voor effectiviteit}
+\label{subsec:potentieel-en-randvoorwaarden}
+
+\vspace{1em}
+
+Ondanks deze kloof tonen mobiele apps veelbelovende resultaten in specifieke domeinen. Zo blijkt dat apps voor mindfulness, meditatie of veerkracht training wel degelijk kunnen helpen om burn-out klachten te verminderen en de persoonlijke effectiviteit te verhogen \autocite{Deriglazov2025}. Ook \textcite{keuning2020ehealth} ziet dit potentieel en wijst op de \textbf{voordelen van digitale hulp}. Omdat een app anoniem is en je deze altijd en overal kunt gebruiken, verlaagt het de drempel om hulp te zoeken. Dit geeft gebruikers meer controle en helpt hen om zelfstandig met hun klachten om te gaan \autocite{keuning2020ehealth}. Daarnaast maakt de technologie het mogelijk om realtime gegevens te verzamelen over symptomen en gedrag, wat waardevolle inzichten oplevert voor de monitoring en behandeling \autocite{Khosravi2024}. Ook kunnen online platforms volgens \textcite{Moock2014} steun bieden door het contact met mensen die in eenzelfde situatie zitten.
+
+\vspace{1em}
+
+Toch waarschuwt \textcite{keuning2020ehealth} dat deze technologieën rekening moeten blijven houden met \textbf{bestaande risico’s} zoals gebrekkige privacy en foutieve informatie. Een lek in deze gevoelige data kan bij kwetsbare gebruikers namelijk leiden tot aanzienlijke sociale of mentale stress \autocite{Iwaya2022}. Om deze reden is het van cruciaal belang dat \acrshort{mhealth} wordt ontwikkeld volgens het ”privacy by design”-principe \autocite{Iwaya2022}. Bovendien zijn losstaande apps vaak minder effectief dan 'blended care', waarbij digitale hulp gecombineerd wordt met gesprekken bij een echte zorgverlener \autocite{keuning2020ehealth}. Dit komt mede doordat digitale interactie de fysieke en emotionele signalen van een echt gesprek mist, wat de diepgang van de ondersteuning kan beperken \autocite{Moock2014}. De uiteindelijke effectiviteit hangt dus niet alleen af van de wetenschappelijke basis \autocite{Deriglazov2025}, maar ook van een goede integratie binnen het bestaande zorgproces \autocite{keuning2020ehealth}.
+
+\vspace{1em}
+
+\subsection{Kritieken op bestaande mentale gezondheidsapps}
+\label{subsec:kritieken-apps}
+
+\vspace{1em}
+
+Ondanks het potentieel dat mentale gezondheidsapps te bieden heeft, wijzen verschillende studies op fundamentele tekortkomingen die de effectiviteit en veiligheid van deze apps in de weg staan. Naast de eerder besproken kloof tussen commerciële claims en wetenschappelijke onderbouwing \autocite{Larsen2019}, zijn er andere structurele problemen die de betrouwbaarheid van deze toepassingen ondermijnen.
+
+\vspace{1em}
+
+Een van de meest genoemde problemen in de literatuur is volgens \textcite{Koh2022} de \textbf{lage en instabiele gebruikersbetrokkenheid}. \textcite{Koh2022} stellen dat veel applicaties kampen met een heuse retentieproblematiek: gebruikers downloaden de apps wel, maar gebruiken ze slechts voor een korte periode. Zonder deze langdurige betrokkenheid wordt het echter moeilijk om duurzame gedragsveranderingen of werkelijke verbeteringen in de mentale gezondheid te realiseren \autocite{Koh2022}. De oorzaak van dit probleem? Volgens de onderzoekers bevatten deze applicaties onvoldoende motivatiemechanismen en worden ze niet genoeg geïntegreerd in bestaande therapietrajecten.
+
+\vspace{1em}
+
+Naast de retentieproblematiek benadrukt \textcite{Koh2022} dat veel van deze apps onvoldoende ondersteuning bieden bij psychologische crisissituaties. In situaties zoals suïcidale gedachten of zelfbeschadiging beschikken veel applicaties niet over duidelijke hulpbronnen of directe noodcontacten, wat op zijn beurt kan leiden tot gevaarlijke situaties bij kwetsbare gebruikers \autocite{Koh2022}. 
+
+\vspace{1em}
+
+Tot slot blijven \textbf{privacy en bescherming van data} een cruciaal aandachtspunt. Zoals eerder vermeld door \textcite{Iwaya2022}, loopt deze gevoelige data risico om slachtoffer te worden van een datalek. \textcite{Koh2022} vullen aan dat veel applicaties zelfs basisbeveiliging missen, zoals een simpele passcode-bescherming. Uiteraard vormt dit een groot beveiligingsrisico waardoor gebruikers riskeren dat hun identiteit als hulpzoekende verspreid wordt \autocite{Koh2022}. Gezien het stigma dat vaak nog rond mentale gezondheid hangt, kan een dergelijk lek leiden tot aanzienlijke sociale en mentale stress \autocite{Iwaya2022}. Het is daarom van uiterst belang dat \acrshort{mhealth} wordt ontwikkeld volgens het “privacy by design”-principe, waarbij privacy vanaf de eerste stap binnen ontwikkeling als een fundamentele eis wordt beschouwd \autocite{Iwaya2022}.
+
+\vspace{1em}
+
+\subsection{Engagement en retentieproblematiek}
+\label{subsec:engagement-retentie}
+
+\vspace{1em}
+
+Zoals \textcite{Koh2022} eerder aanhaalden, kampen mentale gezondheidsapps met een aanzienlijke engagement- en retentieproblematiek. Ondanks de sterke toename van smartphonegebruik en toegang tot het internet is het volledige potentieel van \acrshort{mhealth} verre van gerealiseerd \autocite{Portz2024}. De vraag is dan ook waarom deze technologie momenteel onvoldoende wordt omarmd. 
+
+\vspace{1em}
+
+\subsubsection{Factoren voor adoptie}
+\label{subsubsec:factoren-voor-adoptie}
+
+\vspace{1em}
+
+Volgens \textcite{Portz2024} wordt de adoptie van dergelijke innovaties door verschillende factoren beïnvloed. 
+
+\vspace{1em}
+
+In eerste instantie is het \textbf{waargenomen voordeel} van de technologie volgens \autocite{Portz2024} cruciaal. Gebruikers moeten immers overtuigd zijn van de effectiviteit voordat ze overgaan tot installatie. Indien een app een duidelijke verbetering belooft, zijn gebruikers sneller geneigd deze te omarmen, al is het hierbij essentieel om de kritiek van \textcite{Larsen2019} in het achterhoofd te houden: commerciële claims over effectiviteit missen vaak een harde wetenschappelijke onderbouwing. 
+
+\vspace{1em}
+
+Daarnaast zijn volgens \textcite{Portz2024} het \textbf{gebruiksgemak} en de toegankelijkheid essentieel, zeker voor groepen zoals ouderen, mensen met een lagere sociaaleconomische status en personen met een beperking. Een intuïtieve interface is dan ook van uiterst belang voor een hoge betrokkenheid en het voorkomen van vroegtijdig afhaken.
+
+\vspace{1em}
+
+\subsubsection{Drempels bij installatie van de app}
+\label{subsubsec:drempels-bij-installatie-app}
+
+\vspace{1em}
+
+Ondanks de voordelen en het potentieel dat een \acrshort{mhealth} app kan bieden blijven er redelijk wat obstakels die een brede adoptie in de weg staan. Naast zorgen over privacy en gegevensbeveiliging, speelt de drempel om de app te bemachtigen een grote rol \autocite{Portz2024}. Het succes van de startfase hangt sterk samen met de eenvoud van het downloadproces en de oorspronkelijke motivatie van de gebruiker \autocite{Portz2024}. Bij een gebrek aan vroege betrokkenheid komt een gebruiker er vaak niet eens toe om de app in eerste instantie te installeren of het personaliseren van de instellingen.
+
+\vspace{1em}
+
+\subsubsection{Strategieën voor een hogere retentie}
+\label{subsubsec:strat-voor-hogerere-retentie}
+
+\vspace{1em}
+
+Zodra een app geïnstalleerd werd, begint het echte werk: \textbf{loyaliteit opbouwen}. Gebruikers kunnen namelijk razendsnel afhaken. Voor sommigen is het ontbreken van directe communicatie met zorgprofessionals een absoluut breekpunt, terwijl dit voor anderen een gebrek aan interactiviteit, technische problemen of aanhoudende zorgen over privacy is \autocite{Portz2024}.
+
+\vspace{1em}
+
+Om dat afhaken te voorkomen, stellen \textcite{Portz2024} dat het succes van retentie afhangt van de balans tussen de kwaliteit van de app en de perceptie van de voor- en nadelen door de gebruiker. Gebruikers blijven voornamelijk betrokken wanneer de functies nauw aansluiten bij hun persoonlijke gezondheidsdoelen en wanneer er gebruik wordt gemaakt van medisch onderbouwde technieken. Daarnaast spelen sociale ondersteuning binnen de app (een zogenaamde “\textit{community feel}”), persoonlijke coaching en het ontvangen van gerichte feedback een cruciale rol. Ook regelmatige herinneringen kunnen de betrokkenheid verhogen, mits deze relevantie bieden en niet gaan irriteren \autocite{Portz2024}.
+
+\vspace{1em}
+
+Hoewel een hoge retentie het doel is, hoeft deze betrokkenheid niet altijd constant te zijn. Het is volgens \textcite{Portz2024} juist een kracht als een app de ruimte biedt om even afstand te nemen, zodat gebruikers de draad weer kunnen oppakken op het moment dat de noodzaak er echt is. De kunst is dan ook om voldoende interactie te voorzien die ondersteunt, zonder dat het ooit overweldigend wordt of als een verplichting aanvoelt.
+
+\newpage
+
+
+
+% Deel 5 - UX- en ontwerpprincipes voor mentale rust
+
+\section{UI/UX-ontwerp en cognitieve belasting}
+\label{sec:ux-ontwerp}
+
+\subsection{Algemeen}
+\label{subsec:uiux-algemeen}
+
+\vspace{1em}
+
+Zoals eerder in sectie \ref{sec:digitalisering-cognitief} werd beschreven, hebben digitale technologieën en online platformen een steeds grotere impact op ons mentaal welzijn. Daarom is het belangrijk om hier in de ontwerpfase rekening mee te houden. Binnen \acrshort{ui}/\acrshort{ux}-ontwerp is cognitieve belasting een cruciale factor: als een interface te ingewikkeld is, leidt dat simpelweg tot frustratie, fouten en minder motivatie bij de gebruiker \autocite{thealien2025cognitiveload}.
+
+\vspace{1em}
+
+Om \textit{wellbeing supportive design}, te kunnen definiëren baseerde \textcite{Peters2022} zijn onderzoek op de \textbf{Self-Determination Theory} (\acrshort{sdt}). Volgens deze theorie hebben mensen drie psychologische basisbehoeften nodig om zich goed te voelen en gemotiveerd te blijven.
+
+\begin{itemize}
+    \item \textbf{Autonomie}: Het gevoel dat je zelf keuzes kan maken en je eigen doelen volgt;
+    \item \textbf{Competentie}: Het gevoel dat je ergens goed in bent en de controle hebt over wat je doet;
+    \item \textbf{Verbondenheid}: Het gevoel dat je contact hebt met anderen en deel maakt van een gemeenschap.
+\end{itemize}
+
+\vspace{1em}
+
+\subsubsection{Hoe verlaag je de cognitieve belasting aan de hand van UX-design?}
+\label{subsubsec:cognitieve-belasting-ux}
+
+\vspace{1em}
+
+Op basis van de \acrshort{sdt} met zijn behoeften kunnen er volgens \textcite{Peters2022} specifieke keuzes gemaakt worden in de ontwerpfase:
+
+\vspace{1em}
+\vspace{1em}
+
+\textbf{Ondersteunen van de autonomie:}
+
+\begin{itemize}
+    \item Volg de \acrshort{wcag}-richtlijnen voor toegankelijkheid van je app;
+    \item Maak betekenvolle keuzes die passen bij de doelen van de gebruiker;
+    \item Geef genoeg uitleg zodat mensen zelf beslissingen kunnen nemen. Gebruik hierbij autonomie-ondersteunende communicatie \textit{(bijv. “Je kunt …” in plaats van “Je moet …”)};
+    \item Beperk afleidingen, vereenvoudig interfaces en laat pas informatie zien wanneer het nodig is (\textit{progressive disclosure}) om zo \acrshort{io} te vermijden.
+\end{itemize}
+
+\newpage
+
+\textbf{Ondersteunen van competentie:}
+\begin{itemize}
+    \item Deel complexe taken op in kleine, meer haalbare stukjes (\textit{chunking});
+    \item Pas de moeilijkheidsgraad aan op het niveau van de gebruiker;
+    \item Geef feedback op wat iemand doet in plaats van op de gebruiker zelf.
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Ondersteunen van verbondenheid:}
+\begin{itemize}
+    \item Maak sociale interactie en het vormen van een community mogelijk;
+    \item Geef opties om samen te werken, dingen te delen of simpelweg waardering aan anderen te tonen.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+
+\subsubsection{Hoe verlaag je de cognitieve belasting aan de hand van UI-design?}
+\label{subsubsec:cognitieve-belasting-ui}
+
+\vspace{1em}
+
+Naast \acrshort{ux}-principes, welke eerder kijkt naar structuur en een proces, kan er ook gefocust worden op hoe deze informatie visueel vertaald wordt. Recente inzichten van designers \textcite{thealien2025cognitiveload} en \textcite{anoda2024ux}, die ook mooi aansloten op het onderzoek van \textcite{Peters2022}, verklaarden zo dat een interface pas effectief is wanneer zowel de visuele structuur (\acrshort{ui}) als de psychologische belevingen kloppen (\acrshort{ux}).
+
+\vspace{1em}
+
+Volgens \textcite{thealien2025cognitiveload} ligt de focus daarbij vooral op het creëren van \textbf{rust en overzicht}. Door informatie helder te organiseren binnen een logische visuele hiërarchie en een consistente stijl te hanteren, hoeft de gebruiker niet te zoeken naar de essentie. Een interface die visueel voorspelbaar is, verlaagt de drempel voor fouten en onzekerheid.
+
+\vspace{1em}
+
+\textcite{anoda2024ux} vult dit aan met het principe van \textbf{emotional design}. Hierbij speelt het \textit{aesthetic-usability effect} een grote rol: gebruikers ervaren een mooi en verzorgd ontwerp automatisch als makkelijker in gebruik. Door de juiste kleuren, typografie en animaties te gebruiken die een consistente emotionele toon uitstralen, wordt de interactie aangenamer. Ook het toevoegen van kleine visuele beloningen bij het voltooien van een taak verhoogt de motivatie en verlaagt de ervaren mentale druk.
+
+\newpage
+
+
+\subsection{Motivatie- en betrokkenheidsstrategieën}
+\label{subsec:motivatie-betrokkenheid-strat}
+
+\vspace{1em}
+
+Gezien de huidige retentieproblematiek binnen mentale gezondheidsapps, zoals beschreven in sectie \ref{subsec:engagement-retentie}, is het essentieel om te achterhalen hoe \acrshort{ui}/\acrshort{ux}-design hierop kan inspelen en dus de motivatie en betrokkenheid van gebruikers kan verhogen.
+
+\vspace{1em}
+
+Volgens \textcite{Portz2024} speelt '\textbf{bidirectional engagement}' (\textit{tweezijdige betrokkenheid}) hierin een cruciale rol. Zo stellen ze dat deze vorm van interactie het gevoel van autonomie bij de gebruiker vergroot, wat direct bijdraagt aan hun \textit{empowerment} in het beheren van de eigen mentale gezondheid. In de praktijk houdt dit in dat elke uitwisseling van informatie, feedback of actie altijd in twee richtingen verloopt. Dit principe vertaalt zich binnen \acrshort{ui}/\acrshort{ux}-design naar concrete elementen zoals \textit{personalisatie}, \textit{gamification} en \textit{sociale ondersteuning} onder de vorm van een community \autocite{Portz2024}.
+
+\vspace{1em}
+
+\subsubsection{Autonomie-ondersteunend design}
+\label{subsubsec:autonomie-ondersteunend-design}
+
+\vspace{1em}
+
+Om deze autonomie verder te ondersteunen vult \textcite{Peters2022} hierbij aan dat het bieden van \textbf{keuzevrijheid over doelen en strategieën} essentieel is. Niet alleen is dit volgens \textcite{Peters2022} belangrijk voor een plezierige gebruikerservaring (\textit{enjoyable play}), maar verhoogt het ook de effectiviteit van de interventie. \textcite{Peters2022} stelt vervolgens dat het aanbieden van aanpasbare profielen dit gevoel van eigenaarschap versterkt, wat leidt tot een hogere motivatie en betere beoordelingen door de gebruiker. Deze strategische keuzes sluiten dan ook mooi aan bij de behoeften van Generatie Z, van wie we uit eerdere literatuur (sectie \ref{subsec:kenmerken-generatieZ}) reeds weten dat zij een grote waarde hechten aan autonomie en zelfexpressie.
+
+\vspace{1em}
+
+Daarnaast benadrukt \textcite{Peters2022} dat ook de manier waarop \textbf{feedback en beloningen} worden ontworpen een belangrijke rol speelt in het ondersteunen van motivatie. Beloningen die strikt gekoppeld zijn aan prestaties kunnen volgens hem namelijk een gevoel van controle creëren, wat de ervaren autonomie kan verminderen. In plaats daarvan raad \textcite{Peters2022} aan om beloningen effectiever in te zetten als informatieve feedback. Denk hierbij aan badges die vooruitgang visualiseren of onverwachte beloningen (\textit{surprise delighters}) die erkenning geven voor een behaalde mijlpaal. Zo dient de beloning als een bevestiging van het proces, in plaats van een dwingend einddoel. Verder kunnen volgens \textcite{Peters2022} mogelijkheden voor \textbf{sociale interactie} het gevoel van verbondenheid en dus engagement versterken, wat aansluit bij de eerdergenoemde visie van \textcite{Portz2024}.
+
+\vspace{1em}
+
+\subsubsection{Gamification}
+\label{subsubsec:gamification}
+
+\vspace{1em}
+
+\textcite{Auf2021} benadrukken dat ook gamification een effectieve strategie kan zijn om engagement in mentale gezondheidsapps te vergroten, mits dit correct wordt toegepast. Volgens de auteurs moet gamification steeds gekoppeld zijn aan \textbf{daadwerkelijke progressie} op het vlak van mentale gezondheid, en dus niet louter aan het verzamelen van punten of virtuele beloningen. Wanneer spelelementen geen duidelijke relatie hebben met het beoogde gezondheidsdoel, bestaat het risico dat gebruikers zich eerder focussen op het behalen van beloningen dan op het verbeteren van hun welzijn. Om dit te vermijden raden \textcite{Auf2021} aan om gebruik te maken van de \textbf{SMARTER}-principes (\textit{Specifiek, Meetbaar, Acceptabel, Realistisch, Tijdsgebonden, Engaging, Rewarding}) bij het implementeren van gamification.
+
+\vspace{1em}
+
+Het gebruik van \textbf{narratieven en personages} kan daarnaast volgens \textcite{Auf2021} de betrokkenheid versterken, omdat storytelling en speelse elementen gebruikers zowel emotioneel als cognitief bij de applicatie helpen betrekken.
+
+\vspace{1em}
+
+\subsubsection{Nudging}
+\label{subsubsec:nudging}
+
+\vspace{1em}
+
+Naast gamification bespreken \textcite{Auf2021} ook het gebruik van nudgingtechnieken om gebruikers te stimuleren tot gewenst gedrag. Dit zijn als het ware subtiele ontwerpkeuzes die het gedrag van gebruikers beïnvloeden zonder hen te dwingen. Voorbeelden van dergelijke nudges zijn bijvoorbeeld herinneringen via notificaties, zelfmonitoring (\textit{zoals mood tracking}), chunking en eenvoudige interface-elementen die navigatie en gebruik vereenvoudigen.
+
+\vspace{1em}
+
+\textcite{Auf2021} geven zelf geen concrete ontwerpaanbevelingen voor nudging, maar benadrukten wel dat één type nudge niet voor alle gebruikers effectief is. Om deze reden kan \textbf{personalized nudging}, waarbij nudges worden afgestemd op persoonlijke kenmerken, effectiever zijn in het ondersteunen van duurzame gedragsverandering. Echter waarschuwden \textcite{Auf2021} wel dat deze personalisatie zorgvuldig moet worden aangepakt, gezien verkeerd gebruik risico’s met zich kan meebrengen op het gebied van privacy en ethiek.
+
+\vspace{1em}
+\vspace{1em}
+
+\subsection{Notificatiestrategieën}
+\label{subsec:notificatie-strat}
+
+\vspace{1em}
+
+Zoals eerder besproken binnen deze literatuurstudie blijkt dat notificaties een belangrijke rol kunnen spelen in het verhogen van gebruikersbetrokkenheid en motivatie (sectie \ref{subsubsec:nudging}). Echter werd ook duidelijk in sectie \ref{subsec:online-vigilance} dat notificaties ook kunnen leiden tot "\textit{online vigilance}": een staat van constante digitale alertheid met negatieve gevolgen voor de mentale gezondheid. Vanwege deze tegenstrijdige effecten is een strategische inzet van notificaties dan ook essentieel. Het doel is enerzijds om engagement te bevorderen en gedragsverandering te ondersteunen, terwijl anderzijds cognitieve overbelasting en afhankelijkheid van meldingen worden voorkomen.
+
+\vspace{1em}
+
+\subsubsection{Strategische inzet van notificaties}
+\label{subsubsec:strategie-notificaties}
+
+\vspace{1em}
+
+\textcite{Bell2023} benadrukken dat notificaties belangrijke instrumenten zijn voor gedragsverandering, maar dat een vaste dagelijkse melding of een willekeurige reeks meldingen de betrokkenheid niet exact verhoogt. \textcite{Bell2023} stellen dus dat notificaties dynamisch moeten worden ingezet door bijvoorbeeld enkel een melding te sturen wanneer het gebruikspatroon van de gebruiker aangeeft dat hij of zij risico loopt om af te haken. Daarnaast laten \textcite{Szinay2020} zien dat het moment van notificatie ook een grote rol speelt op het vlak van effectiviteit. Wanneer notificaties op een ongepast moment verschijnen, zoals in het bijzijn van anderen terwijl de melding gevoelige informatie bevat, kunnen gebruikers meldingen uitschakelen of negeren. Timing en context zijn daarom cruciaal voor een effectieve inzet van notificaties.
+
+\vspace{1em}
+
+\subsubsection{Ontwerpprincipes voor effectieve notificaties}
+\label{subsubsec:ontwerp-notificaties}
+
+\vspace{1em}
+
+Volgens \textcite{Woodward2021} spelen de volgende richtlijnen een cruciale rol bij de effectiviteit van notificaties binnen \acrshort{mhealth}-apps:
+
+\begin{itemize}
+    \item \textbf{Contextafhankelijke triggers}: Verstuur meldingen op basis van de activiteiten en omgeving van de gebruiker in plaats van op vaste tijdstippen;
+    \item \textbf{Gepersonaliseerde inhoud}: Stem berichten af op de gebruiker;
+    \item \textbf{Variatie in inhoud}: Wissel de inhoud en formulering van notificaties af om eentonigheid te voorkomen;
+    \item \textbf{Frequentie}: Stem het aantal meldingen af op de bereidheid van de gebruiker om gedrag te veranderen. Meer notificaties zijn niet per se beter;
+    \item \textbf{Interactiviteit}: Voeg interactieve elementen (\textit{zoals een bevestigingsknop}) toe om engagement te vergroten;
+    \item \textbf{Focus op autonomie}: Beperk het aantal herinneringen om te voorkomen dat gebruikers afhankelijk worden van de app in plaats van zelf gezonde gewoonten te ontwikkelen.
+\end{itemize}
+
+\newpage
+
+
+
+% Deel 6 - Technologieselectie
+
+\section{Technologieselectie}
+\label{sec:technologieselectie}
+
+\vspace{1em}
+
+Bij de ontwikkeling van een mobiele applicatie zijn er verschillende technologische benaderingen mogelijk. Elke aanpak heeft eigen voor- en nadelen op het vlak van prestaties, ontwikkelcomplexiteit, onderhoud, platformcompatibiliteit en gebruikerservaring. 
+
+\vspace{1em}
+
+Binnen de context van deze bachelorproef is het essentieel om een technologie te selecteren die niet alleen technisch haalbaar is binnen de beschikbare tijd, maar ook nauw aansluit bij de wensen en noden van de doelgroep zoals die uit de literatuurstudie naar voren zijn gekomen. De gekozen technologie moet immers toelaten om de probleemstelling uit hoofdstuk \ref{ch:inleiding} effectief aan te pakken in de uiteindelijke \acrshort{poc}.
+
+\vspace{1em}
+
+\subsection{Beschikbare app-technologieën}
+\label{subsec:app-tech}
+
+\vspace{1em}
+
+Zoals hierboven aangehaald bestaan er verschillende technologische benaderingen voor de ontwikkeling van mobiele applicaties. De meest voorkomende categorieën zijn: native applicaties, hybride/cross-platform applicaties en \acrlong{pwa}s. Elk van deze benaderingen verschilt in gebruik van technologieën en heeft zo zijn eigen kenmerken. \textcite{Gerges2024} beschrijven deze soorten applicaties als volgt:
+
+\begin{itemize}
+    \item \textbf{Native applicaties}: Zijn platformafhankelijke applicaties die specifiek worden ontwikkeld op basis van één besturingssysteem \autocite{Gerges2024};
+    \item \textbf{Hybride of cross-platform applicaties}: Zijn applicaties die worden ontwikkeld met standaard webtechnologieën zoals HTML, CSS en JavaScript die vervolgens worden verpakt als een native app via cross-platform frameworks en tools. Ze zijn als het ware native apps die niet specifiek toegespitst zijn op één besturingssysteem \autocite{Gerges2024};
+    \item \textbf{Progressive Web Apps} (\acrshort{pwa}): Zijn speciale webapplicaties die gebruik maken van de functionaliteiten die native apps kunnen bieden. Zo zijn ze ontworpen om offline gebruik, snelle toegang en push-notificaties te ondersteunen, terwijl ze bereikbaar zijn via een internetbrowser op vrijwel elk platform. Daarnaast kunnen PWA’s ook op het startscherm van een toestel worden toegevoegd, waardoor ze voor de gebruiker functioneren en ogen als een gewone mobiele applicatie \autocite{Gerges2024}.
+\end{itemize}
+
+\vspace{1em}
+
+\subsection{Overzichtstabel}
+\label{subsec:app-tech-overzicht}
+
+\vspace{1em}
+
+Hoewel de bovenstaande definities een goed beeld geven van de verschillende soorten applicaties, is het voor een gegronde technologiekeuze nuttig om de belangrijkste kenmerken en mogelijkheden van native, hybride en PWA-applicaties op een rijtje te zetten. De informatie in de volgende vergelijkingstabel is gebaseerd op de analyse van \textcite{Gerges2024} en \textcite{Samsyudin2025} welke een overzicht geeft van de significante verschillen tussen deze benaderingen.
+
+\vspace{1em}
+\vspace{1em}
+
+{
+\small % kleiner lettertype voor de hele tabel
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{3cm} 
+        >{\raggedright\arraybackslash}p{2cm}}
+    \toprule
+    \textbf{} & \textbf{Native} & \textbf{Hybrid} & \textbf{PWA} & \textbf{Bron} \\
+    \midrule
+    \endfirsthead
+    
+    \multicolumn{5}{c}%
+    {\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+    \toprule
+    \textbf{Kenmerk} & \textbf{Native} & \textbf{Hybrid} & \textbf{PWA} & \textbf{Bron} \\
+    \midrule
+    \endhead
+    
+    \midrule \multicolumn{5}{r}{Vervolg op volgende pagina} \\
+    \endfoot
+    
+    \bottomrule
+    \caption[Vergelijking van ontwikkelmethoden]{Vergelijking van Native, Cross-platform en \acrshort{pwa} ontwikkeling.} \\
+    \endlastfoot
+    
+    \textbf{Ontwikkeling} & Platformspecifiek \newline \underline{iOS}: Swift / Objective-C \newline \underline{Android}: \newline Java / Kotlin \newline & 
+    HTML, CSS, JavaScript verpakt in een cross-platform framework &
+    Webapplicatie met service workers en Web App Manifest & 
+    \autocite{Gerges2024} \\
+    
+    \textbf{Cross-platform} & Nee & Ja & Ja & \autocite{Gerges2024} \\
+    
+    \textbf{Hardware toegang} & Ja & Beperkter \newline \textit{(via plug-ins)} & Beperkt \textit{(niet alle functies beschikbaar)} \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Offline functionaliteit} & Ja & Ja & Ja & \autocite{Gerges2024} \\
+    
+    \textbf{Installatie} & Appstore & Appstore & Optionele download via browser \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Prestaties} & Hoogste & Goed & Gemiddeld \textit{(niet geschikt voor resource intensieve apps)} \newline & \autocite{Gerges2024} \\
+    
+    \textbf{Ontwikkelkost} & Hoog & Gemiddeld & Laag & \autocite{Gerges2024} \\
+    \textbf{Ontwikkeltijd} & Lang & Gemiddeld & Kort & \autocite{Gerges2024} \\
+    
+    \textbf{\acrshort{ux}} & 
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Volledig afgestemd op OS
+            \item Intuïtief
+            \item Optimale UX
+            \item Hoge tevredenheid \newline
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Native-achtige ervaring
+            \item Redelijk soepel
+            \item Consistente UX tussen OS
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Redelijke UX
+            \item Minder responsief
+        \end{itemize}
+    \end{minipage} & 
+    \textit{Native} \newline \textit{PWA} \newline \textit{Hybrid} \newline
+    \autocite{Gerges2024} \\
+    
+    \textbf{Aanbeveling} & 
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Resource-intensieve apps, games, bankieren
+            \item Apps met hardware-integratie
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Apps die op meerdere platformen moeten draaien met snelle ontwikkeling
+        \end{itemize}
+    \end{minipage} &
+    
+    \begin{minipage}[t]{\hsize}
+        \raggedright
+        \begin{itemize}[leftmargin=*, itemsep=2mm]
+            \item Apps voor snel veranderende markten
+            \item Lage kosten
+        \end{itemize}
+    \end{minipage} & 
+    \textit{Native} \newline \textit{PWA} \newline \autocite{Samsyudin2025} \newline \textit{Hybrid} \newline \autocite{Gerges2024} \\
+\end{longtable}
+}
+
+\vspace{1em}
+
+\subsection{Motivatie en keuze van technologie}
+\label{subsec:app-tech-keuze}
+
+\vspace{1em}
+
+Gezien de focus van deze bachelorproef op de ontwikkeling van een mentale gezondheidsapplicatie, is de technologiekeuze cruciaal. De geselecteerde technologie moet enerzijds technisch haalbaar zijn binnen de beschikbare tijd en middelen, en anderzijds een gebruikerservaring bieden die aansluit bij de specifieke behoeften van de doelgroep.
+
+\vspace{1em}
+
+\subsubsection{Native}
+\label{subsubsec:native}
+
+\vspace{1em}
+
+Hoewel een \textbf{native} applicatie normaal gezien de beste prestaties en de meest optimale gebruikerservaring biedt \autocite{Samsyudin2025}, vereist deze aanpak aparte codebases per besturingssysteem en een gespecialiseerde kennis van meerdere programmeertalen. Met andere woorden: aanzienlijk meer tijd en middelen zijn vereist \autocite{Gerges2024}. Voor de ontwikkeling van de \acrshort{poc}, waarin slechts één ontwikkelaar ter beschikking voor is met beperkte tijd, is een native benadering daarom niet haalbaar.
+
+\vspace{1em}
+
+\subsubsection{PWA}
+\label{subsubsec:pwa}
+
+\vspace{1em}
+
+Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware- \newline functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
+
+\vspace{1em}
+
+\subsubsection{Cross-platform}
+\label{subsubsec:cross-platform}
+
+\vspace{1em}
+
+Daarom wordt er binnen de scope van dit project geopteerd voor een \textbf{cross-platform} benadering. Deze aanpak biedt een native-achtige gebruikerservaring \autocite{Gerges2024} die intuïtief en consistent is over verschillende platformen, terwijl de ontwikkeltijd aanzienlijk korter is dan bij native ontwikkeling. Omdat op het eerste gezicht de huidige functionele vereisten geen diepe integratie met complexe hardware \textit{(zoals sensoren)} vereisen, volstaat deze technologie volledig. Binnen de cross-platform benadering bestaan verschillende frameworks, zoals React Native, Flutter en Xamarin \autocite{Souha2024}. Onder het mom van efficiëntie wordt voor deze \acrshort{poc} geopteerd voor \textbf{React Native}. Gezien de aanwezige voorkennis van React biedt dit framework de laagste leercurve. Dit garandeert een tijdsefficiënt ontwikkelproces voor de \acrshort{poc}.
+
+\vspace{1em}
+
+Kortom: de keuze voor een cross-platform oplossing gebruikmakend van React Native vormt een optimale balans tussen haalbaarheid, \acrshort{ux} en technische functionaliteit. Het maakt de ontwikkeling van een \acrshort{poc} mogelijk binnen de beschikbare tijd, waarbij de gebruiker geniet van een comfortabele, frustratievrije ervaring.
+
+\newpage
+
+
+
+% Deel 7 - Longlist
+
+\section{Longlist}
+\label{sec:longlist}
+
+\vspace{1em}
+
+Vanwege een zekere \textit{explosie} aan \acrshort{mhealth}-applicaties, waarvan slechts 53\% wetenschappelijk onderbouwde technieken gebruikt \autocite{Larsen2019}, is voor dit onderzoek niet gekozen voor een willekeurige zoektocht in app-stores. Om de kloof tussen commerciële beloften en feitelijke effectiviteit te overbruggen, is een gerichte longlist samengesteld op basis van professioneel gescreende databanken. 
+
+\vspace{1em}
+
+De onderstaande longlist werd samengesteld door het raadplegen van betrouwbare kwaliteitsplatformen zoals \textit{onlinehulp-apps.be} en \textit{mind.orchahealth.com}. Deze platformen beoordelen apps op basis van strikte criteria rondom klinische veiligheid, gegevensbeveiliging en gebruiksvriendelijkheid. Bij het doorzoeken van deze databanken werd gebruikgemaakt van relevante zoektermen zoals \textit{"anti-burn-out", "stress", "REBT", "CBT"} en \textit{"mindfulness"}. Aanvullend werden enkele veelbelovende applicaties opgenomen uit de selectie van \textit{Bradley University}.
+
+\vspace{1em}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{2.6cm}  % Naam
+            >{\raggedright\arraybackslash}p{4.2cm}  % Beschrijving
+            >{\raggedright\arraybackslash}p{1.6cm}  % Type
+            >{\raggedright\arraybackslash}p{1.4cm}  % Gratis
+            >{\raggedright\arraybackslash}p{1.6cm}  % Reviews
+            >{\raggedright\arraybackslash}p{3.2cm}  % Therapie
+        }
+        \toprule
+        \textbf{Naam} & \textbf{Omschrijving} & \textbf{Type} & \textbf{Gratis} & \textbf{Reviews} & \textbf{Techniek} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{6}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Naam} & \textbf{Omschrijving} & \textbf{Type} & \textbf{Gratis} & \textbf{Reviews} & \textbf{Techniek} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{6}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht burn-out interventies]{Overzicht en vergelijking van bestaande digitale toepassingen gebaseerd op gecureerde databanken.} 
+        \label{tab:digitale-toepassingen-burnout}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Mindfulness / Meditatie}} \\ \midrule
+        VGZ Mindfulness Coach & Biedt vijf programma’s met dagelijkse oefeningen en meer dan 70 losse oefeningen rond mindfulness, yoga en ademhaling, met extra functies zoals offline gebruik en favorieten opslaan. \autocite{onlinehulpapps} & App & \vink & 4.4 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Headspace & Biedt interactieve meditatie- en mindfulnessoefeningen met functies zoals begeleide sessies, slaapgeluiden, voortgang delen en pushmelding herinneringen. \autocite{onlinehulpapps} & App & \vink \kruis & 4.3 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Calm & Biedt meditatie-, ademhalings-, stretch- en mindfulnessoefeningen, aangevuld met slaapverhalen en rustgevende muziek. \autocite{onlinehulpapps} & App & \vink \kruis & 4.5 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Smiling Mind & Biedt mindfulness- en meditatieprogramma’s op maat van kinderen, jongeren, volwassenen en families rond thema’s zoals slaap, stress en concentratie, in de vorm van audio- en videomodules met duidelijke duur en opbouw. \autocite{onlinehulpapps} & App & \vink & 4.6 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Mindfulness Coach & Biedt een stapsgewijs trainingsprogramma met 14 niveaus, losse oefeningen, voortgangs- en doeltracking alsook extra informatie om mindfulness aan te leren en op te volgen. \autocite{onlinehulpapps} & App & \vink & 4.8 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Petit BamBou & Biedt meditatie- en ademhalingsprogramma’s alsook losse sessies rond diverse thema’s zoals slaap, emoties en gezondheid. \autocite{onlinehulpapps} & App & \vink \kruis & 4.7 \ster & Mindfulness \\ \addlinespace[8pt]
+        
+        Immersive Mental Health App & Biedt VR-ontspanning in drie natuur- omgevingen met optionele begeleide mindfulness- en spierontspanningsoefeningen. \autocite{onlinehulpapps} & App & \vink & - \ster & Mindfulness \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Zelfreflectie / Tracking}} \\ \midrule       
+        MindDoc & Helpt volwassenen hun mentale gezondheid te volgen via een dagboek, screenings, gepersonaliseerd advies en de mogelijkheid om resultaten met een hulpverlener te delen. \autocite{onlinehulpapps} & App & \vink & 4.4 \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Sipi & Digitaal signaleringsplan waarmee patiënten hun probleemsignalen kunnen bijhouden, bewust worden van stressopbouw en terugvalpreventie toepassen, met functies zoals persoonlijke signalen, notities, grafieken en delen met meerdere begeleiders. \autocite{onlinehulpapps} & App & \vink \kruis & - \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Moodfit & Biedt journaling, mindfulness-oefeningen en CBT-technieken, met dagelijkse doelen, meldingen en rapporten om gedragspatronen inzichtelijk te maken. \autocite{bradley_apps} & App & \vink & - \ster & Mindfulness, CBT \\ \addlinespace[8pt]
+        
+        Stappvoorstap & Monitort en visualiseert stresspatronen, biedt gepersonaliseerde tips en ontspanningsoefeningen, alsook audio / video- fragmenten en ervaringsverhalen ter versterking van veerkracht. \autocite{onlinehulpapps} & App & \vink & - \ster & Mindfulness, psycho-educatie, CBT \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{CBT}} \\ \midrule
+        MindShift & Biedt CBT-tools, een dagboek, coping- statements, een communityforum en functies om doelen te stellen en gezonde gewoonten te ontwikkelen. \autocite{bradley_apps} & App & \vink & 3.0 \ster & CBT, psycho-educatie  \\ \addlinespace[8pt]
+        
+        Wysa Mental Health Support & Biedt emotionele ondersteuning via AI-chatgesprekken, aangevuld met vragenlijsten en zelfhulp-oefeningen zoals yoga, mindfulness, meditatie en cognitieve technieken om stress, angst en welzijn te verbeteren. \autocite{onlinehulpapps} & App & \vink & 4.6 \ster & CBT, mindfulness  \\ \addlinespace[8pt]
+        
+        Sorted: Mental Health & Biedt audio-modules gebaseerd op Positive Mental Training, met oefeningen voor stress, angst, depressie, slaap en motivatie, inclusief progress tracking, persoonlijke doelen en relaxatie-oefeningen. \autocite{orcha_mind} & App & \vink & 3.1 \ster & CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Vaardig Leven & Een toolkit voor (jong)volwassenen die hun veerkracht en psychische vaardigheden willen versterken, met ervaringsgerichte oefeningen, persoonlijke trajecten en een ‘brain gym’-pagina om vooruitgang bij te houden en emotionele balans te cultiveren. \autocite{onlinehulpapps} & Web & \vink & - \ster & CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Cerina & Biedt een volledig CBT-programma via zeven gestructureerde sessies, met oefeningen zoals worry diary, worry tree, geloofstest en zelfmanagement van onzekerheid, aangevuld met een therapielogboek, voortgangscontrole en mindfulness- audio voor ontspanning. \autocite{orcha_mind} & App & \kruis & - \ster & CBT, mindfulness \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Psycho-educatie}} \\ \midrule
+        MoodSpace & Biedt betrouwbare informatie, zelftests, contactgegevens voor hulp, zelfhulpmodules over stress, angst, levensstijl en zelfbeschadiging, alsook getuigenissen, podcasts en motivatiekaartjes. \autocite{onlinehulpapps} & Web & \vink & - \ster & Psycho-educatie, mindfulness \\ \addlinespace[8pt]
+        
+        BloomUp Learn & Biedt leermodules over mentale gezondheid met oefeningen, video’s, audio’s en huiswerkopdrachten, waarmee veerkracht, stress-, emotiehantering en mindfulness getraind worden, inclusief consultatiemogelijkheid met een psycholoog. \autocite{onlinehulpapps} & Web & \kruis & - \ster & Psycho-educatie, CBT, mindfulness \\ \addlinespace[8pt]
+        
+        Student Health App & Biedt betrouwbare informatie en advies over meer dan 125 gezondheidsonderwerpen, inclusief mentale gezondheid, ter ondersteuning van zelfmanagement en welzijn. \autocite{orcha_mind} & App & \vink & - \ster & Psycho-educatie \\ \addlinespace[8pt]
+        
+        Burnoutapp.be & Biedt gratis gevalideerde burnout‑vragenlijsten (zoals de BAT) om je risico en symptomen van burn‑out in kaart te brengen, met premium opties voor extra ondersteuning en inzicht. \autocite{bat2020} & PWA & \vink \kruis & - \ster & Psycho-educatie, CBT \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Community / Peer Support}} \\ \midrule
+        Kooth & Biedt een veilige, anonieme omgeving voor mentale ondersteuning met functies zoals één-op-één counseling, artikelen, discussieborden, een dagelijks dagboek, doeltracking en welzijnsactiviteiten. \autocite{orcha_mind} & Web & \vink & - \ster & Psycho-educatie, CBT \\ \addlinespace[8pt]
+        
+        Tellmi & Een anonieme community voor tieners om ervaringen te delen, veilig begeleid door counselors en met doorverwijzing naar professionele hulp. \autocite{bradley_apps} & App & \vink & - \ster & Psycho-educatie \\ \addlinespace[20pt]
+        
+        %==============================
+        \multicolumn{6}{l}{\textbf{Habit Coach}} \\ \midrule
+        Gro Health \autocite{orcha_mind} & Helpt volwassenen hun gezondheid en welzijn te verbeteren met functies zoals coaching, community support, slaap- en meditatiegidsen, voedings- en bewegingsregistratie, recepten en koppeling met smartwatches. & App & \kruis & - \ster & Mindfulness, CBT \\ \addlinespace[8pt]
+        
+        Holly Health Habit Coach & Biedt via een AI-chatbot begeleiding bij voeding, beweging, slaap, stress en mentale gezondheid, met checklists, challenges, een gezondheids- dagboek, mindfulness- en meditatie- oefeningen, en artikelen om gezonde gewoonten op te bouwen. \autocite{orcha_mind} & App & \kruis & 3.5 \ster & Mindfulness, CBT, psycho-educatie \\ \addlinespace[8pt]
+    \end{longtable}
+}
+
+\newpage
+
+\subsection{Bevindingen}
+\label{subsec:longlist-bevindingen}
+
+\vspace{1em}
+
+Uit deze longlist blijkt dat veel apps zich richten op mindfulness, meditatie en aanvullend \acrshort{cbt}, terwijl sommige ook functies bieden zoals community-ondersteuning of AI-gebaseerde coaching. Ondanks dat \acrshort{rebt} volgens sectie \ref{subsec:preventie-types} een effectieve therapievorm is, werd geen app gevonden die deze techniek specifiek toepast.
+
+\vspace{1em}
+
+Daarnaast zijn er nauwelijks apps die expliciet gericht zijn op burn-outpreventie of behandeling. Zoeken op termen als “burn-out” of “anti-burnout” leverde geen resultaten op in de geselecteerde databanken. Daarom werd één app, \textit{Burnoutapp.be}, toegevoegd op basis van een Google-search en de validatie van de BAT door KU Leuven. Het merendeel van de apps bevat bovendien paywalls of premium-opties, wat het effect van de interventies kan beperken, omdat niet alle functies vrij toegankelijk zijn.
+
+\newpage
+
+
+
+% Deel 8 - Kort samengevat
+
+\section{Kort samengevat}
+\label{sec:bevindingen-samengevat}
+
+\vspace{1em}
+
+\begin{table}[H]
+    \centering
+    \small % Houd het op small om zeker te zijn dat het op één pagina past
+    \begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.65\linewidth}}
+        \toprule
+        \textbf{Hoofdstuk} & \textbf{Kerninzichten} \\
+        \midrule
+        
+        \nameref{sec:burnout-bij-twintigers} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Kerncomponenten:} Uitputting, cynisme en verminderde effectiviteit.
+            \item \textbf{Soorten:} \textit{frenetic}, \textit{underchallenged} en \textit{worn-out}.
+            \item \textbf{Gen Z Risico's:} Lage autonomie, gebrek aan steun, hoge ambitie en prestatiedruk.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:digitalisering-cognitief} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Constante connectiviteit leidt tot cognitieve overbelasting.
+            \item \textbf{Stressoren:} \textit{Information overload}, \textit{technostress} en \textit{online vigilance}.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:preventie-behandeling} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Preventie:} primair, secundair, tertiair.
+            \item \textbf{REBT:} Meest effectieve methodiek voor directe stress- reductie \textit{(boven Mindfulness, psycho-educatie en CBT)}.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:digitale-interventies} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item M-health apps verlagen de drempel naar hulpverlening.
+            \item \textbf{Knelpunten:} Lage retentie en een gebrek aan wetenschappelijke basis.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:ux-ontwerp} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{Calm design:} UI moet mentale rust bevorderen i.p.v. belasting creëren.
+            \item \textbf{Strategieën:} Slimme notificaties en motivatie zoals gamification zonder stressoren.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:technologieselectie} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item \textbf{React Native} als optimaal cross-platform framework voor de PoC.
+        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        
+        \nameref{sec:longlist} & 
+        \begin{itemize}[nosep, leftmargin=*]
+            \item Er werden heel veel mindfulness apps teruggevonden.
+            \item Apps welke REBT toepassen waren niet aanwezig.
+        \end{itemize} \\ \addlinespace[8pt]
+        \bottomrule
+    \end{tabular}
+    \caption{Synthese van de literatuurstudie naar kerninzichten.}
+    \label{tab:synthese-literatuur-eind}
+\end{table}
+
+\vspace{1em}
