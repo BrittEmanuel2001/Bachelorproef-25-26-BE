@@ -5,54 +5,83 @@
 \chapter{\IfLanguageName{dutch}{Methodologie}{Methodology}}%
 \label{ch:methodologie}
 
-Om het onderzoek zo succesvol mogelijk te laten verlopen, werd ervoor gekozen het op te splitsen in zes fasen. De eerste fase werd reeds doorlopen: de probleemverkenning, waarin een literatuurstudie wordt uitgevoerd om meer inzicht te krijgen in het probleemdomein. Daarnaast werd er in deze fase een inventarisatie gemaakt van het huidige aanbod van burn-outbestrijdingsproducten, de zogenaamde longlist-fase. Vervolgens staat het uitvoeren van een requirements-analyse op de planning, resulterend in een lijst van beoordelingscriteria. Eenmaal deze criteria in kaart zijn gebracht, worden de apps uit de longlist herleid tot een shortlist door middel van een beoordeling op basis van deze beoordelingscriteria. Vervolgens is het tijd om de \acrlong{poc} op te stellen. In deze fase worden mock-ups ontwikkeld en uiteindelijk een werkend prototype gerealiseerd. Tot slot wordt in de conclusiefase het succes van dit werkende prototype bepaald door middel van een heuristische evaluatie.
+Om het onderzoek zo succesvol mogelijk te laten verlopen, werd ervoor gekozen het op te splitsen in zes fasen. De eerste fase werd reeds doorlopen: de probleemverkenning, waarin een literatuurstudie wordt uitgevoerd om meer inzicht te krijgen in het probleemdomein. Daarnaast werd er in deze fase een inventarisatie gemaakt van het huidige aanbod van burn-outbestrijdingsapps, de zogenaamde longlist-fase. Vervolgens staat het uitvoeren van een requirements-analyse op de planning, resulterend in een lijst van beoordelingscriteria en ontwerpprincipes. Eenmaal deze in kaart werden gebracht, worden de apps uit de longlist herleid tot een shortlist door middel van een beoordeling op basis van deze beoordelingscriteria en de opgestelde ontwerpprincipes. Vervolgens is het tijd om de \acrlong{poc} op te stellen. In deze fase worden mock-ups ontwikkeld en uiteindelijk een werkend prototype gerealiseerd. Tot slot wordt in de conclusiefase het succes van dit werkende prototype bepaald door middel van een heuristische evaluatie.
+
+
 
 \section{Probleemverkenning}
 \label{sec:probleemverkenning}
 
 \vspace{1em}
 
-Gedurende de eerste fase was het de bedoeling een diepgaand begrip te krijgen van het probleemdomein aan de hand van een \textbf{literatuurstudie}. Voor dit onderzoek was het essentieel te begrijpen wat een burn-out precies inhoudt, hoe dit speelt bij de huidige generatie twintigers, welke rol digitalisering en een verhoogde cognitieve belasting hierbij kunnen spelen, en welke preventie- en behandelingsstrategieën momenteel beschikbaar zijn. 
+Gedurende de eerste fase was het de bedoeling een diepgaand begrip te krijgen van het probleemdomein en een eerste glimps te bekomen van informatie binnen het oplossingsdomein. Dit werd verwezenlijkt aan de hand van een \textbf{literatuurstudie}. Voor dit onderzoek was het essentieel te begrijpen wat een burn-out precies inhoudt, hoe dit speelt bij de huidige generatie twintigers, welke rol digitalisering en een verhoogde cognitieve belasting hierbij kunnen spelen, en welke preventie- en behandelingsstrategieën momenteel beschikbaar zijn. 
 
 \vspace{1em}
 
-Vervolgens werd het huidige aanbod aan digitale oplossingen voor mentale gezondheid onderzocht, met aandacht voor hun effectiviteit en mogelijke tekortkomingen. Daarbij werden ook UX- en ontwerpprincipes die bijdragen aan mentale rust onder de loep genomen. Tot slot werd gekeken naar de bestaande technologieën in de app-ontwikkelingswereld, zodat de meest geschikte technologie kan worden geselecteerd voor de ontwikkeling van de proof-of-concept.
+Vervolgens werd er gekeken naar de bestaande technologieën in de app- \newline ontwikkelingswereld, zodat de meest geschikte technologie in een verdere fase kan worden geselecteerd voor de ontwikkeling van de \acrlong{poc}. Tot slot werd het huidige aanbod aan digitale oplossingen voor mentale gezondheid onderzocht in de vorm van een \textbf{longlist}. Deze apps werden gehaald uit databanken bestaande uit reeds gescreende apps door professionals. Gezien er niet rechtstreeks apps te vinden waren in deze databanken die specifiek instonden voor burn-outpreventie werd er geopteerd te focussen op apps die stressreductie als doel hebben.
 
 \vspace{1em}
 
-Het resultaat van deze fase was een beknopt overzicht van de oorzaken van burn-out bij twintigers, hun belangrijkste risicofactoren, en een eerste inventaris van bestaande preventie- en behandelingsstrategieën.
+Het resultaat van deze fase was een beknopt overzicht van de oorzaken en belangrijkste risicofactoren van burn-out bij twintigers, een eerste inventaris van bestaande preventie- en behandelingsstrategieën en een korte samenvatting aan kerninzichten te vinden in sectie \ref{sec:bevindingen-samengevat}.
+
+
 
 \section{Requirements-analyse}
 \label{sec:req-analyse}
 
 \vspace{1em}
 
-Tijdens de requirements-analyse wordt bepaald wat de exacte noden van de doelgroep zijn door middel van het opstellen van functionele en niet-functionele requirements. Deze kunnen enerzijds worden afgeleid uit de reeds verrichte literatuurstudie en anderzijds worden aangevuld door één of meerdere interviews met psychologen. De focus binnen deze studie ligt op het in kaart brengen van effectieve behandelingsmethoden en gebruikerseisen, welke op hun beurt als requirements kunnen worden gedefinieerd.
+De bevindingen en kerninzichten van de probleemverkenningsfase worden vervolgens gebruikt binnen de volgende fase: requirements-analyse. Tijdens deze fase zal er worden bepaald wat de exacte noden van de doelgroep zijn door middel van het opstellen van functionele en niet-functionele requirements. Deze kunnen enerzijds worden afgeleid uit de reeds verrichte literatuurstudie en anderzijds worden aangevuld door een interview met een psycholoog. De focus binnen deze studie ligt op het in kaart brengen van effectieve behandelingsmethoden en gebruikerseisen, welke op hun beurt als requirements kunnen worden gedefinieerd. Deze requirements zullen worden opgesteld volgens de MoSCoW-methode (Must, Should, Could, Won’t). Deze aanpak maakt het mogelijk om prioriteiten helder te definiëren en de kernfunctionaliteiten concreet te maken.
 
 \vspace{1em}
 
-De requirements worden opgesteld volgens de MoSCoW-methode (Must, Should, Could, Won’t). Deze aanpak maakt het mogelijk om prioriteiten helder te definiëren en de kernfunctionaliteiten concreet te maken. Aan het einde van deze fase ligt er een geprioriteerde lijst van functionele en niet-functionele requirements klaar, die als basis dient voor de \acrlong{poc}.
-
-\section{Longlist}
-\label{sec:long-list}
+Daarnaast zal er in deze fase een lijst aan ontwerpprincipes worden opgesteld, ook aan de hand van info uit de stand van zaken en dat interview, welke zullen concretiseren wat belangrijk is voor stress reducerend ontwerp binnen een app.
 
 \vspace{1em}
 
-Na de requirements-analyse volgt de inventarisatie van het huidige digitale en analoge aanbod van burn-outbestrijdingsproducten, de longlist-fase. In deze fase worden bestaande alternatieven, zoals apps, websites, wearables en andere concepten, verzameld en geanalyseerd. Alleen oplossingen met een bruikbaar concept dat eventueel digitaal kan worden toegepast, worden opgenomen. De alternatieven worden opgespoord via online bronnen, app-stores en bestaande studies. Het resultaat is een overzicht van alle mogelijke alternatieven, inclusief bronvermelding, dat als basis dient voor de volgende fase: de shortlist.
+Aan het einde van deze fase ligt er een geprioriteerde lijst van functionele en niet-functionele requirements klaar, met aanvullend een opgestelde lijst aan ontwerpprincipes voor stress reducerend ontwerp van een applicatie. Deze zullen als basis dienen voor de \acrlong{poc}.
+
+
 
 \section{Shortlist}
 \label{sec:short-list}
 
 \vspace{1em}
 
-In de shortlist-fase wordt uit de longlist een selectie gemaakt van de meest veelbelovende opties die verder onderzocht zullen worden. Een overzichtelijke matrix ondersteunt de beoordeling van de alternatieven ten opzichte van de gestelde requirements, zodat duidelijk wordt welke oplossingen het beste aansluiten bij de verzamelde criteria en de meest bruikbare componenten bevatten. Aan het einde van deze fase wordt een keuze gemaakt voor één of enkele alternatieven, inclusief de bijbehorende componenten, die meegenomen zullen worden in de ontwikkeling van de \acrlong{poc}.
+In deze shortlistfase worden de apps uit de longlist geanalyseerd op basis van de reeds opgestelde requirements. Een overzichtelijke matrix ondersteunt de beoordeling van deze apps ten opzichte van de gestelde criteria, zodat duidelijk wordt welke oplossingen het best aansluiten bij de vooropgestelde eisen en de meest relevante componenten bevatten. Op basis hiervan wordt een top 5 van apps geselecteerd.
+
+\vspace{1em}
+
+Deze shortlist wordt vervolgens geanalyseerd aan de hand van de gedefinieerde ontwerpprincipes, met als doel het identificeren en selecteren van waardevolle componenten en ontwerpkeuzes die worden meegenomen in de verdere uitwerking en optimalisatie van de \acrlong{poc}.
+
+
+
+\section{Technologieselectie}
+\label{sec:tech-selectie}
+
+\vspace{1em}
+
+In deze fase wordt bepaald welke technologie het meest geschikt is voor de ontwikkeling van het prototype binnen de \acrlong{poc}. De selectie gebeurt op basis van de eerdere literatuurstudie, de opgestelde requirements en ontwerpprincipes. Hierbij wordt rekening gehouden met factoren zoals de leercurve, tijd, scope en nodige functionaliteiten.
+
+\vspace{1em}
+
+Op basis van deze analyse wordt een onderbouwde keuze gemaakt voor de technologie die het best aansluit bij de doelstellingen van dit onderzoek en wordt er bepaald welke technologie gebruikt zal worden bij het uitwerken van de uiteindelijke \acrlong{poc}.
+
+
 
 \section{Proof-of-Concept}
 \label{sec:poc}
 
 \vspace{1em}
 
-Tijdens de \acrlong{poc}-fase ligt de focus op het ontwikkelen van een werkend prototype. De ontwikkeling start met het ontwerpen van mock-ups, met speciale aandacht voor mentale rust en minimale cognitieve belasting. Tegelijkertijd wordt bepaald welke app-ontwikkeltechnologie het meest geschikt is. Zodra ontwerp en technologie zijn vastgesteld, volgt de daadwerkelijke uitwerking van het prototype. Dit prototype wordt regelmatig afgetoetst bij de copromotor of andere psychologen om validatie vanuit een professioneel standpunt te waarborgen. Eindgebruikers, met een burn-out of het risico daarop, worden niet betrokken bij deze evaluatie, aangezien zij geen objectief oordeel kunnen geven over de effectiviteit van de oplossing op korte termijn.
+Tijdens de \acrlong{poc}-fase ligt de focus op het verbeteren van een bestaande app door middel van het ontwikkelen van een werkend prototype. Hiervoor wordt eerst een app gekozen uit de playstore welke: 1. specifiek burn-outpreventie als doel heeft, 2. zich niet bevindt tussen de lijst aan gescreende apps van onlinehulp-apps.be, 3. idealiter gratis is of redelijk wat gratis features heeft.
+
+Vervolgens wordt de geselecteerde app geanalyseerd en geoptimaliseerd op basis van de eerder gedefinieerde ontwerpprincipes. Op basis hiervan worden gerichte aanpassingen en verbeteringen vertaald naar mock-ups, waarbij bijzondere aandacht uitgaat naar mentale rust en het beperken van cognitieve belasting.
+
+Na het vastleggen van het ontwerp en de technologie volgt de effectieve ontwikkeling van het prototype. Tijdens dit proces wordt het prototype op regelmatige basis geëvalueerd in overleg met de copromotor of andere psychologen, om validatie vanuit een professioneel perspectief te waarborgen. Eindgebruikers met een burn-out of een verhoogd risico daarop worden niet betrokken in deze evaluatiefase, aangezien zij op korte termijn geen objectief oordeel kunnen geven over de effectiviteit van de oplossing.
+
+
+
 
 \section{Conclusie}
 \label{sec:conclusie}
