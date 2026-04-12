@@ -16,7 +16,7 @@ Het doel van dit interview was tweeledig:
     \item \textbf{Verzamelen van requirements}: Het identificeren van essentiële (niet-) \newline functionele vereisten die de basis vormen voor de later opgestelde \newline ontwerpprincipes.
 \end{enumerate}
 
-Het gesprek vond plaats via een semi-gestructureerd interviewformaat om ruimte te bieden voor informatie vanuit de praktijkervaring. De gehanteerde vragenlijst is terug te vinden in \textbf{Bijlage X}. De voornaamste bevindingen die fungeren als directe input voor de requirements worden hieronder nader toegelicht.
+Het gesprek vond plaats via een semi-gestructureerd interviewformaat om ruimte te bieden voor informatie vanuit de praktijkervaring. De gehanteerde vragenlijst is terug te vinden in bijlage \ref{ch:interview-requirementsanalyse}. De voornaamste bevindingen die fungeren als directe input voor de requirements worden hieronder nader toegelicht.
 
 \newpage
 
@@ -44,40 +44,55 @@ De bovenstaande inzichten, samen met de kennis die voortkwam uit de literatuurst
 \section{Requirements}
 \label{sec:requirements}
 
+\subsection{Functionele requirements}
+\label{subsec:frs}
+
+\vspace{1em}
+
+De functionele requirements (\acrshort{fr}'s) beschrijven de specifieke acties, gedragingen en functies die de applicatie moet kunnen uitvoeren. Ze definiëren met andere woorden de directe interactie tussen de gebruiker en het systeem en bepalen wat de applicatie precies 'doet' om de doelstelling (verminderen van chronische overspanning) te faciliteren.
+
+\vspace{1em}
+
 {
     \small
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
-            >{\raggedright\arraybackslash}p{1.5cm}  % ID
-            >{\raggedright\arraybackslash}p{7.7cm}  % Requirement
-            >{\raggedright\arraybackslash}p{4.0cm}  % Bron
+            >{\raggedright\arraybackslash}p{3.0cm}  % Rol
+            >{\raggedright\arraybackslash}p{10.5cm}  % Requirement
             >{\raggedright\arraybackslash}p{2.0cm}  % Prioriteit
         }
         \toprule
-        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
+        \textbf{Rol} & \textbf{Requirement} & \textbf{Prioriteit} \\
         \midrule
         \endfirsthead
         
-        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
         \toprule
-        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
+        \textbf{Rol} & \textbf{Requirement} & \textbf{Prioriteit} \\
         \midrule
         \endhead
         
-        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
+        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
         \endfoot
         
         \bottomrule
-        \caption[Overzicht requirements]{Lege longtable voor requirements met bron en MoSCoW-prioriteit.}
+        \caption[Overzicht requirements]{Oplijsting van functionele requirements met MoSCoW-prioriteit.}
         \label{tab:requirements}
         \endlastfoot
         \addlinespace[6pt]
         
         %==============================
-        ... & ... & ... & ... \\ \addlinespace[6pt]
+        ... & ... & ... \\ \addlinespace[6pt]
         
     \end{longtable}
 }
+
+\subsection{Niet-functionele requirements}
+\label{subsec:nfrs}
+
+\vspace{1em}
+
+Niet-functionele requirements (\acrshort{nfr}'s) beschrijven de kwaliteitskenmerken en beperkingen van het systeem. Ze gaan niet over \textit{wat} het systeem doet, maar over \textit{hoe} het systeem functioneert. In de context van burn-outpreventie zijn deze cruciaal, omdat de manier waarop informatie wordt gepresenteerd (\textit{bijv. rust en eenvoud}) direct invloed heeft op het stressniveau van de gebruiker.
 
 \vspace{1em}
 
