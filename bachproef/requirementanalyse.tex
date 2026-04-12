@@ -5,7 +5,81 @@
 \chapter{\IfLanguageName{dutch}{Requirements-analyse}{Requirements analysis}}%
 \label{ch:requirementsanalyse}
 
-...
+De voorgaande literatuurstudie bood inzicht in de theoretische achtergrond van burn-out en bracht de bestaande applicaties in kaart die in wetenschappelijk gescreende databanken gedocumenteerd zijn. Hoewel deze inventarisatie aantoont welke oplossingen reeds onderzocht zijn, ontbrak de vertaling naar specifieke, klinisch onderbouwde functionaliteiten voor de beoogde doelgroep van Gen Z. Om de brug te slaan tussen deze theoretische verkenning en de daadwerkelijke requirementsanalyse, werd een interview afgenomen met expert en co-promotor Mevr. K. Van den Broeck (klinisch psycholoog).
+
+\vspace{1em}
+
+Het doel van dit interview was tweeledig:
+
+\begin{enumerate}
+    \item \textbf{Verdieping van het probleemdomein}: Het verkrijgen van nuances uit de klinische praktijk die specifiek relevant zijn voor de doelgroep, zoals het onderscheid tussen chronische overspanning en burn-out.
+    \item \textbf{Verzamelen van requirements}: Het identificeren van essentiële (niet-) \newline functionele vereisten die de basis vormen voor de later opgestelde \newline ontwerpprincipes.
+\end{enumerate}
+
+Het gesprek vond plaats via een semi-gestructureerd interviewformaat om ruimte te bieden voor informatie vanuit de praktijkervaring. De gehanteerde vragenlijst is terug te vinden in \textbf{Bijlage X}. De voornaamste bevindingen die fungeren als directe input voor de requirements worden hieronder nader toegelicht.
+
+\newpage
+
+\section{Kerninzichten voor de requirements}
+\label{sec:inzichten-voor-requirements}
+
+\vspace{1em}
+
+De synthese van dit interview leidde tot de volgende cruciale pijlers die de verdere bepaling van de functionele en niet-functionele requirements hebben gestuurd:
+
+\begin{itemize}
+    \item \textbf{Focus op de 'externe rem':} De doelgroep bevindt zich vaak in een staat van chronische overprikkeling (hyper-alertheid). De applicatie moet fungeren als een preventieve tool die helpt bij het herkennen van fysiologische signalen voordat het stadium van burn-out bereikt wordt.
+    \item \textbf{Methodiek via het 5G-model:} Voor de zelfreflectie wordt de cognitieve gedragstherapeutische methode van het 5G-model (Gebeurtenis, Gedachte, Gevoel, Gedrag, Gevolg) gehanteerd. Dit wordt vertaald naar een geleide dagboekfunctie die de gebruiker helpt om dieperliggende patronen zoals perfectionisme te ontleden.
+    \item \textbf{Fase-gebaseerde content (Chunking):} De interventie moet stapsgewijs verlopen om information overload te vermijden. Dit kan bijvoorbeeld voor secondaire burn-out preventie door eerst de focus te leggen op 'leren remmen' (ademhaling, zintuiglijke oefeningen) en pas bij voldoende fysieke rust schakelt de app over naar cognitieve reflectie over de oorzaken. Echter wordt de focus gelegd op secondaire preventie van chronische overspanning en zal dit een andere vorm kunnen krijgen.
+    \item \textbf{Eliminatie van prestatiedruk:} Een essentieel inzicht is het vermijden van \textit{gamification} die stress kan opwekken. De app mag geen gebruik maken van scores, streaks, ratings of rankings. Deze elementen activeren het stresssysteem bij perfectionistische gebruikers en kunnen leiden tot een gevoel van falen wanneer de app niet 'perfect' gebruikt wordt.
+    \item \textbf{Risico's van sociale ondersteuning:} Hoewel verbondenheid waardevol is, moet er opgepast worden voor directe sociale vergelijking (bijv. "Waarom herstelt de ander sneller?"). Sociale functies moeten daarom anoniem en niet-competitief zijn, bijvoorbeeld door middel van het delen van algemene, anonieme bemoedigende boodschappen in plaats van directe chatfuncties.
+    \item \textbf{Retentie door psycho-educatie:} Om vroegtijdig afhaken te voorkomen (het zoeken naar een \textit{quick fix}), is psycho-educatie cruciaal. Door uit te leggen hoe het zenuwstelsel werkt, begrijpt de gebruiker waarom resultaten uitblijven als er geen rust wordt genomen, wat de motivatie op lange termijn verhoogt.
+    \item \textbf{Personalisatie van notificaties:} Om te vermijden dat de app als een extra 'verplichting' aanvoelt, moeten notificaties instelbaar zijn op basis van de individuele behoefte en de mate van smartphonegebruik van de gebruiker.
+\end{itemize}
+
+De bovenstaande inzichten, samen met de kennis die voortkwam uit de literatuurstudie, vormen de directe onderbouwing voor de geprioriteerde requirements die in de volgende sectie (\ref{sec:requirements}) worden opgesomd.
+
+\vspace{1em}
+
+\section{Requirements}
+\label{sec:requirements}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{1.5cm}  % ID
+            >{\raggedright\arraybackslash}p{7.7cm}  % Requirement
+            >{\raggedright\arraybackslash}p{4.0cm}  % Bron
+            >{\raggedright\arraybackslash}p{2.0cm}  % Prioriteit
+        }
+        \toprule
+        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht requirements]{Lege longtable voor requirements met bron en MoSCoW-prioriteit.}
+        \label{tab:requirements}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        ... & ... & ... & ... \\ \addlinespace[6pt]
+        
+    \end{longtable}
+}
+
+\vspace{1em}
 
 \section{Ontwerpprincipes}
 \label{sec:ontwerpprincipes}
@@ -114,43 +188,5 @@
 }
 
 \vspace{1em}
-
-\section{Requirements}
-\label{sec:requirements}
-
-{
-    \small
-    \setlength\tabcolsep{3pt}
-    \begin{longtable}{
-            >{\raggedright\arraybackslash}p{1.5cm}  % ID
-            >{\raggedright\arraybackslash}p{7.7cm}  % Requirement
-            >{\raggedright\arraybackslash}p{4.0cm}  % Bron
-            >{\raggedright\arraybackslash}p{2.0cm}  % Prioriteit
-        }
-        \toprule
-        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
-        \midrule
-        \endfirsthead
-        
-        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
-        \toprule
-        \textbf{ID} & \textbf{Requirement} & \textbf{Bron} & \textbf{Prioriteit (MoSCoW)} \\
-        \midrule
-        \endhead
-        
-        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
-        \endfoot
-        
-        \bottomrule
-        \caption[Overzicht requirements]{Lege longtable voor requirements met bron en MoSCoW-prioriteit.}
-        \label{tab:requirements}
-        \endlastfoot
-        \addlinespace[6pt]
-        
-        %==============================
-        ... & ... & ... & ... \\ \addlinespace[6pt]
-        
-    \end{longtable}
-}
 
 ...
