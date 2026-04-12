@@ -1328,59 +1328,103 @@ Daarnaast zijn er nauwelijks apps die expliciet gericht zijn op burn-outpreventi
 
 \vspace{1em}
 
-\begin{table}[H]
-    \centering
-    \small % Houd het op small om zeker te zijn dat het op één pagina past
-    \begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.65\linewidth}}
+{
+    \small
+    \begin{longtable}{>{\raggedright\arraybackslash}p{0.30\linewidth} >{\raggedright\arraybackslash}p{0.65\linewidth}}
         \toprule
         \textbf{Hoofdstuk} & \textbf{Kerninzichten} \\
         \midrule
+        \endfirsthead
         
-        \nameref{sec:burnout-bij-twintigers} & 
+        \multicolumn{2}{c}%
+        {\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Hoofdstuk} & \textbf{Kerninzichten} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{2}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption{Synthese van de literatuurstudie naar kerninzichten.}
+        \label{tab:synthese-literatuur-eind} \\
+        \endlastfoot
+        
+        \nameref{sec:burnout-bij-twintigers} &
         \begin{itemize}[nosep, leftmargin=*]
-            \item \textbf{Kerncomponenten:} Uitputting, cynisme en verminderde effectiviteit.
-            \item \textbf{Soorten:} \textit{frenetic}, \textit{underchallenged} en \textit{worn-out}.
-            \item \textbf{Gen Z Risico's:} Ontwikkeling van door maatschappelijke verwachtingen gevormde patronen, zoals perfectionisme en people-pleasing, samen met lage autonomie, een gebrek aan steun en een hoge mate van ambitie en prestatiedruk.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+            \item \textbf{Soorten burn-out}: werkgerelateerde vs. algemene chronische overspanning. Burn-out is dus niet alleen gelinkt aan werk en is een samensmelting aan stressoren.
+            \item \textbf{Kenmerken Gen Z}: communiceert vaak via visuele middelen, is daarnaast ambitieus, perfectionistisch, creatief en heeft een sterke werkethiek. Hecht veel waarde aan zelfexpressie en persoonlijke ontwikkeling.
+            \item \textbf{Gen Z confrontatie met hoge prestatiedruk}: door ambitieus en perfectionistisch karakter, hoge verwachtingen vanuit de maatschappij door sociale emotienormen \textit{(vermijden van het delen van negatieve emoties)} en een constante blootstelling aan digitale info en media.
+            \item \textbf{Coping- of beschermingspatronen}: perfectionisme en people-pleasing.
+            \item \textbf{Psychologische basisbehoeften}: autonomie, competentie, verbondenheid.
+        \end{itemize} \\
+        \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
         
-        \nameref{sec:digitalisering-cognitief} & 
+        \nameref{sec:digitalisering-cognitief} &
         \begin{itemize}[nosep, leftmargin=*]
-            \item Constante connectiviteit leidt tot cognitieve overbelasting.
-            \item \textbf{Stressoren:} \textit{Information overload}, \textit{technostress} en \textit{online vigilance}.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+            \item \textbf{Stressoren} die bijdragen aan cognitieve overbelasting: \acrshort{io}, technostress en online vigilance.
+            \item \textbf{Information overload}: zorg voor meer behapbare, kleinere content in de plaats van een overvloed aan informatie.
+            \item \textbf{Technostress}: vermijd de techno-complexity stressor door middel van niet al te complexe interfaces.
+            \item \textbf{Online vigilance}: voorkom een constante "aan"-knop aan onder andere salience, reactibility en monitoring.
+        \end{itemize} \\
+        \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
         
-        \nameref{sec:preventie-behandeling} & 
+        \nameref{sec:preventie-behandeling} &
         \begin{itemize}[nosep, leftmargin=*]
             \item \textbf{Preventie:} primair, secundair, tertiair.
-            \item \textbf{REBT:} Meest effectieve methodiek voor directe stress- reductie \textit{(boven Mindfulness, psycho-educatie en CBT)}.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+            \item \textbf{REBT:} Meest effectieve methodiek voor directe stress-reductie \textit{(boven Mindfulness, psycho-educatie en CBT)}.
+        \end{itemize} \\
         
-        \nameref{sec:digitale-interventies} & 
+        \nameref{sec:digitale-interventies} &
         \begin{itemize}[nosep, leftmargin=*]
             \item M-health apps verlagen de drempel naar hulpverlening.
-            \item \textbf{Knelpunten:} Lage retentie en een gebrek aan wetenschappelijke basis.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+            \item \textbf{Effectiviteit:} beperkte wetenschappelijke onderbouwing en variabele kwaliteit van interventies.
+            \item \textbf{Risico’s:} privacykwesties en foutieve informatie.
+            \item \textbf{Blended care:} essentieel bij burn-out.
+            \item \textbf{Retentieproblematiek:} lage betrokkenheid door beperkte motivatie, traag zichtbaar voordeel en onvoldoende integratie in therapietrajecten.
+            \item \textbf{UI/UX-knelpunten:} complexe navigatie, hoge cognitieve belasting, overvolle interfaces en gebrek aan visuele feedback en personalisatie.
+            \item \textbf{Toegankelijkheid en techniek:} gebruiksdrempels (bv. downloadproces) en technische instabiliteit verminderen gebruik.
+        \end{itemize} \\
+        \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
         
-        \nameref{sec:ux-ontwerp} & 
+        \nameref{sec:ux-ontwerp} &
         \begin{itemize}[nosep, leftmargin=*]
-            \item \textbf{Calm design:} UI moet mentale rust bevorderen i.p.v. belasting creëren.
-            \item \textbf{Strategieën:} Slimme notificaties en motivatie zoals gamification zonder stressoren.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+            \item \textbf{Verlagen cognitieve belasting (UX):} ondersteuning van autonomie (WCAG, duidelijke keuzes, progressive disclosure), competentie (chunking, adaptieve moeilijkheid, actiegerichte feedback) en verbondenheid (sociale interactie/community).
+            \item \textbf{Verlagen cognitieve belasting (UI):} duidelijke visuele hiërarchie, consistente stijl en doordacht kleurgebruik (rustgevende kleuren zoals blauw/groen, vermijden van overprikkeling).
+            \item \textbf{Motivatie \& betrokkenheid:} keuzevrijheid, informatieve beloningen (bv. badges), personalisatie en sociale interactie; gamification gekoppeld aan echte progressie en doelen.
+            \item \textbf{Notificatiestrategieën:} contextafhankelijk, gepersonaliseerd en gevarieerd; afgestemde frequentie en interactieve elementen, met focus op autonomie.
+        \end{itemize} \\
+        \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
         
-        \nameref{sec:technologieselectie} & 
+        \nameref{sec:technologieselectie} &
         \begin{itemize}[nosep, leftmargin=*]
             \item \textbf{React Native} als optimaal cross-platform framework voor de PoC.
-        \end{itemize} \\ \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        \end{itemize} \\
         
-        \nameref{sec:longlist} & 
+        \nameref{sec:longlist} &
         \begin{itemize}[nosep, leftmargin=*]
-            \item Er werden heel veel mindfulness apps teruggevonden.
-            \item Apps welke REBT toepassen waren niet aanwezig.
-        \end{itemize} \\ \addlinespace[8pt]
-        \bottomrule
-    \end{tabular}
-    \caption{Synthese van de literatuurstudie naar kerninzichten.}
-    \label{tab:synthese-literatuur-eind}
-\end{table}
+            \item Er werden heel veel stressreducerende, waaronder voornamelijk mindfulness, apps teruggevonden.
+            \item Apps welke \acrshort{rebt} toepassen of welke specifiek anti-burnout gericht waren werden niet teruggevonden in gescreende databanken.
+        \end{itemize} \\
+        
+    \end{longtable}
+}
+
+\vspace{1em}
+
+Uit deze literatuurstudie werd duidelijk hoe breed en complex het probleemdomein van burn-out is. Hoewel burn-out vaak gelinkt wordt aan werk, blijkt het eerder het resultaat van een samenspel van verschillende stressoren die kunnen leiden tot \textbf{chronische overspanning}. Binnen deze casus ligt daarom de focus op primaire preventie van burn-out, met aandacht voor secundaire preventie van chronische overspanning via interventies zoals REBT, mindfulness en psycho-educatie. Naast werkgerelateerde factoren spelen ook maatschappelijke invloeden, zoals sociale emotienormen waarbij negatieve emoties minder gedeeld worden, een belangrijke rol. Daarnaast blijkt dat individuen, en in het bijzonder generatie Z, geneigd zijn copingmechanismen zoals perfectionisme en people-pleasing te ontwikkelen. Hoewel deze op korte termijn functioneel lijken, versterken ze op lange termijn de ervaren druk en mentale belasting.
+
+\vspace{1em}
+
+Een belangrijk theoretisch kader zijn de \textbf{psychologische basisbehoeften}: autonomie, competentie en verbondenheid. Vooral verbondenheid blijkt cruciaal, aangezien generatie Z een sterke behoefte heeft aan bevestiging en sociale steun. Deze verbondenheid situeert zich vandaag vaak binnen digitale omgevingen, waar ook sociale vergelijking en vertekende realiteitsbeelden een rol spelen. Verder werden \textbf{digitale en cognitieve stressoren} geïdentificeerd, zoals information overload, technostress en online vigilance. Deze benadrukken het belang van het beperken van cognitieve belasting en het voorzien van rustmomenten binnen digitale toepassingen.
+
+\vspace{1em}
+
+Tot slot tonen digitale interventies potentieel om de toegankelijkheid van mentale gezondheidszorg te vergroten, maar blijven er aandachtspunten zoals beperkte wetenschappelijke onderbouwing, lage retentie en UX/UI-problemen. Dit onderstreept het belang van een doordachte, gebruiksvriendelijke en motiverende ontwerpaanpak.
+
+\vspace{1em}
+
+Deze inzichten vormen een gerichte basis voor het verdere ontwerptraject, waarin de focus ligt op het ontwikkelen van een digitale interventie die niet alleen laagdrempelig en gebruiksvriendelijk is, maar ook actief inzet op het verminderen van cognitieve belasting, het ondersteunen van psychologische basisbehoeften en het stimuleren van duurzame gedragsverandering.
 
 \vspace{1em}
