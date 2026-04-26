@@ -482,13 +482,220 @@ zodat \textit{de kwaliteit van de informatie gewaarborgd blijft}.
 
 \vspace{1em}
 
-Niet-functionele requirements (\acrshort{nfr}'s) beschrijven de kwaliteitskenmerken en beperkingen van het systeem. Ze gaan niet over \textit{wat} het systeem doet, maar over \textit{hoe} het systeem functioneert. In de context van de preventie van chronische overspanning zijn deze cruciaal, omdat de manier waarop informatie wordt gepresenteerd direct invloed heeft op het stressniveau van de gebruiker.
+Na het definiëren van de functionele requirements, die beschrijven wat de applicatie moet doen, wordt in deze sectie gefocust op de niet-functionele requirements (\acrshort{nfr}’s). Deze specificeren hoe het systeem moet functioneren en onder welke kwaliteitsvoorwaarden de functionaliteiten worden aangeboden. In de context van de preventie van chronische overspanning zijn deze cruciaal, omdat de manier waarop informatie wordt aangeboden direct invloed heeft op het stressniveau van de gebruiker.
 
 \vspace{1em}
 
-TODO
+De \acrshort{nfr}’s worden opgesteld aan de hand van het ISO/IEC 25010-kwaliteitsmodel \parencite{iso25010_2023} en worden geformuleerd volgens het SMART-principe.
 
 \vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Functionele geschiktheid}
+\label{subsubsec:functionele-geschiktheid}
+
+\vspace{1em}
+
+\paragraph{Functionele compleetheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item Alle kernfunctionaliteiten \textit{(dagboek, stressregistratie, oefeningen, psycho- \newline educatie, voortgang)} zijn onmiddellijk beschikbaar zonder verplicht gebruik van community-functionaliteiten of betaalmuren.
+\end{itemize}
+
+\paragraph{Functionele correctheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item Berekeningen van stressniveaus en trends moeten in 99\% van de gevallen consistent en reproduceerbaar zijn bij identieke invoer.
+    \item 100\% van feedback en aanbevelingen moet gebaseerd zijn op actuele en gevalideerde gebruikersdata.
+    \item De weergegeven informatie van beschikbare psychologen moet in 95\% van de gevallen correct zijn.
+    \item 100\% van psycho-educatieve content moet vooraf gevalideerd (of geschreven) zijn door erkende experts vóór publicatie.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Prestatie-efficiëntie}
+\label{subsubsec:prestatie-efficientie}
+
+\vspace{1em}
+
+\paragraph{Snelheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 95\% van alle schermen moet laden binnen 1,5 seconde, en 100\% binnen 3 \newline seconden bij normaal netwerkgebruik.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\vspace{1em}
+
+\subsubsection{Uitwisselbaarheid}
+\label{subsubsec:uitwisselbaarheid}
+
+\vspace{1em}
+
+\paragraph{Koppelbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item Dagboek data moet exporteerbaar zijn in PDF en CSV-formaat.
+    \item Exportbestanden mogen maximaal 0,01\% dataverlies bevatten \textit{($\leq$ 1 fout per 10.000 records)}.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Bruikbaarheid}
+\label{subsubsec:bruikbaarheid}
+
+\vspace{1em}
+
+\paragraph{Herkenbare geschiktheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 95\% van nieuwe gebruikers moet binnen 10 seconden correct kunnen aangeven wat de primaire functie van de app is.
+\end{itemize}
+
+\paragraph{Leerbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 95\% van nieuwe gebruikers voltooit onboarding binnen 5 minuten zonder externe hulp.
+    \item 95\% van gebruikers start binnen 10 minuten zelfstandig een eerste oefening.
+    \item 90\% van de gebruikers moet, na het doornemen van een psycho-educatief artikel, 80\% van de content in eigen woorden kunnen uitleggen zonder het raadplegen van een zoekmachine.
+\end{itemize}
+
+\paragraph{Bedienbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 95\% van gebruikers kan binnen 5 minuten een dagboekentry aanmaken, ook bij eerste gebruik.
+    \item 95\% van gebruikers kan binnen 1 minuut stressniveau registreren, ook bij eerste gebruik.
+    \item 95\% van gebruikers kan binnen 1 minuut een oefening starten zonder hulp, ook bij eerste gebruik.
+\end{itemize}
+
+\paragraph{Toegankelijkheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item De app voldoet volledig aan WCAG 2.1 niveau AA, geverifieerd via een accessibility checker.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Beveiligbaarheid}
+\label{subsubsec:beveiligbaarheid}
+
+\vspace{1em}
+
+\paragraph{Vertrouwelijkheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 100\% van gevoelige gegevens (dagboek, stressdata, voortgang) is enkel toegankelijk na succesvolle authenticatie (login vereist).
+    \item 100\% van psycho-educatieve content toegevoegd door experts wordt pas zichtbaar na admin-goedkeuring.
+\end{itemize}
+
+\paragraph{Integriteit}
+\vspace{1em}
+
+\begin{itemize}
+    \item Het systeem kan aantonen dat een dagboekentry effectief werd ingevoerd door de ingelogde gebruiker.
+\end{itemize}
+
+\paragraph{Authenticiteit}
+\vspace{1em}
+
+\begin{itemize}
+    \item Bij het registreren van een expert dienen de voornaam, achternaam en contactgegevens gekend te zijn.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Onderhoudbaarheid}
+\label{subsubsec:onderhoudbaarheid}
+
+\vspace{1em}
+
+\paragraph{Herbruikbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 100\% van de UI- en UX-uitwerking van de applicatie moet gebaseerd zijn op een vastgelegd en herbruikbaar ontwerpkader (ontwerpprincipes), zodat UI-componenten en interactiepatronen consistent kunnen worden hergebruikt binnen andere schermen of toekomstige m-healthtoepassingen.
+\end{itemize}
+
+\paragraph{Wijzigbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item 95\% van psycho-educatieve content moet door geautoriseerde experts kunnen worden aangepast binnen 15 minuten via een WYSIWYG-interface, en dus zonder codewijziging.
+    \item Gebruikers moeten op elk moment de frequentie van notificaties kunnen wijzigen via instellingen, zonder dat hiervoor een update of herconfiguratie van het systeem nodig is.
+    \item De startpagina of het dashboard moet zodanig modulair worden opgebouwd dat gebruikers functionaliteiten kunnen tonen, verbergen of herschikken naar persoonlijke voorkeur.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Betrouwbaarheid}
+\label{subsubsec:betrouwbaarheid}
+
+\vspace{1em}
+
+\paragraph{Beschikbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item Kernfunctionaliteiten \textit{(dagboek, oefeningen, stressregistratie)} moeten 100\% offline beschikbaar zijn.
+\end{itemize}
+
+\paragraph{Foutbestendigheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item Uit gebruikerscomfort en stressreductie mag het systeem nooit crashen door foutieve gebruikersinput, netwerkonderbreking, enz.
+\end{itemize}
+
+\vspace{1em}
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsubsection{Overdraagbaarheid}
+\label{subsubsec:overdraagbaarheid}
+
+\vspace{1em}
+
+\paragraph{Installeerbaarheid}
+\vspace{1em}
+
+\begin{itemize}
+    \item De applicatie moet compatibel zijn met iOS en Android.
+    \item 95\% van de gebruikers kan de app binnen 1 minuut eenvoudig vinden en \newline identificeren als relevant voor hun noden, zonder externe hulp of \newline bijkomende uitleg.
+    \item De app moet binnen 3 minuten geïnstalleerd en voor het eerst succesvol geopend kunnen worden.
+\end{itemize}
+
+\newpage
+
+
+
 
 \section{Ontwerpprincipes}
 \label{sec:ontwerpprincipes}
@@ -497,104 +704,139 @@ TODO
     \small
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
-            >{\raggedright\arraybackslash}p{3cm}    % Principe
-            >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing
-            >{\raggedright\arraybackslash}p{4.0cm}  % Onderbouwing
+            >{\raggedright\arraybackslash}p{3cm}    % Principe (korte naam regel)
+            >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing (hoe toe te passen)
+            >{\raggedright\arraybackslash}p{4.0cm}  % Doel (wat voorkomt / bevordert dit)
         }
+        
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
+        \textbf{Principe} & \textbf{Toepassing} & \textbf{Doel} \\
         \midrule
         \endfirsthead
-        
+                
         \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
         \toprule
         \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
         \midrule
         \endhead
-        
+                
         \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
         \endfoot
-        
+                
         \bottomrule
-        \caption[Overzicht principes]{Overzicht van ontwerpprincipes voor de ontwikkeling van een stressreducerende app.}
+        \caption[Overzicht principes]{Overzicht van ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
         \label{tab:principes}
         \endlastfoot
         \addlinespace[6pt]
-        
+                
         %==============================
-        1. Bevorder de gebruikers-autonomie & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Gebruik uitnodigende, niet dwingende-taal \newline \textit{(vermijd woorden als "moet")}
-                \item Implementeer functionaliteiten waarmee de gebruiker de ervaring kan personaliseren \textit{(zoals het kiezen van eigen doelen, thema's...)}
-                \item Pas \textit{progressive disclosure} toe \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
-        
-        2. Ondersteun competentie-gevoel & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Pas \textit{chunking} toe \newline \textit{(deel complexe processen op in kleine, logische stappen)}
-                \item Onmiddellijke positieve feedback na een actie
-                \item Gebruik een intuïtieve en consistente UI om de leercurve en foutmarge te minimaliseren \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:clt}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
-        
-        3. Creëer verbondenheid & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Ontwikkel functies die sociale steun bieden \newline \textit{(zoals een forum of de mogelijkheid om successen te delen)}
-                \item Bouw opties in voor directe communicatie met zorgprofessionals
-                \item Bouw een "\textit{community}" binnen de app \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:engagement-retentie}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
-        
-        4. Zet notificaties strategisch in & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Voorzie een instellingenmenu waarin gebruikers frequentie en timing per meldingstype bepalen
-                \item Stuur gepersonaliseerde notificaties
-                \item Stuur waardevolle notificaties die bijdragen aan het persoonlijke traject
-                \item Formuleer meldingen subtiel, rekening houdend met zichtbaarheid voor anderen en gevoeligheid van de context
-                \item Vermijd herhaaldelijke of dwingende meldingen \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:online-vigilance}, \newline Sectie \ref{subsec:notificatie-strat} \\ \addlinespace[10pt]
-        
-        5. Calm Design \& visuele rust & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Minimaliseer afleiding door overbodige knoppen, advertenties en drukke animaties te vermijden
-                \item Gebruik een rustig kleurenpalet
-                \item Zorg voor voldoende witruimte in de layout
-                \item Focus op een overzichtelijke hiërarchie in de interface \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
-        
-        6. Implementeer betekenisvolle gamification & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Koppel spelelementen aan echte voortgang in welzijn aan de hand van \textit{SMARTER-principes} \newline \textit{(zoals badges of voortgangsbalken)}
-                \item Gebruik storytelling en personages \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:motivatie-betrokkenheid-strat} \\ \addlinespace[10pt]
-        
-        7. Selecteer de ontwikkel-strategie met de preventie van technostress in het achterhoofd & 
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[leftmargin=*, itemsep=2mm]
-                \item Kies voor een performante ontwikkelingstechnologie voor een zo vlot mogelijke gebruikerservaring
-                \item Zorg voor snelle laadtijden en een stabiele werking van de app. \newline
-            \end{itemize}
-        \end{minipage} & Sectie \ref{subsec:technostress}, \newline Sectie \ref{subsec:app-tech-keuze} \\ \addlinespace[10pt]
+        1. Principe & Toepassing & Doel
         
     \end{longtable}
 }
+
+%{
+%    \small
+%    \setlength\tabcolsep{3pt}
+%    \begin{longtable}{
+%            >{\raggedright\arraybackslash}p{3cm}    % Principe
+%            >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing
+%            >{\raggedright\arraybackslash}p{4.0cm}  % Onderbouwing
+%        }
+%        \toprule
+%        \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
+%        \midrule
+%        \endfirsthead
+%        
+%        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+%        \toprule
+%        \textbf{Principe} & \textbf{Toepassing} & \textbf{Onderbouwing} \\
+%        \midrule
+%        \endhead
+%        
+%        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+%        \endfoot
+%        
+%        \bottomrule
+%        \caption[Overzicht principes]{Overzicht van ontwerpprincipes voor de ontwikkeling van een stressreducerende app.}
+%        \label{tab:principes}
+%        \endlastfoot
+%        \addlinespace[6pt]
+%        
+%        %==============================
+%        1. Bevorder de gebruikers-autonomie & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Gebruik uitnodigende, niet dwingende-taal \newline \textit{(vermijd woorden als "moet")}
+%                \item Implementeer functionaliteiten waarmee de gebruiker de ervaring kan personaliseren \textit{(zoals het kiezen van eigen doelen, thema's...)}
+%                \item Pas \textit{progressive disclosure} toe \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+%        
+%        2. Ondersteun competentie-gevoel & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Pas \textit{chunking} toe \newline \textit{(deel complexe processen op in kleine, logische stappen)}
+%                \item Onmiddellijke positieve feedback na een actie
+%                \item Gebruik een intuïtieve en consistente UI om de leercurve en foutmarge te minimaliseren \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:clt}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+%        
+%        3. Creëer verbondenheid & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Ontwikkel functies die sociale steun bieden \newline \textit{(zoals een forum of de mogelijkheid om successen te delen)}
+%                \item Bouw opties in voor directe communicatie met zorgprofessionals
+%                \item Bouw een "\textit{community}" binnen de app \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:kenmerken-generatieZ}, \newline Sectie \ref{subsec:engagement-retentie}, \newline Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+%        
+%        4. Zet notificaties strategisch in & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Voorzie een instellingenmenu waarin gebruikers frequentie en timing per meldingstype bepalen
+%                \item Stuur gepersonaliseerde notificaties
+%                \item Stuur waardevolle notificaties die bijdragen aan het persoonlijke traject
+%                \item Formuleer meldingen subtiel, rekening houdend met zichtbaarheid voor anderen en gevoeligheid van de context
+%                \item Vermijd herhaaldelijke of dwingende meldingen \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:online-vigilance}, \newline Sectie \ref{subsec:notificatie-strat} \\ \addlinespace[10pt]
+%        
+%        5. Calm Design \& visuele rust & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Minimaliseer afleiding door overbodige knoppen, advertenties en drukke animaties te vermijden
+%                \item Gebruik een rustig kleurenpalet
+%                \item Zorg voor voldoende witruimte in de layout
+%                \item Focus op een overzichtelijke hiërarchie in de interface \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:uiux-algemeen} \\ \addlinespace[10pt]
+%        
+%        6. Implementeer betekenisvolle gamification & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Koppel spelelementen aan echte voortgang in welzijn aan de hand van \textit{SMARTER-principes} \newline \textit{(zoals badges of voortgangsbalken)}
+%                \item Gebruik storytelling en personages \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:motivatie-betrokkenheid-strat} \\ \addlinespace[10pt]
+%        
+%        7. Selecteer de ontwikkel-strategie met de preventie van technostress in het achterhoofd & 
+%        \begin{minipage}[t]{\hsize}
+%            \raggedright
+%            \begin{itemize}[leftmargin=*, itemsep=2mm]
+%                \item Kies voor een performante ontwikkelingstechnologie voor een zo vlot mogelijke gebruikerservaring
+%                \item Zorg voor snelle laadtijden en een stabiele werking van de app. \newline
+%            \end{itemize}
+%        \end{minipage} & Sectie \ref{subsec:technostress}, \newline Sectie \ref{subsec:app-tech-keuze} \\ \addlinespace[10pt]
+%        
+%    \end{longtable}
+%}
 
 \vspace{1em}
 
