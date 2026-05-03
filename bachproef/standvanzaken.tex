@@ -1152,49 +1152,18 @@ Hoewel de bovenstaande definities een goed beeld geven van de verschillende soor
 \end{longtable}
 }
 
-\vspace{1em}
-
-\subsection{Motivatie en keuze van technologie}
-\label{subsec:app-tech-keuze}
+\subsection{Samenvatting en reflectie}
+\label{subsec:app-tech-samenvatting}
 
 \vspace{1em}
 
-Gezien de focus van deze bachelorproef op de ontwikkeling van een mentale gezondheidsapplicatie, is de technologiekeuze cruciaal. De geselecteerde technologie moet enerzijds technisch haalbaar zijn binnen de beschikbare tijd en middelen, en anderzijds een gebruikerservaring bieden die aansluit bij de specifieke behoeften van de doelgroep.
+Uit de bovenstaande vergelijking blijkt dat elke ontwikkelbenadering duidelijke sterktes en beperkingen heeft. Native applicaties bieden de beste prestaties en gebruikerservaring, maar gaan gepaard met hogere ontwikkelkost en langere ontwikkeltijd. Hybride of cross-platform oplossingen vormen een middenweg waarbij een goede balans wordt bereikt tussen ontwikkelsnelheid, kost en platformonafhankelijkheid. Progressive Web Apps onderscheiden zich dan weer door hun lage ontwikkelkost en snelle implementatie, maar kennen beperkingen op het vlak van prestaties en toegang tot hardwarefunctionaliteiten.
 
 \vspace{1em}
 
-\subsubsection{Native}
-\label{subsubsec:native}
+De uiteindelijke geschiktheid van een technologie hangt sterk af van de context waarin deze wordt toegepast. Factoren zoals gewenste functionaliteiten, doelgroep, performantie-eisen en beschikbare middelen spelen hierbij een bepalende rol. Dit overzicht biedt dan ook een theoretisch kader dat gebruikt kan worden om verschillende technologische opties objectief te evalueren binnen een concrete ontwikkelcontext.
 
 \vspace{1em}
-
-Hoewel een \textbf{native} applicatie normaal gezien de beste prestaties en de meest optimale gebruikerservaring biedt \autocite{Samsyudin2025}, vereist deze aanpak aparte codebases per besturingssysteem en een gespecialiseerde kennis van meerdere programmeertalen. Met andere woorden: aanzienlijk meer tijd en middelen zijn vereist \autocite{Gerges2024}. Voor de ontwikkeling van de \acrshort{poc}, waarin slechts één ontwikkelaar ter beschikking voor is met beperkte tijd, is een native benadering daarom niet haalbaar.
-
-\vspace{1em}
-
-\subsubsection{PWA}
-\label{subsubsec:pwa}
-
-\vspace{1em}
-
-Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware- \newline functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
-
-\vspace{1em}
-
-\subsubsection{Cross-platform}
-\label{subsubsec:cross-platform}
-
-\vspace{1em}
-
-Daarom wordt er binnen de scope van dit project geopteerd voor een \textbf{cross-platform} benadering. Deze aanpak biedt een native-achtige gebruikerservaring \autocite{Gerges2024} die intuïtief en consistent is over verschillende platformen, terwijl de ontwikkeltijd aanzienlijk korter is dan bij native ontwikkeling. Omdat op het eerste gezicht de huidige functionele vereisten geen diepe integratie met complexe hardware \textit{(zoals sensoren)} vereisen, volstaat deze technologie volledig. Binnen de cross-platform benadering bestaan verschillende frameworks, zoals React Native, Flutter en Xamarin \autocite{Souha2024}. Onder het mom van efficiëntie wordt voor deze \acrshort{poc} geopteerd voor \textbf{React Native}. Gezien de aanwezige voorkennis van React biedt dit framework de laagste leercurve. Dit garandeert een tijdsefficiënt ontwikkelproces voor de \acrshort{poc}.
-
-\vspace{1em}
-
-Kortom: de keuze voor een cross-platform oplossing gebruikmakend van React Native vormt een optimale balans tussen haalbaarheid, \acrshort{ux} en technische functionaliteit. Het maakt de ontwikkeling van een \acrshort{poc} mogelijk binnen de beschikbare tijd, waarbij de gebruiker geniet van een comfortabele, frustratievrije ervaring.
-
-\newpage
-
-
 
 % Deel 7 - Longlist
 
@@ -1395,11 +1364,15 @@ Daarnaast zijn er nauwelijks apps die expliciet gericht zijn op burn-outpreventi
             \item \textbf{Motivatie \& betrokkenheid:} keuzevrijheid, informatieve beloningen (bv. badges), personalisatie en sociale interactie; gamification gekoppeld aan echte progressie en doelen.
             \item \textbf{Notificatiestrategieën:} contextafhankelijk, gepersonaliseerd en gevarieerd; afgestemde frequentie en interactieve elementen, met focus op autonomie.
         \end{itemize} \\
-        \addlinespace[8pt] \cmidrule(lr){1-2} \addlinespace[6pt]
+        \addlinespace[8pt]
         
         \nameref{sec:technologieselectie} &
         \begin{itemize}[nosep, leftmargin=*]
-            \item \textbf{React Native} als optimaal cross-platform framework voor de PoC.
+            \item \textbf{Native:} Voor apps met hoge performantie en volledige toegang tot toestelhardware, maar met hogere ontwikkelkost en langere ontwikkeltijd.
+            
+            \item \textbf{Hybrid / Cross-platform:} Voor apps die op meerdere platformen moeten draaien met één codebase, met gemiddelde ontwikkelkost en ontwikkeltijd.
+            
+            \item \textbf{Progressive Web Apps (PWA):} Voor apps die snel toegankelijk moeten zijn via de browser zonder appstore-installatie, met lage ontwikkelkost en korte ontwikkeltijd.
         \end{itemize} \\
         
         \nameref{sec:longlist} &
@@ -1411,17 +1384,11 @@ Daarnaast zijn er nauwelijks apps die expliciet gericht zijn op burn-outpreventi
     \end{longtable}
 }
 
-\vspace{1em}
-
 Uit deze literatuurstudie werd duidelijk hoe breed en complex het probleemdomein van burn-out is. Hoewel burn-out vaak gelinkt wordt aan werk, blijkt het eerder het resultaat van een samenspel van verschillende stressoren die kunnen leiden tot \textbf{chronische overspanning}. Binnen deze casus ligt daarom de focus op primaire preventie van burn-out, met aandacht voor secundaire preventie van chronische overspanning via interventies zoals REBT, mindfulness en psycho-educatie. Naast werkgerelateerde factoren spelen ook maatschappelijke invloeden, zoals sociale emotienormen waarbij negatieve emoties minder gedeeld worden, een belangrijke rol. Daarnaast blijkt dat individuen, en in het bijzonder generatie Z, geneigd zijn copingmechanismen zoals perfectionisme en people-pleasing te ontwikkelen. Hoewel deze op korte termijn functioneel lijken, versterken ze op lange termijn de ervaren druk en mentale belasting.
 
 \vspace{1em}
 
-Een belangrijk theoretisch kader zijn de \textbf{psychologische basisbehoeften}: autonomie, competentie en verbondenheid. Vooral verbondenheid blijkt cruciaal, aangezien generatie Z een sterke behoefte heeft aan bevestiging en sociale steun. Deze verbondenheid situeert zich vandaag vaak binnen digitale omgevingen, waar ook sociale vergelijking en vertekende realiteitsbeelden een rol spelen. Verder werden \textbf{digitale en cognitieve stressoren} geïdentificeerd, zoals information overload, technostress en online vigilance. Deze benadrukken het belang van het beperken van cognitieve belasting en het voorzien van rustmomenten binnen digitale toepassingen.
-
-\vspace{1em}
-
-Tot slot tonen digitale interventies potentieel om de toegankelijkheid van mentale gezondheidszorg te vergroten, maar blijven er aandachtspunten zoals beperkte wetenschappelijke onderbouwing, lage retentie en UX/UI-problemen. Dit onderstreept het belang van een doordachte, gebruiksvriendelijke en motiverende ontwerpaanpak.
+Een belangrijk theoretisch kader zijn de \textbf{psychologische basisbehoeften}: autonomie, competentie en verbondenheid. Vooral verbondenheid blijkt cruciaal, aangezien generatie Z een sterke behoefte heeft aan bevestiging en sociale steun. Deze verbondenheid situeert zich vandaag vaak binnen digitale omgevingen, waar ook sociale vergelijking en vertekende realiteitsbeelden een rol spelen. Verder werden \textbf{digitale en cognitieve stressoren} geïdentificeerd, zoals information overload, technostress en online vigilance. Deze benadrukken het belang van het beperken van cognitieve belasting en het voorzien van rustmomenten binnen digitale toepassingen. Tot slot tonen digitale interventies potentieel om de toegankelijkheid van mentale gezondheidszorg te vergroten, maar blijven er aandachtspunten zoals beperkte wetenschappelijke onderbouwing, lage retentie en UX/UI-problemen. Dit onderstreept het belang van een doordachte, gebruiksvriendelijke en motiverende ontwerpaanpak.
 
 \vspace{1em}
 

@@ -6,3 +6,59 @@
 \label{ch:poc}
 
 Huidig idee: Hygge app verbeteren gezien dit de enige app momenteel is die ik tegenkom in de resultaten van de play store bij het zoeken op de term "burnout", "anti-burnout" of "burnout preventie". Verantwoording: ik doorloop het huidige probleem, onwetend persoon die een app zoekt en afgaat van één van de eerste resultaten. Staat ook niet in de databank van gescreenede apps.
+
+\section{Motivatie en keuze van technologie}
+\label{sec:app-tech-keuze}
+
+\vspace{1em}
+
+TODO: aanvullen met bevindingen uit requirements en ontwerpprincipes
+
+Gezien de focus van deze bachelorproef op de ontwikkeling van een mentale gezondheidsapplicatie, is de technologiekeuze cruciaal. De geselecteerde technologie moet enerzijds technisch haalbaar zijn binnen de beschikbare tijd en middelen, en anderzijds een gebruikerservaring bieden die aansluit bij de specifieke behoeften van de doelgroep. Op basis van de technologieën die in de literatuurstudie werden geanalyseerd, wordt in deze sectie geëvalueerd welke optie het best aansluit bij de doelstellingen van deze proof-of-concept en de beoogde ontwerpprincipes.
+
+\vspace{1em}
+
+\subsubsection{Native}
+\label{subsubsec:native}
+
+\vspace{1em}
+
+Hoewel een \textbf{native} applicatie normaal gezien de beste prestaties en de meest optimale gebruikerservaring biedt \autocite{Samsyudin2025}, vereist deze aanpak aparte codebases per besturingssysteem en een gespecialiseerde kennis van meerdere programmeertalen. Met andere woorden: aanzienlijk meer tijd en middelen zijn vereist \autocite{Gerges2024}. Voor de ontwikkeling van de \acrshort{poc}, waarin slechts één ontwikkelaar ter beschikking voor is met beperkte tijd, is een native benadering daarom niet haalbaar.
+
+\vspace{1em}
+
+\subsubsection{PWA}
+\label{subsubsec:pwa}
+
+\vspace{1em}
+
+Een \textbf{\acrshort{pwa}} biedt op zich lage ontwikkelingskosten en een snelle ontwikkelingsduur, maar de gebruikerservaring en performantie zijn beperkt \autocite{Samsyudin2025,Gerges2024}. Bovendien biedt een \acrshort{pwa} minder toegang tot hardware- \newline functionaliteiten \autocite{Gerges2024}. Voor een mentale gezondheidsapp is het motiveren van gebruikers en het behouden van een hoge retentie echter essentieel. Een inconsistent of trage interface, met als gevolg een frustrerende ervaring, kan op deze manier contraproductief zijn. Zoals eerder ook bleek uit deze literatuurstudie is het cruciaal om technostress te vermijden: gebruikers moeten de app ervaren als rustgevend en eenvoudig, zonder frustraties veroorzaakt door trage of inconsistente interfaces.
+
+\vspace{1em}
+
+\subsubsection{Cross-platform}
+\label{subsubsec:cross-platform}
+
+\vspace{1em}
+
+Daarom wordt er binnen de scope van dit project geopteerd voor een \textbf{cross-platform} benadering. Deze aanpak biedt een native-achtige gebruikerservaring \autocite{Gerges2024} die intuïtief en consistent is over verschillende platformen, terwijl de ontwikkeltijd aanzienlijk korter is dan bij native ontwikkeling. Omdat op het eerste gezicht de huidige functionele vereisten geen diepe integratie met complexe hardware \textit{(zoals sensoren)} vereisen, volstaat deze technologie volledig. Binnen de cross-platform benadering bestaan verschillende frameworks, zoals React Native, Flutter en Xamarin \autocite{Souha2024}. Onder het mom van efficiëntie wordt voor deze \acrshort{poc} geopteerd voor \textbf{React Native}. Gezien de aanwezige voorkennis van React biedt dit framework de laagste leercurve. Dit garandeert een tijdsefficiënt ontwikkelproces voor de \acrshort{poc}.
+
+\vspace{1em}
+
+Kortom: de keuze voor een cross-platform oplossing gebruikmakend van React Native vormt een optimale balans tussen haalbaarheid, \acrshort{ux} en technische functionaliteit. Het maakt de ontwikkeling van een \acrshort{poc} mogelijk binnen de beschikbare tijd, waarbij de gebruiker geniet van een comfortabele, frustratievrije ervaring.
+
+\newpage
+
+\section{Uitwerking van mockups}
+\label{sec:uitwerking-mockups}
+
+\vspace{1em}
+
+TODO
+
+\section{Implementatie in code}
+\label{sec:implementatie-code}
+
+\vspace{1em}
+
+TODO
