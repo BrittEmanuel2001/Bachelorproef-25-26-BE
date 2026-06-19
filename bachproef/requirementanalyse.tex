@@ -706,7 +706,20 @@ De \acrshort{nfr}’s worden opgesteld aan de hand van het ISO/IEC 25010-kwalite
 
 \vspace{1em}
 
-TODO aanvullen van ontwerpprincipes
+De literatuurstudie toont aan dat de een \acrshort{mhealth} app moet inzetten op stressreducerend ontwerp dat de mentale rust bevordert en de gebruikers ondersteunt bij het vinden van een \textit{off switch}. Een lage cognitieve belasting vormt hierbij een essentieel uitgangspunt. 
+
+\vspace{1em}
+
+Op basis van voorgaand onderzoek werden ontwerpprincipes opgesteld voor zowel deze \acrshort{poc} als het bredere ontwerp van prikkelarme en mentaal gezonde digitale toepassingen. Deze principes zijn gericht op het verminderen van cognitieve belasting, het bevorderen van mentale rust en het voorkomen van onnodige stress tijdens het gebruik van de app. Om een gestructureerd overzicht te bieden, werden de principes onderverdeeld in vier categorieën:
+
+\vspace{1em}
+
+\begin{itemize}[nosep]
+    \item \textbf{Development}: technisch vertrouwen en het vermijden van technostress.
+    \item \textbf{Design}: eenvoud en een lage cognitieve belasting.
+    \item \textbf{Interaction}: motivatietechnieken en ondersteuning van \acrshort{sdt}.
+    \item \textbf{Content}: relevante en ondersteunende inhoud.
+\end{itemize}
 
 \vspace{1em}
 
@@ -717,23 +730,26 @@ TODO aanvullen van ontwerpprincipes
     \small
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
-            >{\raggedright\arraybackslash}p{3cm}    % Principe (korte naam regel)
+            >{\raggedright\arraybackslash}p{0.2cm}  % Nummer
+            >{\raggedright\arraybackslash}p{3.3cm}  % Principe (korte naam regel)
+            @{\hspace{0.5cm}}
             >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing (hoe toe te passen)
-            >{\raggedright\arraybackslash}p{4.0cm}  % Doel (wat voorkomt / bevordert dit)
+            @{\hspace{0.5cm}}
+            >{\raggedright\arraybackslash}p{2.7cm}  % Theoretische basis (waarop werd dit gebaseerd?)
         }
         
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endfirsthead
                 
-        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endhead
                 
-        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
         \endfoot
                 
         \bottomrule
@@ -741,14 +757,115 @@ TODO aanvullen van ontwerpprincipes
         \label{tab:principes-dev}
         \endlastfoot
         \addlinespace[6pt]
-                
+        
         %==============================
-        1. Principe & Toepassing & Doel
+        1.
+        &
+        Privacy by Design 
+        & 
+        \textit{"Wordt de privacy van de gebruiker beschermd zonder dat deze extra acties moet ondernemen?"}
+        
+        \begin{itemize}
+            \item Verzamel enkel noodzakelijke gegevens
+            \item Voorzie transparante privacy-instellingen
+            \item Beveilig gevoelige data standaard
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} Privacy als randvoorwaarde voor m-health apps\par\bigskip
+            \ref{subsec:kritieken-apps} Kritieken op apps: datalekken en gebrek aan beveiliging
+        }
+        \\
+        
+        \addlinespace[20pt]
+        
+        2.
+        &
+        Snel en eenvoudig distribueerbaar
+        & 
+        \textit{"Is je app snel vindbaar en makkelijk downloadbaar?"}
+        
+        \begin{itemize}
+            \item Kies een eenvoudig te vinden distributieplatform
+            \item Beperk de bestandsgrootte
+            \item Gebruik de juiste technologie in functie van distributie, rekening houdend met verschillen in vindbaarheid en een installatiedrempel
+        \end{itemize}
+        & 
+        {\scriptsize
+            \ref{subsec:engagement-retentie} Engagement- en retentieproblematiek: drempels bij installatie\par\bigskip
+            \ref{sec:technologieselectie} Technologie-selectie
+        } 
+        \\
+        
+        3.
+        &
+        Ondersteunende foutafhandeling
+        & 
+        \textit{"Helpt deze foutmelding de gebruiker verder zonder frustratie of onzekerheid te creëren?"}
+        
+        \begin{itemize}
+            \item Begrijpelijke, niet-technische foutmeldingen
+            \item Geen schuldinducerende formuleringen
+            \item Bied altijd een duidelijke volgende stap
+            \item Geen crashes of blokkades
+            \item Fallback bij netwerk- of systeemproblemen
+            \item Snelle en consistente laadtijden
+        \end{itemize}
+        & 
+        {\scriptsize
+            \ref{subsubsec:psychbehoeften-z} / \ref{subsec:uiux-algemeen} SDT: competentie\par\bigskip
+            \ref{subsec:kritieken-apps} Kritieken op apps: frustratie door slechte UX en technische instabiliteit
+        } 
+        \\
+        
+        \addlinespace[20pt]
+        
+        4.
+        &
+        Inclusieve toegankelijkheid
+        & 
+        \textit{"Kan elke gebruiker zelfstandig gebruikmaken van de app?"}
+        
+        \begin{itemize}
+            \item Volg de WCAG-richtlijnen
+        \end{itemize}
+        & 
+        {\scriptsize
+            \ref{subsubsec:psychbehoeften-z} / \ref{subsec:uiux-algemeen} SDT: autonomie\par\bigskip
+            \ref{subsec:kritieken-apps} Kritieken op apps: slechte usability
+        } 
+        \\
+        
+        \addlinespace[20pt]
+        
+        5.
+        &
+        Beperk digitale interrupties
+        & 
+        \textit{"Respecteert de app rustmomenten van de gebruiker?"}
+        
+        \begin{itemize}
+            \item Notificaties optioneel en instelbaar
+            \item Geen vaste pushmeldingen zonder toestemming
+            \item Lage en aanpasbare frequentie
+            \item Geen dwingende of urgente formuleringen
+        \end{itemize}
+        & 
+        {\scriptsize
+            \ref{subsubsec:psychbehoeften-z} / \ref{subsec:uiux-algemeen} SDT: autonomie\par\bigskip
+            \ref{subsec:info-overload} \acrshort{io}\par
+            \ref{subsec:technostress} Technostress\par
+            \ref{subsec:online-vigilance} Online vigilance\par\bigskip
+            \ref{subsec:notificatie-strat} Notificatie strategieën
+        } 
+        \\
+        
+        \addlinespace[20pt]
         
     \end{longtable}
 }
 
-\vspace{1em}
+\newpage
 
 \subsubsection{Design (UI/UX)}
 \label{subsubsec:principes-design}
@@ -757,64 +874,143 @@ TODO aanvullen van ontwerpprincipes
     \small
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
-            >{\raggedright\arraybackslash}p{3cm}    % Principe (korte naam regel)
+            >{\raggedright\arraybackslash}p{0.2cm}  % Nummer
+            >{\raggedright\arraybackslash}p{3.3cm}  % Principe (korte naam regel)
+            @{\hspace{0.5cm}}
             >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing (hoe toe te passen)
-            >{\raggedright\arraybackslash}p{4.0cm}  % Doel (wat voorkomt / bevordert dit)
+            @{\hspace{0.5cm}}
+            >{\raggedright\arraybackslash}p{2.7cm}  % Theoretische basis (waarop werd dit gebaseerd?)
         }
         
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endfirsthead
         
-        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
         \toprule
-        \textbf{Principe} & \textbf{Toepassing}  & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endhead
         
-        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
         \endfoot
         
         \bottomrule
-        \caption[Overzicht principes]{Overzicht van design gerelateerde ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
+        \caption[Overzicht principes]{Overzicht van ontwerpgerelateerde ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
         \label{tab:principes-design}
         \endlastfoot
         \addlinespace[6pt]
         
         %==============================
-        {1. Minimaliseer cognitieve belasting}
+        6.
         &
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[nosep, leftmargin=*]
-                \item Beperk elke pagina tot één primaire actie
-                \item Splits inhoud op in kleine stappen (\textit{chunking})
-                \item Gebruik voldoende witruimte tussen secties
-                \item Maak gebruik van progressive disclosure
-                \item Vermijd overbodige elementen en tekst (\textit{MoSCoW prioritering})
-            \end{itemize}
-        \end{minipage}
-        &
-        Sectie 0.0.0
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
         \\
         
         \addlinespace[20pt]
         
-        {2. Vermijd visuele overprikkeling}
+        7.
         &
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[nosep, leftmargin=*]
-                \item Vermijd sterk gesatureerde kleuren en sterke contrasten zonder functioneel doel
-                \item Gebruik accentkleuren uitsluitend voor interacties en statusfeedback
-                \item Vermijd decoratieve animaties
-                \item Gebruik afbeeldingen en video alleen ter ondersteuning van informatie
-                \item Houd een consistente visuele stijl aan (\textit{spacing, typografie en soorten components})
-            \end{itemize}
-        \end{minipage}
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
+        \\
+        
+        \addlinespace[20pt]
+    \end{longtable}
+}
+
+\vspace{1em}
+
+\subsubsection{Interaction}
+\label{subsubsec:principes-interaction}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{0.2cm}  % Nummer
+            >{\raggedright\arraybackslash}p{3.3cm}  % Principe (korte naam regel)
+            @{\hspace{0.5cm}}
+            >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing (hoe toe te passen)
+            @{\hspace{0.5cm}}
+            >{\raggedright\arraybackslash}p{2.7cm}  % Theoretische basis (waarop werd dit gebaseerd?)
+        }
+        
+        \toprule
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht principes]{Overzicht van interactiegerelateerde ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
+        \label{tab:principes-interaction}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        6.
         &
-        Sectie 0.0.0
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
+        \\
+        
+        \addlinespace[20pt]
+        
+        7.
+        &
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
         \\
         
         \addlinespace[20pt]
@@ -830,80 +1026,74 @@ TODO aanvullen van ontwerpprincipes
     \small
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
-            >{\raggedright\arraybackslash}p{3cm}    % Principe (korte naam regel)
+            >{\raggedright\arraybackslash}p{0.2cm}  % Nummer
+            >{\raggedright\arraybackslash}p{3.3cm}  % Principe (korte naam regel)
+            @{\hspace{0.5cm}}
             >{\raggedright\arraybackslash}p{8.4cm}  % Toepassing (hoe toe te passen)
-            >{\raggedright\arraybackslash}p{4.0cm}  % Doel (wat voorkomt / bevordert dit)
+            @{\hspace{0.5cm}}
+            >{\raggedright\arraybackslash}p{2.7cm}  % Theoretische basis (waarop werd dit gebaseerd?)
         }
         
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endfirsthead
         
-        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \multicolumn{4}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
         \toprule
-        \textbf{Principe} & \textbf{Toepassing} & \textbf{Theorie} \\
+        \multicolumn{2}{l}{\textbf{Principe}} & \textbf{Toepassing} & \textbf{Theorie} \\
         \midrule
         \endhead
         
-        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \midrule \multicolumn{4}{r}{Vervolg op volgende pagina} \\
         \endfoot
         
         \bottomrule
-        \caption[Overzicht principes]{Overzicht van content gerelateerde ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
+        \caption[Overzicht principes]{Overzicht van contentgerelateerde ontwerpprincipes voor stressreducerend en -voorkomend ontwerp binnen de ontwikkeling van apps.}
         \label{tab:principes-content}
         \endlastfoot
         \addlinespace[6pt]
         
         %==============================
-        1. Bevorder gebruikersautonomie &
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[nosep, leftmargin=*]
-                \item Geef gebruikers controle over doelen
-                \item Bied instelbare voorkeuren aan
-                \item Bied personalisatie-opties aan
-                \item Gebruik uitnodigende en niet-dwingende taal (vermijd "moeten")
-            \end{itemize}
-        \end{minipage}
+        6.
         &
-        Sectie 0.0.0
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
         \\
         
         \addlinespace[20pt]
         
-        2. Ondersteun competentie -gevoel &
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[nosep, leftmargin=*]
-                \item Geef directe en positieve feedback na acties
-                \item Vermijd complexe/dubbelzinnige instructies
-                \item Formuleer instructies helder en stap-voor-stap
-            \end{itemize}
-        \end{minipage}
+        7.
         &
-        Sectie 0.0.0
+        f 
+        & 
+        \textit{""}
+        
+        \begin{itemize}
+            \item f
+        \end{itemize} 
+        & 
+        {\scriptsize
+            \ref{subsec:potentieel-en-randvoorwaarden} f\par\bigskip
+            \ref{subsec:kritieken-apps} f
+        }
         \\
         
         \addlinespace[20pt]
-        
-        3. Stimuleer verbondenheid &
-        \begin{minipage}[t]{\hsize}
-            \raggedright
-            \begin{itemize}[nosep, leftmargin=*]
-                \item Bied mogelijkheden om ervaringen te delen
-                \item Ondersteun communicatie met peers
-                \item Ondersteun communicatie met experts
-            \end{itemize}
-        \end{minipage}
-        &
-        Sectie 0.0.0
-        \\
-        
-        \addlinespace[20pt]
-        
     \end{longtable}
 }
+
+\vspace{1em}
 
 %{
 %    \small
