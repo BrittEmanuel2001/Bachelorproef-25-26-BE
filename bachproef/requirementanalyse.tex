@@ -25,21 +25,19 @@ Het gesprek vond plaats via een semi-gestructureerd interviewformaat om ruimte t
 
 \vspace{1em}
 
-De synthese van dit interview leidde tot de volgende cruciale pijlers die de verdere bepaling van de functionele en niet-functionele requirements hebben gestuurd:
+De synthese van dit interview leidde tot de volgende cruciale pijlers die de verdere bepaling van de functionele en niet-functionele requirements zullen sturen:
 
 \begin{itemize}
     \item \textbf{Focus op de 'externe rem':} De doelgroep bevindt zich vaak in een staat van chronische overprikkeling (hyper-alertheid). De applicatie moet fungeren als een preventieve tool die helpt bij het herkennen van fysiologische signalen voordat het stadium van burn-out bereikt wordt.
     \item \textbf{Methodiek via het 5G-model:} Voor de zelfreflectie wordt de cognitieve gedragstherapeutische methode van het 5G-model (Gebeurtenis, Gedachte, Gevoel, Gedrag, Gevolg) gehanteerd. Dit wordt vertaald naar een geleide dagboekfunctie die de gebruiker helpt om dieperliggende patronen zoals perfectionisme te ontleden.
-    \item \textbf{Fase-gebaseerde content (Chunking):} De interventie moet stapsgewijs verlopen om information overload te vermijden. Dit kan bijvoorbeeld voor secondaire burn-out preventie door eerst de focus te leggen op 'leren remmen' (ademhaling, zintuiglijke oefeningen) en pas bij voldoende fysieke rust schakelt de app over naar cognitieve reflectie over de oorzaken. Echter wordt de focus gelegd op secondaire preventie van chronische overspanning en zal dit een andere vorm kunnen krijgen.
+    \item \textbf{Fase-gebaseerde content (Chunking):} De interventie moet stapsgewijs verlopen om information overload te vermijden. Dit kan bijvoorbeeld voor secondaire burn-out preventie door eerst de focus te leggen op 'leren remmen' (ademhaling, zintuiglijke oefeningen) en psycho-educatie (over het belang van rust, slaap en het luisteren naar lichamelijke signalen). Pas bij voldoende fysieke rust schakelt de app over naar cognitieve reflectie over de oorzaken. Echter wordt de focus gelegd op secundaire preventie van chronische overspanning en zal dit een andere vorm kunnen krijgen.
     \item \textbf{Eliminatie van prestatiedruk:} Een essentieel inzicht is het vermijden van \textit{gamification} die stress kan opwekken. De app mag geen gebruik maken van scores, streaks, ratings of rankings. Deze elementen activeren het stresssysteem bij perfectionistische gebruikers en kunnen leiden tot een gevoel van falen wanneer de app niet 'perfect' gebruikt wordt.
     \item \textbf{Risico's van sociale ondersteuning:} Hoewel verbondenheid waardevol is, moet er opgepast worden voor directe sociale vergelijking (bijv. "Waarom herstelt de ander sneller?"). Sociale functies moeten daarom anoniem en niet-competitief zijn, bijvoorbeeld door middel van het delen van algemene, anonieme bemoedigende boodschappen in plaats van directe chatfuncties.
     \item \textbf{Retentie door psycho-educatie:} Om vroegtijdig afhaken te voorkomen (het zoeken naar een \textit{quick fix}), is psycho-educatie cruciaal. Door uit te leggen hoe het zenuwstelsel werkt, begrijpt de gebruiker waarom resultaten uitblijven als er geen rust wordt genomen, wat de motivatie op lange termijn verhoogt.
-    \item \textbf{Personalisatie van notificaties:} Om te vermijden dat de app als een extra 'verplichting' aanvoelt, moeten notificaties instelbaar zijn op basis van de individuele behoefte en de mate van smartphonegebruik van de gebruiker.
+    \item \textbf{Personalisatie van notificaties:} Om te vermijden dat de app als een extra 'verplichting' aanvoelt of bijkomende overprikkeling van het zenuwstelsel veroorzaakt, moeten notificaties instelbaar zijn op basis van de individuele behoefte en de mate van smartphonegebruik van de gebruiker.
 \end{itemize}
 
 De bovenstaande inzichten, samen met de kennis die voortkwam uit de literatuurstudie, vormen de directe onderbouwing voor de geprioriteerde requirements die in de volgende sectie (\ref{sec:requirements}) worden opgesomd.
-
-\vspace{1em}
 
 \section{Requirements}
 \label{sec:requirements}
@@ -51,16 +49,12 @@ De bovenstaande inzichten, samen met de kennis die voortkwam uit de literatuurst
 
 De functionele requirements (\acrshort{fr}'s) beschrijven de specifieke acties, gedragingen en functies die de applicatie moet kunnen uitvoeren. Ze definiëren met andere woorden de directe interactie tussen de gebruiker en het systeem en bepalen wat de applicatie precies 'doet' om de doelstelling (verminderen van chronische overspanning) te faciliteren.
 
-\vspace{1em}
-
 \subsubsection{User stories}
 \label{subsubsec:user-stories}
 
 \vspace{1em}
 
 Om deze requirements te identificeren werd gebruikgemaakt van user stories als ondersteunende techniek. Deze user stories zijn opgesteld met een focus op de preventie van chronische overspanning en het ondersteunen van stressregulatie, eerder dan op de behandeling van burn-out. Op basis van deze user stories worden de uiteindelijke functionele requirements, aangevuld met een MoSCoW-prioritering, samengebracht in een overzichtelijke tabel. Daarnaast kunnen bepaalde user stories, in combinatie met inzichten uit de literatuurstudie, later bijdragen aan het formuleren van ontwerpprincipes.
-
-\vspace{1em}
 
 \paragraph{Gebruiker}
 
@@ -147,7 +141,7 @@ zodat \textit{ik terugkerende patronen kan herkennen}.
 
 Als \textbf{gebruiker}, \newline
 wil ik \textbf{toegang tot korte en begrijpbare educatieve content}, \newline
-zodat \textit{ik inzicht krijg in stress, coping en chronische overspanning}.
+zodat \textit{ik inzicht krijg in chronische overspanning, het zenuwstelsel en coping}.
 
 \vspace{1em}
 
@@ -228,7 +222,7 @@ zodat \textit{ik gemotiveerd blijf en mijn doelen voor ogen houd}.
 \vspace{1em}
 
 Als \textbf{gebruiker}, \newline
-wil ik \textbf{kleine beloningen ontvangen} (zoals badges of mijlpalen), \newline
+wil ik \textbf{zachte beloningen/bevestigingen ontvangen}, \newline
 zodat \textit{mijn vooruitgang zichtbaar wordt zonder prestatiedruk}.
 
 \vspace{1em}
@@ -848,6 +842,7 @@ Op basis van voorgaand onderzoek werden ontwerpprincipes opgesteld voor zowel de
             \item Notificaties optioneel en instelbaar
             \item Geen vaste pushmeldingen zonder toestemming
             \item Lage en aanpasbare frequentie
+            \item Instelbare minimale tijd tussen meldingen om onderbrekingen te beperken en rust te waarborgen
             \item Geen dwingende of urgente formuleringen
         \end{itemize}
         & 
@@ -1158,7 +1153,7 @@ Op basis van voorgaand onderzoek werden ontwerpprincipes opgesteld voor zowel de
         \textit{"Ondersteunt de applicatie motivatie op een betekenisvolle manier zonder prestatiedruk of competitie?"}
         
         \begin{itemize}
-            \item Voorzie beloningen gekoppeld aan echte vooruitgang
+            \item Voorzie beloningen gekoppeld aan betekenisvolle acties en vooruitgang (zowel bij merkbare als bij kleinere of laagdrempelige stappen)
             \item Vermijd competitieve rankings
             \item Focus op persoonlijke groei en inspanning
             \item Gebruik narratieven of personages voor betrokkenheid
