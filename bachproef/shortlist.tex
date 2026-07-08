@@ -32,6 +32,14 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
 
 \vspace{1em}
 
+De evaluatie gebeurt uitsluitend vanuit het perspectief van een eindgebruiker. Bijgevolg worden enkel functionaliteiten beoordeeld die voor een reguliere gebruiker zichtbaar en verifieerbaar zijn. Requirements die betrekking hebben op onder andere interne beheerfunctionaliteiten worden niet meegenomen, aangezien deze zonder toegang tot de broncode of beheerdersomgeving niet objectief kunnen worden vastgesteld.
+
+\vspace{1em}
+
+Deze afbakening vormt echter geen belemmering binnen de context van deze selectie. Het doel van deze selectie is niet om bestaande applicaties volledig functioneel of technisch te beoordelen, maar om een relevante shortlist samen te stellen die kan dienen als inspiratiebron voor de ontwikkeling van de \acrshort{poc}. De verdere analyse van deze applicaties aan de hand van de opgestelde ontwerpprincipes dient daarnaast als een eerste toetsing van de toepasbaarheid van deze principes als beoordelings- en verbeteringskader. Hierdoor ligt de focus voornamelijk op aspecten die rechtstreeks verband houden met de gebruikerservaring en die vanuit het perspectief van een eindgebruiker kunnen worden geëvalueerd.
+
+\newpage
+
 \subsection{Algemeen}
 \label{subsec:fr-algemeen}
 
@@ -70,81 +78,58 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (algemeen)]{Evaluatie van applicaties op basis van de algemene \acrshort{fr}'s (deel 1 van 4).}
+        \label{tab:fr-algemeen-1}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Registreren en aanmelden (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink \kruis \textcolor{orange}{\textsuperscript{*}}
+        & \vink
+        & \kruis
+        & \kruis
+        & \vink \\
         
         \addlinespace[5pt]
         
         Raadplegen privacybeleid en juridische info (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Gebruikers beheren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Modereren van community	(\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Beheren van hulpinstanties (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \kruis
+        & \vink \\
         
         \addlinespace[5pt]
         
         Expert registreren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Aanpassen/valideren van educatieve content (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \kruis
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}} \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7} \\
+        & \textbf{1.5/4}
+        & \textbf{2.5/4}
+        & \textbf{1.5/4}
+        & \textbf{0/4}
+        & \textbf{2.5/4} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
@@ -182,84 +167,64 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (algemeen)]{Evaluatie van applicaties op basis van de algemene \acrshort{fr}'s (deel 2 van 4).}
+        \label{tab:fr-algemeen-2}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Registreren en aanmelden (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Raadplegen privacybeleid en juridische info (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Gebruikers beheren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Modereren van community	(\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Beheren van hulpinstanties (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Expert registreren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Aanpassen/valideren van educatieve content (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \kruis
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}} \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7} \\
+        & \textbf{2/4}
+        & \textbf{2.5/4}
+        & \textbf{2/4}
+        & \textbf{1.5/4}
+        & \textbf{1.5/4} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
+
+\footnotesize{\textcolor{orange}{\textsuperscript{*} De functionaliteit is enkel beschikbaar voor gebruikers met een aangesloten VGZ-verzekering.}} \\
+\footnotesize{\textcolor{orange}{\textsuperscript{**} Feedback via contactkanalen. Geen contentaanpassing of -validatie in de app.}}
 
 {
     \footnotesize
@@ -294,81 +259,58 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (algemeen)]{Evaluatie van applicaties op basis van de algemene \acrshort{fr}'s (deel 3 van 4).}
+        \label{tab:fr-algemeen-3}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Registreren en aanmelden (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \kruis
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Raadplegen privacybeleid en juridische info (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Gebruikers beheren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Modereren van community	(\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Beheren van hulpinstanties (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Expert registreren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Aanpassen/valideren van educatieve content (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \vink
+        & \kruis \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7} \\
+        & \textbf{2/4}
+        & \textbf{2/4}
+        & \textbf{1.5/4}
+        & \textbf{3/4}
+        & \textbf{2/4} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
@@ -378,7 +320,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
             >{\raggedright\arraybackslash}p{4cm}
-            *{5}{>{\centering\arraybackslash}p{2.1cm}}
+            *{3}{>{\centering\arraybackslash}p{2.1cm}}
+            >{\centering\arraybackslash}p{4.2cm}
         }
         
         \toprule
@@ -386,8 +329,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{Headspace}
         & \textbf{Calm}
         & \textbf{Petit BamBou}
-        & \textbf{Sipi}
-        & \textbf{Burnout app.be} \\
+        & \textbf{Burnoutapp.be} \\
         \midrule
         \endfirsthead
         
@@ -396,94 +338,70 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{Headspace}
         & \textbf{Calm}
         & \textbf{Petit BamBou}
-        & \textbf{Sipi}
-        & \textbf{Burnout app.be} \\
+        & \textbf{Burnoutapp.be} \\
         \midrule
         \endhead
         
         \midrule
-        \multicolumn{6}{r}{Vervolg op volgende pagina} \\
+        \multicolumn{5}{r}{Vervolg op volgende pagina} \\
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (algemeen)]{Evaluatie van applicaties op basis van de algemene \acrshort{fr}'s (deel 4 van 4).}
+        \label{tab:fr-algemeen-4}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Registreren en aanmelden (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Raadplegen privacybeleid en juridische info (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Gebruikers beheren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Modereren van community	(\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[5pt]
-        
-        Beheren van hulpinstanties (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Expert registreren (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Aanpassen/valideren van educatieve content (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & - \textcolor{orange}{\textsuperscript{*}}
+        & \vink \kruis \textcolor{orange}{\textsuperscript{**}}
+        & \kruis \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7}
-        & \textbf{0/7} \\
+        & \textbf{2/4}
+        & \textbf{2/4}
+        & \textbf{2.5/4}
+        & \textbf{2/4} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
+
+\footnotesize{\textcolor{orange}{\textsuperscript{*} Deze functionaliteit kon niet worden nagegaan omdat de betreffende inhoud enkel toegankelijk was achter een betaalmuur.}} \\
+\footnotesize{\textcolor{orange}{\textsuperscript{**} Feedback via contactkanalen. Geen contentaanpassing of -validatie in de app.}}
+
+\newpage
 
 \subsection{Onboarding \& personalisatie}
 \label{subsec:fr-onboarding}
@@ -523,72 +441,72 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (onboarding en personalisatie)]{Evaluatie van applicaties op basis van onboarding en personalisatie (deel 1 van 4).}
+        \label{tab:fr-onboarding-1}
         \endlastfoot
         
-        \addlinespace[10pt]
-        
         Doorlopen van visuele onboarding (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \kruis
+        & \kruis
+        & \vink \\
         
         \addlinespace[5pt]
         
         Instellen van persoonlijke doelen (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van notificatiefrequentie (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \vink
+        & \kruis
+        & \vink \\
         
         \addlinespace[5pt]
         
         Personaliseren van dashboard (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van begeleiding -sintensiteit (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Personaliseren van het oefeningenaanbod (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[10pt]
+        & \vink
+        & \vink
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \midrule
         
         \textbf{Totale score}
+        & \textbf{3/6}
+        & \textbf{1/6}
+        & \textbf{2/6}
         & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6} \\
+        & \textbf{2/6} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
@@ -626,72 +544,72 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (onboarding en personalisatie)]{Evaluatie van applicaties op basis van onboarding en personalisatie (deel 2 van 4).}
+        \label{tab:fr-onboarding-2}
         \endlastfoot
         
-        \addlinespace[10pt]
-        
         Doorlopen van visuele onboarding (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \vink
+        & \vink \\
         
         \addlinespace[5pt]
         
         Instellen van persoonlijke doelen (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \vink
+        & \vink
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van notificatiefrequentie (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Personaliseren van dashboard (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van begeleiding -sintensiteit (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \vink
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Personaliseren van het oefeningenaanbod (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
-        
-        \addlinespace[10pt]
+        & \vink
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis \\
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6} \\
+        & \textbf{5/6}
+        & \textbf{2/6}
+        & \textbf{2/6}
+        & \textbf{4/6}
+        & \textbf{1/6} \\
+        
+        \addlinespace[5pt]
         
     \end{longtable}
 }
@@ -729,71 +647,73 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (onboarding en personalisatie)]{Evaluatie van applicaties op basis van onboarding en personalisatie (deel 3 van 4).}
+        \label{tab:fr-onboarding-3}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Doorlopen van visuele onboarding (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van persoonlijke doelen (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van notificatiefrequentie (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Personaliseren van dashboard (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van begeleiding -sintensiteit (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Personaliseren van het oefeningenaanbod (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \vink
+        & \kruis \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
+        & \textbf{1/6}
         & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
+        & \textbf{1/6}
+        & \textbf{2/6}
         & \textbf{0/6} \\
         
     \end{longtable}
@@ -804,7 +724,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
     \setlength\tabcolsep{3pt}
     \begin{longtable}{
             >{\raggedright\arraybackslash}p{4cm}
-            *{5}{>{\centering\arraybackslash}p{2.1cm}}
+            *{3}{>{\centering\arraybackslash}p{2.1cm}}
+            >{\centering\arraybackslash}p{4.2cm}
         }
         
         \toprule
@@ -812,8 +733,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{Headspace}
         & \textbf{Calm}
         & \textbf{Petit BamBou}
-        & \textbf{Sipi}
-        & \textbf{Burnout app.be} \\
+        & \textbf{Burnoutapp.be} \\
         \midrule
         \endfirsthead
         
@@ -822,8 +742,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{Headspace}
         & \textbf{Calm}
         & \textbf{Petit BamBou}
-        & \textbf{Sipi}
-        & \textbf{Burnout app.be} \\
+        & \textbf{Burnoutapp.be} \\
         \midrule
         \endhead
         
@@ -832,77 +751,74 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endfoot
         
         \bottomrule
+        \caption[Evaluatie van applicaties op basis van functionele requirements (onboarding en personalisatie)]{Evaluatie van applicaties op basis van onboarding en personalisatie (deel 4 van 4).}
+        \label{tab:fr-onboarding-4}
         \endlastfoot
         
         \addlinespace[10pt]
         
         Doorlopen van visuele onboarding (\textcolor{green!80!black}{\textbf{M}})
-        & \vink \kruis
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \vink
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van persoonlijke doelen (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van notificatiefrequentie (\textcolor{green!80!black}{\textbf{M}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \kruis
+        & \vink \textcolor{orange}{\textsuperscript{*}} \\
         
         \addlinespace[5pt]
         
         Personaliseren van dashboard (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \kruis \\
         
         \addlinespace[5pt]
         
         Instellen van begeleiding -sintensiteit (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \kruis
+        & \kruis
+        & \kruis
+        & \vink \textcolor{orange}{\textsuperscript{*}} \\
         
         \addlinespace[5pt]
         
         Personaliseren van het oefeningenaanbod (\textcolor{orange}{\textbf{S}})
-        & ...
-        & ...
-        & ...
-        & ...
-        & ... \\
+        & \vink
+        & \vink
+        & \kruis
+        & \kruis \\
         
         \addlinespace[10pt]
         
         \midrule
         
         \textbf{Totale score}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6}
-        & \textbf{0/6} \\
+        & \textbf{3/6}
+        & \textbf{3/6}
+        & \textbf{1/6}
+        & \textbf{2/6} \\
         
     \end{longtable}
 }
 
-\vspace{1em}
+\footnotesize{\textcolor{orange}{\textsuperscript{*} Deze functionaliteit werd vernoemd in abonnement beschrijvingen.}}
+
+\newpage
 
 \subsection{Zelfreflectie \& dagboek}
 \label{subsec:fr-zelfreflectie}
@@ -2385,8 +2301,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         \endlastfoot
         
         VGZ Mindfulness Coach
-        & 0/7
-        & 0/6
+        & 1.5/4
+        & 3/6
         & 0/5
         & 0/6
         & 0/4
@@ -2394,8 +2310,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Smiling Mind
-        & 0/7
-        & 0/6
+        & 2.5/4
+        & 1/6
         & 0/5
         & 0/6
         & 0/4
@@ -2403,8 +2319,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Mindfulness Coach
-        & 0/7
-        & 0/6
+        & 1.5/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
@@ -2412,7 +2328,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Immersive Mental Health App
-        & 0/7
+        & 0/4
         & 0/6
         & 0/5
         & 0/6
@@ -2421,8 +2337,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         MindDoc
-        & 0/7
-        & 0/6
+        & 2.5/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
@@ -2430,8 +2346,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Moodfit
-        & 0/7
-        & 0/6
+        & 2/4
+        & 5/6
         & 0/5
         & 0/6
         & 0/4
@@ -2439,8 +2355,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Stappvoorstap
-        & 0/7
-        & 0/6
+        & 2.5/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
@@ -2448,8 +2364,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         MindShift
-        & 0/7
-        & 0/6
+        & 2/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
@@ -2457,8 +2373,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Wysa Mental Health Support
-        & 0/7
-        & 0/6
+        & 1.5/4
+        & 4/6
         & 0/5
         & 0/6
         & 0/4
@@ -2466,8 +2382,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Sorted: Mental Health
-        & 0/7
-        & 0/6
+        & 1.5/4
+        & 1/6
         & 0/5
         & 0/6
         & 0/4
@@ -2475,8 +2391,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Vaardig Leven
-        & 0/7
-        & 0/6
+        & 2/4
+        & 1/6
         & 0/5
         & 0/6
         & 0/4
@@ -2484,7 +2400,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         MoodSpace
-        & 0/7
+        & 2/4
         & 0/6
         & 0/5
         & 0/6
@@ -2493,8 +2409,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Student Health App
-        & 0/7
-        & 0/6
+        & 1.5/4
+        & 1/6
         & 0/5
         & 0/6
         & 0/4
@@ -2502,8 +2418,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Kooth
-        & 0/7
-        & 0/6
+        & 3/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
@@ -2511,7 +2427,7 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Tellmi
-        & 0/7
+        & 2/4
         & 0/6
         & 0/5
         & 0/6
@@ -2520,8 +2436,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Headspace
-        & 0/7
-        & 0/6
+        & 2/4
+        & 3/6
         & 0/5
         & 0/6
         & 0/4
@@ -2529,8 +2445,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Calm
-        & 0/7
-        & 0/6
+        & 2/4
+        & 3/6
         & 0/5
         & 0/6
         & 0/4
@@ -2538,17 +2454,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Petit BamBou
-        & 0/7
-        & 0/6
-        & 0/5
-        & 0/6
-        & 0/4
-        & 0/3
-        & \textbf{0/31} \\
-        
-        Sipi
-        & 0/7
-        & 0/6
+        & 2.5/4
+        & 1/6
         & 0/5
         & 0/6
         & 0/4
@@ -2556,8 +2463,8 @@ Daarom wordt in deze fase een gerichte selectie gemaakt op basis van de function
         & \textbf{0/31} \\
         
         Burnoutapp.be
-        & 0/7
-        & 0/6
+        & 2/4
+        & 2/6
         & 0/5
         & 0/6
         & 0/4
