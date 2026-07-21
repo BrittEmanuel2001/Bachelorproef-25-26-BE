@@ -82,7 +82,580 @@ Aangezien de huidige functionele vereisten geen diepe integratie met complexe ha
 
 \vspace{1em}
 
-TODO
+Vooraleer over te gaan tot het verbeteren van de Burnout Free app door middel van nieuwe mockups en de verdere uitwerking en implementatie hiervan, is het noodzakelijk om eerst de huidige applicatie grondig te analyseren. Hierbij wordt onderzocht in welke mate de bestaande functionaliteiten en het huidige ontwerp aansluiten bij de eerder opgestelde functionele requirements en ontwerpprincipes. Op basis van deze analyse kunnen vervolgens verbeterpunten worden geïdentificeerd. Eerst wordt een overzicht gegeven van de huidige schermen en functionaliteiten aan de hand van screenshots van de applicatie.
+
+\vspace{1em}
+
+\subsection{Screenshots}
+\label{subsec:screenshots-burnoutfree}
+
+\vspace{1em}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree3}
+    \end{minipage}
+    
+    \caption{De homepagina (links), de ademhalingsoefeningen met vier beschikbare technieken (midden) en dezelfde pagina verder naar beneden gescrold zodat de startknop zichtbaar is (rechts).}
+    \label{fig:burnout-free-1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree5}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree6}
+    \end{minipage}
+    
+    \caption{De meditatiepagina (links en midden) en de dagboekpagina (rechts).}
+    \label{fig:burnout-free-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree7}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree8}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree9}
+    \end{minipage}
+    
+    \caption{De dagboekpagina verder naar beneden gescrold zodat de knop \textit{Save} zichtbaar is (links), de statistiekenpagina (midden) en de instellingenpagina (rechts).}
+    \label{fig:burnout-free-3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree14}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree11}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree12}
+    \end{minipage}
+    
+    \caption{Vervolg van de instellingenpagina (links), Focus Mode (midden) en SOS Mode (rechts).}
+    \label{fig:burnout-free-4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree10}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree13}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \phantom{\includegraphics[width=\linewidth]{../graphics/burnoutfree/BurnoutFree12}}
+    \end{minipage}
+    
+    \caption{De instellingenpagina met de foutmelding \texttt{ns\_denied} (links) en de pop-up met informatie over het Burnout Free Pro-plan (midden).}
+    \label{fig:burnout-free-5}
+\end{figure}
+
+\vspace{2em}
+
+\subsection{Aftoetsing functionele requirements}
+\label{subsec:frs-burnoutfree}
+
+\vspace{1em}
+
+Onderstaande tabel toont de aftoetsing van de functionele requirements aan de huidige Burnout Free app. Hierbij wordt nagegaan welke functionaliteiten reeds aanwezig zijn en welke ontbreken. Requirements die niet teruggevonden werden in de app worden visueel gemarkeerd met een lichtere grijstint.
+
+\vspace{2em}
+
+{\small
+    \textcolor{green!80!black}{\textbf{M}}ust have \quad
+    \textcolor{orange}{\textbf{S}}hould have \quad
+    \textcolor{blue}{\textbf{C}}ould have \quad
+    \textcolor{black!60}{\textbf{W}}on’t have
+}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{3.0cm}
+            >{\raggedright\arraybackslash}p{10.5cm}
+            >{\centering\arraybackslash}p{2.0cm}
+        }
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht requirements]{Oplijsting van functionele requirements met MoSCoW-prioriteit.}
+        \label{tab:requirements-burnoutfree}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Registreren en aanmelden} & \textcolor{gray!40}{\textbf{M}} \\
+        Alle rollen & Raadplegen privacybeleid en juridische info & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van gebruikers} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Modereren van community} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van hulpinstanties} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Registreren als expert} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Toevoegen van educatieve content} & \textcolor{gray!40}{\textbf{C}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Aanpassen van educatieve content} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Valideren van educatieve content} & \textcolor{gray!40}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Onboarding \& personalisatie}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Doorlopen van visuele onboarding} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van profiel} & \textcolor{gray!40}{\textbf{C}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van dashboard} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Instellen van begeleidingsintensiteit} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Instellen van persoonlijke doelen} & \textcolor{gray!40}{\textbf{M}} \\
+        Gebruiker & Instellen van notificatiefrequentie & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van het aanbod aan oefeningen a.d.h.v. vorderingen binnen het persoonlijk traject} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Zelfreflectie \& dagboek}} \\ \addlinespace[6pt]
+        Gebruiker & Registreren van stressniveau & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Bijhouden van gestructureerd dagboek & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Raadplegen van dagboekhistoriek} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Exporteren van dagboekgegevens} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Automatische analyse / samenvatting van gegevens} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[10pt]
+        
+        \multicolumn{3}{l}{\textbf{Psycho-educatie}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Raadplegen van educatieve content} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Ontvangen van contextuele educatieve feedback} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Oefeningen \& stressregulatie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van stressreducerende oefeningen & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Raadplegen van begeleide rustmomenten & \textcolor{orange}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Feedback \& progressie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van een visuele weergave van de huidige trajectvoortgang & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Ontvangen van positieve/informatieve feedback} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Niet-competitieve beloningen} & \textcolor{gray!40}{\textbf{C}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Notificaties \& nudging}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Ontvangen van gepersonaliseerde notificaties} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Interactieve notificaties} & \textcolor{gray!40}{\textbf{C}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Gedragsgerichte nudges ontvangen} & \textcolor{gray!40}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Verbondenheid \& community}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Interageren op een laagdrempelige manier zonder prestatie- of vergelijkingsmechanismen} & \textcolor{gray!40}{\textbf{C}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Versturen/ontvangen van anonieme aanmoedigingen} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Controle over zichtbaarheid en gedeelde informatie} & \textcolor{gray!40}{\textbf{M}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Motivatie \& engagement}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Progressiesysteem / verhaallijn} & \textcolor{gray!40}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Hulp \& doorverwijzing}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Raadplegen van professionele hulpopties} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Ontvangen van advies tot doorverwijzing} & \textcolor{gray!40}{\textbf{M}} \\
+        
+    \end{longtable}
+}
+
+\vspace{1em}
+
+\subsection{Aftoetsing ontwerpprincipes}
+\label{subsec:ontwerpprincipes-burnoutfree}
+
+\vspace{1em}
+
+Onderstaande tabel toont de aftoetsing van de ontwerpprincipes aan de huidige Burnout Free app. Per ontwerpprincipe wordt geëvalueerd welke elementen reeds aanwezig zijn en waar nog mogelijke verbeterpunten liggen.
+
+\vspace{1em}
+
+{
+    \footnotesize
+    \setlength\tabcolsep{3pt}
+    
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{5.23cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+        }
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endfirsthead
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endhead
+        
+        \midrule
+        \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \endlastfoot
+        
+        \addlinespace[10pt]
+        
+        \textbf{1.} Privacy by Design
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Gegevens worden lokaal op het toestel opgeslagen en worden volgens het privacybeleid niet gedeeld met derde partijen.
+            \item De applicatie verzamelt volgens het privacybeleid geen persoonlijke gegevens voor externe verwerking.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Het privacybeleid is niet onmiddellijk zichtbaar en vereist verdere navigatie naar het instellingenmenu.
+            \item Het is onduidelijk hoe gebruikersgegevens verwerkt worden bij het gebruik van AI-functies zoals AI Insights en AI Coach.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{2.} Snel en eenvoudig distribueerbaar
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Beschikbaar via de Google Play Store, waardoor gebruikers de applicatie eenvoudig kunnen vinden en installeren.
+            \item De applicatie heeft een beperkte bestandsgrootte van 39,11 MB waardoor de download- en installatiedrempel laag blijft.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item De applicatie lijkt enkel beschikbaar via Android, waardoor iOS-gebruikers geen toegang hebben tot dezelfde applicatie.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{3.} Ondersteunende foutafhandeling
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item De app voorkomt invoerfouten door gebruik te maken van vooraf bepaalde keuzewaarden bij het invullen van een journal. Gebruikers kunnen hierdoor geen ongeldige waarden invoeren.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Sommige (fout)meldingen zijn technisch geformuleerd en/of bieden onvoldoende uitleg (bv. "ns\_denied").
+            \item Ingevoerde noodcontactgegevens worden niet gevalideerd, waardoor ongeldige gegevens opgeslagen kunnen worden.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{4.} Inclusieve toegankelijkheid
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item De app ondersteunt meerdere talen.
+            \item De app ondersteunt dark mode.
+            \item De app werkt met een screenreader.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Bij grotere tekstinstellingen breken sommige menu-items.
+            \item Sommige teksten op de statistiekenpagina zijn standaard klein weergegeven en daardoor moeilijker leesbaar.
+            \item Het onderste navigatiemenu is moeilijk bereikbaar op bepaalde toestellen doordat het overlapt met de systeemnavigatie van het toestel.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{5.} Beperk digitale interrupties
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Gebruikers kunnen zelf kiezen voor welke functionaliteiten zij herinneringen willen ontvangen.
+            \item Het tijdstip van herinneringen kan per soort door de gebruiker aangepast worden.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Er is geen mogelijkheid om de frequentie van herinneringen aan te passen.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{6.} Behoud overzicht
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Informatie wordt beperkt weergegeven, waardoor schermen overzichtelijk blijven.
+            \item De gebruiker krijgt per pagina een duidelijk beeld van het doel en de beschikbare acties.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item De startpagina bevat meerdere mogelijke acties, waardoor het minder duidelijk is welke functionaliteit de gebruiker best eerst gebruikt.
+            \item De pro-versie functionaliteiten lijken beschikbaar, maar zijn niet toegankelijk waardoor de startpagina minder overzichtelijk wordt.
+            \item Het icoon rechtsboven voor instellingen is niet onmiddellijk herkenbaar als instellingenmenu.
+            \item Bij oefeningen is de primaire actie niet direct zichtbaar, waardoor gebruikers eerst moeten ontdekken dat ze naar beneden moeten scrollen om de startknop te vinden.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{7.} Minimaliseer cognitieve belasting
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{8.} Vermijd visuele overprikkeling
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{9.} Techno-simplicity
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{10.} Stimuleer gezond gebruik
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{11.} Zachte gedragssturing
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{12.} Ondersteun autonomie
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{13.} Ondersteun competentiegevoel
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{14.} Stimuleer authentieke verbondenheid
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{15.} Betekenisvolle, prestatievrije motivatie
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{16.} Persoonlijke relevantie
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{17.} Zichtbare meerwaarde
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{18.} Duidelijke positionering
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{19.} Ondersteunende communicatie
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item ...
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item ...
+        \end{itemize}
+        \\       
+    \end{longtable}
+}
+
+\newpage
 
 \section{Uitwerking van mockups}
 \label{sec:uitwerking-mockups}
@@ -91,12 +664,16 @@ TODO
 
 TODO
 
+\newpage
+
 \section{Implementatie in code}
 \label{sec:implementatie-code}
 
 \vspace{1em}
 
 TODO
+
+\newpage
 
 \section{Evaluatie}
 \label{sec:evaluatie}
