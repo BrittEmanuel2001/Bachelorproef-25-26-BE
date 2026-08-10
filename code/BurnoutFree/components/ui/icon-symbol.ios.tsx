@@ -1,32 +1,44 @@
-import { SymbolView, SymbolViewProps, SymbolWeight } from 'expo-symbols';
-import { StyleProp, ViewStyle } from 'react-native';
+// Fallback for using MaterialIcons on Android and web.
 
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { SymbolWeight } from 'expo-symbols';
+import { ComponentProps } from 'react';
+import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
+
+type IconMapping = Record<string, ComponentProps<typeof FontAwesome6>['name']>;
+type IconSymbolName = keyof typeof MAPPING;
+
+/**
+ * Add your SF Symbols to Material Icons mappings here.
+ * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
+ * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
+ */
+const MAPPING = {
+  'house.fill': 'house-chimney',
+  'journal.fill': 'book',
+  'plant.fill': 'plant-wilt',
+  'book.fill': 'book-open',
+  'toolbox.fill': 'toolbox',
+  'chevron.left.forwardslash.chevron.right': 'code',
+  'chevron.right': 'chevron-right',
+} as IconMapping;
+
+/**
+ * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
+ * This ensures a consistent look across platforms, and optimal resource usage.
+ * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
+ */
 export function IconSymbol({
   name,
   size = 24,
   color,
   style,
-  weight = 'regular',
 }: {
-  name: SymbolViewProps['name'];
+  name: IconSymbolName;
   size?: number;
-  color: string;
-  style?: StyleProp<ViewStyle>;
+  color: string | OpaqueColorValue;
+  style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
 }) {
-  return (
-    <SymbolView
-      weight={weight}
-      tintColor={color}
-      resizeMode="scaleAspectFit"
-      name={name}
-      style={[
-        {
-          width: size,
-          height: size,
-        },
-        style,
-      ]}
-    />
-  );
+  return <FontAwesome6 name={MAPPING[name]} color={color} size={size} style={style} />;
 }

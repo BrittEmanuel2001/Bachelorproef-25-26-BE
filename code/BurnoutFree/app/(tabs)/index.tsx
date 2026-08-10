@@ -1,5 +1,8 @@
 import { Text, View } from "react-native";
 import { CheckupCard } from "../../components/ui/check-up-card";
+import { IconSymbol } from '@/components/ui/icon-symbol';
+import { colors } from '@/styles/colors';
+import { Toolkit } from '@/components/ui/toolkit/toolkit';
 
 export default function Index() {
   return (
@@ -7,18 +10,21 @@ export default function Index() {
       style={{
         flex: 1,
         justifyContent: "center",
-        padding: 20,
+        backgroundColor: colors.white,
       }}
     >
-      <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8}}>Hoi Britt!</Text>
-      <Text style={{fontSize: 14, color: '#5D8CB6', fontWeight: 'bold', marginBottom: 25}}>Fijn dat je even tijd maakt voor jezelf</Text>
-      <CheckupCard />
+      <View style={{paddingHorizontal: 20}}>
+        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8}}>Hoi Britt!</Text>
+        <Text style={{fontSize: 14, color: colors.mutedBlue, fontWeight: 'bold', marginBottom: 25}}>Fijn dat je even tijd maakt voor jezelf</Text>
+        <CheckupCard />
+      </View>
 
-      <Text>Jouw toolkit</Text>
-      {/* tool buttons */}
+      {/* toolkit */}
+      <Toolkit />
 
-      {/* Kennis card */}
-      {/* Quote card */}
+      {/* kennis sectie */}
+
+      {/* quote sectie */}
     </View>
   );
 }

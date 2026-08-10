@@ -21,6 +21,14 @@ const MAPPING = {
   'toolbox.fill': 'toolbox',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  'pen.fill': 'pen',
+  'leaf.fill': 'leaf',
+  'spa.fill': 'spa',
+  'glasses.fill': 'glasses',
+  'lightning.fill': 'bolt-lightning',
+  'note.fill': 'note-sticky',
+  'arrow.left': 'arrow-left',
+  'xmark': 'xmark',
 } as IconMapping;
 
 /**

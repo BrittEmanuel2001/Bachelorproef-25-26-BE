@@ -1,0 +1,310 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
+import {
+    Modal,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
+
+import { colors } from '@/styles/colors';
+import { IconSymbol } from '../icon-symbol';
+import { ToolkitCard, ToolkitItem } from './toolkit-card';
+import { ToolCard } from './tools-card';
+
+/* Selected toolkit items */
+const STORAGE_KEY = '@toolkit_items';
+const DEFAULT_ITEMS = ['breathing','meditate','focus','sos'];
+const AVAILABLE_ITEMS: ToolkitItem[] = [
+    {
+        id: 'breathing',
+        title: 'Ademhaling',
+        icon: 'leaf.fill',
+        route: '#',
+    },
+    {
+        id: 'meditate',
+        title: 'Meditatie',
+        icon: 'spa.fill',
+        route: '#',
+    },
+    {
+        id: 'focus',
+        title: 'Focus modus',
+        icon: 'glasses.fill',
+        route: '#',
+    },
+    {
+        id: 'sos',
+        title: 'SOS',
+        icon: 'lightning.fill',
+        route: '#',
+    },
+    {
+        id: 'coping-cards',
+        title: 'Coping cards',
+        icon: 'note.fill',
+        route: '#',
+    },
+];
+
+export function Toolkit() {
+    const [selectedItems, setSelectedItems] = useState<string[]>(DEFAULT_ITEMS);
+    const [editMode, setEditMode] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
+
+    useEffect(() => {
+        loadToolkit();
+    }, []);
+
+    async function loadToolkit() {
+        try {
+            const stored = await AsyncStorage.getItem(STORAGE_KEY);
+            if (stored) setSelectedItems(JSON.parse(stored));
+        } catch (error) {
+            console.error('Kan de toolkit momenteel niet laden. Probeer later opnieuw.', error);
+        }
+    }
+
+    async function saveToolkit(items: string[]) {
+        try {
+            await AsyncStorage.setItem(STORAGE_KEY,JSON.stringify(items));
+        } catch (error) {
+            console.error('Kan de toolkit momenteel niet opslaan.', error);
+        }
+    }
+
+    function toggleItem(id: string) {
+        setSelectedItems((current) => {
+            const exists = current.includes(id);
+            const updated = exists ? current.filter((itemId) => itemId !== id) : [...current, id];
+            saveToolkit(updated);
+            return updated;
+        });
+    }
+
+    const selectedToolkitItems = AVAILABLE_ITEMS.filter((item) =>
+        selectedItems.includes(item.id)
+    );
+
+    return (
+        <>
+            {/* Toolkit display */}
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.heading}>Jouw toolkit</Text>
+                    <Pressable 
+                        onPress={() => { 
+                            setEditMode(true); 
+                            setModalVisible(true);
+                        }}>
+                        <IconSymbol size={15} name="pen.fill" color={colors.darkBlue} />
+                    </Pressable>
+                </View>
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.grid}
+                >
+                    {selectedToolkitItems.map((item) => (
+                        <ToolkitCard
+                            key={item.id}
+                            item={item}
+                        />
+                    ))}
+                </ScrollView>
+            </View>
+
+            {/* Toolkit edit */}
+            <Modal
+                visible={modalVisible}
+                animationType="slide"
+                transparent
+                onRequestClose={() => {
+                    setModalVisible(false);
+                    setEditMode(false);
+                }}
+            >
+                <View style={styles.modal}>
+                    
+                    {/* Header */}
+                    <Pressable
+                        onPress={() => {
+                            setModalVisible(false);
+                            setEditMode(false);
+                        }}
+                        style={{marginBottom:20}}
+                    >
+                        <IconSymbol size={22} name="arrow.left" color={colors.darkBlue}/>
+                    </Pressable>
+                    <View style={styles.modalHeader}>
+                        <Text style={styles.modalTitle}>Toolkit aanpassen</Text>
+                        <Text style={styles.modalSubTitle}>Jouw toolkit</Text>
+                    </View>
+
+                    {/* Huidige toolkit */}
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        contentContainerStyle={styles.selectedGrid}
+                    >
+                        {selectedToolkitItems.map((item) => (
+                            <View key={item.id} style={styles.selectedCard}>
+                                <ToolkitCard
+                                    key={item.id}
+                                    item={item}
+                                    onPress={() => toggleItem(item.id)}
+                                />
+                                <View style={styles.closeIcon}>
+                                    <IconSymbol size={10} name="xmark" color={colors.white} />
+                                </View>
+                            </View>
+                        ))}
+                    </ScrollView>
+
+                    {/* Tools */}
+                    <Text style={styles.heading}>Voeg toe aan je toolkit</Text>
+
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        style={{paddingTop: 20}}
+                    >
+                        <View style={styles.twoColGrid}>
+                            {AVAILABLE_ITEMS
+                                .filter((item) => !selectedItems.includes(item.id))
+                                .map((item, index) => {
+                                    const buttonColors = [
+                                        colors.primary,
+                                        colors.green,
+                                        colors.purple,
+                                        colors.red,
+                                    ];
+
+                                    return (
+                                        <ToolCard
+                                            key={item.id}
+                                            item={item}
+                                            onPress={() => toggleItem(item.id)}
+                                            color={buttonColors[index % buttonColors.length]}
+                                        />
+                                    )
+                                })
+                            }
+                        </View>
+                    </ScrollView>
+
+                    {/* Confirm button */}
+                    <Pressable
+                        style={styles.doneButton}
+                        onPress={() => {
+                            setModalVisible(false);
+                            setEditMode(false);
+                        }}
+                    >
+                        <Text style={styles.doneButtonText}>
+                            Klaar
+                        </Text>
+                    </Pressable>
+                </View>
+            </Modal>
+        </>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 30,
+        paddingLeft: 20,
+    },
+
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        marginBottom: 15,
+    },
+
+    heading: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
+    grid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 10,
+    },
+
+    modal: {
+        backgroundColor: colors.white,
+        padding: 20,
+        height: '100%',
+    },
+
+    modalHeader: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 15,
+    },
+
+    modalTitle: {
+        fontSize: 24, 
+        fontWeight: 'bold',
+        marginBottom: 10
+    },
+
+    modalSubTitle: {
+        fontSize: 14, 
+        color: colors.mutedBlue, 
+        fontWeight: 'bold',
+        marginBottom: 20
+    },
+
+    selectedGrid: {
+        flexDirection: 'row',
+        gap: 10,
+    },
+
+    doneButton: {
+        alignSelf: 'flex-end',
+        backgroundColor: colors.darkBlue,
+        borderRadius: 10,
+        paddingVertical: 14,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+    },
+
+    doneButtonText: {
+        color: colors.white,
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+
+    selectedCard: {
+        position: 'relative',
+    },
+
+    closeIcon: {
+        position: 'absolute',
+        top: 0,
+        right: -5,
+        width: 22,
+        height: 22,
+        borderRadius: 11,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: colors.red,
+        borderWidth: 2,
+        borderColor: colors.white,
+    }, 
+
+    twoColGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        gap: 10,
+    },
+});
