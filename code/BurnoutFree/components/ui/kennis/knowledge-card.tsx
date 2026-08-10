@@ -1,5 +1,4 @@
 import { colors } from "@/styles/colors";
-import { FontAwesome6 } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
     height: 140,
     borderRadius: 20,
     overflow: 'hidden',
-    marginBottom: 30,
+    marginBottom: 15,
     backgroundColor: colors.purple,
     position: 'relative',
   },

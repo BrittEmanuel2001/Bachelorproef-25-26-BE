@@ -4,6 +4,7 @@ import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
 import { Toolkit } from '@/components/ui/toolkit/toolkit';
 import { KnowledgeCard } from "@/components/ui/kennis/knowledge-card";
+import { QuoteCard } from "@/components/ui/quote-card";
 
 export default function Index() {
   return (
@@ -23,17 +24,18 @@ export default function Index() {
 
       {/* toolkit */}
       <Toolkit />
-
-      {/* kennis sectie */}
+      
       <View style={{ paddingHorizontal: 20 }}>
+        {/* kennis sectie */}
         <KnowledgeCard
           moduleTitle="Stress 101"
           module="1"
           lessonTitle={"De ene stress is de andere niet"}
         />
-      </View>
 
-      {/* quote sectie */}
+        {/* quote sectie */}
+        <QuoteCard quote="Rust is geen beloning voor hard werken. Het is een basis om goed te kunnen leven." />
+      </View>
     </ScrollView>
   );
 }
