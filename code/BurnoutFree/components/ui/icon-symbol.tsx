@@ -29,6 +29,7 @@ const MAPPING = {
   'note.fill': 'note-sticky',
   'arrow.left': 'arrow-left',
   'xmark': 'xmark',
+  'circle.question': 'circle-question'
 } as IconMapping;
 
 /**

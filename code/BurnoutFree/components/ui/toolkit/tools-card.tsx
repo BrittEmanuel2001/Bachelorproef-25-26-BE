@@ -24,8 +24,13 @@ export function ToolCard({ item, onPress, color = colors.primary }: ToolCardProp
             onPress={handlePress}
             style={[styles.card, {backgroundColor: color}]}
         >
-            <IconSymbol size={25} name={item.icon as any} color={colors.white}/>
-            <Text style={[styles.title, { color: colors.white }]}>
+            {color === colors.gray && (
+                <View style={styles.proBadge}>
+                    <Text style={styles.proText}>PRO</Text>
+                </View>
+            )}
+            <IconSymbol size={25} name={item.icon as any} color={color === colors.gray ? colors.darkGray : colors.white}/>
+            <Text style={[styles.title, {color: color === colors.gray ? colors.darkGray : colors.white}]}>
                 {item.title}
             </Text>
         </Pressable>
@@ -47,5 +52,21 @@ const styles = StyleSheet.create({
         fontSize: 11,
         fontWeight: 'bold',
         textAlign: 'center',
+    },
+
+    proBadge: {
+        position: 'absolute',
+        top: 12,
+        right: 12,
+        backgroundColor: colors.white,
+        paddingHorizontal: 7,
+        paddingVertical: 3,
+        borderRadius: 20,
+    },
+
+    proText: {
+        fontSize: 8,
+        fontWeight: 'bold',
+        color: colors.primary,
     },
 });

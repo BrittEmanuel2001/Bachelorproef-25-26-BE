@@ -1,13 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import {
-    Modal,
-    Pressable,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, View,} from 'react-native';
 
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '../icon-symbol';
@@ -48,10 +41,17 @@ const AVAILABLE_ITEMS: ToolkitItem[] = [
         icon: 'note.fill',
         route: '#',
     },
+    {
+        id: 'pro-example',
+        title: 'Pro functie',
+        icon: 'circle.question',
+        route: '#',
+    }
 ];
 
 export function Toolkit() {
     const [selectedItems, setSelectedItems] = useState<string[]>(DEFAULT_ITEMS);
+    const [editingItems, setEditingItems] = useState<string[]>(DEFAULT_ITEMS);
     const [editMode, setEditMode] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -77,16 +77,21 @@ export function Toolkit() {
     }
 
     function toggleItem(id: string) {
-        setSelectedItems((current) => {
+        setEditingItems((current) => {
             const exists = current.includes(id);
-            const updated = exists ? current.filter((itemId) => itemId !== id) : [...current, id];
-            saveToolkit(updated);
-            return updated;
+
+            return exists
+                ? current.filter((itemId) => itemId !== id)
+                : [...current, id];
         });
     }
 
     const selectedToolkitItems = AVAILABLE_ITEMS.filter((item) =>
         selectedItems.includes(item.id)
+    );
+
+    const editingToolkitItems = AVAILABLE_ITEMS.filter((item) =>
+        editingItems.includes(item.id)
     );
 
     return (
@@ -97,6 +102,7 @@ export function Toolkit() {
                     <Text style={styles.heading}>Jouw toolkit</Text>
                     <Pressable 
                         onPress={() => { 
+                            setEditingItems(selectedItems);
                             setEditMode(true); 
                             setModalVisible(true);
                         }}>
@@ -132,10 +138,11 @@ export function Toolkit() {
                     {/* Header */}
                     <Pressable
                         onPress={() => {
+                            setEditingItems(selectedItems);
                             setModalVisible(false);
                             setEditMode(false);
                         }}
-                        style={{marginBottom:20}}
+                        style={{marginBottom: 20}}
                     >
                         <IconSymbol size={22} name="arrow.left" color={colors.darkBlue}/>
                     </Pressable>
@@ -148,9 +155,10 @@ export function Toolkit() {
                     <ScrollView
                         horizontal
                         showsHorizontalScrollIndicator={false}
+                        style={styles.selectedScroll}
                         contentContainerStyle={styles.selectedGrid}
                     >
-                        {selectedToolkitItems.map((item) => (
+                        {editingToolkitItems.map((item) => (
                             <View key={item.id} style={styles.selectedCard}>
                                 <ToolkitCard
                                     key={item.id}
@@ -173,21 +181,30 @@ export function Toolkit() {
                     >
                         <View style={styles.twoColGrid}>
                             {AVAILABLE_ITEMS
-                                .filter((item) => !selectedItems.includes(item.id))
-                                .map((item, index) => {
+                                .filter((item) => !editingItems.includes(item.id))
+                                .map((item) => {
                                     const buttonColors = [
                                         colors.primary,
                                         colors.green,
                                         colors.purple,
-                                        colors.red,
                                     ];
+                                    const nonSosItems = AVAILABLE_ITEMS.filter(
+                                        (availableItem) => !editingItems.includes(availableItem.id) && availableItem.id !== 'sos'
+                                    );
+                                    const colorIndex = nonSosItems.findIndex(
+                                        (availableItem) => availableItem.id === item.id
+                                    );
+
+                                    const color = item.id === 'sos'
+                                    ? colors.red : item.id === 'pro-example' 
+                                    ? colors.gray : buttonColors[colorIndex % buttonColors.length];
 
                                     return (
                                         <ToolCard
                                             key={item.id}
                                             item={item}
                                             onPress={() => toggleItem(item.id)}
-                                            color={buttonColors[index % buttonColors.length]}
+                                            color={color}
                                         />
                                     )
                                 })
@@ -198,7 +215,9 @@ export function Toolkit() {
                     {/* Confirm button */}
                     <Pressable
                         style={styles.doneButton}
-                        onPress={() => {
+                        onPress={async () => {
+                            setSelectedItems(editingItems);
+                            await saveToolkit(editingItems);
                             setModalVisible(false);
                             setEditMode(false);
                         }}
@@ -266,6 +285,11 @@ const styles = StyleSheet.create({
     selectedGrid: {
         flexDirection: 'row',
         gap: 10,
+    },
+
+    selectedScroll: {
+        flexGrow: 0,
+        height: 120,
     },
 
     doneButton: {
