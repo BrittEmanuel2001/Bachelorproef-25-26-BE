@@ -134,6 +134,7 @@ export function Toolkit() {
                 visible={modalVisible}
                 animationType="slide"
                 transparent
+                statusBarTranslucent
                 onRequestClose={() => {
                     setModalVisible(false);
                     setEditMode(false);
@@ -265,7 +266,9 @@ const styles = StyleSheet.create({
     modal: {
         backgroundColor: colors.white,
         padding: 20,
-        height: '100%',
+        paddingTop: 50,
+        paddingBottom: 80,
+        flex: 1,
     },
 
     modalHeader: {

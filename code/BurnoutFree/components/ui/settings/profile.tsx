@@ -13,8 +13,9 @@ export function Profile({ visible, onClose }: ProfileProps) {
         <Modal
             visible={visible}
             animationType="slide"
-            transparent
             onRequestClose={onClose}
+            transparent
+            statusBarTranslucent
         >
             <View style={styles.modal}>
                 {/* Header */}
@@ -48,7 +49,9 @@ const styles = StyleSheet.create({
     modal: {
         backgroundColor: colors.white,
         padding: 20,
-        height: '100%',
+        paddingTop: 50,
+        paddingBottom: 80,
+        flex: 1,
     },
 
     backButton: {
