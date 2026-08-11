@@ -1,5 +1,5 @@
 import { Modal, Pressable, StyleSheet, Text, View, ScrollView } from 'react-native';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { colors } from '@/styles/colors';
@@ -14,6 +14,103 @@ type SettingsProps = {
     onClose: () => void;
 };
 
+type NotificationProfile = {
+    anonSupport: boolean;
+    journal: string[];
+    breathing: string[];
+    meditation: string[];
+};
+
+/*
+ * Proof-of-concept personalisatie:
+ *
+ * De combinatie van het gewenste ondersteuningsniveau en
+ * de behoefte aan reminders bepaalt welke notificaties
+ * standaard worden aangeboden.
+ *
+ * In een productieomgeving zou deze logica bijvoorbeeld
+ * vanuit een backend/personalisation service kunnen komen.
+ */
+
+const notificationProfiles: Record<string, NotificationProfile> = {
+    // LOW SUPPORT
+    // De gebruiker wil weinig begeleiding.
+    // Reminderbehoefte bepaalt vooral de frequentie.
+
+    low_low: {
+        anonSupport: false,
+        journal: [],
+        breathing: ['14:00'],
+        meditation: [],
+    },
+
+    low_medium: {
+        anonSupport: false,
+        journal: ['09:00'],
+        breathing: ['14:00'],
+        meditation: [],
+    },
+
+    low_high: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['09:00', '14:00', '19:00'],
+        meditation: [],
+    },
+
+
+    // MEDIUM SUPPORT
+    // Meer variatie in begeleiding, zonder meteen
+    // een zeer hoge notificatiefrequentie.
+
+    medium_low: {
+        anonSupport: false,
+        journal: ['09:00'],
+        breathing: ['14:00'],
+        meditation: [],
+    },
+
+    medium_medium: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['14:00'],
+        meditation: ['19:00'],
+    },
+
+    medium_high: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['09:00', '14:00', '19:00'],
+        meditation: ['19:00'],
+    },
+
+
+    // HIGH SUPPORT
+    // Meer vormen van begeleiding worden aangeboden.
+    // Bij hoge reminderbehoefte wordt ook de frequentie verhoogd.
+
+    high_low: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['14:00'],
+        meditation: ['19:00'],
+    },
+
+    high_medium: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['09:00', '14:00'],
+        meditation: ['19:00'],
+    },
+
+    high_high: {
+        anonSupport: true,
+        journal: ['09:00'],
+        breathing: ['09:00', '14:00', '19:00'],
+        meditation: ['09:00', '19:00'],
+    },
+};
+
 export function Settings({ visible, onClose }: SettingsProps) {
     const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>('medium');
     const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>('medium');
@@ -22,6 +119,26 @@ export function Settings({ visible, onClose }: SettingsProps) {
     const [journalEnabled, setJournalEnabled] = useState(true);
     const [breathingEnabled, setBreathingEnabled] = useState(true);
     const [meditationEnabled, setMeditationEnabled] = useState(true);
+
+    const [journalTimes, setJournalTimes] = useState<string[]>(['09:00']);
+    const [breathingTimes, setBreathingTimes] = useState<string[]>(['09:00','14:00','19:00']);
+    const [meditationTimes, setMeditationTimes] = useState<string[]>(['09:00']);
+
+    const profileKey = `${supportLevel}_${reminderNeed}`;
+    const notificationProfile = notificationProfiles[profileKey];
+
+    useEffect(() => {
+        setAnonSupportEnabled(notificationProfile.anonSupport);
+
+        setJournalEnabled(notificationProfile.journal.length > 0);
+        setJournalTimes(notificationProfile.journal);
+
+        setBreathingEnabled(notificationProfile.breathing.length > 0);
+        setBreathingTimes(notificationProfile.breathing);
+
+        setMeditationEnabled(notificationProfile.meditation.length > 0);
+        setMeditationTimes(notificationProfile.meditation);
+    }, [profileKey]);
 
     return (
         <Modal
@@ -119,13 +236,13 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             enabled={anonSupportEnabled} onToggle={() => setAnonSupportEnabled(!anonSupportEnabled)} />
 
                         <NotificationFunction name="Dagboek" icon="journal.fill" 
-                            times={['09:00']} enabled={journalEnabled} onToggle={() => setJournalEnabled(!journalEnabled)} />
+                            times={journalTimes} enabled={journalEnabled} onToggle={() => setJournalEnabled(!journalEnabled)} />
 
                         <NotificationFunction name="Ademhalingspauze" icon="leaf.fill" 
-                            times={['09:00','14:00','19:00']} enabled={breathingEnabled} onToggle={() => setBreathingEnabled(!breathingEnabled)} />
+                            times={breathingTimes} enabled={breathingEnabled} onToggle={() => setBreathingEnabled(!breathingEnabled)} />
 
                         <NotificationFunction name="Meditatie" icon="spa.fill" 
-                            times={['09:00']} enabled={meditationEnabled} onToggle={() => setMeditationEnabled(!meditationEnabled)} />
+                            times={meditationTimes} enabled={meditationEnabled} onToggle={() => setMeditationEnabled(!meditationEnabled)} />
                     </View>
 
                     {/* Noodcontact */}
