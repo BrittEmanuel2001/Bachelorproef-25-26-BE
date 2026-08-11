@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
 
     modalSubTitle: {
         fontSize: 14, 
-        color: colors.mutedBlue, 
+        color: colors.darkMutedBlue, 
         fontWeight: 'bold',
         marginBottom: 20
     },

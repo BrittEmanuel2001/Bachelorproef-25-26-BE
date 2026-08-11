@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
     subtitle: {
         fontSize: 14,
-        color: colors.mutedBlue,
+        color: colors.darkMutedBlue,
         fontWeight: 'bold',
     },
 

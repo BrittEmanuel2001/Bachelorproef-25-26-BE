@@ -15,7 +15,7 @@ export function CheckupCard() {
                 </Pressable> 
             </View>
             <Image
-                source={require('@/assets/images/Coach_Bubbles2.png')}
+                source={require('@/assets/images/Coach_Bubbles.png')}
                 style={styles.backgroundImage}
             />
         </View>

@@ -1,7 +1,6 @@
 import { Stack, router } from "expo-router";
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-import { useEffect } from "react";
 
 export const unstable_settings = {
   anchor: '(tabs)',
