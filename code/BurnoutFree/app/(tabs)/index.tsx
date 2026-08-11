@@ -31,6 +31,7 @@ export default function Index() {
           moduleTitle="Stress 101"
           module="1"
           lessonTitle={"De ene stress is de andere niet"}
+          backgroundImage={require("@/assets/images/bookBackground.png")}
         />
 
         {/* quote sectie */}

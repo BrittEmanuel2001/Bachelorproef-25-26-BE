@@ -31,6 +31,17 @@ const MAPPING = {
   'xmark': 'xmark',
   'circle.question': 'circle-question',
   'gear.fill': 'gear',
+  'handshake.fill': 'handshake-angle',
+  'info.fill': 'circle-info',
+  'bell.fill': 'bell',
+  'phone.fill': 'phone',
+  'database.fill': 'database',
+  'shield.fill': 'shield-halved',
+  'add': 'add',
+  'user.fill': 'user-large',
+  'trash': 'trash',
+  'clock': 'clock',
+  'hand.heart.fill': 'hand-holding-heart',
 } as IconMapping;
 
 /**

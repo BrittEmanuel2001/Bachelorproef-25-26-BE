@@ -9,7 +9,7 @@ type QuoteCardProps = {
 
 export function QuoteCard({
   quote,
-  fontSize = 16,
+  fontSize = 15,
   fontWeight = "700",
 }: QuoteCardProps) {
   return (

@@ -1,5 +1,5 @@
 import { colors } from "@/styles/colors";
-import { Image } from "expo-image";
+import { Image, ImageSource } from "expo-image";
 import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { IconSymbol } from "../icon-symbol";
@@ -8,22 +8,28 @@ export function KnowledgeCard({
   moduleTitle,
   module,
   lessonTitle,
+  backgroundImage,
 }: {
   moduleTitle: string;
-  module: string;
+  module?: string;
   lessonTitle: string;
+  backgroundImage: ImageSource;
 }) {
   return (
     <Pressable onPress={() => router.push("/kennis")} style={styles.card}>
       <Image
-        source={require("@/assets/images/bookBackground.png")}
+        source={backgroundImage}
         style={styles.backgroundImage}
         contentFit="cover"
       />
       <View style={styles.overlay} />
 
       <View style={styles.content}>
-        <Text style={styles.module}>{`${moduleTitle} - Module ${module}`}</Text>
+        <Text style={styles.module}>
+            {module
+                ? `${moduleTitle} - Module ${module}`
+                : moduleTitle}
+        </Text>
         <Text style={styles.title}>{lessonTitle}</Text>
       </View>
 
@@ -34,7 +40,7 @@ export function KnowledgeCard({
 
 const styles = StyleSheet.create({
   card: {
-    height: 140,
+    height: 125,
     borderRadius: 20,
     overflow: 'hidden',
     marginBottom: 15,
@@ -68,13 +74,14 @@ const styles = StyleSheet.create({
   module: {
     color: colors.white,
     fontWeight: '500',
+    fontSize: 12,
     marginBottom: 10,
   },
 
   title: {
     color: colors.white,
     fontWeight: '700',
-    fontSize: 17,
+    fontSize: 15,
     flexShrink: 1,
     marginBottom: 0,
     marginRight: 8,

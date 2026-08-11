@@ -11,6 +11,7 @@ export const colors = {
   green: '#27CA91',
   mutedGreen: '#AED8AC',
   lightMutedGreen: '#F3FAF3',
+  darkGreen: '#16A271',
 
   purple: '#B097EF',
   mutedPurple: '#C696D2',
@@ -19,5 +20,6 @@ export const colors = {
 
   white: '#FFFFFF',
   gray: '#EBF0F4',
-  darkGray: '#a4aab1'
+  darkGray: '#a4aab1',
+  black: '#000',
 };
