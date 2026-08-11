@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
+import { useFocusEffect } from 'expo-router';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View,} from 'react-native';
 
 import { colors } from '@/styles/colors';
@@ -55,19 +56,23 @@ export function Toolkit() {
     const [editMode, setEditMode] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
-    useEffect(() => {
-        loadToolkit();
-    }, []);
-
-    async function loadToolkit() {
+    {/* Laad logica */}
+    const loadToolkit = useCallback(async () => {
         try {
             const stored = await AsyncStorage.getItem(STORAGE_KEY);
             if (stored) setSelectedItems(JSON.parse(stored));
         } catch (error) {
             console.error('Kan de toolkit momenteel niet laden. Probeer later opnieuw.', error);
         }
-    }
+    }, []);
 
+    useFocusEffect(
+        useCallback(() => {
+            loadToolkit();
+        }, [loadToolkit])
+    );
+
+    {/* Save logica */}
     async function saveToolkit(items: string[]) {
         try {
             await AsyncStorage.setItem(STORAGE_KEY,JSON.stringify(items));
@@ -76,6 +81,7 @@ export function Toolkit() {
         }
     }
 
+    {/* Edit logica */}
     function toggleItem(id: string) {
         setEditingItems((current) => {
             const exists = current.includes(id);

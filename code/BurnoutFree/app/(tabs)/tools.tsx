@@ -60,7 +60,7 @@ export default function Index() {
       <Toolkit />
 
       {/* aanbod */}
-      <View style={{paddingHorizontal: 20, paddingTop: 10}}>
+      <View style={{paddingHorizontal: 20, paddingTop: 10, paddingBottom: 30}}>
         <Text style={styles.heading}>Ons aanbod</Text>
         <View style={styles.twoColGrid}>
           {AVAILABLE_ITEMS
