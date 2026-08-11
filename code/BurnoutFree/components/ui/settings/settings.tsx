@@ -14,11 +14,16 @@ type SettingsProps = {
     onClose: () => void;
 };
 
+type NotificationTime = {
+    hour: number;
+    minute: number;
+};
+
 type NotificationProfile = {
     anonSupport: boolean;
-    journal: string[];
-    breathing: string[];
-    meditation: string[];
+    journal: NotificationTime[];
+    breathing: NotificationTime[];
+    meditation: NotificationTime[];
 };
 
 /*
@@ -40,21 +45,25 @@ const notificationProfiles: Record<string, NotificationProfile> = {
     low_low: {
         anonSupport: false,
         journal: [],
-        breathing: ['14:00'],
+        breathing: [{ hour: 14, minute: 0 }],
         meditation: [],
     },
 
     low_medium: {
         anonSupport: false,
-        journal: ['09:00'],
-        breathing: ['14:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [{ hour: 14, minute: 0 }],
         meditation: [],
     },
 
     low_high: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['09:00', '14:00', '19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [
+            { hour: 9, minute: 0 },
+            { hour: 14, minute: 0 },
+            { hour: 19, minute: 0 },
+        ],
         meditation: [],
     },
 
@@ -65,23 +74,27 @@ const notificationProfiles: Record<string, NotificationProfile> = {
 
     medium_low: {
         anonSupport: false,
-        journal: ['09:00'],
-        breathing: ['14:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [{ hour: 14, minute: 0 }],
         meditation: [],
     },
 
     medium_medium: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['14:00'],
-        meditation: ['19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [{ hour: 14, minute: 0 }],
+        meditation: [{ hour: 19, minute: 0 }],
     },
 
     medium_high: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['09:00', '14:00', '19:00'],
-        meditation: ['19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [
+            { hour: 9, minute: 0 },
+            { hour: 14, minute: 0 },
+            { hour: 19, minute: 0 },
+        ],
+        meditation: [{ hour: 19, minute: 0 }],
     },
 
 
@@ -91,23 +104,33 @@ const notificationProfiles: Record<string, NotificationProfile> = {
 
     high_low: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['14:00'],
-        meditation: ['19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [{ hour: 14, minute: 0 }],
+        meditation: [{ hour: 19, minute: 0 }],
     },
 
     high_medium: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['09:00', '14:00'],
-        meditation: ['19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [
+            { hour: 9, minute: 0 },
+            { hour: 14, minute: 0 },
+        ],
+        meditation: [{ hour: 19, minute: 0 }],
     },
 
     high_high: {
         anonSupport: true,
-        journal: ['09:00'],
-        breathing: ['09:00', '14:00', '19:00'],
-        meditation: ['09:00', '19:00'],
+        journal: [{ hour: 9, minute: 0 }],
+        breathing: [
+            { hour: 9, minute: 0 },
+            { hour: 14, minute: 0 },
+            { hour: 19, minute: 0 },
+        ],
+        meditation: [
+            { hour: 9, minute: 0 },
+            { hour: 19, minute: 0 },
+        ],
     },
 };
 
@@ -120,9 +143,19 @@ export function Settings({ visible, onClose }: SettingsProps) {
     const [breathingEnabled, setBreathingEnabled] = useState(true);
     const [meditationEnabled, setMeditationEnabled] = useState(true);
 
-    const [journalTimes, setJournalTimes] = useState<string[]>(['09:00']);
-    const [breathingTimes, setBreathingTimes] = useState<string[]>(['09:00','14:00','19:00']);
-    const [meditationTimes, setMeditationTimes] = useState<string[]>(['09:00']);
+    const [journalTimes, setJournalTimes] = useState<NotificationTime[]>([
+        { hour: 9, minute: 0 },
+    ]);
+
+    const [breathingTimes, setBreathingTimes] = useState<NotificationTime[]>([
+        { hour: 9, minute: 0 },
+        { hour: 14, minute: 0 },
+        { hour: 19, minute: 0 },
+    ]);
+
+    const [meditationTimes, setMeditationTimes] = useState<NotificationTime[]>([
+        { hour: 9, minute: 0 },
+    ]);
 
     const profileKey = `${supportLevel}_${reminderNeed}`;
     const notificationProfile = notificationProfiles[profileKey];
@@ -139,6 +172,10 @@ export function Settings({ visible, onClose }: SettingsProps) {
         setMeditationEnabled(notificationProfile.meditation.length > 0);
         setMeditationTimes(notificationProfile.meditation);
     }, [profileKey]);
+
+    function formatTime(time: NotificationTime): string {
+        return `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}`;
+    }
 
     return (
         <Modal
@@ -236,13 +273,13 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             enabled={anonSupportEnabled} onToggle={() => setAnonSupportEnabled(!anonSupportEnabled)} />
 
                         <NotificationFunction name="Dagboek" icon="journal.fill" 
-                            times={journalTimes} enabled={journalEnabled} onToggle={() => setJournalEnabled(!journalEnabled)} />
+                            times={journalTimes.map(formatTime)} enabled={journalEnabled} onToggle={() => setJournalEnabled(!journalEnabled)} />
 
                         <NotificationFunction name="Ademhalingspauze" icon="leaf.fill" 
-                            times={breathingTimes} enabled={breathingEnabled} onToggle={() => setBreathingEnabled(!breathingEnabled)} />
+                            times={breathingTimes.map(formatTime)} enabled={breathingEnabled} onToggle={() => setBreathingEnabled(!breathingEnabled)} />
 
                         <NotificationFunction name="Meditatie" icon="spa.fill" 
-                            times={meditationTimes} enabled={meditationEnabled} onToggle={() => setMeditationEnabled(!meditationEnabled)} />
+                            times={meditationTimes.map(formatTime)} enabled={meditationEnabled} onToggle={() => setMeditationEnabled(!meditationEnabled)} />
                     </View>
 
                     {/* Noodcontact */}
