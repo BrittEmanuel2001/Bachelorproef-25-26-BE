@@ -27,8 +27,8 @@ export default function Index() {
             <View style={{paddingHorizontal: 20}}>
                 {/* Titel */}
                 <SettingButtons />
-                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold'}}>Jouw</Text>
-                <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8, marginBottom: 20}}>Ontwikkeling</Text>
+                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
+                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>Ontwikkeling</Text>
 
                 {/* Tabs */}
                 <Tabs

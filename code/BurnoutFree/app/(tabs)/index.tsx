@@ -17,7 +17,7 @@ export default function Index() {
         
         <SettingButtons />
 
-        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8}}>Hoi Britt!</Text>
+        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8, marginTop: -6}}>Hoi Britt!</Text>
         <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginBottom: 25}}>Fijn dat je even tijd maakt voor jezelf</Text>
         <CheckupCard />
       </View>

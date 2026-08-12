@@ -53,7 +53,7 @@ export default function Index() {
     >
       <View style={{paddingHorizontal: 20}}>
         <SettingButtons />
-        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 30}}>Tools</Text>
+        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 30, marginTop: -6}}>Tools</Text>
       </View>
 
       {/* toolkit */}
