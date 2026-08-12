@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { ProgressBar } from '@/components/ui/journal/progress-bar';
+import { OptionSelector, SelectorOption } from './option-selector';
 
 type ReflectionModalProps = {
     visible: boolean;
@@ -13,13 +14,115 @@ type ReflectionModalProps = {
     onPrevious: () => void;
 };
 
+const moodOptions: SelectorOption[] = [
+    {
+        id: 1,
+        label: 'Lastig',
+        color: colors.red,
+        icon: 'face.really.unhappy',
+    },
+    {
+        id: 2,
+        label: 'Beetje minder',
+        color: colors.purple,
+        icon: 'face.unhappy',
+    },
+    {
+        id: 3,
+        label: 'Oké',
+        color: colors.darkGray,
+        icon: 'face.neutral',
+    },
+    {
+        id: 4,
+        label: 'Goed',
+        color: colors.green,
+        icon: 'face.happy',
+    },
+    {
+        id: 5,
+        label: 'Heel goed',
+        color: colors.darkGreen,
+        icon: 'face.really.happy',
+    },
+];
+
+const energyOptions: SelectorOption[] = [
+    {
+        id: 1,
+        label: 'Uitgeput',
+        color: colors.darkBlue,
+    },
+    {
+        id: 2,
+        label: 'Moe',
+        color: colors.purple,
+    },
+    {
+        id: 3,
+        label: 'Gemiddeld',
+        color: colors.darkGray,
+    },
+    {
+        id: 4,
+        label: 'Energiek',
+        color: colors.green,
+    },
+    {
+        id: 5,
+        label: 'Vol energie',
+        color: colors.darkGreen,
+    },
+];
+
+const stressOptions: SelectorOption[] = [
+    {
+        id: 1,
+        label: 'Helemaal gespannen',
+        color: colors.red,
+    },
+    {
+        id: 2,
+        label: 'Gespannen',
+        color: colors.purple,
+    },
+    {
+        id: 3,
+        label: 'Gemiddeld',
+        color: colors.darkGray,
+    },
+    {
+        id: 4,
+        label: 'Rustig',
+        color: colors.green,
+    },
+    {
+        id: 5,
+        label: 'Helemaal ontspannen',
+        color: colors.darkGreen,
+    },
+];
+
 export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onNext, onPrevious }: ReflectionModalProps) {
 
     const [showExitConfirmation, setShowExitConfirmation] = useState(false);
+    const [selectedOptions, setSelectedOptions] = useState<Record<number, number | null>>({
+        1: null,
+        2: null,
+        3: null,
+        4: null,
+    });
 
     function handleClose() {
         setShowExitConfirmation(false);
         onClose();
+    }
+
+    function selectOption(value: number) {
+        setSelectedOptions((current) => ({
+            ...current,
+            [currentStep]: value,
+        }));
     }
 
     return (
@@ -49,12 +152,12 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                     {/* Header */}
                     <View style={styles.header}>
                         <Text style={styles.title}>
-                            Stemming
+                            {currentStep === 1 && ('Stemming')}
+                            {currentStep === 2 && ('Energie check-up')}
+                            {currentStep === 3 && ('Stressniveau')}
+                            {currentStep === 4 && ('Mindset shift')}
                         </Text>
-
-                        <Text style={styles.subtitle}>
-                            Reflectie
-                        </Text>
+                        <Text style={styles.subtitle}>Reflectie</Text>
                     </View>
 
                     {/* Progress */}
@@ -66,15 +169,36 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                     {/* Stap content */}
                     <View style={styles.content}>
                         {currentStep === 1 && (
-                            <Text>Stap 1: Hoe voel je je?</Text>
+                            <View>
+                                <Text style={styles.contentSubTitle}>Stemming</Text>
+                                <OptionSelector
+                                    options={moodOptions}
+                                    selectedOption={selectedOptions[1]}
+                                    onSelect={selectOption}
+                                />
+                            </View>
                         )}
 
                         {currentStep === 2 && (
-                            <Text>Stap 2: Wat heeft je dag beïnvloed?</Text>
+                            <View>
+                                <Text style={styles.contentSubTitle}> Energie niveau</Text>
+                                <OptionSelector
+                                    options={energyOptions}
+                                    selectedOption={selectedOptions[2]}
+                                    onSelect={selectOption}
+                                />
+                            </View>
                         )}
 
                         {currentStep === 3 && (
-                            <Text>Stap 3: Waar ben je dankbaar voor?</Text>
+                            <View>
+                                <Text style={styles.contentSubTitle}>Stress niveau </Text>
+                                <OptionSelector
+                                    options={stressOptions}
+                                    selectedOption={selectedOptions[3]}
+                                    onSelect={selectOption}
+                                />
+                            </View>
                         )}
 
                         {currentStep === 4 && (
@@ -140,22 +264,11 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
                         {/* Buttons */}
                         <View style={styles.confirmationButtons}>
-                            <Pressable
-                                style={styles.yesButton}
-                                onPress={handleClose}
-                            >
-                                <Text style={styles.yesButtonText}>
-                                    Ja
-                                </Text>
+                            <Pressable style={styles.yesButton} onPress={handleClose}>
+                                <Text style={styles.yesButtonText}> Ja </Text>
                             </Pressable>
-
-                            <Pressable
-                                style={styles.noButton}
-                                onPress={() => setShowExitConfirmation(false)}
-                            >
-                                <Text style={styles.noButtonText}>
-                                    Nee
-                                </Text>
+                            <Pressable style={styles.noButton} onPress={() => setShowExitConfirmation(false)}>
+                                <Text style={styles.noButtonText}> Nee </Text>
                             </Pressable>
                         </View>
 
@@ -318,4 +431,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+
+    contentSubTitle: {
+        fontSize: 18,
+        fontWeight: 600,
+    }
 });

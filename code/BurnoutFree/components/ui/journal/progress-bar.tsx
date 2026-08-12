@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
         height: 12,
         borderRadius: 999,
         overflow: 'hidden',
+        marginTop: 10,
+        marginBottom: 20
     },
     step: {
         flex: 1,

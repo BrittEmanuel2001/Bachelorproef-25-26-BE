@@ -42,6 +42,11 @@ const MAPPING = {
   'trash': 'trash',
   'clock': 'clock',
   'hand.heart.fill': 'hand-holding-heart',
+  'face.really.unhappy': 'face-frown-open',
+  'face.unhappy': 'face-frown',
+  'face.neutral': 'face-meh',
+  'face.happy': 'face-smile',
+  'face.really.happy': 'face-grin-beam'
 } as IconMapping;
 
 /**
