@@ -1,10 +1,13 @@
-import { Modal, Pressable, StyleSheet, Text, TextInput, View, ScrollView } from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, TextInput, View, ScrollView, Image } from 'react-native';
 import { useState } from 'react';
+import { router } from 'expo-router';
+
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { ProgressBar } from '@/components/ui/journal/progress-bar';
 import { OptionSelector, SelectorOption } from './option-selector';
 import { NumberSelector } from './number-selector';
+import { KnowledgeCard } from "@/components/ui/kennis/knowledge-card";
 
 type ReflectionModalProps = {
     visible: boolean;
@@ -108,6 +111,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
     const [showExitConfirmation, setShowExitConfirmation] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
+    const [showCompletionModal, setShowCompletionModal] = useState(false);
 
     const [sleepNote, setSleepNote] = useState('');
     const [stressNote, setStressNote] = useState('');
@@ -162,6 +166,11 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
         });
 
         onClose();
+    }
+
+    function handleFinish() {
+        setShowCompletionModal(false);
+        handleClose();
     }
 
     function selectOption(value: number) {
@@ -343,13 +352,23 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
                         <Pressable
                             style={[styles.nextButton, !isStepComplete() && styles.nextButtonDisabled,]}
-                            onPress={() => { if (isStepComplete()) onNext() }}
+                            onPress={() => {
+                                if (!isStepComplete()) return;
+                                if (currentStep === totalSteps) {
+                                    const stressLevel = selectedOptions[3];
+                                    if (stressLevel !== null && stressLevel <= 2) setShowCompletionModal(true);
+                                    else {
+                                        handleFinish();
+                                        router.replace('/journal');
+                                    }
+                                } else {
+                                    onNext();
+                                }
+                            }}
                             disabled={!isStepComplete()}
                         >
                             <Text style={[styles.nextButtonText, !isStepComplete() && styles.nextButtonTextDisabled,]}>
-                                {currentStep === totalSteps
-                                    ? 'Opslaan'
-                                    : 'Volgende'}
+                                {currentStep === totalSteps ? 'Opslaan' : 'Volgende'}
                             </Text>
                         </Pressable>
                     </View>
@@ -368,9 +387,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
                         {/* Header */}
                         <View style={styles.confirmationHeader}>
-                            <Text style={styles.confirmationTitle}>
-                                Even checken voordat je gaat
-                            </Text>
+                            <Text style={styles.confirmationTitle}>Even checken voordat je gaat</Text>
                         </View>
 
                         {/* Content */}
@@ -447,6 +464,59 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                             </Text>
                         </View>
                     </View>
+                </View>
+            </Modal>
+
+            {/* Completion modal */}
+            <Modal
+                visible={showCompletionModal}
+                animationType="slide"
+                transparent={false}
+                statusBarTranslucent
+                onRequestClose={() => setShowCompletionModal(false)}
+            >
+                <View style={styles.completionModal}>
+                    <View style={styles.completionContent}>
+                        <Image
+                            source={require('@/assets/images/Coach_Bubbles_Variant3.png')}
+                            style={styles.completionImage}
+                            resizeMode="contain"
+                        />
+
+                        <Text style={styles.completionTitle}>
+                            Even ruimte maken
+                        </Text>
+
+                        <Text style={styles.completionText}>
+                            Je stress lijkt momenteel hoog. 
+                            Een korte oefening kan helpen om je 
+                            lichaam wat rustiger te laten voelen.
+                        </Text>
+
+                        <KnowledgeCard
+                            moduleTitle="Ademhalingsoefening"
+                            lessonTitle={"Boxbreathing"}
+                            backgroundImage={require("@/assets/images/ocean.png")}
+                            overlayColor={colors.primary}
+                            moduleIcon="leaf.fill"
+                            onPress={() => {
+                                handleFinish();
+                                router.replace('/#');
+                            }}
+                        />
+                    </View>
+
+                    <Pressable
+                        style={styles.completionButton}
+                        onPress={() => {
+                            handleFinish();
+                            router.replace('/journal');
+                        }}
+                    >
+                        <Text style={styles.completionButtonText}>
+                            Sluiten
+                        </Text>
+                    </Pressable>
                 </View>
             </Modal>
         </>
@@ -716,5 +786,63 @@ const styles = StyleSheet.create({
 
     nextButtonTextDisabled: {
         color: colors.darkGray,
+    },
+
+    completionModal: {
+        flex: 1,
+        backgroundColor: colors.darkBlue,
+        paddingHorizontal: 20,
+        paddingTop: 50,
+        paddingBottom: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    completionContent: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 30,
+    },
+
+    completionTitle: {
+        color: colors.white,
+        fontSize: 26,
+        fontWeight: '700',
+        textAlign: 'center',
+        marginBottom: 16,
+        paddingHorizontal: 20,
+    },
+
+    completionText: {
+        color: colors.lightBlue,
+        fontSize: 14,
+        fontWeight: 600,
+        lineHeight: 22,
+        textAlign: 'center',
+        maxWidth: 320,
+        paddingHorizontal: 20,
+        marginBottom: 20
+    },
+
+    completionButton: {
+        alignSelf: 'center',
+        backgroundColor: colors.primary,
+        borderRadius: 10,
+        paddingHorizontal: 25,
+        paddingVertical: 13,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    completionButtonText: {
+        color: colors.white,
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+
+    completionImage: {
+        width: 160,
+        height: 160,
     },
 });

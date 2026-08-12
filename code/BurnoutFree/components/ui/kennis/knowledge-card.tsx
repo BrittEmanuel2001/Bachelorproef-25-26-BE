@@ -9,27 +9,37 @@ export function KnowledgeCard({
   module,
   lessonTitle,
   backgroundImage,
+  onPress,
+  moduleIcon,
+  overlayColor
 }: {
   moduleTitle: string;
   module?: string;
   lessonTitle: string;
   backgroundImage: ImageSource;
+  onPress?: () => void;
+  moduleIcon?: string;
+  overlayColor?: string;
 }) {
   return (
-    <Pressable onPress={() => router.push("/kennis")} style={styles.card}>
+    <Pressable onPress={onPress ?? (() => router.push("/kennis"))} style={styles.card}>
       <Image
         source={backgroundImage}
         style={styles.backgroundImage}
         contentFit="cover"
       />
-      <View style={styles.overlay} />
+      <View style={[styles.overlay, { backgroundColor: overlayColor ?? colors.brightPurple }]}
+/>
 
       <View style={styles.content}>
-        <Text style={styles.module}>
+        <View style={styles.moduleRow}>
+          {moduleIcon && (<IconSymbol size={18} name={moduleIcon} color={colors.darkBlue} />)}
+          <Text style={styles.module}>
             {module
-                ? `${moduleTitle} - Module ${module}`
-                : moduleTitle}
-        </Text>
+              ? `${moduleTitle} - Module ${module}`
+              : moduleTitle}
+          </Text>
+        </View>
         <Text style={styles.title}>{lessonTitle}</Text>
       </View>
 
@@ -40,6 +50,7 @@ export function KnowledgeCard({
 
 const styles = StyleSheet.create({
   card: {
+    width: '100%',
     height: 125,
     borderRadius: 20,
     overflow: 'hidden',
@@ -75,6 +86,12 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: '500',
     fontSize: 12,
+  },
+
+  moduleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
     marginBottom: 10,
   },
 
