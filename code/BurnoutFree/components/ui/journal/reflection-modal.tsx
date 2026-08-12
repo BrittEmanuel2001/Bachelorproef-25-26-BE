@@ -1,9 +1,10 @@
-import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, TextInput, View, ScrollView } from 'react-native';
 import { useState } from 'react';
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { ProgressBar } from '@/components/ui/journal/progress-bar';
 import { OptionSelector, SelectorOption } from './option-selector';
+import { NumberSelector } from './number-selector';
 
 type ReflectionModalProps = {
     visible: boolean;
@@ -106,15 +107,60 @@ const stressOptions: SelectorOption[] = [
 export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onNext, onPrevious }: ReflectionModalProps) {
 
     const [showExitConfirmation, setShowExitConfirmation] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
+
+    const [sleepNote, setSleepNote] = useState('');
+    const [stressNote, setStressNote] = useState('');
+    const [balanceNote, setBalanceNote] = useState('');
+    const [sleepHours, setSleepHours] = useState(7);
+
     const [selectedOptions, setSelectedOptions] = useState<Record<number, number | null>>({
-        1: null,
-        2: null,
-        3: null,
-        4: null,
+        1: null, 2: null, 3: null
     });
+
+    function isStepComplete() {
+        switch (currentStep) {
+            case 1:
+                // Stemming verplicht
+                return selectedOptions[1] !== null;
+
+            case 2:
+                // Energie + aantal uur slaap verplicht
+                return (
+                    selectedOptions[2] !== null &&
+                    sleepHours >= 0
+                );
+
+            case 3:
+                // Stressniveau + tekst verplicht
+                return (
+                    selectedOptions[3] !== null &&
+                    stressNote.trim().length > 0
+                );
+
+            case 4:
+                // Balanceer je gedachte verplicht
+                return balanceNote.trim().length > 0;
+
+            default:
+                return false;
+        }
+    }
 
     function handleClose() {
         setShowExitConfirmation(false);
+
+        setSleepNote('');
+        setStressNote('');
+        setBalanceNote('');
+        setSleepHours(7);
+
+        setSelectedOptions({
+            1: null,
+            2: null,
+            3: null,
+        });
+
         onClose();
     }
 
@@ -137,17 +183,33 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                 <View style={styles.modal}>
 
                     {/* Terug */}
-                    <Pressable
-                        onPress={() => setShowExitConfirmation(true)}
-                        style={styles.backButton}
-                        hitSlop={8}
-                    >
-                        <IconSymbol
-                            size={22}
-                            name="arrow.left"
-                            color={colors.darkBlue}
-                        />
-                    </Pressable>
+                    <View style={styles.topBar}>
+                        <Pressable
+                            onPress={() => setShowExitConfirmation(true)}
+                            style={styles.backButton}
+                            hitSlop={8}
+                        >
+                            <IconSymbol
+                                size={22}
+                                name="arrow.left"
+                                color={colors.darkBlue}
+                            />
+                        </Pressable>
+
+                        {currentStep === 4 && (
+                            <Pressable
+                                onPress={() => setShowInfo(true)}
+                                hitSlop={8}
+                                style={styles.infoButton}
+                            >
+                                <IconSymbol
+                                    size={20}
+                                    name="info.fill"
+                                    color={colors.darkBlue}
+                                />
+                            </Pressable>
+                        )}
+                    </View>
 
                     {/* Header */}
                     <View style={styles.header}>
@@ -180,29 +242,86 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                         )}
 
                         {currentStep === 2 && (
-                            <View>
-                                <Text style={styles.contentSubTitle}> Energie niveau</Text>
-                                <OptionSelector
-                                    options={energyOptions}
-                                    selectedOption={selectedOptions[2]}
-                                    onSelect={selectOption}
+                            <ScrollView
+                                showsVerticalScrollIndicator={false}
+                                contentContainerStyle={styles.stepScrollContent}
+                            >
+                                <View style={styles.settingBlock}>
+                                    <Text style={styles.contentSubTitle}>Energie niveau</Text>
+                                    <OptionSelector
+                                        options={energyOptions}
+                                        selectedOption={selectedOptions[2]}
+                                        onSelect={selectOption}
+                                    />
+                                </View>
+                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Hoe heb je geslapen?</Text>
+
+                                <NumberSelector
+                                    value={sleepHours}
+                                    onChange={setSleepHours}
+                                    min={0}
+                                    max={24}
                                 />
-                            </View>
+
+                                <TextInput
+                                    value={sleepNote}
+                                    onChangeText={setSleepNote}
+                                    placeholder="..."
+                                    placeholderTextColor={colors.darkGray}
+                                    multiline
+                                    textAlignVertical="top"
+                                    style={styles.textInput}
+                                />
+                            </ScrollView>
                         )}
 
                         {currentStep === 3 && (
-                            <View>
-                                <Text style={styles.contentSubTitle}>Stress niveau </Text>
-                                <OptionSelector
-                                    options={stressOptions}
-                                    selectedOption={selectedOptions[3]}
-                                    onSelect={selectOption}
+                            <ScrollView
+                                showsVerticalScrollIndicator={false}
+                                contentContainerStyle={styles.stepScrollContent}
+                            >
+                                <View style={styles.settingBlock}>
+                                    <Text style={styles.contentSubTitle}>Stressniveau</Text>
+                                    <OptionSelector
+                                        options={stressOptions}
+                                        selectedOption={selectedOptions[3]}
+                                        onSelect={selectOption}
+                                    />
+                                </View>
+                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Wat houdt je op dit moment bezig?</Text>
+                                <TextInput
+                                    value={stressNote}
+                                    onChangeText={setStressNote}
+                                    placeholder="..."
+                                    placeholderTextColor={colors.darkGray}
+                                    multiline
+                                    textAlignVertical="top"
+                                    style={styles.textInput}
                                 />
-                            </View>
+                            </ScrollView>
                         )}
 
                         {currentStep === 4 && (
-                            <Text>Stap 4: Wat neem je mee uit vandaag?</Text>
+                            <ScrollView
+                                showsVerticalScrollIndicator={false}
+                                contentContainerStyle={styles.stepScrollContent}
+                            >
+                                <Text style={styles.infoText}>
+                                    Soms voelt een gedachte zwaarder dan hij is. Door 
+                                    er even met wat meer afstand naar te kijken, 
+                                    ontstaat er ruimte voor een andere kijk.
+                                </Text>
+                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Balanceer je gedachte</Text>
+                                <TextInput
+                                    value={balanceNote}
+                                    onChangeText={setBalanceNote}
+                                    placeholder="..."
+                                    placeholderTextColor={colors.darkGray}
+                                    multiline
+                                    textAlignVertical="top"
+                                    style={styles.textInput}
+                                />
+                            </ScrollView>
                         )}
                     </View>
 
@@ -223,10 +342,11 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                         )}
 
                         <Pressable
-                            style={styles.nextButton}
-                            onPress={onNext}
+                            style={[styles.nextButton, !isStepComplete() && styles.nextButtonDisabled,]}
+                            onPress={() => { if (isStepComplete()) onNext() }}
+                            disabled={!isStepComplete()}
                         >
-                            <Text style={styles.nextButtonText}>
+                            <Text style={[styles.nextButtonText, !isStepComplete() && styles.nextButtonTextDisabled,]}>
                                 {currentStep === totalSteps
                                     ? 'Opslaan'
                                     : 'Volgende'}
@@ -265,13 +385,67 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                         {/* Buttons */}
                         <View style={styles.confirmationButtons}>
                             <Pressable style={styles.yesButton} onPress={handleClose}>
-                                <Text style={styles.yesButtonText}> Ja </Text>
+                                <Text style={styles.yesButtonText}>Ja</Text>
                             </Pressable>
                             <Pressable style={styles.noButton} onPress={() => setShowExitConfirmation(false)}>
-                                <Text style={styles.noButtonText}> Nee </Text>
+                                <Text style={styles.noButtonText}>Nee</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+
+            {/* Info modal */}
+            <Modal
+                visible={showInfo}
+                transparent
+                animationType="fade"
+                onRequestClose={() => setShowInfo(false)}
+            >
+                <View style={styles.infoOverlay}>
+                    <View style={styles.infoCard}>
+
+                        {/* Header */}
+                        <View style={styles.infoHeader}>
+                            <Text style={styles.infoTitle}>
+                                Mindset shift
+                            </Text>
+
+                            <Pressable
+                                onPress={() => setShowInfo(false)}
+                                hitSlop={10}
+                            >
+                                <IconSymbol
+                                    size={25}
+                                    name="xmark"
+                                    color={colors.darkBlue}
+                                />
                             </Pressable>
                         </View>
 
+                        {/* Content */}
+                        <View style={styles.infoContent}>
+                            <Text style={[styles.modalText, {marginTop: 0}]}>
+                                Soms helpt het om even vanuit een ander perspectief naar een zorg te kijken.
+                                Niet om je gevoel te veranderen, maar om er wat meer ruimte omheen te creëren.
+                            </Text>
+
+                            <Text style={styles.modalText}>
+                                Gedachte:{' '}
+                                <Text style={styles.quoteText}>
+                                    “Ik heb nog zoveel werk voor deze deadline. Ik ga dit nooit op tijd af krijgen.”
+                                </Text>
+                            </Text>
+
+                            <Text style={styles.modalText}>
+                                Shift:{' '}
+                                <Text style={styles.quoteText}>
+                                    “Ik heb nog veel te doen en dat voelt overweldigend. Dat betekent niet dat de
+                                    deadline onhaalbaar is. Door te kijken naar wat eerst nodig is, kan er weer
+                                    wat overzicht ontstaan.”
+                                </Text>
+                            </Text>
+                        </View>
                     </View>
                 </View>
             </Modal>
@@ -286,11 +460,6 @@ const styles = StyleSheet.create({
         padding: 20,
         paddingTop: 50,
         paddingBottom: 40,
-    },
-
-    backButton: {
-        alignSelf: 'flex-start',
-        marginBottom: 20,
     },
 
     header: {
@@ -310,6 +479,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    infoText: {
+        fontSize: 14,
+        color: colors.darkMutedBlue,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+
     content: {
         flex: 1,
         paddingTop: 30,
@@ -320,7 +496,8 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         gap: 10,
-        marginBottom: 30
+        marginBottom: 30,
+        marginTop: 20
     },
 
     previousButton: {
@@ -407,7 +584,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 22,
         paddingVertical: 13,
-        
     },
 
     yesButtonText: {
@@ -435,5 +611,110 @@ const styles = StyleSheet.create({
     contentSubTitle: {
         fontSize: 18,
         fontWeight: 600,
-    }
+    },
+
+    settingBlock: {
+        borderBottomWidth: 1,
+        borderBottomColor: colors.gray,
+        paddingBottom: 30,
+        width: '100%',
+    },
+
+    textInput: {
+        minHeight: 120,
+        backgroundColor: colors.gray,
+        borderRadius: 12,
+        paddingHorizontal: 16,
+        paddingVertical: 14,
+        fontSize: 14,
+        color: colors.darkBlue,
+    },
+
+    stepScrollContent: {
+        paddingBottom: 30,
+        marginBottom: 30,
+    },
+
+    topBar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+    },
+
+    backButton: {
+        alignSelf: 'flex-start',
+    },
+
+    infoButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    infoOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0, 0, 0, 0.45)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+    },
+
+    infoCard: {
+        width: '100%',
+        maxWidth: 480,
+        borderRadius: 22,
+        overflow: 'hidden',
+        backgroundColor: colors.white,
+
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 8,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
+        elevation: 10,
+    },
+
+    infoHeader: {
+        minHeight: 70,
+        paddingHorizontal: 24,
+        paddingVertical: 18,
+
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+
+    infoTitle: {
+        color: colors.darkBlue,
+        fontSize: 16,
+        fontWeight: '700',
+    },
+
+    infoContent: {
+        backgroundColor: colors.darkBlue,
+        paddingHorizontal: 24,
+        paddingVertical: 24,
+    },
+
+    modalText: {
+        color: colors.white,
+        fontSize: 12,
+        lineHeight: 18,
+        fontWeight: '500',
+        marginTop: 20,
+    },
+
+    quoteText: {
+        color: colors.green,
+    },
+
+    nextButtonDisabled: {
+        backgroundColor: colors.gray,
+    },
+
+    nextButtonTextDisabled: {
+        color: colors.darkGray,
+    },
 });

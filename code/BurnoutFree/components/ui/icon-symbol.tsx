@@ -46,7 +46,9 @@ const MAPPING = {
   'face.unhappy': 'face-frown',
   'face.neutral': 'face-meh',
   'face.happy': 'face-smile',
-  'face.really.happy': 'face-grin-beam'
+  'face.really.happy': 'face-grin-beam',
+  'minus': 'minus',
+  'plus': 'plus',
 } as IconMapping;
 
 /**
