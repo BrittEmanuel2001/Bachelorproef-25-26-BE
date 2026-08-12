@@ -16,6 +16,7 @@ type ReflectionModalProps = {
     onClose: () => void;
     onNext: () => void;
     onPrevious: () => void;
+    onComplete: (data: ReflectionData) => void;
 };
 
 const moodOptions: SelectorOption[] = [
@@ -107,7 +108,18 @@ const stressOptions: SelectorOption[] = [
     },
 ];
 
-export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onNext, onPrevious }: ReflectionModalProps) {
+export type ReflectionData = {
+    date: string;
+    mood: number | null;
+    energy: number | null;
+    sleepHours: number;
+    sleepNote: string;
+    stress: number | null;
+    stressNote: string;
+    balanceNote: string;
+};
+
+export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onNext, onPrevious, onComplete }: ReflectionModalProps) {
 
     const [showExitConfirmation, setShowExitConfirmation] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
@@ -169,6 +181,18 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
     }
 
     function handleFinish() {
+        const reflectionData: ReflectionData = {
+            date: new Date().toISOString().split("T")[0],
+            mood: selectedOptions[1],
+            energy: selectedOptions[2],
+            sleepHours,
+            sleepNote,
+            stress: selectedOptions[3],
+            stressNote,
+            balanceNote,
+        };
+
+        onComplete(reflectionData);
         setShowCompletionModal(false);
         handleClose();
     }
@@ -467,7 +491,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                 </View>
             </Modal>
 
-            {/* Completion modal */}
+            {/* Completion modal when stressed */}
             <Modal
                 visible={showCompletionModal}
                 animationType="slide"
