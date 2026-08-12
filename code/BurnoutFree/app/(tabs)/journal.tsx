@@ -3,10 +3,13 @@ import { Image, Text, View, ScrollView, StyleSheet, Pressable } from "react-nati
 import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
 import { Tabs } from "@/components/ui/tabs";
+import { ReflectionModal } from "@/components/ui/journal/reflection-modal";
 
 export default function Index() {
 
     const [activeTab, setActiveTab] = useState('today');
+    const [reflectionVisible, setReflectionVisible] = useState(false);
+    const [reflectionStep, setReflectionStep] = useState(1);
 
     const tabs = [
         {
@@ -19,37 +22,73 @@ export default function Index() {
         },
     ];
 
+    function startReflection() {
+        setReflectionStep(1);
+        setReflectionVisible(true);
+    }
+
+    function nextReflectionStep() {
+        setReflectionStep((currentStep) => currentStep + 1);
+    }
+
+    function closeReflection() {
+        setReflectionVisible(false);
+        setReflectionStep(1);
+    }
+
+    function previousReflectionStep() {
+        setReflectionStep((currentStep) =>
+            Math.max(1, currentStep - 1)
+        );
+    }
+
     return (
-        <ScrollView 
-            style={styles.container}
-            contentContainerStyle={styles.content}
-        >
-            <View style={{paddingHorizontal: 20}}>
-                {/* Titel */}
-                <SettingButtons />
-                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
-                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>Dagboek</Text>
+        <>
+            <ScrollView 
+                style={styles.container}
+                contentContainerStyle={styles.content}
+            >
+                <View style={{paddingHorizontal: 20}}>
+                    {/* Titel */}
+                    <SettingButtons />
+                    <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
+                    <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>Dagboek</Text>
 
-                {/* Tabs */}
-                <Tabs
-                    tabs={tabs}
-                    activeTab={activeTab}
-                    onChange={setActiveTab}
-                />
+                    {/* Tabs */}
+                    <Tabs
+                        tabs={tabs}
+                        activeTab={activeTab}
+                        onChange={setActiveTab}
+                    />
 
-                <View style={styles.tabContent}>
-                    {activeTab === 'today' ? (
-                        <TodayContent />
-                    ) : (
-                        <Text>Je dagboekgeschiedenis</Text>
-                    )}
+                    <View style={styles.tabContent}>
+                        {activeTab === 'today' ? (
+                            <TodayContent onReflect={() => startReflection()} />
+                        ) : (
+                            <Text>Je dagboekgeschiedenis</Text>
+                        )}
+                    </View>
                 </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+
+            {/* Reflection modal */}
+            <ReflectionModal
+                visible={reflectionVisible}
+                currentStep={reflectionStep}
+                totalSteps={4}
+                onClose={closeReflection}
+                onNext={nextReflectionStep}
+                onPrevious={previousReflectionStep}
+            />
+        </>
     );
 }
 
-function TodayContent() {
+type TodayContentProps = {
+    onReflect: () => void;
+};
+
+function TodayContent({ onReflect }: TodayContentProps) {
     const hour = new Date().getHours();
     const isEvening = hour >= 18 || hour < 6;
 
@@ -78,7 +117,7 @@ function TodayContent() {
 
             <Pressable 
                 style={styles.button}
-                onPress={() => {}}
+                onPress={onReflect}
                 accessibilityRole="button"
                 accessibilityLabel="Start reflectie"
                 hitSlop={8}
