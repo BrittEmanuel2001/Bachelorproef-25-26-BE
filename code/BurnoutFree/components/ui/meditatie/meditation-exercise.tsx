@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState, useRef } from 'react';
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/styles/colors';
-
-import { MeditationSoundType } from './meditation-modal';
+import { MeditationSoundType, MEDITATION_SOUNDS } from './meditation-modal';
+import { IconSymbol } from '../icon-symbol';
 
 type MeditationExerciseProps = {
     duration: number;
@@ -11,14 +11,13 @@ type MeditationExerciseProps = {
     onFinish: () => void;
 };
 
-export function MeditationExercise({
-    duration,
-    soundType,
-    onFinish,
-}: MeditationExerciseProps) {
-    const [remainingSeconds, setRemainingSeconds] =
-        useState(duration * 60);
+export function MeditationExercise({duration, soundType, onFinish}: MeditationExerciseProps) {
 
+    const [remainingSeconds, setRemainingSeconds] = useState(duration * 60);
+    const scale = useRef(new Animated.Value(0.7)).current;
+    const sound = MEDITATION_SOUNDS.find((item) => item.value === soundType);
+
+    // Timer
     useEffect(() => {
         const interval = setInterval(() => {
             setRemainingSeconds((current) => {
@@ -37,32 +36,59 @@ export function MeditationExercise({
 
     const minutes = Math.floor(remainingSeconds / 60);
     const seconds = remainingSeconds % 60;
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+    // Ademhaling
+    useEffect(() => {
+
+        let cancelled = false;
+        const breathe = () => {
+            if (cancelled) return;
+            Animated.timing(scale, {toValue: 1.2, duration: 5000, useNativeDriver: true}).start(({ finished }) => {
+                if (!finished || cancelled) return;
+                Animated.timing(scale, {toValue: 1, duration: 5000, useNativeDriver: true}).start(({ finished }) => {
+                    if (!finished || cancelled) return;
+                    breathe();
+                });
+            });
+        };
+
+        breathe();
+
+        return () => { 
+            cancelled = true; 
+            scale.stopAnimation(); 
+        };
+    }, [scale]);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>
-                Meditatie
-            </Text>
-            <Text style={styles.sound}>
-                Geluid: {soundType}
-            </Text>
+            <View>
+                <Text style={styles.title}>Meditatie</Text>
+                {sound && (
+                    <View style={styles.soundChip}>
+                        <IconSymbol name="music.fill" size={12} color={colors.darkBlue} />
+                        <Text style={styles.soundText}>{sound.label}</Text>
+                    </View>
+                )}
+            </View>
+            
+            {/* Breathing circle */}
+            <View style={styles.breathingContainer}>
 
-            <Text style={styles.timer}>
-                {minutes}:{seconds.toString().padStart(2, '0')}
-            </Text>
+                <Animated.View style={[styles.outerCircle, {transform: [{ scale }]}]}/>
+                <Animated.View style={[styles.innerCircle, {transform: [{ scale }]}]}/>
+                <Animated.View style={[styles.primaryCircle, {transform: [{ scale }]}]}/>
 
-            <Text style={styles.instruction}>
-                Adem rustig in en uit.
-                Laat je gedachten komen en weer gaan.
-            </Text>
+                {/* Content in cirkel */}
+                <View style={styles.circleContent}>
+                    <Text style={styles.timer}>{formattedTime}</Text>
+                    <Text style={styles.breathingText}>Adem rustig</Text>
+                </View>
+            </View>
 
-            <Pressable
-                style={styles.button}
-                onPress={onFinish}
-            >
-                <Text style={styles.buttonText}>
-                    Afronden
-                </Text>
+            <Pressable style={styles.button} onPress={onFinish}>
+                <Text style={styles.buttonText}>Afronden</Text>
             </Pressable>
         </View>
     );
@@ -73,36 +99,99 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.darkBlue,
         alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
+        justifyContent: 'space-between',
+        paddingVertical: 80,
+        paddingHorizontal: 20,
     },
 
     title: {
         color: colors.white,
         fontSize: 26,
         fontWeight: '700',
-        marginBottom: 30,
+        marginTop: 10,
+        marginBottom: 20,
+    },
+
+    soundChip: {
+        alignSelf: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        textAlign: 'center',
+        gap: 8,
+        paddingHorizontal: 20,
+        paddingVertical: 7,
+        borderRadius: 20,
+        marginBottom: 60,
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    },
+
+    soundText: {
+        fontSize: 13,
+        fontWeight: '600',
+        color: colors.darkBlue,
+        paddingBottom: 2,
+    },
+
+    breathingContainer: {
+        width: 320,
+        height: 320,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    outerCircle: {
+        position: 'absolute',
+        width: 320,
+        height: 320,
+        borderRadius: 160,
+        backgroundColor: '#19536D',
+    },
+
+    innerCircle: {
+        position: 'absolute',
+        width: 245,
+        height: 245,
+        borderRadius: 122.5,
+        backgroundColor: '#30647B',
+    },
+
+    primaryCircle: {
+        position: 'absolute',
+        width: 180,
+        height: 180,
+        borderRadius: 90,
+        backgroundColor: colors.darkBlue,
+    },
+
+    circleContent: {
+        width: 180,
+        height: 180,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 15,
     },
 
     timer: {
         color: colors.white,
-        fontSize: 64,
-        fontWeight: '300',
+        fontSize: 50,
+        fontWeight: '700',
     },
 
-    sound: {
-        color: colors.lightBlue,
+    breathingText: {
+        color: colors.white,
         fontSize: 14,
-        marginTop: 20,
+        fontWeight: '600',
+        marginTop: 8,
+        textAlign: 'center',
     },
 
     instruction: {
-        color: colors.white,
+        color: colors.lightBlue,
         textAlign: 'center',
-        fontSize: 16,
-        lineHeight: 24,
-        maxWidth: 300,
-        marginTop: 40,
+        fontSize: 14,
+        lineHeight: 21,
+        maxWidth: 280,
+        marginTop: 30,
     },
 
     button: {
@@ -110,7 +199,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 25,
         paddingVertical: 13,
-        marginTop: 40,
+        marginTop: 80,
     },
 
     buttonText: {

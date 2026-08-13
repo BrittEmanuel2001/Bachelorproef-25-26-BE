@@ -54,6 +54,7 @@ const MAPPING = {
   'rain.fill': 'cloud-rain',
   'ocean.fill': 'water',
   'tree.fill': 'tree',
+  'music.fill': 'music',
 } as IconMapping;
 
 /**
