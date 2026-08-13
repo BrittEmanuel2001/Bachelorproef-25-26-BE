@@ -1,9 +1,10 @@
 import { Modal, Pressable, StyleSheet, Text, View, Image } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { router } from 'expo-router';
 
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
+import { getSupportLevel, SupportLevel } from '@/utils/user-preferences';
 
 export const MEDITATION_DURATIONS = [
     {
@@ -27,6 +28,12 @@ export const MEDITATION_DURATIONS = [
         chipColor: colors.darkMutedBlue,
     },
 ];
+
+const RECOMMENDED_MEDITATION_DURATION: Record<SupportLevel, number> = {
+    low: 3,
+    medium: 5,
+    high: 10,
+};
 
 export type MeditationSoundType = 'quiet' | 'rain' | 'ocean' | 'forest';
 export const MEDITATION_SOUNDS: {
@@ -79,10 +86,16 @@ type MeditationModalProps = {
 export function MeditationModal({ visible, onClose, onStart }: MeditationModalProps) {
 
     const [currentStep, setCurrentStep] = useState(1);
-
+    const [supportLevel, setSupportLevel] = useState<SupportLevel>('medium');
     const [duration, setDuration] = useState<number | null>(null);
     const [soundType, setSoundType] = useState<MeditationSoundType | null>(null);
 
+    useEffect(() => {
+        if (!visible) return;
+        getSupportLevel().then(setSupportLevel);
+    }, [visible]);
+
+    const recommendedDuration = RECOMMENDED_MEDITATION_DURATION[supportLevel];
     const [showExerciseModal, setShowExerciseModal] = useState(false);
 
     function handleClose() {
@@ -159,48 +172,67 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                 </View>
 
                                 <View style={styles.options}>
-                                    {MEDITATION_DURATIONS.map((durationOption) => (
-                                        <Pressable
-                                            key={durationOption.value}
-                                            onPress={() => {
-                                                setDuration(durationOption.value);
-                                                setCurrentStep(2);
-                                            }}
-                                            style={[
-                                                styles.optionButton,
-                                                duration === durationOption.value &&
-                                                    styles.optionButtonSelected,
-                                            ]}
-                                        >
-                                            {/* Chip */}
-                                            <View style={[styles.durationChip, {backgroundColor: durationOption.chipColor}]}>
-                                                <Text style={styles.durationChipText}>{durationOption.label}</Text>
-                                            </View>
+                                    {MEDITATION_DURATIONS.map((durationOption) => {
+                                        const isRecommended = durationOption.value === recommendedDuration;
 
-                                            {/* Duration */}
-                                            <View style={styles.durationValue}>
-                                                <Text
+                                        return (
+                                            <View key={durationOption.value} style={styles.optionWrapper}>
+                                                {isRecommended && (
+                                                    <View style={styles.recommendedLabel}>
+                                                        <Text style={styles.recommendedLabelText}>
+                                                            Mijn aanrader
+                                                        </Text>
+                                                        <Image
+                                                            source={require('@/assets/images/Coach_Bubbles_Variant3.png')}
+                                                            style={styles.recommendedCoach}
+                                                            resizeMode="contain"
+                                                        />
+                                                    </View>
+                                                )}
+
+                                                <Pressable
+                                                    key={durationOption.value}
+                                                    onPress={() => {
+                                                        setDuration(durationOption.value);
+                                                        setCurrentStep(2);
+                                                    }}
                                                     style={[
-                                                        styles.optionNumber,
+                                                        styles.optionButton,
                                                         duration === durationOption.value &&
-                                                            styles.optionNumberSelected,
+                                                            styles.optionButtonSelected,
                                                     ]}
                                                 >
-                                                    {durationOption.value}
-                                                </Text>
+                                                    {/* Chip */}
+                                                    <View style={[styles.durationChip, {backgroundColor: durationOption.chipColor}]}>
+                                                        <Text style={styles.durationChipText}>{durationOption.label}</Text>
+                                                    </View>
 
-                                                <Text
-                                                    style={[
-                                                        styles.optionUnit,
-                                                        duration === durationOption.value &&
-                                                            styles.optionUnitSelected,
-                                                    ]}
-                                                >
-                                                    min
-                                                </Text>
+                                                    {/* Duration */}
+                                                    <View style={styles.durationValue}>
+                                                        <Text
+                                                            style={[
+                                                                styles.optionNumber,
+                                                                duration === durationOption.value &&
+                                                                    styles.optionNumberSelected,
+                                                            ]}
+                                                        >
+                                                            {durationOption.value}
+                                                        </Text>
+
+                                                        <Text
+                                                            style={[
+                                                                styles.optionUnit,
+                                                                duration === durationOption.value &&
+                                                                    styles.optionUnitSelected,
+                                                            ]}
+                                                        >
+                                                            min
+                                                        </Text>
+                                                    </View>
+                                                </Pressable>
                                             </View>
-                                        </Pressable>
-                                    ))}
+                                        )
+                                    })}
                                 </View>
                             </View>
                         )}
@@ -330,12 +362,17 @@ const styles = StyleSheet.create({
     options: {
         flexDirection: 'row',
         flexWrap: 'wrap',
+        alignItems: 'flex-end',
         gap: 12,
         marginTop: 25,
     },
 
-    optionButton: {
+    optionWrapper: {
         width: '48%',
+    },
+
+    optionButton: {
+        width: '100%',
         padding: 16,
         borderRadius: 12,
         backgroundColor: colors.white,
@@ -459,5 +496,28 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 10,
+    },
+
+    recommendedLabel: {
+        height: 45,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingLeft: 4,
+        paddingRight: 4,
+        marginTop: 10
+    },
+
+    recommendedLabelText: {
+        color: colors.darkMutedBlue,
+        fontSize: 12,
+        fontWeight: '700',
+        textAlign: 'right',
+        width: '40%',
+    },
+
+    recommendedCoach: {
+        width: 75,
+        height: 75,
     },
 });

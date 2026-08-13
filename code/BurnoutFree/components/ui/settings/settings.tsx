@@ -9,6 +9,8 @@ import { KnowledgeCard } from '../kennis/knowledge-card';
 import { EmergencyContact } from './emergency-contact';
 import { NotificationFunction } from './notification-function';
 
+import { saveSupportLevel } from '@/utils/user-preferences';
+
 type SettingsProps = {
     visible: boolean;
     onClose: () => void;
@@ -138,6 +140,11 @@ export function Settings({ visible, onClose }: SettingsProps) {
     const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>('medium');
     const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>('medium');
 
+    async function handleSupportLevelChange(value: 'low' | 'medium' | 'high') {
+        setSupportLevel(value);
+        await saveSupportLevel(value);
+    }
+
     const [anonSupportEnabled, setAnonSupportEnabled] = useState(false);
     const [journalEnabled, setJournalEnabled] = useState(true);
     const [breathingEnabled, setBreathingEnabled] = useState(true);
@@ -246,7 +253,7 @@ export function Settings({ visible, onClose }: SettingsProps) {
 
                             <OptionSelector
                                 value={supportLevel}
-                                onChange={setSupportLevel}
+                                onChange={handleSupportLevelChange}
                             />
                         </View>
 
