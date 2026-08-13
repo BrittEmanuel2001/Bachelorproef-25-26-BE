@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, View, Image } from 'react-native';
 
 import { colors } from '@/styles/colors';
 import { MeditationSoundType, MEDITATION_SOUNDS } from './meditation-modal';
@@ -16,6 +16,7 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
     const [remainingSeconds, setRemainingSeconds] = useState(duration * 60);
     const scale = useRef(new Animated.Value(0.7)).current;
     const sound = MEDITATION_SOUNDS.find((item) => item.value === soundType);
+    const [isBreathingIn, setIsBreathingIn] = useState(true);
 
     // Timer
     useEffect(() => {
@@ -42,11 +43,28 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
     useEffect(() => {
 
         let cancelled = false;
+
         const breathe = () => {
+
             if (cancelled) return;
-            Animated.timing(scale, {toValue: 1.2, duration: 5000, useNativeDriver: true}).start(({ finished }) => {
+            // Inademen
+            setIsBreathingIn(true);
+
+            Animated.timing(scale, {
+                toValue: 1.2, 
+                duration: 5000, 
+                useNativeDriver: true,
+            }).start(({ finished }) => {
+
                 if (!finished || cancelled) return;
-                Animated.timing(scale, {toValue: 1, duration: 5000, useNativeDriver: true}).start(({ finished }) => {
+                // Uitademen
+                setIsBreathingIn(false);
+
+                Animated.timing(scale, {
+                    toValue: 1, 
+                    duration: 5000, 
+                    useNativeDriver: true
+                }).start(({ finished }) => {
                     if (!finished || cancelled) return;
                     breathe();
                 });
@@ -79,6 +97,15 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
                 <Animated.View style={[styles.outerCircle, {transform: [{ scale }]}]}/>
                 <Animated.View style={[styles.innerCircle, {transform: [{ scale }]}]}/>
                 <Animated.View style={[styles.primaryCircle, {transform: [{ scale }]}]}/>
+
+                <Image
+                    source={isBreathingIn
+                            ? require('@/assets/images/Coach_Bubbles_BreathingIn.png')
+                            : require('@/assets/images/Coach_Bubbles_BreathingOut.png')
+                    }
+                    style={styles.breathingCoach}
+                    resizeMode="contain"
+                />
 
                 {/* Content in cirkel */}
                 <View style={styles.circleContent}>
@@ -137,6 +164,7 @@ const styles = StyleSheet.create({
         height: 320,
         alignItems: 'center',
         justifyContent: 'center',
+        overflow: 'visible',
     },
 
     outerCircle: {
@@ -161,6 +189,15 @@ const styles = StyleSheet.create({
         height: 180,
         borderRadius: 90,
         backgroundColor: colors.darkBlue,
+    },
+
+    breathingCoach: {
+        position: 'absolute',
+        width: 88,
+        height: 88,
+        right: 20,
+        bottom: -10,
+        zIndex: 10,
     },
 
     circleContent: {
@@ -200,6 +237,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         paddingVertical: 13,
         marginTop: 80,
+        marginBottom: 20,
     },
 
     buttonText: {
