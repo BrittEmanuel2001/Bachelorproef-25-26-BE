@@ -22,7 +22,7 @@ const AVAILABLE_ITEMS: ToolkitItem[] = [
         id: 'meditate',
         title: 'Meditatie',
         icon: 'spa.fill',
-        route: '#',
+        route: '/meditation',
     },
     {
         id: 'focus',

@@ -16,7 +16,7 @@ type IconSymbolName = keyof typeof MAPPING;
 const MAPPING = {
   'house.fill': 'house-chimney',
   'journal.fill': 'book',
-  'plant.fill': 'plant-wilt',
+  'plant.fill': 'seedling',
   'book.fill': 'book-open',
   'toolbox.fill': 'toolbox',
   'chevron.left.forwardslash.chevron.right': 'code',
@@ -42,6 +42,18 @@ const MAPPING = {
   'trash': 'trash',
   'clock': 'clock',
   'hand.heart.fill': 'hand-holding-heart',
+  'face.really.unhappy': 'face-frown-open',
+  'face.unhappy': 'face-frown',
+  'face.neutral': 'face-meh',
+  'face.happy': 'face-smile',
+  'face.really.happy': 'face-grin-beam',
+  'minus': 'minus',
+  'plus': 'plus',
+  'play': 'play',
+  'mute.fill': 'volume-xmark',
+  'rain.fill': 'cloud-rain',
+  'ocean.fill': 'water',
+  'tree.fill': 'tree',
 } as IconMapping;
 
 /**

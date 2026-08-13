@@ -49,6 +49,11 @@ const MAPPING = {
   'face.really.happy': 'face-grin-beam',
   'minus': 'minus',
   'plus': 'plus',
+  'play': 'play',
+  'mute.fill': 'volume-xmark',
+  'rain.fill': 'cloud-rain',
+  'ocean.fill': 'water',
+  'tree.fill': 'tree',
 } as IconMapping;
 
 /**

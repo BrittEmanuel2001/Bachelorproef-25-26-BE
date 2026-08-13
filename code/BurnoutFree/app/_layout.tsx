@@ -11,6 +11,7 @@ export default function RootLayout() {
     <>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="breathing-intro" />
+        <Stack.Screen name="meditation" />
         <Stack.Screen name="(tabs)" />
       </Stack>
       <StatusBar style="auto" />
