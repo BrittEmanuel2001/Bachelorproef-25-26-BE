@@ -1,6 +1,5 @@
 import { colors } from "@/styles/colors";
 import { Image, ImageSource } from "expo-image";
-import { router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { IconSymbol } from "../icon-symbol";
 
@@ -22,7 +21,7 @@ export function KnowledgeCard({
   overlayColor?: string;
 }) {
   return (
-    <Pressable onPress={onPress ?? (() => router.push("/kennis"))} style={styles.card}>
+    <Pressable onPress={onPress} style={styles.card}>
       <Image
         source={backgroundImage}
         style={styles.backgroundImage}
@@ -31,7 +30,7 @@ export function KnowledgeCard({
       <View style={[styles.overlay, { backgroundColor: overlayColor ?? colors.brightPurple }]}
 />
 
-      <View style={styles.content}>
+      <View style={[styles.content, !onPress && {width:'100%'}]}>
         <View style={styles.moduleRow}>
           {moduleIcon && (<IconSymbol size={18} name={moduleIcon} color={colors.darkBlue} />)}
           <Text style={styles.module}>
@@ -43,7 +42,9 @@ export function KnowledgeCard({
         <Text style={styles.title}>{lessonTitle}</Text>
       </View>
 
-      <IconSymbol size={18} name="chevron.right" color={colors.white} style={styles.arrow} />
+      {onPress && (
+        <IconSymbol size={18} name="chevron.right" color={colors.white} style={styles.arrow} />
+      )}
     </Pressable>
   );
 }
@@ -51,12 +52,14 @@ export function KnowledgeCard({
 const styles = StyleSheet.create({
   card: {
     width: '100%',
-    height: 125,
+    minHeight: 125,
     borderRadius: 20,
     overflow: 'hidden',
     marginBottom: 15,
     backgroundColor: colors.purple,
-    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   backgroundImage: {
@@ -72,14 +75,11 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    position: 'absolute',
-    top: 10,
-    left: 0,
-    fontSize: 14,
-    fontWeight: 'bold',
-    width: '90%',
-    paddingHorizontal: 30,
-    paddingVertical: 15
+    flex: 1,
+    paddingHorizontal: 25,
+    paddingVertical: 25,
+    zIndex: 1,
+    height: '100%',
   },
 
   module: {
@@ -100,14 +100,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 15,
     flexShrink: 1,
-    marginBottom: 0,
-    marginRight: 8,
   },
 
   arrow: {
-    position: "absolute",
-    right: 35,
-    top: '50%',
-    transform: [{ translateY: -9 }],
+    paddingRight: 20,
+    zIndex: 1,
   },
 });

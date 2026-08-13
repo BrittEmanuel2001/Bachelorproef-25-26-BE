@@ -8,7 +8,7 @@ import { IconSymbol } from '../icon-symbol';
 type MeditationExerciseProps = {
     duration: number;
     soundType: MeditationSoundType;
-    onFinish: () => void;
+    onFinish: (completed: boolean) => void;
 };
 
 export function MeditationExercise({duration, soundType, onFinish}: MeditationExerciseProps) {
@@ -24,7 +24,6 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
             setRemainingSeconds((current) => {
                 if (current <= 1) {
                     clearInterval(interval);
-                    onFinish();
                     return 0;
                 }
 
@@ -34,6 +33,10 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
 
         return () => clearInterval(interval);
     }, [onFinish]);
+
+    useEffect(() => {
+        if (remainingSeconds === 0) onFinish(true);
+    }, [remainingSeconds, onFinish]);
 
     const minutes = Math.floor(remainingSeconds / 60);
     const seconds = remainingSeconds % 60;
@@ -85,7 +88,7 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
                 <Text style={styles.title}>Meditatie</Text>
                 {sound && (
                     <View style={styles.soundChip}>
-                        <IconSymbol name="music.fill" size={12} color={colors.darkBlue} />
+                        <IconSymbol name={soundType === 'quiet' ? 'mute.fill' : 'music.fill'} size={12} color={colors.darkBlue} />
                         <Text style={styles.soundText}>{sound.label}</Text>
                     </View>
                 )}
@@ -114,7 +117,7 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
                 </View>
             </View>
 
-            <Pressable style={styles.button} onPress={onFinish}>
+            <Pressable style={styles.button} onPress={() => onFinish(false)}>
                 <Text style={styles.buttonText}>Afronden</Text>
             </Pressable>
         </View>

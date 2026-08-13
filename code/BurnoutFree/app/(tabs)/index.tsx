@@ -1,4 +1,5 @@
 import { Text, View, ScrollView, StyleSheet } from "react-native";
+import { router } from "expo-router";
 import { CheckupCard } from "../../components/ui/check-up-card";
 import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
@@ -32,6 +33,7 @@ export default function Index() {
           module="1"
           lessonTitle={"De ene stress is de andere niet"}
           backgroundImage={require("@/assets/images/bookBackground.png")}
+          onPress={() => {router.replace('/kennis')}}
         />
 
         {/* quote sectie */}
