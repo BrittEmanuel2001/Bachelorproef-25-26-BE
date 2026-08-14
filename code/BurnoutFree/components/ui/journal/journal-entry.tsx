@@ -21,6 +21,15 @@ export function JournalEntry({
         return null;
     }
 
+    const formattedDate = new Date(`${reflection.date}T00:00:00`).toLocaleDateString(
+        'nl-NL',
+        {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+        }
+    );
+
     return (
         <Modal
             visible={visible}
@@ -45,7 +54,7 @@ export function JournalEntry({
                     {/* Titel */}
                     <View style={styles.header}>
                         <Text style={styles.title}>Dagboeknotitie</Text>
-                        <Text style={styles.subtitle}>{reflection.date}</Text>
+                        <Text style={styles.subtitle}>{formattedDate}</Text>
                     </View>
 
                     {/* Stemming */}
