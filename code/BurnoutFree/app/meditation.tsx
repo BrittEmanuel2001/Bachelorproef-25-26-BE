@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View, Image } from 'react-native';
-import { useFocusEffect, router } from 'expo-router';
+import { useFocusEffect, router, useLocalSearchParams } from 'expo-router';
 
 import { colors } from '@/styles/colors';
 import { MeditationModal, MeditationData } from '@/components/ui/meditatie/meditation-modal';
@@ -8,16 +8,26 @@ import { MeditationExercise } from '@/components/ui/meditatie/meditation-exercis
 import { KnowledgeCard } from '@/components/ui/kennis/knowledge-card';
 
 export default function MeditationScreen() {
+    const params = useLocalSearchParams();
     const [meditationVisible, setMeditationVisible] = useState(false);
     const [meditationData, setMeditationData] = useState<MeditationData | null>(null);
     const [showCompletion, setShowCompletion] = useState(false);
 
     // Alleen de instellingenmodal openen wanneer er nog geen 
-    // actieve meditatie is.
+    // actieve meditatie is. Skip als er parameters zijn meegegeven.
     useFocusEffect(
         useCallback(() => {
-            if (!meditationData && !showCompletion) setMeditationVisible(true);
-        }, [meditationData, showCompletion])
+            if (!meditationData && !showCompletion) {
+                // Check voor preset instellingen (bv. van CheckupCard)
+                if (params.duration && params.sound) {
+                    const duration = parseInt(params.duration as string);
+                    const sound = params.sound as MeditationData['soundType'];
+                    setMeditationData({ duration, soundType: sound });
+                } else {
+                    setMeditationVisible(true);
+                }
+            }
+        }, [meditationData, showCompletion, params])
     );
 
     function closeMeditation() {
@@ -32,7 +42,7 @@ export default function MeditationScreen() {
 
     function handleCompletionClose() {
         setShowCompletion(false);
-        router.replace('/');
+        router.back();
     }
 
     const handleMeditationFinish = useCallback((completed: boolean) => {
@@ -40,7 +50,7 @@ export default function MeditationScreen() {
         setMeditationVisible(false);
 
         if (completed) setShowCompletion(true);
-        else router.replace('/');
+        else router.back();
     }, []);
 
     if (meditationData) {

@@ -23,11 +23,8 @@ export default function Index() {
     ];
 
     return (
-        <ScrollView 
-            style={styles.container}
-            contentContainerStyle={styles.content}
-        >
-            <View style={{paddingHorizontal: 20}}>
+        <View style={styles.container}>
+            <View style={styles.content}>
                 {/* Titel */}
                 <SettingButtons />
                 <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
@@ -41,29 +38,40 @@ export default function Index() {
                 />
 
                 <View style={styles.tabContent}>
-                    {activeTab === 'today' ? (
-                        <TodayContent />
-                    ) : (
-                        <HistoryContent />
-                    )}
+                    <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={styles.tabScrollContent}
+                    >
+                        {activeTab === 'today' ? (
+                            <TodayContent />
+                        ) : (
+                            <HistoryContent />
+                        )}
+                    </ScrollView>
                 </View>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: colors.white,
     },
+
     content: {
-        flexGrow: 1,
+        flex: 1,
         paddingTop: 50,
-    },
-    wrapper: {
         paddingHorizontal: 20,
     },
+
     tabContent: {
+        flex: 1,
         paddingTop: 24,
+    },
+
+    tabScrollContent: {
+        paddingBottom: 150,
     },
 });

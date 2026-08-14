@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Image, Text, View, StyleSheet, Pressable } from "react-native";
+import { router } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { colors } from '@/styles/colors';
 import { ReflectionModal, ReflectionData } from "@/components/ui/journal/reflection-modal";
+import { CheckupCard } from "../check-up-card";
+import { IconSymbol } from "../icon-symbol";
+import { KnowledgeCard } from "../kennis/knowledge-card";
 
 const JOURNAL_STORAGE_KEY = "today-journal";
 
@@ -116,19 +120,40 @@ export function TodayContent() {
                         </Pressable>
                     </>
                 ) : (
-                    <>
-                        <Text>
-                            Je reflectie van vandaag
-                        </Text>
+                    <View style={{width:'100%'}}>
+                        <View style={{marginBottom:-15}}>
+                            <CheckupCard
+                                subtitle="Verhoogd stressniveau"
+                                title="Je antwoorden wijzen op verhoogde spanning. Een korte ademhalingsoefening kan helpen om even die rust terug te vinden."
+                                image={require("@/assets/images/Coach_Bubbles_Variant5.png")}
+                                button={{
+                                    text: "Start oefening",
+                                    onPress: () => router.push('/meditation?duration=3&sound=forest'),
+                                    icon: 'leaf.fill',
+                                }}
+                            />
+                        </View>
 
-                        <Text>
-                            Dit heb je vandaag ingevuld.
-                        </Text>
+                        <Pressable 
+                            style={styles.actionButton}
+                            onPress={() => {router.replace('/kennis')}}
+                        >
+                            <IconSymbol size={22} name="journal.fill" color={colors.black} />
+                            <Text style={styles.actionButtonText}>Naar mijn antwoorden</Text>
+                        </Pressable>
+
+                        <KnowledgeCard
+                            moduleTitle="Stress 101"
+                            module="1"
+                            lessonTitle={"De ene stress is de andere niet"}
+                            backgroundImage={require("@/assets/images/bookBackground.png")}
+                            onPress={() => {router.replace('/kennis')}}
+                        />
 
                         <Pressable onPress={clearReflection}>
                             <Text style={{color: colors.red}}>Leegmaken voor demo</Text>
                         </Pressable>
-                    </>
+                    </View>
                 )}
 
             </View>
@@ -149,6 +174,7 @@ export function TodayContent() {
 const styles = StyleSheet.create({
     todayContent: {
         alignItems: 'center',
+        width: '100%'
     },
 
     image: {
@@ -189,4 +215,20 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: 'bold',
     },
+
+    actionButton: {
+        backgroundColor: colors.lightBlue,
+        padding: 20,
+        paddingHorizontal: 25, 
+        borderRadius: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 10,
+        marginBottom: 15,
+    },
+
+    actionButtonText: {
+        fontSize: 14,
+        fontWeight: 600,
+    }
 });

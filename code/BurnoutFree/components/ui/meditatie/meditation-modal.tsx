@@ -247,7 +247,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                         <Pressable
                                             key={option.value}
                                             onPress={() => setSoundType(option.value)}
-                                            style={[styles.optionButton,soundType === option.value && styles.optionButtonSelected]}
+                                            style={[styles.soundOptionButton,soundType === option.value && styles.optionButtonSelected]}
                                         >
                                             <View style={[styles.soundIcon, {backgroundColor: option.bgcolor ?? colors.white}]}>
                                                 <IconSymbol size={28} name={option.icon} color={option.color} />
@@ -301,12 +301,13 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
 }
 
 const styles = StyleSheet.create({
+
     modal: {
-        flex: 1,
         backgroundColor: colors.white,
         padding: 20,
         paddingTop: 50,
-        paddingBottom: 40,
+        paddingBottom: 45,
+        flex: 1,
     },
 
     topBar: {
@@ -373,6 +374,19 @@ const styles = StyleSheet.create({
 
     optionButton: {
         width: '100%',
+        padding: 16,
+        borderRadius: 12,
+        backgroundColor: colors.white,
+        elevation: 2,
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        flexDirection: 'column',
+        gap: 5,
+        position: 'relative',
+    },
+
+    soundOptionButton: {
+        width: '48%',
         padding: 16,
         borderRadius: 12,
         backgroundColor: colors.white,

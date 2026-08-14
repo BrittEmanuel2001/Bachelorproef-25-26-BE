@@ -1,21 +1,34 @@
-import { Image, StyleSheet, Text, View, Pressable } from 'react-native';
+import { Image, StyleSheet, Text, View, Pressable, ImageSourcePropType } from 'react-native';
 import { colors } from '@/styles/colors';
-import { router } from 'expo-router';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 
-export function CheckupCard() {
+type CheckupCardProps = {
+    title: string;
+    subtitle?: string;
+    image: ImageSourcePropType;
+    button: {
+        text: string;
+        icon?: string;
+        onPress?: () => void;
+    };
+}
+
+export function CheckupCard({title, subtitle, image, button}: CheckupCardProps) {
     return (
         <View style={styles.card}>
             <View style={styles.content}> 
-                <Text style={styles.title}>Hoe voel je je vandaag?</Text> 
+                <Text style={styles.subtitle}>{subtitle}</Text>
+                <Text style={styles.title}>{title}</Text> 
                 <Pressable 
-                    onPress={() => router.push('/journal')}
+                    onPress={button.onPress}
                     style={styles.button}
                 > 
-                    <Text style={styles.buttonText}>Even reflecteren</Text> 
+                    {button.icon && (<IconSymbol size={20} name={button.icon} color={colors.primary}/>)}
+                    <Text style={styles.buttonText}>{button.text}</Text> 
                 </Pressable> 
             </View>
             <Image
-                source={require('@/assets/images/Coach_Bubbles.png')}
+                source={image}
                 style={styles.backgroundImage}
             />
         </View>
@@ -24,42 +37,49 @@ export function CheckupCard() {
 
 const styles = StyleSheet.create({ 
     card: { 
-        height: 140,
+        minHeight: 140,
         borderRadius: 20, 
         overflow: 'hidden', 
         marginBottom: 30, 
         backgroundColor: colors.primary,
-        position: 'relative'
+        position: 'relative',
+        padding: 25,
     },
     backgroundImage: {
         position: 'absolute',
         top: -30,
         right: -50,
-        height: 220,
-        width: 220,
+        height: 200,
+        width: 200,
         resizeMode: 'contain',
     },
     content: { 
-        position: 'absolute',
-        left: 0,
-        bottom: 0,
-        fontSize: 14,
-        fontWeight: 'bold',
-        width: '60%', 
-        padding: 15
+        width: '70%',
+        zIndex: 1,
     }, 
-    title: { 
+    subtitle: {
         color: colors.white,
-        fontWeight: '500',
-        marginBottom: 10
+        fontSize: 11,
+        fontWeight: '600',
+        marginBottom: 25,
+    },
+    title: {
+        color: colors.white,
+        fontSize: 14,
+        lineHeight: 18,
+        fontWeight: '600',
+        marginBottom: 20,
     },
     button: { 
         alignSelf: 'flex-start', 
+        flexDirection: 'row',
+        alignItems: 'center',
         paddingHorizontal: 15, 
         paddingVertical: 10, 
         borderRadius: 10, 
+        gap: 8,
         backgroundColor: colors.darkBlue 
-    }, 
+    },
     buttonText: { 
         color: colors.white, 
         fontWeight: '500', 

@@ -20,7 +20,14 @@ export default function Index() {
 
         <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 8, marginTop: -6}}>Hoi Britt!</Text>
         <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginBottom: 25}}>Fijn dat je even tijd maakt voor jezelf</Text>
-        <CheckupCard />
+        <CheckupCard
+            title="Hoe voel je je vandaag?"
+            image={require("@/assets/images/Coach_Bubbles.png")}
+            button={{
+                text: "Even reflecteren",
+                onPress: () => router.push('/journal'),
+            }}
+        />
       </View>
 
       {/* toolkit */}
