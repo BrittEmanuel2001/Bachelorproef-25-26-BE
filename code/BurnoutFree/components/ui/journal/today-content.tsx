@@ -7,6 +7,7 @@ import { ReflectionModal, ReflectionData } from "@/components/ui/journal/reflect
 import { CheckupCard } from "../check-up-card";
 import { IconSymbol } from "../icon-symbol";
 import { KnowledgeCard } from "../kennis/knowledge-card";
+import { JournalEntry } from "./journal-entry";
 
 const JOURNAL_STORAGE_KEY = "today-journal";
 
@@ -14,6 +15,8 @@ export function TodayContent() {
     const [reflectionVisible, setReflectionVisible] = useState(false);
     const [reflectionStep, setReflectionStep] = useState(1);
     const [todayReflection, setTodayReflection] = useState<ReflectionData | null>(null);
+
+    const [entryVisible, setEntryVisible] = useState(false);
 
     const hour = new Date().getHours();
     const isEvening = hour >= 18 || hour < 6;
@@ -136,7 +139,7 @@ export function TodayContent() {
 
                         <Pressable 
                             style={styles.actionButton}
-                            onPress={() => {router.replace('/kennis')}}
+                            onPress={() => setEntryVisible(true)}
                         >
                             <IconSymbol size={22} name="journal.fill" color={colors.black} />
                             <Text style={styles.actionButtonText}>Naar mijn antwoorden</Text>
@@ -166,6 +169,12 @@ export function TodayContent() {
                 onNext={nextReflectionStep}
                 onPrevious={previousReflectionStep}
                 onComplete={handleReflectionComplete}
+            />
+
+            <JournalEntry
+                visible={entryVisible}
+                onClose={() => setEntryVisible(false)}
+                reflection={todayReflection!}
             />
         </>
     );

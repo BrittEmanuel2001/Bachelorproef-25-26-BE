@@ -13,13 +13,15 @@ export type SelectorOption = {
 type OptionSelectorProps = {
     options: SelectorOption[];
     selectedOption: number | null;
-    onSelect: (option: number) => void;
+    onSelect?: (option: number) => void;
+    disabled?: boolean;
 };
 
 export function OptionSelector({
     options,
     selectedOption,
     onSelect,
+    disabled = false,
 }: OptionSelectorProps) {
     return (
         <View style={styles.container}>
@@ -32,7 +34,8 @@ export function OptionSelector({
                         style={styles.optionItem}
                     >
                         <Pressable
-                            onPress={() => onSelect(option.id)}
+                            disabled={disabled}
+                            onPress={() => onSelect?.(option.id)}
                             style={[
                                 styles.circle,
                                 isSelected && {

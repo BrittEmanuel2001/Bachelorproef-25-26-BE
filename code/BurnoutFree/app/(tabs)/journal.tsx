@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
     },
 
     tabScrollContent: {
-        paddingBottom: 150,
+        paddingBottom: 50,
     },
 });
