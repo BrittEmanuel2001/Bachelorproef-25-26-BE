@@ -153,9 +153,9 @@ export function TodayContent() {
                             onPress={() => {router.replace('/kennis')}}
                         />
 
-                        <Pressable onPress={clearReflection}>
+                        {/* <Pressable onPress={clearReflection}>
                             <Text style={{color: colors.red}}>Leegmaken voor demo</Text>
-                        </Pressable>
+                        </Pressable> */}
                     </View>
                 )}
 

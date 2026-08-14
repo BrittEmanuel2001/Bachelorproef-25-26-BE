@@ -55,6 +55,9 @@ const MAPPING = {
   'ocean.fill': 'water',
   'tree.fill': 'tree',
   'music.fill': 'music',
+  'search': 'magnifying-glass',
+  'list': 'list-ul',
+  'calendar': 'calendar-days'
 } as IconMapping;
 
 /**

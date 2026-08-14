@@ -173,9 +173,10 @@ const styles = StyleSheet.create({
     },
 
     answer: {
-        fontSize: 15,
-        color: colors.black,
-        lineHeight: 22,
+        fontSize: 13,
+        color: colors.darkGray,
+        lineHeight: 18,
+        fontWeight: '600',
     },
 
     label: {
@@ -212,10 +213,9 @@ const styles = StyleSheet.create({
         minHeight: 80,
         backgroundColor: colors.gray,
         borderRadius: 12,
-        paddingHorizontal: 16,
-        paddingVertical: 14,
+        paddingHorizontal: 20,
+        paddingVertical: 20,
         fontSize: 14,
-        color: colors.darkBlue,
         marginTop: 30,
         marginBottom: 20,
     },
