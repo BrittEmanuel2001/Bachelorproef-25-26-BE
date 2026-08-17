@@ -1056,9 +1056,153 @@ In de vorige versie van de SOS-modus werd voornamelijk een ademhalingsoefening a
 \subsection{Dagboek}
 \label{subsec:dagboek-mockups}
 
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_vandaag_nietIngevuld}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide2}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide5}
+    \end{minipage}
+    
+    \caption{Mockups van het invullen van een dagboekreflectie}
+    \label{fig:mockups-8}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide6}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide7}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_reflectie_slide8}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_vandaag_ingevuld}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_vandaag_ingevuld_langdurigeStress}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_vandaag_ingevuld_home_oefening}
+    \end{minipage}
+    
+    \caption{Mockups van het afronden van een dagboekreflectie en gepersonaliseerde opvolging}
+    \label{fig:mockups-9}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    % Linker afbeelding: neemt twee rijen in
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_dagboeknotitie}
+    \end{minipage}
+    \hfill
+    % Rechterkant: 2x2
+    \begin{minipage}{0.63\textwidth}
+        \centering
+        
+        % Bovenste rij
+        \begin{minipage}{0.47\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_geschiedenis_lijst}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.47\textwidth}
+            \centering
+            \phantom{\includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_geschiedenis_lijst}}
+        \end{minipage}
+        
+        \vspace{1em}
+        
+        % Onderste rij
+        \begin{minipage}{0.47\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_geschiedenis_kalender}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.47\textwidth}
+            \centering
+            \phantom{\includegraphics[width=\linewidth]{../graphics/Mockups/Journal/Dagboek_geschiedenis_lijst}}
+        \end{minipage}
+    \end{minipage}
+    
+    \caption{Mockups van de dagboeknotitie detailpagina en de historiek}
+    \label{fig:mockups-10}
+\end{figure}
+
+\newpage
+
+In de vorige versie (\ref{fig:burnout-free-1}) van de applicatie bestond het dagboek uit één scherm waarop de gebruiker verschillende gegevens kon invullen: stemming, energieniveau, aantal uren slaap en optioneel een notitie. Deze informatie werd op één pagina aangeboden, waarna de gebruiker de ingevulde gegevens kon opslaan. Er was echter geen mogelijkheid om eerdere dagboekentries terug te bekijken of om de evolutie ervan te raadplegen. Na het opslaan kreeg de gebruiker bovendien enkel een bevestiging dat de gegevens waren opgeslagen. Hierdoor bleef de meerwaarde van het bijhouden van deze informatie beperkt.
+
 \vspace{1em}
 
-Inhoud dagboek afbeeldingen
+{\small
+    \begin{itemize}
+        \item Het invullen van het dagboek werd opgesplitst in verschillende stappen en inhoudelijke categorieën, namelijk stemming, energie, stressniveau en mindset shift. Hierdoor wordt de hoeveelheid informatie per scherm beperkt en kan de gebruiker zich telkens op één aspect concentreren (\textbf{Ontwerpprincipe}: \textit{minimaliseer cognitieve belasting}).
+        
+        \item De oorspronkelijke slaapmeting bevatte naast het aantal uren slaap ook een extra visuele indicatie die aangaf of dit aantal uren "laag" of "hoog" was. Deze informatie voegde weinig toe, aangezien de gebruiker de slaapduur zelf al kon aflezen en de beoordeling bovendien weinig context bood. In de nieuwe versie werd dit vervangen door de bredere vraag \textit{"Hoe heb je geslapen?"}, waarbij de gebruiker het aantal uren kan opgeven en optioneel extra context over de slaap kan toevoegen. Hierdoor wordt overbodige informatie verwijderd en krijgt de gebruiker meer ruimte om de eigen situatie te beschrijven (\textbf{Ontwerpprincipes}: \textit{minimaliseer cognitieve belasting, persoonlijke relevantie}).
+        
+        \item Wanneer de gebruiker tijdens het invullen per ongeluk terug navigeert, wordt gevraagd of de reflectie moet worden verlaten zonder deze op te slaan. Hierdoor wordt onbedoeld gegevensverlies voorkomen en krijgt de gebruiker controle over deze actie (\textbf{Ontwerpprincipes}: \textit{ondersteunende foutafhandeling, ondersteun autonomie}).
+        
+        \item De gebruiker kan aangeven waarover hij of zij stress ervaart. Hierdoor wordt meer context verzameld over de persoonlijke situatie, waardoor de verdere begeleiding beter op de gebruiker kan worden afgestemd (\textbf{Ontwerpprincipe}: \textit{persoonlijke relevantie}).
+        
+        \item Op basis van de literatuurstudie werd een mindset shift toegevoegd, geïnspireerd door de toepassing van \acrshort{rebt}. De gebruiker wordt hierbij uitgenodigd om een stressvolle gedachte kritisch te bekijken en te herformuleren. Via een informatieknop kan bijkomende uitleg worden geraadpleegd over hoe deze oefening kan worden uitgevoerd, zodat de gebruiker niet zonder context met deze techniek wordt geconfronteerd (\textbf{Ontwerpprincipes}: \textit{ondersteun competentiegevoel, techno-simplicity}).
+        
+        \item Na het invullen van de reflectie ontvangt de gebruiker, indien relevant, een persoonlijke aanbeveling voor een passende oefening. Hierdoor wordt de geregistreerde informatie niet enkel opgeslagen, maar rechtstreeks vertaald naar mogelijke ondersteuning (\textbf{Ontwerpprincipes}: \textit{persoonlijke relevantie, zichtbare meerwaarde, zachte gedragssturing}).
+        
+        \item Wanneer uit meerdere dagboekentries een aanhoudende negatieve trend blijkt, bijvoorbeeld een langere periode met verhoogde stress, kan de applicatie de gebruiker aanraden om professionele hulp te zoeken. Hierdoor wordt niet enkel op een individueel moment gereageerd, maar kan ook rekening worden gehouden met patronen over tijd (\textbf{Ontwerpprincipes}: \textit{persoonlijke relevantie, ondersteunende communicatie}).
+        
+        \item De persoonlijke aanbevelingen worden ook zichtbaar gemaakt op het tabblad \textit{Vandaag} en op de homepagina. Hierdoor blijft de meerwaarde van het invullen van het dagboek zichtbaar en wordt de gebruiker op een laagdrempelige manier naar relevante ondersteuning geleid (\textbf{Ontwerpprincipes}: \textit{zichtbare meerwaarde, zachte gedragssturing}).
+        
+        \item Tot slot werd een \textit{Geschiedenis}-tabblad toegevoegd waarin eerdere dagboekentries zowel in een lijst- als kalenderweergave kunnen worden geraadpleegd. Door een eerdere entry te openen, kan de gebruiker zijn of haar antwoorden opnieuw bekijken en zo persoonlijke patronen of veranderingen herkennen (\textbf{Ontwerpprincipes}: \textit{ondersteun competentiegevoel, persoonlijke relevantie, zichtbare meerwaarde}).
+    \end{itemize}
+}
 
 \vspace{1em}
 
