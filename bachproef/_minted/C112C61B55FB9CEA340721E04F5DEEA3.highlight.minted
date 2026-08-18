@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{profileKey}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+sb}{`}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{supportLevel}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{\PYGZus{}}\PYG{l+s+si}{\PYGZdl{}\PYGZob{}}\PYG{n+nx}{reminderNeed}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+sb}{`}\PYG{p}{;}
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{notificationProfile}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{notificationProfiles}\PYG{p}{[}\PYG{n+nx}{profileKey}\PYG{p}{];}
+\end{MintedVerbatim}

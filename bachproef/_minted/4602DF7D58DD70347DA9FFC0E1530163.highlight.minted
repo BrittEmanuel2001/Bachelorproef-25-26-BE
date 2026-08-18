@@ -1,0 +1,22 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{RECOMMENDED\PYGZus{}MEDITATION\PYGZus{}DURATION}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Record}\PYG{o}{\PYGZlt{}}\PYG{n+nx}{SupportLevel}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{number}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n+nx}{low}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{3}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{medium}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{5}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n+nx}{high}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{10}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{isRecommended}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{durationOption}\PYG{p}{.}\PYG{n+nx}{value}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{n+nx}{recommendedDuration}\PYG{p}{;}
+
+\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}
+\PYG{o}{\PYGZlt{}}\PYG{n+nx}{View}\PYG{+w}{ }\PYG{n+nx}{key}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{durationOption}\PYG{p}{.}\PYG{n+nx}{value}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n+nx}{style}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{styles}\PYG{p}{.}\PYG{n+nx}{optionWrapper}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}
+\PYG{p}{\PYGZob{}}\PYG{n+nx}{isRecommended}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{o}{\PYGZlt{}}\PYG{n+nx}{View}\PYG{+w}{ }\PYG{n+nx}{style}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{styles}\PYG{p}{.}\PYG{n+nx}{recommendedLabel}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{        }\PYG{o}{\PYGZlt{}}\PYG{n+nx}{Text}\PYG{+w}{ }\PYG{n+nx}{style}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{styles}\PYG{p}{.}\PYG{n+nx}{recommendedLabelText}\PYG{p}{\PYGZcb{}}\PYG{o}{\PYGZgt{}}\PYG{n+nx}{Mijn}\PYG{+w}{ }\PYG{n+nx}{aanrader}\PYG{esc}{\texttt{</Text>}}
+\PYG{+w}{        }\PYG{o}{\PYGZlt{}}\PYG{n+nx}{Image}
+\PYG{+w}{            }\PYG{n+nx}{source}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}@/assets/images/Coach\PYGZus{}Bubbles.png\PYGZsq{}}\PYG{p}{)}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{n+nx}{style}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{n+nx}{styles}\PYG{p}{.}\PYG{n+nx}{recommendedCoach}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{n+nx}{resizeMode}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}contain\PYGZdq{}}
+\PYG{+w}{        }\PYG{o}{/}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{    }\PYG{esc}{\texttt{</View>}}
+\PYG{+w}{    }\PYG{p}{)}\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

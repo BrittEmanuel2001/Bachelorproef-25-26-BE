@@ -1539,4 +1539,327 @@ In de oorspronkelijke Burnout Free-app was geen onboarding aanwezig. Hierdoor we
 
 \vspace{1em}
 
-TODO
+Na de uitwerking van de mock-ups werd een selectie van de ontworpen schermen vertaald naar een werkende frontend-implementatie. Het doel hiervan is niet om binnen de scope van deze bachelorproef een applicatie, klaar voor productie, te ontwikkelen, maar om na te gaan in welke mate de voorgestelde functionaliteiten en ontwerpprincipes technisch realiseerbaar zijn. De implementatie vormt daarmee een technische verdieping van de eerder uitgewerkte mock-ups en maakt het mogelijk om niet enkel het visuele ontwerp, maar ook interacties en toestandsveranderingen af te toetsen.
+
+\vspace{1em}
+
+Zoals eerder gemotiveerd werd in sectie \ref{sec:app-tech-keuze}, werd deze implementatie uitgevoerd met React Native, specifieker met het Expo framework. Er werden onder andere een splashscreen, startpagina, toolkit, profielpagina, instellingen, dagboek, meditatieoefening en bijhorende interacties uitgewerkt. Gegevens die in een volwaardige applicatie vanuit een backend of database zouden worden opgehaald, worden binnen deze \acrshort{poc} opgehaald uit mock data. Hierdoor kunnen de belangrijkste gebruikersinteracties wel worden gedemonstreerd zonder dat een volledige backendarchitectuur noodzakelijk is.
+
+\vspace{1em}
+
+\subsubsection{Personalisatie en begeleidingsintensiteit}
+\label{sec:personalisatie-code}
+
+\vspace{1em}
+
+De begeleidingsintensiteit werd binnen de \acrshort{poc} niet enkel als een visuele instelling uitgewerkt, maar heeft ook invloed op het gedrag van de applicatie. De gebruiker kan aangeven hoeveel begeleiding gewenst is en in welke mate herinneringen gewenst zijn. Op basis van deze keuzes wordt bepaald welke vormen van ondersteuning worden aanbevolen, hoeveel herinneringen worden voorzien en op welke momenten deze plaatsvinden. Deze logica wordt in de implementatie vertaald naar een profiel dat wordt bepaald op basis van de gekozen instellingen. Hiervoor worden de verschillende waarden gecombineerd tot een unieke sleutel, waarmee het overeenkomstige profiel uit de mock data kan worden opgehaald.
+
+\vspace{1em}
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        const profileKey = `${supportLevel}_${reminderNeed}`;
+        const notificationProfile = notificationProfiles[profileKey];
+    \end{minted}
+    \caption[Selecteren van een personalisatieprofiel]
+    {Selecteren van het personalisatieprofiel op basis van gebruikersvoorkeuren.}
+    \label{lst:profile-selection}
+\end{listing}
+
+\vspace{1em}
+
+Het geselecteerde profiel bevat vervolgens de instellingen voor de verschillende vormen van ondersteuning. Een wijziging van de begeleidingsintensiteit kan hierdoor bijvoorbeeld leiden tot een andere frequentie van herinneringen of tot andere aanbevolen functies.
+
+\vspace{1em}
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        const notificationProfiles: Record<string, NotificationProfile> = {
+            
+            // LOW: weinig begeleiding
+            low_low: { 
+                journal: [], 
+                breathing: [{ hour: 14 }], 
+                meditation: [] 
+            },
+            
+            // MEDIUM: balans
+            medium_medium: { 
+                journal: [{ hour: 9 }], 
+                breathing: [{ hour: 14 }], 
+                meditation: [{ hour: 19 }] 
+            },
+            
+            // HIGH: intensieve begeleiding
+            high_high: {
+                journal: [{ hour: 9 }],
+                breathing: [{ hour: 9 }, { hour: 14 }, { hour: 19 }],
+                meditation: [{ hour: 9 }, { hour: 19 }]
+            }
+        };
+    \end{minted}
+    \caption[Vooraf gedefinieerde notificatieprofielen]
+    {Vooraf gedefinieerde notificatieprofielen met verschillende ondersteuningsintensiteiten.}
+    \label{lst:notification-profiles}
+\end{listing}
+
+\begin{listing}[H]
+    \begin{minted}[escapeinside=||]{typescript}
+        const RECOMMENDED_MEDITATION_DURATION: Record<SupportLevel, number> = {
+            low: 3,
+            medium: 5,
+            high: 10,
+        };
+        
+        const isRecommended = durationOption.value === recommendedDuration;
+        
+        return (
+        <View key={durationOption.value} style={styles.optionWrapper}>
+        {isRecommended && (
+            <View style={styles.recommendedLabel}>
+                <Text style={styles.recommendedLabelText}>Mijn aanrader|\texttt{</Text>}|
+                <Image
+                    source={require('@/assets/images/Coach_Bubbles.png')}
+                    style={styles.recommendedCoach}
+                    resizeMode="contain"
+                />
+            |\texttt{</View>}|
+            )}
+    \end{minted}
+    \caption[Aanbevolen meditatieduur]
+    {Aanbevolen meditatieduur afgestemd op de gekozen begeleidingsintensiteit.}
+    \label{lst:recommended-meditation-duration}
+\end{listing}
+
+\vspace{1em}
+
+Hiermee wordt het principe van \textit{Persoonlijke autonomie en keuzevrijheid} concreet toegepast. De gebruiker bepaalt zelf de gewenste begeleidingsintensiteit, waarna de applicatie de aangeboden ondersteuning hierop afstemt. Tegelijkertijd wordt het principe \textit{Beperk digitale interrupties} ondersteund, aangezien de hoeveelheid en timing van herinneringen afhankelijk zijn van de persoonlijke voorkeuren van de gebruiker.
+
+\vspace{1em}
+
+Binnen deze \acrshort{poc} wordt hiervoor gewerkt met vooraf gedefinieerde profielen en worden de notificaties niet daadwerkelijk als pushnotificaties verstuurd. De implementatie toont wel aan dat een wijziging van gebruikersvoorkeuren kan worden vertaald naar een wijziging in het gedrag en de aangeboden ondersteuning van de applicatie.
+
+\newpage
+
+\subsubsection{Inclusieve toegankelijkheid}
+\label{sec:toegankelijkheid-code}
+
+\vspace{1em}
+
+Ook het \textit{Inclusieve toegankelijkheid} ontwerpprincipe werd meegenomen in de technische implementatie. Hierbij werd niet uitsluitend rekening gehouden met de visuele interface, maar ook met de manier waarop interactieve elementen door verschillende gebruikers kunnen worden bediend.
+
+\vspace{1em}
+
+Een voorbeeld hiervan is de knop waarmee de instellingen worden geopend:
+
+\begin{listing}[H]
+    \begin{minted}[escapeinside=||]{typescript}
+        <Pressable
+            onPress={() => setSettingsVisible(true)}
+            accessibilityRole="button"
+            accessibilityLabel="Instellingen openen"
+            hitSlop={8}
+        >
+            <IconSymbol
+            size={25}
+            name="gear.fill"
+            color={colors.darkBlue}
+            />
+        |\texttt{</Pressable>}|
+    \end{minted}
+    \caption[Toegankelijke instellingenknop]
+    {Toegankelijk geïmplementeerde instellingenknop met semantische rol, toegankelijkheidslabel en vergroot aanraakgebied.}
+    \label{lst:accessible-settings-button}
+\end{listing}
+
+Het attribuut \texttt{accessibilityRole} maakt duidelijk dat het element een knop is, terwijl \texttt{accessibilityLabel} een beschrijving voorziet voor gebruikers van ondersteunende technologie, zoals een screenreader. Daarnaast vergroot \texttt{hitSlop} het effectieve aanraakgebied van de knop zonder de visuele grootte ervan te wijzigen. Dit maakt de interactie minder afhankelijk van het exact raken van het icoon en ondersteunt daarmee een meer inclusieve bediening.
+
+\newpage
+
+\subsubsection{Cross-platform en distributie}
+\label{sec:cross-platform-code}
+
+\vspace{1em}
+
+Het cross-platform karakter van React Native werd tijdens de implementatie onder andere meegenomen in de manier waarop iconen worden weergegeven. Hiervoor werd een eigen \texttt{IconSymbol}-component voorzien die een abstracte iconnaam koppelt aan een concrete iconimplementatie.
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        const MAPPING = {
+            'house.fill': 'house-chimney',
+            'journal.fill': 'book',
+            'toolbox.fill': 'toolbox',
+            'gear.fill': 'gear',
+            'bell.fill': 'bell',
+            'user.fill': 'user-large',
+            'play': 'play',
+            ...
+        };
+    \end{minted}
+    \caption[Centraal beheerde iconmapping]
+    {Centrale mapping waarbij abstracte iconnamen worden gekoppeld aan concrete iconimplementaties.}
+    \label{lst:icon-mapping}
+\end{listing}
+
+De schermen maken hierdoor gebruik van eenzelfde abstracte benaming, terwijl de concrete iconimplementatie centraal wordt beheerd. De gebruikte structuur maakt het bovendien mogelijk om indien nodig verschillende iconen per platform te voorzien, zonder de schermen zelf hiervoor aan te passen. Dit ondersteunt het ontwerpprincipe \textit{Snel en eenvoudig distribueerbaar}. De applicatie kan vanuit één codebasis voor verschillende mobiele platformen worden ontwikkeld, terwijl platformafhankelijke implementatiedetails op een centrale plaats kunnen worden opgevangen. Binnen de huidige \acrshort{poc} werden de iconen nog niet visueel per platform aangepast, maar de gekozen structuur laat deze uitbreiding wel toe.
+
+\newpage
+
+\subsubsection{Screenshots}
+\label{sec:screenshots-code}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC1}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC3}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC4}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC5}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC6}
+    \end{minipage}
+    
+    \caption{Overzicht van de belangrijkste schermen van de applicatie, waaronder de homepagina, toolkit, profielpagina en instellingen.}
+    \label{fig:code-ss-1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC7}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC8}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC9}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC10}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC11}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC12}
+    \end{minipage}
+    
+    \caption{Overzicht van de tools, de dagboekpagina en de start van de reflectiefunctie binnen de applicatie.}
+    \label{fig:code-ss-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC13}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC14}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC15}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC16}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC17}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC18}
+    \end{minipage}
+    
+    \caption{Vervolg van de reflectiefunctie en de detailweergave van een individuele dagboeknotitie.}
+    \label{fig:code-ss-3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC19}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC20}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC21}
+    \end{minipage}
+    
+    \vspace{1em}
+    
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC22}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC23}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Code/PoC24}
+    \end{minipage}
+    
+    \caption{Vervolg en afronding van de reflectiefunctie en een voorbeeld van een begeleide meditatieoefening.}
+    \label{fig:code-ss-4}
+\end{figure}

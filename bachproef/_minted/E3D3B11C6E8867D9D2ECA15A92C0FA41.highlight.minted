@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{MAPPING}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}house.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}house\PYGZhy{}chimney\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}journal.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}book\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}toolbox.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}toolbox\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}gear.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}gear\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}bell.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}bell\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}user.fill\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}user\PYGZhy{}large\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s+s1}{\PYGZsq{}play\PYGZsq{}}\PYG{o}{:}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}play\PYGZsq{}}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{...}
+\PYG{p}{\PYGZcb{};}
+\end{MintedVerbatim}

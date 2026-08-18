@@ -1,0 +1,25 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{notificationProfiles}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{Record}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{string}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nx}{NotificationProfile}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{c+c1}{// LOW: weinig begeleiding}
+\PYG{+w}{    }\PYG{n+nx}{low\PYGZus{}low}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{journal}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[],}
+\PYG{+w}{        }\PYG{n+nx}{breathing}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{14}\PYG{+w}{ }\PYG{p}{\PYGZcb{}],}
+\PYG{+w}{        }\PYG{n+nx}{meditation}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[]}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{},}
+
+\PYG{+w}{    }\PYG{c+c1}{// MEDIUM: balans}
+\PYG{+w}{    }\PYG{n+nx}{medium\PYGZus{}medium}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{journal}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{9}\PYG{+w}{ }\PYG{p}{\PYGZcb{}],}
+\PYG{+w}{        }\PYG{n+nx}{breathing}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{14}\PYG{+w}{ }\PYG{p}{\PYGZcb{}],}
+\PYG{+w}{        }\PYG{n+nx}{meditation}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{19}\PYG{+w}{ }\PYG{p}{\PYGZcb{}]}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{},}
+
+\PYG{+w}{    }\PYG{c+c1}{// HIGH: intensieve begeleiding}
+\PYG{+w}{    }\PYG{n+nx}{high\PYGZus{}high}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n+nx}{journal}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{9}\PYG{+w}{ }\PYG{p}{\PYGZcb{}],}
+\PYG{+w}{        }\PYG{n+nx}{breathing}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{9}\PYG{+w}{ }\PYG{p}{\PYGZcb{},}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{14}\PYG{+w}{ }\PYG{p}{\PYGZcb{},}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{19}\PYG{+w}{ }\PYG{p}{\PYGZcb{}],}
+\PYG{+w}{        }\PYG{n+nx}{meditation}\PYG{o}{:}\PYG{+w}{ }\PYG{p}{[\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{9}\PYG{+w}{ }\PYG{p}{\PYGZcb{},}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nx}{hour}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{19}\PYG{+w}{ }\PYG{p}{\PYGZcb{}]}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{MintedVerbatim}
