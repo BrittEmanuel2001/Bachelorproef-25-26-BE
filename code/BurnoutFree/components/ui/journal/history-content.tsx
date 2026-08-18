@@ -1,11 +1,15 @@
 import { Text, View, StyleSheet, ScrollView, Pressable } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native";
 import { colors } from "@/styles/colors";
 import { IconSymbol } from "../icon-symbol";
 import { JournalEntry } from "./journal-entry";
 import { ReflectionData } from "./reflection-modal";
 import { mockJournalEntries } from "@/data/mock-journal-entries";
 import { moodOptions } from "@/utils/reflection-options";
+
+const JOURNAL_ENTRIES_KEY = "journal-entries";
 
 function getMonthLabel(dateString: string): string {
     const date = new Date(dateString);
@@ -30,10 +34,19 @@ function groupByMonth(entries: ReflectionData[]): Record<string, ReflectionData[
     return grouped;
 }
 
-function getJournalEntries(limit = 10): ReflectionData[] {
-    return [...mockJournalEntries]
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, limit);
+async function getJournalEntries(limit = 10): Promise<ReflectionData[]> {
+    try {
+        const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
+        const storedEntries = stored ? JSON.parse(stored) : [];
+        const allEntries = [...mockJournalEntries, ...storedEntries];
+        
+        return Array.from(allEntries.values())
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            .slice(0, limit);
+    } catch (error) {
+        console.error("Kon journal entries niet laden:", error);
+        return [];
+    }
 }
 
 function getMoodOption(moodId: number | string | null) {
@@ -47,10 +60,20 @@ export function HistoryContent() {
     const [entryModalVisible, setEntryModalVisible] = useState(false);
     const [viewMode, setViewMode] = useState<"list" | "calendar">("list");
 
-    useEffect(() => {
-        const data = getJournalEntries(10);
+    const loadEntries = useCallback(async () => {
+        const data = await getJournalEntries(10);
         setEntries(data);
     }, []);
+
+    useEffect(() => {
+        loadEntries();
+    }, [loadEntries]);
+
+    useFocusEffect(
+        useCallback(() => {
+            loadEntries();
+        }, [loadEntries])
+    );
 
     const grouped = groupByMonth(entries);
     const sortedMonths = Object.keys(grouped).sort().reverse();

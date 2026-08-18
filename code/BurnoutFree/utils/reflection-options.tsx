@@ -5,7 +5,7 @@ export const moodOptions: SelectorOption[] = [
     {
         id: 1,
         label: 'Lastig',
-        color: colors.red,
+        color: colors.darkBlue,
         icon: 'face.really.unhappy',
     },
     {
@@ -65,13 +65,13 @@ export const energyOptions: SelectorOption[] = [
 export const stressOptions: SelectorOption[] = [
     {
         id: 1,
-        label: 'Helemaal gespannen',
-        color: colors.red,
+        label: 'Helemaal ontspannen',
+        color: colors.darkGreen,
     },
     {
         id: 2,
-        label: 'Gespannen',
-        color: colors.purple,
+        label: 'Rustig',
+        color: colors.green,
     },
     {
         id: 3,
@@ -80,12 +80,12 @@ export const stressOptions: SelectorOption[] = [
     },
     {
         id: 4,
-        label: 'Rustig',
-        color: colors.green,
+        label: 'Gespannen',
+        color: colors.purple,
     },
     {
         id: 5,
-        label: 'Helemaal ontspannen',
-        color: colors.darkGreen,
+        label: 'Helemaal gespannen',
+        color: colors.darkBlue,
     },
 ];

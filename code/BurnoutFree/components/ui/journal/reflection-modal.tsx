@@ -293,7 +293,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                                 if (!isStepComplete()) return;
                                 if (currentStep === totalSteps) {
                                     const stressLevel = selectedOptions[3];
-                                    if (stressLevel !== null && stressLevel <= 2) setShowCompletionModal(true);
+                                    if (stressLevel !== null && stressLevel >= 3) setShowCompletionModal(true);
                                     else {
                                         handleFinish();
                                         router.replace('/journal');

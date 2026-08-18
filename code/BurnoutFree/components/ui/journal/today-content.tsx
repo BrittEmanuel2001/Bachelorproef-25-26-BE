@@ -9,7 +9,7 @@ import { IconSymbol } from "../icon-symbol";
 import { KnowledgeCard } from "../kennis/knowledge-card";
 import { JournalEntry } from "./journal-entry";
 
-const JOURNAL_STORAGE_KEY = "today-journal";
+const JOURNAL_ENTRIES_KEY = "journal-entries";
 
 export function TodayContent() {
     const [reflectionVisible, setReflectionVisible] = useState(false);
@@ -27,17 +27,18 @@ export function TodayContent() {
 
     async function loadTodayReflection() {
         try {
-            const stored = await AsyncStorage.getItem(JOURNAL_STORAGE_KEY);
+            const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
 
             if (!stored) {
                 setTodayReflection(null);
                 return;
             }
 
-            const data: ReflectionData = JSON.parse(stored);
+            const entries: ReflectionData[] = JSON.parse(stored);
             const today = new Date().toISOString().split("T")[0];
+            const todayEntry = entries.find(e => e.date === today);
 
-            if (data.date === today) setTodayReflection(data);
+            if (todayEntry) setTodayReflection(todayEntry);
             else setTodayReflection(null);
         } catch (error) {
             console.error("Kon journal niet laden:", error);
@@ -64,10 +65,9 @@ export function TodayContent() {
 
     async function handleReflectionComplete(data: ReflectionData) {
         try {
-            await AsyncStorage.setItem(
-                JOURNAL_STORAGE_KEY,
-                JSON.stringify(data)
-            );
+            const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
+            const entries: ReflectionData[] = stored ? JSON.parse(stored) : [];
+            await AsyncStorage.setItem(JOURNAL_ENTRIES_KEY, JSON.stringify(entries));
 
             setTodayReflection(data);
             setReflectionVisible(false);
@@ -79,8 +79,19 @@ export function TodayContent() {
 
     {/* Voor test en demo purpose */}
     async function clearReflection() {
-        await AsyncStorage.removeItem(JOURNAL_STORAGE_KEY);
-        setTodayReflection(null);
+        try {
+            const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
+            if (stored) {
+                const entries: ReflectionData[] = JSON.parse(stored);
+                const today = new Date().toISOString().split("T")[0];
+                const filteredEntries = entries.filter(e => e.date !== today);
+                await AsyncStorage.setItem(JOURNAL_ENTRIES_KEY, JSON.stringify(filteredEntries));
+            }
+            
+            setTodayReflection(null);
+        } catch (error) {
+            console.error("Kon reflectie niet wissen:", error);
+        }
     }
 
     return (
