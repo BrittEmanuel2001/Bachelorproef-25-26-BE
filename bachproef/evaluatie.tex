@@ -14,3 +14,867 @@ Deze wordt uitgevoerd aan de hand van een heuristische evaluatie waarbij de vers
 \vspace{1em}
 
 De resultaten van deze evaluatie hebben als doel om de sterke punten, mogelijke tekortkomingen en verbeterpunten van de Proof-of-Concept te identificeren. Deze bevindingen bieden niet alleen inzicht in de kwaliteit van het uitgewerkte concept, maar vormen ook een basis voor verdere optimalisaties en toekomstig onderzoek.
+
+\newpage
+
+\section{Zelfstandige evaluatie}
+\label{sec:zelfstandige-evaluatie}
+
+\vspace{1em}
+
+\subsection{Aftoetsing functionele requirements}
+\label{subsec:frs-burnoutfreev2}
+
+\vspace{1em}
+
+{\small
+    \textcolor{green!80!black}{\textbf{M}}ust have \quad
+    \textcolor{orange}{\textbf{S}}hould have \quad
+    \textcolor{blue}{\textbf{C}}ould have \quad
+    \textcolor{black!60}{\textbf{W}}on’t have
+}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{3.0cm}
+            >{\raggedright\arraybackslash}p{10.5cm}
+            >{\centering\arraybackslash}p{2.0cm}
+        }
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht requirements]{Oplijsting van functionele requirements met MoSCoW-prioriteit.}
+        \label{tab:requirements-burnoutfreev2}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        Gebruiker & Registreren en aanmelden & \textcolor{green!80!black}{\textbf{M}} \\
+        Alle rollen & Raadplegen privacybeleid en juridische info & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van gebruikers} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Modereren van community} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van hulpinstanties} & \textcolor{gray!40}{\textbf{M}} \\
+        Expert & Registreren als expert & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Toevoegen van educatieve content} & \textcolor{gray!40}{\textbf{C}} \\
+        Expert & Aanpassen van educatieve content} & \textcolor{orange}{\textbf{S}} \\
+        Expert & Valideren van educatieve content} & \textcolor{orange}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Onboarding \& personalisatie}} \\ \addlinespace[6pt]
+        Gebruiker & Doorlopen van visuele onboarding & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Personaliseren van profiel & \textcolor{blue}{\textbf{C}} \\
+        Gebruiker & Personaliseren van dashboard & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Instellen van begeleidingsintensiteit & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Instellen van persoonlijke doelen & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Instellen van notificatiefrequentie & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van het aanbod aan oefeningen a.d.h.v. vorderingen binnen het persoonlijk traject} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Zelfreflectie \& dagboek}} \\ \addlinespace[6pt]
+        Gebruiker & Registreren van stressniveau & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Bijhouden van gestructureerd dagboek & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Raadplegen van dagboekhistoriek & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Exporteren van dagboekgegevens & \textcolor{orange}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Automatische analyse / samenvatting van gegevens} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[10pt]
+        
+        \multicolumn{3}{l}{\textbf{Psycho-educatie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van educatieve content & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van contextuele educatieve feedback & \textcolor{orange}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Oefeningen \& stressregulatie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van stressreducerende oefeningen & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Raadplegen van begeleide rustmomenten & \textcolor{orange}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Feedback \& progressie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van een visuele weergave van de huidige trajectvoortgang & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van positieve/informatieve feedback & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Niet-competitieve beloningen & \textcolor{blue}{\textbf{C}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Notificaties \& nudging}} \\ \addlinespace[6pt]
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Ontvangen van gepersonaliseerde notificaties} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Interactieve notificaties} & \textcolor{gray!40}{\textbf{C}} \\
+        Gebruiker & Gedragsgerichte nudges ontvangen & \textcolor{orange}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Verbondenheid \& community}} \\ \addlinespace[6pt]
+        Gebruiker & Interageren op een laagdrempelige manier zonder prestatie- of vergelijkingsmechanismen & \textcolor{blue}{\textbf{C}} \\
+        Gebruiker & Versturen/ontvangen van anonieme aanmoedigingen & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Controle over zichtbaarheid en gedeelde informatie & \textcolor{green!80!black}{\textbf{M}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Motivatie \& engagement}} \\ \addlinespace[6pt]
+        Gebruiker & Progressiesysteem / verhaallijn & \textcolor{orange}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Hulp \& doorverwijzing}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van professionele hulpopties & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van advies tot doorverwijzing & \textcolor{green!80!black}{\textbf{M}} \\
+        
+    \end{longtable}
+}
+
+\newpage
+
+\subsection{Aftoetsing ontwerpprincipes}
+\label{subsec:ontwerpprincipes-burnoutfreev2}
+
+\vspace{1em}
+
+{
+    \footnotesize
+    \setlength\tabcolsep{3pt}
+    
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{5.23cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+        }
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endfirsthead
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endhead
+        
+        \midrule
+        \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \endlastfoot
+        
+        \addlinespace[10pt]
+        
+        \textbf{1.} Privacy by Design 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Er worden slechts beperkte persoonsgegevens gevraagd, namelijk een naam en e-mailadres.
+            \item De gebruiker kan ervoor kiezen om de applicatie zonder account te gebruiken, waardoor het delen van persoonsgegevens kan worden vermeden.
+            \item Het privacybeleid en de gebruiksvoorwaarden zijn tijdens de onboarding raadpleegbaar voordat de gebruiker deze accepteert.
+            \item De gebruiker wordt vóór het aanmaken van een account geïnformeerd over de voorwaarden waaronder de applicatie wordt gebruikt.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item De gebruiker kan niet per type gegevens bepalen welke informatie met de aanbieder wordt gedeeld.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{2.} Snel en eenvoudig distribueerbaar
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item De gekozen technologie laat toe om de applicatie als één applicatie voor meerdere mobiele platformen te distribueren.
+        \end{itemize}
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{3.} Ondersteunende foutafhandeling
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Ongeldige invoer wordt zoveel mogelijk voorkomen door vooraf bepaalde keuzewaarden te gebruiken.
+            \item De gebruiker wordt gewaarschuwd bij het verlaten van een scherm met onopgeslagen gegevens en kan deze actie bevestigen.
+            \item Ingevoerde noodcontactgegevens worden gevalideerd zodat enkel geldige nummers worden opgeslagen.
+            \item Tijdens het instellen van een meditatie kan de gebruiker terugkeren naar een vorige stap om een gemaakte keuze aan te passen.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Niet alle voorziene fallbackmechanismen bij netwerk- of systeemproblemen zijn binnen de PoC uitgewerkt.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{4.} Inclusieve toegankelijkheid 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De applicatie ondersteunt het gebruik van een screenreader.
+            \item De applicatie houdt rekening met het comfort van het gebruiken van knoppen voor personen met grotere vingers.
+            \item Interactieve elementen, zoals knoppen en het onderste navigatiemenu, zijn goed bedienbaar.
+            \item De interface blijft bruikbaar wanneer de tekstgrootte via de toestelinstellingen wordt vergroot, zonder dat kaarten of menu-items onbruikbaar worden.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{5.} Beperk digitale interrupties
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Het aantal notificaties wordt aanbevolen aan de gebruiker afhankelijk van zijn noden.
+            \item Gebruikers kunnen zelf kiezen voor welke functionaliteiten zij herinneringen willen ontvangen.
+            \item De frequentie van herinneringen per soort kan door de gebruiker aangepast worden.
+            \item Het tijdstip van herinneringen kan per soort door de gebruiker aangepast worden.
+        \end{itemize}
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Een veiligheidsmarge zou moeten kunnen worden ingesteld zodat een gebruiker een bepaalde tijd tussen de notificaties laat voor een gezond gebruikspatroon aan te moedigen.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{6.} Behoud overzicht
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Informatie wordt beperkt weergegeven bij bijvoorbeeld de cursusinhoud, waardoor schermen overzichtelijk blijven.
+            \item De gebruiker krijgt per pagina een duidelijk beeld van het doel en de beschikbare acties.
+            \item De interface gebruikt een consistente structuur en navigatie.
+            \item Duidelijk onderscheid tussen navigatie en tools door middel van pagina layout of pop over layout.
+            \item Pro-versie functionaliteiten zijn zichtbaar bij de toolspagina, maar voldoende onderscheiden van de functionaliteiten die wel gebruikt kunnen worden.
+        \end{itemize} 
+        &
+        \\ 
+        
+        \addlinespace[5pt]
+        
+        \textbf{7.} Minimaliseer cognitieve belasting
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De onboarding wordt stapsgewijs aangeboden, waarbij informatie en instellingen pas in de relevante stap worden getoond.
+            \item Telkens één duidelijke taak per scherm.
+            \item Informatie wordt opgesplitst in afzonderlijke cursussen en onderdelen, waardoor de gebruiker niet alle informatie tegelijk hoeft te verwerken.
+            \item Complexere functionaliteiten worden opgedeeld in meerdere opeenvolgende stappen, zodat de gebruiker telkens slechts een beperkte hoeveelheid informatie en keuzes moet verwerken.
+            \item Schermen bevatten beknopte, korte en dooelgerichte teksten, waardoor de applicatie snel scanbaar is.
+            \item Extra nodige informatie wordt verborgen onder een info-icoon die optioneel bekeken kan worden.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item De lengte en informatiedichtheid van cursusinhoud binnen de kennissectie moeten bewaakt worden om information overload te vermijden.
+        \end{itemize} 
+        \\ 
+        
+        \addlinespace[5pt]
+        
+        \textbf{8.} Vermijd visuele overprikkeling 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De applicatie maakt gebruik van één consistent lettertype
+            \item De applicatie maakt gebruik van een beperkt kleurenpallet van 3-4 kleuren.
+            \item Animaties worden beperkt toegepast en hebben voornamelijk een functioneel doel, zoals de visuele ademhalingsbegeleiding tijdens een ademhalingsoefening.
+            \item Wanneer animaties worden gebruikt voor interacties, worden deze consistent toegepast. Zo gebruiken pop-ups telkens dezelfde overgang en bewegingsrichting.
+            \item Afbeeldingen en andere visuele elementen worden voornamelijk gebruikt ter ondersteuning van de inhoud, in plaats van als louter decoratieve elementen.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Bij de kennissectie kan per cursus een afbeelding als achtergrond worden ingesteld door een administrator. Wanneer hiervoor een te drukke afbeelding wordt gebruikt, kan dit alsnog visuele overprikkeling en extra cognitieve belasting veroorzaken. Alsook cursusinhoud kan visueel te druk worden, hiervoor zijn bijkomende richtlijnen nodig om de hoeveelheid visuele informatie per slide te bewaken.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{9.} Techno-simplicity
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De applicatie bevat een korte optionele onboarding.
+            \item De applicatie bevat na de onboarding een korte rondleiding doorheen de app.
+            \item Tooltips worden gebruikt wanneer de werking van een onderdeel niet onmiddellijk duidelijk is.
+            \item De navigatie en interactie zijn bewust eenvoudig gehouden, zodat gebruikers zonder uitgebreide voorkennis door de applicatie kunnen navigeren.
+            \item De applicatie maakt gebruik van consistente interactiepatronen en componenten.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{10.} Stimuleer gezond gebruik
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De applicatie voorkomt een eindeloze feed door een limiet in te stellen op het aantal anonieme aanmoedigingen per dag.
+            \item Notificaties zijn optioneel en instelbaar, waarbij de gebruiker zelf kan bepalen welke notificaties worden ontvangen, hoe vaak deze verschijnen en op welke momenten.
+            \item Functionaliteiten zoals oefeningen en meditaties zijn opgedeeld in afgebakende activiteiten, waardoor de gebruiker een oefening kan uitvoeren en de applicatie daarna eenvoudig kan verlaten.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{11.} Zachte gedragssturing
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+}
+            \item De coach gebruikt aanbevelingen om bepaalde oefeningen of activiteiten als geschikte keuze te presenteren, waardoor gewenst gedrag laagdrempelig wordt gemaakt zonder dit verplicht te stellen.
+            \item De gekozen begeleidingsintensiteit bepaalt in welke mate de applicatie de gebruiker begeleidt en ondersteunt, waardoor de hoeveelheid sturing kan worden afgestemd op de voorkeur van de gebruiker.
+            \item Voorgestelde activiteiten blijven steeds vrijblijvend en kunnen worden genegeerd.
+            \item Indien er een zorgwekkende evolutie wordt ontdekt bij dagboekdata wordt er aanbevolen een professionele instantie te raadplegen.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Notificaties die op basis van het individuele gebruiksgedrag worden aangepast, zijn niet uitgewerkt in de PoC. Hierdoor kan niet worden geëvalueerd in welke mate dergelijk contextafhankelijk gedrag zacht kan worden gestuurd. Hierdoor zijn enkel de beschikbare notificaties gekoppeld aan de gekozen begeleidingsintensiteit en niet aan de concrete gebruikswijze van de gebruiker.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{12.} Ondersteun autonomie
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De gebruiker kan het eigen profiel en dashboard personaliseren, waardoor de applicatie kan worden afgestemd op persoonlijke voorkeuren en noden.
+            \item De gebruiker kan zelf bepalen hoe intensief hij of zij door de applicatie wordt begeleid.
+            \item De gebruiker behoudt keuzevrijheid in het gebruik van oefeningen en functionaliteiten en kan voorgestelde activiteiten steeds overslaan of een alternatief kiezen.
+            \item Educatieve content kan op het eigen tempo worden geraadpleegd, waardoor de gebruiker zelf bepaalt wanneer en hoeveel informatie wordt verwerkt.
+            \item Notificaties zijn instelbaar, waardoor de gebruiker controle behoudt over welke meldingen worden ontvangen en wanneer deze worden aangeboden.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{13.} Ondersteun competentiegevoel
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Functionaliteiten worden waar nodig ondersteund met tooltips en korte uitleg.
+            \item Complexere activiteiten worden opgedeeld in afzonderlijke stappen.
+            \item Bij het starten van een meditatieoefening wordt de eerste keer gepolst of men al meditatie ervaring heeft. Indien niet wordt de gebruiker doorverwezen naar een cursus over meditatiebeginselen.
+            \item Bij het selecteren van een ademhalingsoefening wordt niet enkel naar de naam van de oefening verwezen, maar kan de gebruiker kiezen op basis van het gewenste doel of effect. Hierdoor kan de gebruiker een oefening selecteren vanuit een begrijpelijke situatie in plaats van vanuit voorkennis van de techniek.
+            \item De gebruiker krijgt tijdens en na interacties feedback over wat een actie betekent of oplevert, waardoor de relatie tussen de eigen actie en het resultaat duidelijker wordt.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Tijdens de onboarding wordt gevraagd welke tools de gebruiker wil gebruiken. Wanneer de gebruiker deze tools nog niet kent, is het moeilijk om hierin een betekenisvolle keuze te maken omdat onvoldoende duidelijk is waarvoor elke tool dient. Het is daarom geen slecht idee om deze keuze eerder te koppelen aan herkenbare situaties of doelen.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{14.} Stimuleer authentieke verbondenheid 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De community (\textit{Samen op pad}) maakt het mogelijk om laagdrempelig ervaringen te delen.
+            \item Gebruikers kunnen laagdrempelig en anoniem aanmoedigingen delen via vooraf ingestelde boodschappen.
+            \item Het aantal zichtbare activiteiten van andere gebruikers per dag wordt beperkt om sociale vergelijking te beperken.
+            \item De app voorziet automatisch in aanmoedigingen wanneer deze niet van andere gebruikers komen, om teleurstelling te voorkomen.
+            \item De \textit{SOS-modus} biedt directe toegang tot vooraf ingestelde noodcontacten en faciliteert zo menselijke ondersteuning.
+            \item De applicatie biedt informatie en aanbevelingen over professionele hulpverlening.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Het tonen van activiteiten van andere gebruikers kan, ondanks het anonieme karakter, sociale vergelijking uitlokken. Dit kan gebruikers die zelf nog geen activiteit uitvoerden het gevoel geven dat ze onvoldoende vooruitgang boeken.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{15.} Betekenisvolle, prestatievrije motivatie 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item De ontwikkelingspagina maakt persoonlijke vooruitgang zichtbaar, waardoor de gebruiker inzicht krijgt in zijn eigen evolutie. De groeiende boom vormt hierbij een visuele metafoor voor persoonlijke groei.
+            \item De coach die in verschillende componenten en oefeningen terugkomt, fungeert als herkenbaar personage dat de gebruiker op een laagdrempelige en ondersteunende manier doorheen de applicatie begeleidt.
+            \item Positieve feedback na acties en oefeningen.
+            \item Kleine badges/mijlpalen zichtbaar op het profiel.
+        \end{itemize}
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item Visuele voortgang, zoals de groei van de boom, kan bij perfectionistische gebruikers prestatiedruk oproepen wanneer deze te sterk als een te behalen doel wordt gepresenteerd.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{16.} Persoonlijke relevantie 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item De onboarding laat de gebruiker de applicatie afstemmen op de eigen behoeften, voorkeuren en gewenste vorm van ondersteuning.
+            \item De gebruiker kan een persoonlijke doel instellen.
+            \item De gebruiker kan, na het doorlopen van een cursus hoofdstuk, opgeven of de informatie nuttig was. Op basis hiervan worden andere cursussen aanbevolen op de homepagina.
+            \item Na het invullen van een dagboeknotitie wordt een bijpassende oefening aangeraden.
+            \item De gebruiker kan voorkeuren rond begeleidingsintensiteit instellen.
+            \item De gebruiker heeft de mogelijkheid zijn eigen toolkit samen te stellen om snel zijn relevante tools terug te vinden.
+        \end{itemize}
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{17.} Zichtbare meerwaarde
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De onboarding maakt het doel van de applicatie en de mogelijke ondersteuning voor de gebruiker duidelijk.
+            \item Psycho-educatieve "wist-je-dat"-content toont de meerwaarde van oefeningen.
+            \item Het uiteindelijke doel voor de gebruiker wordt bijgehouden bij zijn profiel zodat hij weet waarvoor hij dit doet.
+            \item De meerwaarde van bepaalde oefeningen worden uitgelegd in cursusinhoud.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{18.} Duidelijke positionering 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De onboarding verduidelijkt het doel van de applicatie.
+            \item Tijdens de onboarding wordt verwezen naar professionele hulp, waardoor de applicatie niet als vervanging van professionele begeleiding wordt gepositioneerd.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item De naamgeving "Burnout Free" sluit niet volledig aan bij de bredere focus op het voorkomen en vroegtijdig aanpakken van chronische overspanning.
+            \item De positionering via een appstorebeschrijving kan binnen deze PoC niet worden geëvalueerd, aangezien de applicatie niet als volwaardige distributieversie wordt aangeboden.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{19.} Ondersteunende communicatie 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item De applicatie gebruikt begrijpelijke en laagdrempelige taal.
+            \item De communicatie is niet alleen functioneel maar ook ondersteunend.
+        \end{itemize} 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Sommige opties kunnen moeilijker van elkaar te onderscheiden zijn doordat de woordkeuze sterk op elkaar lijkt, bijvoorbeeld bij ademhalingsoefeningen.
+        \end{itemize} 
+        \\ 
+    \end{longtable}
+}
+
+\newpage
+
+\section{Evaluatie copromotor}
+\label{sec:copromotor-evaluatie}
+
+\subsection{Aftoetsing functionele requirements}
+\label{subsec:frs-burnoutfreev2-expert}
+
+\vspace{1em}
+
+{\small
+    \textcolor{green!80!black}{\textbf{M}}ust have \quad
+    \textcolor{orange}{\textbf{S}}hould have \quad
+    \textcolor{blue}{\textbf{C}}ould have \quad
+    \textcolor{black!60}{\textbf{W}}on’t have
+}
+
+{
+    \small
+    \setlength\tabcolsep{3pt}
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{3.0cm}
+            >{\raggedright\arraybackslash}p{10.5cm}
+            >{\centering\arraybackslash}p{2.0cm}
+        }
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endfirsthead
+        
+        \multicolumn{3}{c}{\tablename\ \thetable\ -- vervolg van vorige pagina} \\
+        \toprule
+        \textbf{Rol} & \textbf{Functionaliteit} & \textbf{Prioriteit} \\
+        \midrule
+        \endhead
+        
+        \midrule \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \caption[Overzicht requirements]{Oplijsting van functionele requirements met MoSCoW-prioriteit.}
+        \label{tab:requirements-burnoutfreev2-expert}
+        \endlastfoot
+        \addlinespace[6pt]
+        
+        %==============================
+        Gebruiker & Registreren en aanmelden & \textcolor{green!80!black}{\textbf{M}} \\
+        Alle rollen & Raadplegen privacybeleid en juridische info & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van gebruikers} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Modereren van community} & \textcolor{gray!40}{\textbf{M}} \\
+        \textcolor{gray!40}{Admin} & \textcolor{gray!40}{Beheren van hulpinstanties} & \textcolor{gray!40}{\textbf{M}} \\
+        Expert & Registreren als expert & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Toevoegen van educatieve content} & \textcolor{gray!40}{\textbf{C}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Aanpassen van educatieve content} & \textcolor{gray!40}{\textbf{S}} \\
+        \textcolor{gray!40}{Expert} & \textcolor{gray!40}{Valideren van educatieve content} & \textcolor{gray!40}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Onboarding \& personalisatie}} \\ \addlinespace[6pt]
+        Gebruiker & Doorlopen van visuele onboarding & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Personaliseren van profiel & \textcolor{blue}{\textbf{C}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van dashboard} & \textcolor{gray!40}{\textbf{S}} \\
+        Gebruiker & Instellen van begeleidingsintensiteit & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Instellen van persoonlijke doelen & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Instellen van notificatiefrequentie & \textcolor{green!80!black}{\textbf{M}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Personaliseren van het aanbod aan oefeningen a.d.h.v. vorderingen binnen het persoonlijk traject} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Zelfreflectie \& dagboek}} \\ \addlinespace[6pt]
+        Gebruiker & Registreren van stressniveau & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Bijhouden van gestructureerd dagboek & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Raadplegen van dagboekhistoriek & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Exporteren van dagboekgegevens & \textcolor{orange}{\textbf{S}} \\
+        \textcolor{gray!40}{Gebruiker} & \textcolor{gray!40}{Automatische analyse / samenvatting van gegevens} & \textcolor{gray!40}{\textbf{S}} \\
+        \addlinespace[10pt]
+        
+        \multicolumn{3}{l}{\textbf{Psycho-educatie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van educatieve content & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van contextuele educatieve feedback & \textcolor{orange}{\textbf{S}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Oefeningen \& stressregulatie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van stressreducerende oefeningen & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Raadplegen van begeleide rustmomenten & \textcolor{orange}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Feedback \& progressie}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van een visuele weergave van de huidige trajectvoortgang & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van positieve/informatieve feedback & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Niet-competitieve beloningen & \textcolor{blue}{\textbf{C}} \\
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Notificaties \& nudging}} \\ \addlinespace[6pt]
+        Gebruiker & Ontvangen van gepersonaliseerde notificaties & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Interactieve notificaties & \textcolor{blue}{\textbf{C}} \\
+        Gebruiker & Gedragsgerichte nudges ontvangen & \textcolor{orange}{\textbf{S}} \\ 
+        \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Verbondenheid \& community}} \\ \addlinespace[6pt]
+        Gebruiker & Interageren op een laagdrempelige manier zonder prestatie- of vergelijkingsmechanismen & \textcolor{blue}{\textbf{C}} \\
+        Gebruiker & Versturen/ontvangen van anonieme aanmoedigingen & \textcolor{orange}{\textbf{S}} \\
+        Gebruiker & Controle over zichtbaarheid en gedeelde informatie & \textcolor{green!80!black}{\textbf{M}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Motivatie \& engagement}} \\ \addlinespace[6pt]
+        Gebruiker & Progressiesysteem / verhaallijn & \textcolor{orange}{\textbf{S}} \\ \addlinespace[20pt]
+        
+        \multicolumn{3}{l}{\textbf{Hulp \& doorverwijzing}} \\ \addlinespace[6pt]
+        Gebruiker & Raadplegen van professionele hulpopties & \textcolor{green!80!black}{\textbf{M}} \\
+        Gebruiker & Ontvangen van advies tot doorverwijzing & \textcolor{green!80!black}{\textbf{M}} \\
+        
+        \end{longtable}
+}
+
+\newpage
+
+\subsection{Aftoetsing ontwerpprincipes}
+\label{subsec:ontwerpprincipes-burnoutfreev2-expert}
+
+\vspace{1em}
+
+{
+    \footnotesize
+    \setlength\tabcolsep{3pt}
+    
+    \begin{longtable}{
+            >{\raggedright\arraybackslash}p{5.23cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+            >{\raggedright\arraybackslash}p{4.93cm}
+        }
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endfirsthead
+        
+        \toprule
+        \textbf{Ontwerpprincipe}
+        & \textbf{Toepassing}
+        & \textbf{Aandachtspunten} \\
+        \midrule
+        \endhead
+        
+        \midrule
+        \multicolumn{3}{r}{Vervolg op volgende pagina} \\
+        \endfoot
+        
+        \bottomrule
+        \endlastfoot
+        
+        \addlinespace[10pt]
+        
+        \textbf{1.} Privacy by Design 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Optie om account aan te maken.
+            \item Keuze welke gegevens gedeeld worden in community.
+            \item Verwijzing naar privacybeleid.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Privacybeleid is moeilijk te vinden binnen.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{2.} Snel en eenvoudig distribueerbaar
+        &
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{3.} Ondersteunende foutafhandeling
+        &
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{4.} Inclusieve toegankelijkheid 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Eenvoudige taal.
+            \item Duidelijk te nemen stappen.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{5.} Beperk digitale interrupties
+        & 
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Zelf te kiezen hoeveel notificaties iemand krijgt.
+        \end{itemize}
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{6.} Behoud overzicht
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Duidelijk terug te keren via de icoontjes onderaan.
+        \end{itemize} 
+        &
+        \\ 
+        
+        \addlinespace[5pt]
+        
+        \textbf{7.} Minimaliseer cognitieve belasting
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Korte instructies.
+            \item Taken opgesplitst.
+        \end{itemize} 
+        &
+        \\ 
+        
+        \addlinespace[5pt]
+        
+        \textbf{8.} Vermijd visuele overprikkeling 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Rustig design met witte achtergrond.
+            \item Weinig afleidende elementen.
+            \item Zachte kleuren.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{9.} Techno-simplicity
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Er zijn geen functies waarvan ik denk dat ze geen meerwaarde hebben.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{10.} Stimuleer gezond gebruik
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+}
+            \item De mindfulness pagina zegt je gsm te gebruiken als reminder om even mindfull aanwezig te zijn. Dat zou ik eerder op een kookwekkertje of horloge doen. Want gsm geeft meteen weer aanleiding/afleiding om niet mindfull te zijn.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{11.} Zachte gedragssturing
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+}
+            \item Geen verplichtend of drukkend taalgebruik.
+            \item Zinnen zoals "het is oké" of "ademhalingsoefening kan helpen" zijn positief.
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{12.} Ondersteun autonomie
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Je kan helemaal zelf kiezen welke oefeningen je open doet.
+            \item Er wordt nergens iets opgelegd.
+            \item De gebruiker wordt niet rechtstreeks beloond na het voltooien van een oefening wat geen verwachtingen schept.
+        \end{itemize} 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Het concept van de mindsetshift is momenteel onvoldoende duidelijk en vraagt meer uitleg.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{13.} Ondersteun competentiegevoel
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Leuk om kort inzicht of feedback te krijgen na een oefening.
+            \item Feedback zinnetjes zijn positief geformuleerd.
+        \end{itemize} 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item De begrippen "gespannen", "gestrest" en "overweldigd" kunnen voor gebruikers gelijkaardig aanvoelen, waardoor het moeilijk kan zijn om de juiste oefening te kiezen.
+            \item De gebruiker wordt in de onboarding gevraagd mee te geven met welke tools hij/zij aan de slag wilt. Het kan laagdrempeliger zijn om eerst te vragen wat de gebruiker wil veranderen en vervolgens passende tools voor te stellen.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{14.} Stimuleer authentieke verbondenheid 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Er is een community waar je feedback kan geven op anderen via een emoticon.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Is het volledig anoniem als je de gebruikersnamen kan lezen?
+            \item Twijfel aan de effectiviteit als bijdrage aan de app, gezien het heel oppervlakkig blijft qua interactie en verbondenheid.
+            \item Het feit dat je kan zien dat andere gebruikers bepaalde activiteiten hebben afgerond kan ook druk geven om zelf die module te gaan bekijken.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{15.} Betekenisvolle, prestatievrije motivatie 
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{+}
+            \item Er valt niets te winnen of te verliezen.
+            \item Er wordt sterk ingezet op "tijd nemen voor jezelf" en het belang van jezelf als grootste motivator.
+        \end{itemize}
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt]
+            \renewcommand{\labelitemi}{-}
+            \item In het dagboek kan de kalenderweergave zijn kleuren gebruikers demotiveren indien ze voor een langere periode zich slecht voelen.
+        \end{itemize}
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{16.} Persoonlijke relevantie 
+        &
+        &
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Het kiezen en opstellen van doelen zijn wenselijk binnen de app maar ontbreken momenteel. Deze app is goed voor een groot publiek, maar zou krachtiger zijn als je kan kiezen voor bijvoorbeeld meer bewuste momenten inbouwen, minder chronische stress, meer vertragen, ...
+            \item De app zou meer persoonlijke ondersteuning kunnen bieden door gebruikers inzicht te laten krijgen in hun eigen stressoren en een persoonlijk signaleringsplan te laten opstellen.
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{17.} Zichtbare meerwaarde
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Er komen kleine zinnen op die uitleggen waarom het waardevol is: "wist je dat".
+        \end{itemize} 
+        &
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{18.} Duidelijke positionering 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Aan de start is het duidelijk dat het geen psycholoog of arts vervangt.
+        \end{itemize} 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{-} 
+            \item Het doel is bij de start niet helemaal duidelijk: preventie van burn-out? Omgaan met chronische stress?
+        \end{itemize} 
+        \\
+        
+        \addlinespace[5pt]
+        
+        \textbf{19.} Ondersteunende communicatie 
+        &  
+        \begin{itemize}[nosep,leftmargin=*,itemsep=10pt] 
+            \renewcommand{\labelitemi}{+} 
+            \item Steunende en respectvolle taal.
+            \item Ondersteunende zinnen
+        \end{itemize} 
+        &
+        \\ 
+    \end{longtable}
+}
+
+\vspace{1em}
+
+\section{Bespreking van de evaluatieresultaten}
+\label{sec:evaluatie-bespreking}

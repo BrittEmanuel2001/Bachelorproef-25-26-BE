@@ -16,6 +16,16 @@ type SettingsProps = {
     onClose: () => void;
 };
 
+function isValidPhoneNumber(value: string): boolean {
+    if (!value || !value.trim()) {
+        return false;
+    }
+
+    const cleanedValue = value.replace(/[\s().-]/g, '');
+
+    return /^\+?[0-9]{8,15}$/.test(cleanedValue);
+}
+
 type NotificationTime = {
     hour: number;
     minute: number;
@@ -139,6 +149,8 @@ const notificationProfiles: Record<string, NotificationProfile> = {
 export function Settings({ visible, onClose }: SettingsProps) {
     const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>('medium');
     const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>('medium');
+    const emergencyContactPhoneNumber = '+32 123 456 789';
+    const isEmergencyContactValid = isValidPhoneNumber(emergencyContactPhoneNumber);
 
     async function handleSupportLevelChange(value: 'low' | 'medium' | 'high') {
         setSupportLevel(value);
@@ -311,7 +323,13 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             }
                         />
 
-                        <EmergencyContact name="Jane Doe" phoneNumber="+32 123 456 789" />
+                        {isEmergencyContactValid ? (
+                            <EmergencyContact name="Jane Doe" phoneNumber={emergencyContactPhoneNumber} />
+                        ) : (
+                            <Text style={styles.errorText}>
+                                Het noodcontact kan niet worden aangemaakt omdat het telefoonnummer ongeldig is.
+                            </Text>
+                        )}
 
                         <Pressable style={[styles.actionButton, {marginBottom: 10}]}>
                             <IconSymbol size={22} name="add" color={colors.black} />
@@ -419,5 +437,12 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 14,
         fontWeight: 600,
+    },
+
+    errorText: {
+        marginBottom: 10,
+        color: colors.red,
+        fontSize: 13,
+        fontWeight: '600',
     }
 });
