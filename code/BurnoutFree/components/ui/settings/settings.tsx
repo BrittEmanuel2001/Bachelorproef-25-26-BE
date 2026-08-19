@@ -1,4 +1,11 @@
-import { Modal, Pressable, StyleSheet, Text, View, ScrollView } from 'react-native';
+import {
+    Modal,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+} from 'react-native';
 import { useEffect, useState } from 'react';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
@@ -79,7 +86,6 @@ const notificationProfiles: Record<string, NotificationProfile> = {
         meditation: [],
     },
 
-
     // MEDIUM SUPPORT
     // Meer variatie in begeleiding, zonder meteen
     // een zeer hoge notificatiefrequentie.
@@ -108,7 +114,6 @@ const notificationProfiles: Record<string, NotificationProfile> = {
         ],
         meditation: [{ hour: 19, minute: 0 }],
     },
-
 
     // HIGH SUPPORT
     // Meer vormen van begeleiding worden aangeboden.
@@ -147,10 +152,16 @@ const notificationProfiles: Record<string, NotificationProfile> = {
 };
 
 export function Settings({ visible, onClose }: SettingsProps) {
-    const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>('medium');
-    const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>('medium');
+    const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>(
+        'medium',
+    );
+    const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>(
+        'medium',
+    );
     const emergencyContactPhoneNumber = '+32 123 456 789';
-    const isEmergencyContactValid = isValidPhoneNumber(emergencyContactPhoneNumber);
+    const isEmergencyContactValid = isValidPhoneNumber(
+        emergencyContactPhoneNumber,
+    );
 
     async function handleSupportLevelChange(value: 'low' | 'medium' | 'high') {
         setSupportLevel(value);
@@ -206,11 +217,12 @@ export function Settings({ visible, onClose }: SettingsProps) {
         >
             <View style={styles.modal}>
                 {/* Header */}
-                <Pressable
-                    onPress={onClose}
-                    style={styles.backButton}
-                >
-                    <IconSymbol size={22} name="arrow.left" color={colors.darkBlue} />
+                <Pressable onPress={onClose} style={styles.backButton}>
+                    <IconSymbol
+                        size={22}
+                        name="arrow.left"
+                        color={colors.darkBlue}
+                    />
                 </Pressable>
 
                 <ScrollView
@@ -224,35 +236,42 @@ export function Settings({ visible, onClose }: SettingsProps) {
 
                     {/* Begeleidingsintensiteit */}
                     <View style={styles.settingBlock}>
-                        <IconHeader 
-                            title="Begeleidingsintensiteit" 
-                            icon="handshake.fill" 
+                        <IconHeader
+                            title="Begeleidingsintensiteit"
+                            icon="handshake.fill"
                             infoText={
                                 <>
                                     <Text>
-                                        Met deze instelling geef je aan hoeveel begeleiding je graag krijgt.
+                                        Met deze instelling geef je aan hoeveel
+                                        begeleiding je graag krijgt.
                                     </Text>
 
                                     {'\n\n'}
 
                                     <Text>
-                                        De app gebruikt dit samen met je behoefte aan reminders om oefeningen,
-                                        cursussen en notificaties op jou af te stemmen.
+                                        De app gebruikt dit samen met je
+                                        behoefte aan reminders om oefeningen,
+                                        cursussen en notificaties op jou af te
+                                        stemmen.
                                     </Text>
 
                                     {'\n\n'}
 
-                                    <Text style={{color: colors.green}}>
-                                        Heb je bijvoorbeeld gemiddeld behoefte aan ondersteuning en veel nood
-                                        aan reminders? Dan kan je vaker een herinnering krijgen voor een
+                                    <Text style={{ color: colors.green }}>
+                                        Heb je bijvoorbeeld gemiddeld behoefte
+                                        aan ondersteuning en veel nood aan
+                                        reminders? Dan kan je vaker een
+                                        herinnering krijgen voor een
                                         ademhalingspauze.
                                     </Text>
 
                                     {'\n\n'}
 
                                     <Text>
-                                        Bij een hogere begeleidingsintensiteit kan de app je daarnaast vaker
-                                        een meditatie aanbevelen of een langere sessie voorstellen.
+                                        Bij een hogere begeleidingsintensiteit
+                                        kan de app je daarnaast vaker een
+                                        meditatie aanbevelen of een langere
+                                        sessie voorstellen.
                                     </Text>
                                 </>
                             }
@@ -270,9 +289,7 @@ export function Settings({ visible, onClose }: SettingsProps) {
                         </View>
 
                         <View>
-                            <Text style={styles.label}>
-                                Nood aan reminders
-                            </Text>
+                            <Text style={styles.label}>Nood aan reminders</Text>
 
                             <OptionSelector
                                 value={reminderNeed}
@@ -283,63 +300,101 @@ export function Settings({ visible, onClose }: SettingsProps) {
 
                     {/* Notificaties */}
                     <View style={styles.settingBlock}>
-                        <IconHeader 
-                            title="Notificaties" 
-                            icon="bell.fill"
+                        <IconHeader title="Notificaties" icon="bell.fill" />
+
+                        <NotificationFunction
+                            name="Anonieme aanmoedigingen"
+                            icon="hand.heart.fill"
+                            enabled={anonSupportEnabled}
+                            onToggle={() =>
+                                setAnonSupportEnabled(!anonSupportEnabled)
+                            }
                         />
 
-                        <NotificationFunction name="Anonieme aanmoedigingen" icon="hand.heart.fill"
-                            enabled={anonSupportEnabled} onToggle={() => setAnonSupportEnabled(!anonSupportEnabled)} />
+                        <NotificationFunction
+                            name="Dagboek"
+                            icon="journal.fill"
+                            times={journalTimes.map(formatTime)}
+                            enabled={journalEnabled}
+                            onToggle={() => setJournalEnabled(!journalEnabled)}
+                        />
 
-                        <NotificationFunction name="Dagboek" icon="journal.fill" 
-                            times={journalTimes.map(formatTime)} enabled={journalEnabled} onToggle={() => setJournalEnabled(!journalEnabled)} />
+                        <NotificationFunction
+                            name="Ademhalingspauze"
+                            icon="leaf.fill"
+                            times={breathingTimes.map(formatTime)}
+                            enabled={breathingEnabled}
+                            onToggle={() =>
+                                setBreathingEnabled(!breathingEnabled)
+                            }
+                        />
 
-                        <NotificationFunction name="Ademhalingspauze" icon="leaf.fill" 
-                            times={breathingTimes.map(formatTime)} enabled={breathingEnabled} onToggle={() => setBreathingEnabled(!breathingEnabled)} />
-
-                        <NotificationFunction name="Meditatie" icon="spa.fill" 
-                            times={meditationTimes.map(formatTime)} enabled={meditationEnabled} onToggle={() => setMeditationEnabled(!meditationEnabled)} />
+                        <NotificationFunction
+                            name="Meditatie"
+                            icon="spa.fill"
+                            times={meditationTimes.map(formatTime)}
+                            enabled={meditationEnabled}
+                            onToggle={() =>
+                                setMeditationEnabled(!meditationEnabled)
+                            }
+                        />
                     </View>
 
                     {/* Noodcontact */}
                     <View style={styles.settingBlock}>
-                        <IconHeader 
-                            title="Noodcontact" 
+                        <IconHeader
+                            title="Noodcontact"
                             icon="phone.fill"
                             infoText={
                                 <>
                                     <Text>
-                                        Noodcontacten zijn mensen die je kan bereiken wanneer je iemand
-                                        nodig hebt of wanneer het even moeilijk gaat.
+                                        Noodcontacten zijn mensen die je kan
+                                        bereiken wanneer je iemand nodig hebt of
+                                        wanneer het even moeilijk gaat.
                                     </Text>
 
                                     {'\n\n'}
 
-                                    <Text style={{color: colors.green}}>
-                                        Je kan meerdere noodcontacten toevoegen, zoals een partner,
-                                        familielid, vriend(in) of andere naaste.
+                                    <Text style={{ color: colors.green }}>
+                                        Je kan meerdere noodcontacten toevoegen,
+                                        zoals een partner, familielid,
+                                        vriend(in) of andere naaste.
                                     </Text>
                                 </>
                             }
                         />
 
                         {isEmergencyContactValid ? (
-                            <EmergencyContact name="Jane Doe" phoneNumber={emergencyContactPhoneNumber} />
+                            <EmergencyContact
+                                name="Jane Doe"
+                                phoneNumber={emergencyContactPhoneNumber}
+                            />
                         ) : (
                             <Text style={styles.errorText}>
-                                Het noodcontact kan niet worden aangemaakt omdat het telefoonnummer ongeldig is.
+                                Het noodcontact kan niet worden aangemaakt omdat
+                                het telefoonnummer ongeldig is.
                             </Text>
                         )}
 
-                        <Pressable style={[styles.actionButton, {marginBottom: 10}]}>
-                            <IconSymbol size={22} name="add" color={colors.black} />
-                            <Text style={styles.buttonText}>Nieuw contact toevoegen</Text>
+                        <Pressable
+                            style={[styles.actionButton, { marginBottom: 10 }]}
+                        >
+                            <IconSymbol
+                                size={22}
+                                name="add"
+                                color={colors.black}
+                            />
+                            <Text style={styles.buttonText}>
+                                Nieuw contact toevoegen
+                            </Text>
                         </Pressable>
 
                         <KnowledgeCard
                             moduleTitle="Soms helpt een gesprek met een naaste, maar soms is extra ondersteuning nodig."
-                            lessonTitle={"Bekijk hier betrouwbare hulpverleners en organisaties"}
-                            backgroundImage={require("@/assets/images/handsBackground.png")}
+                            lessonTitle={
+                                'Bekijk hier betrouwbare hulpverleners en organisaties'
+                            }
+                            backgroundImage={require('@/assets/images/handsBackground.png')}
                         />
                     </View>
 
@@ -347,16 +402,34 @@ export function Settings({ visible, onClose }: SettingsProps) {
                     <View>
                         <Text style={styles.subtitle}>Andere</Text>
                         <Pressable style={styles.actionButton}>
-                            <IconSymbol size={22} name="database.fill" color={colors.black} />
+                            <IconSymbol
+                                size={22}
+                                name="database.fill"
+                                color={colors.black}
+                            />
                             <Text style={styles.buttonText}>Data</Text>
                         </Pressable>
                         <Pressable style={styles.actionButton}>
-                            <IconSymbol size={22} name="shield.fill" color={colors.black} />
-                            <Text style={styles.buttonText}>Privacybeleid en gebruiksvoorwaarden</Text>
+                            <IconSymbol
+                                size={22}
+                                name="shield.fill"
+                                color={colors.black}
+                            />
+                            <Text style={styles.buttonText}>
+                                Privacybeleid en gebruiksvoorwaarden
+                            </Text>
                         </Pressable>
-                        <Pressable style={[styles.actionButton, {marginBottom: 60}]}>
-                            <IconSymbol size={22} name="info.fill" color={colors.black} />
-                            <Text style={styles.buttonText}>Over de BurnoutFree app</Text>
+                        <Pressable
+                            style={[styles.actionButton, { marginBottom: 60 }]}
+                        >
+                            <IconSymbol
+                                size={22}
+                                name="info.fill"
+                                color={colors.black}
+                            />
+                            <Text style={styles.buttonText}>
+                                Over de BurnoutFree app
+                            </Text>
                         </Pressable>
                     </View>
                 </ScrollView>
@@ -420,18 +493,18 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: colors.gray,
         paddingBottom: 30,
-        marginTop: 40
+        marginTop: 40,
     },
 
     actionButton: {
         backgroundColor: colors.gray,
         padding: 20,
-        paddingHorizontal: 25, 
+        paddingHorizontal: 25,
         borderRadius: 15,
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10,
-        marginTop: 10
+        marginTop: 10,
     },
 
     buttonText: {
@@ -444,5 +517,5 @@ const styles = StyleSheet.create({
         color: colors.red,
         fontSize: 13,
         fontWeight: '600',
-    }
+    },
 });

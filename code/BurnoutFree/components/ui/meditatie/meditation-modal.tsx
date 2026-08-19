@@ -55,21 +55,21 @@ export const MEDITATION_SOUNDS: {
         label: 'Regen',
         icon: 'rain.fill',
         color: colors.mutedPurple,
-        bgcolor: colors.lightMutedPurple
+        bgcolor: colors.lightMutedPurple,
     },
     {
         value: 'ocean',
         label: 'Oceaan',
         icon: 'ocean.fill',
         color: colors.mutedBlue,
-        bgcolor: colors.lightMutedBlue
+        bgcolor: colors.lightMutedBlue,
     },
     {
         value: 'forest',
         label: 'Bos',
         icon: 'tree.fill',
         color: colors.mutedGreen,
-        bgcolor: colors.lightMutedGreen
+        bgcolor: colors.lightMutedGreen,
     },
 ];
 
@@ -84,13 +84,19 @@ type MeditationModalProps = {
     onStart: (data: MeditationData) => void;
 };
 
-export function MeditationModal({ visible, onClose, onStart }: MeditationModalProps) {
+export function MeditationModal({
+    visible,
+    onClose,
+    onStart,
+}: MeditationModalProps) {
     const { t } = useTranslation();
 
     const [currentStep, setCurrentStep] = useState(1);
     const [supportLevel, setSupportLevel] = useState<SupportLevel>('medium');
     const [duration, setDuration] = useState<number | null>(null);
-    const [soundType, setSoundType] = useState<MeditationSoundType | null>(null);
+    const [soundType, setSoundType] = useState<MeditationSoundType | null>(
+        null,
+    );
 
     useEffect(() => {
         if (!visible) return;
@@ -118,7 +124,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
 
     function handleStart() {
         if (duration === null || soundType === null) return;
-        onStart({duration, soundType});
+        onStart({ duration, soundType });
     }
 
     return (
@@ -130,15 +136,18 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                 statusBarTranslucent
             >
                 <View style={styles.modal}>
-
                     {/* Top bar */}
                     <View style={styles.topBar}>
                         <Pressable
-                            onPress={ handleClose }
+                            onPress={handleClose}
                             style={styles.backButton}
                             hitSlop={8}
                         >
-                            <IconSymbol size={22} name="arrow.left" color={colors.darkBlue}/>
+                            <IconSymbol
+                                size={22}
+                                name="arrow.left"
+                                color={colors.darkBlue}
+                            />
                         </Pressable>
 
                         <Pressable
@@ -156,12 +165,26 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
 
                     {/* Header */}
                     <View style={styles.header}>
-                        <View style={{backgroundColor: colors.lightBlue, padding: 20, borderRadius:10}}>
-                            <IconSymbol size={40} name="spa.fill" color={colors.darkBlue}/>
+                        <View
+                            style={{
+                                backgroundColor: colors.lightBlue,
+                                padding: 20,
+                                borderRadius: 10,
+                            }}
+                        >
+                            <IconSymbol
+                                size={40}
+                                name="spa.fill"
+                                color={colors.darkBlue}
+                            />
                         </View>
                         <View>
-                            <Text style={styles.title}>{t('meditation.title')}</Text>
-                            <Text style={styles.subtitle}>{t('meditation.subtitle')}</Text>
+                            <Text style={styles.title}>
+                                {t('meditation.title')}
+                            </Text>
+                            <Text style={styles.subtitle}>
+                                {t('meditation.subtitle')}
+                            </Text>
                         </View>
                     </View>
 
@@ -170,73 +193,121 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                         {currentStep === 1 && (
                             <View>
                                 <View>
-                                    <Text style={styles.contentSubTitle}>{t('meditation.duration')}</Text>
+                                    <Text style={styles.contentSubTitle}>
+                                        {t('meditation.duration')}
+                                    </Text>
                                 </View>
 
                                 <View style={styles.options}>
-                                    {MEDITATION_DURATIONS.map((durationOption) => {
-                                        const isRecommended = durationOption.value === recommendedDuration;
+                                    {MEDITATION_DURATIONS.map(
+                                        (durationOption) => {
+                                            const isRecommended =
+                                                durationOption.value ===
+                                                recommendedDuration;
 
-                                        return (
-                                            <View key={durationOption.value} style={styles.optionWrapper}>
-                                                {isRecommended && (
-                                                    <View style={styles.recommendedLabel}>
-                                                        <Text style={styles.recommendedLabelText}>
-                                                            {t('meditation.recommended')}
-                                                        </Text>
-                                                        <Image
-                                                            source={require('@/assets/images/Coach_Bubbles_Variant3.png')}
-                                                            style={styles.recommendedCoach}
-                                                            resizeMode="contain"
-                                                        />
-                                                    </View>
-                                                )}
-
-                                                <Pressable
+                                            return (
+                                                <View
                                                     key={durationOption.value}
-                                                    onPress={() => {
-                                                        setDuration(durationOption.value);
-                                                        setCurrentStep(2);
-                                                    }}
-                                                    style={[
-                                                        styles.optionButton,
-                                                        duration === durationOption.value &&
-                                                            styles.optionButtonSelected,
-                                                    ]}
+                                                    style={styles.optionWrapper}
                                                 >
-                                                    {/* Chip */}
-                                                    <View style={[styles.durationChip, {backgroundColor: durationOption.chipColor}]}>
-                                                        <Text style={styles.durationChipText}>
-                                                            {t(`meditation.${durationOption.value === 1 ? 'quick' : durationOption.value === 3 ? 'mini' : durationOption.value === 5 ? 'medium' : 'full'}`)}
-                                                        </Text>
-                                                    </View>
+                                                    {isRecommended && (
+                                                        <View
+                                                            style={
+                                                                styles.recommendedLabel
+                                                            }
+                                                        >
+                                                            <Text
+                                                                style={
+                                                                    styles.recommendedLabelText
+                                                                }
+                                                            >
+                                                                {t(
+                                                                    'meditation.recommended',
+                                                                )}
+                                                            </Text>
+                                                            <Image
+                                                                source={require('@/assets/images/Coach_Bubbles_Variant3.png')}
+                                                                style={
+                                                                    styles.recommendedCoach
+                                                                }
+                                                                resizeMode="contain"
+                                                            />
+                                                        </View>
+                                                    )}
 
-                                                    {/* Duration */}
-                                                    <View style={styles.durationValue}>
-                                                        <Text
+                                                    <Pressable
+                                                        key={
+                                                            durationOption.value
+                                                        }
+                                                        onPress={() => {
+                                                            setDuration(
+                                                                durationOption.value,
+                                                            );
+                                                            setCurrentStep(2);
+                                                        }}
+                                                        style={[
+                                                            styles.optionButton,
+                                                            duration ===
+                                                                durationOption.value &&
+                                                                styles.optionButtonSelected,
+                                                        ]}
+                                                    >
+                                                        {/* Chip */}
+                                                        <View
                                                             style={[
-                                                                styles.optionNumber,
-                                                                duration === durationOption.value &&
-                                                                    styles.optionNumberSelected,
+                                                                styles.durationChip,
+                                                                {
+                                                                    backgroundColor:
+                                                                        durationOption.chipColor,
+                                                                },
                                                             ]}
                                                         >
-                                                            {durationOption.value}
-                                                        </Text>
+                                                            <Text
+                                                                style={
+                                                                    styles.durationChipText
+                                                                }
+                                                            >
+                                                                {t(
+                                                                    `meditation.${durationOption.value === 1 ? 'quick' : durationOption.value === 3 ? 'mini' : durationOption.value === 5 ? 'medium' : 'full'}`,
+                                                                )}
+                                                            </Text>
+                                                        </View>
 
-                                                        <Text
-                                                            style={[
-                                                                styles.optionUnit,
-                                                                duration === durationOption.value &&
-                                                                    styles.optionUnitSelected,
-                                                            ]}
+                                                        {/* Duration */}
+                                                        <View
+                                                            style={
+                                                                styles.durationValue
+                                                            }
                                                         >
-                                                            min
-                                                        </Text>
-                                                    </View>
-                                                </Pressable>
-                                            </View>
-                                        )
-                                    })}
+                                                            <Text
+                                                                style={[
+                                                                    styles.optionNumber,
+                                                                    duration ===
+                                                                        durationOption.value &&
+                                                                        styles.optionNumberSelected,
+                                                                ]}
+                                                            >
+                                                                {
+                                                                    durationOption.value
+                                                                }
+                                                            </Text>
+
+                                                            <Text
+                                                                style={[
+                                                                    styles.optionUnit,
+                                                                    duration ===
+                                                                        durationOption.value &&
+                                                                        styles.optionUnitSelected,
+                                                                ]}
+                                                            >
+                                                                min
+                                                            </Text>
+                                                        </View>
+                                                    </Pressable>
+                                                </View>
+                                            );
+                                        },
+                                    )}
                                 </View>
                             </View>
                         )}
@@ -244,20 +315,50 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                         {currentStep === 2 && (
                             <View>
                                 <View>
-                                    <Text style={styles.contentSubTitle}>{t('meditation.sound')}</Text>
+                                    <Text style={styles.contentSubTitle}>
+                                        {t('meditation.sound')}
+                                    </Text>
                                 </View>
                                 <View style={styles.options}>
                                     {MEDITATION_SOUNDS.map((option) => (
                                         <Pressable
                                             key={option.value}
-                                            onPress={() => setSoundType(option.value)}
-                                            style={[styles.soundOptionButton,soundType === option.value && styles.optionButtonSelected]}
+                                            onPress={() =>
+                                                setSoundType(option.value)
+                                            }
+                                            style={[
+                                                styles.soundOptionButton,
+                                                soundType === option.value &&
+                                                    styles.optionButtonSelected,
+                                            ]}
                                         >
-                                            <View style={[styles.soundIcon, {backgroundColor: option.bgcolor ?? colors.white}]}>
-                                                <IconSymbol size={28} name={option.icon} color={option.color} />
+                                            <View
+                                                style={[
+                                                    styles.soundIcon,
+                                                    {
+                                                        backgroundColor:
+                                                            option.bgcolor ??
+                                                            colors.white,
+                                                    },
+                                                ]}
+                                            >
+                                                <IconSymbol
+                                                    size={28}
+                                                    name={option.icon}
+                                                    color={option.color}
+                                                />
                                             </View>
-                                            <Text style={[styles.optionText,soundType === option.value && styles.optionTextSelected]}>
-                                                {t(`meditation.${option.value === 'quiet' ? 'silence' : option.value}`)}
+                                            <Text
+                                                style={[
+                                                    styles.optionText,
+                                                    soundType ===
+                                                        option.value &&
+                                                        styles.optionTextSelected,
+                                                ]}
+                                            >
+                                                {t(
+                                                    `meditation.${option.value === 'quiet' ? 'silence' : option.value}`,
+                                                )}
                                             </Text>
                                         </Pressable>
                                     ))}
@@ -274,7 +375,9 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                     style={styles.previousButton}
                                     onPress={handleNext}
                                 >
-                                    <Text style={styles.previousButtonText}>{t('common.next')}</Text>
+                                    <Text style={styles.previousButtonText}>
+                                        {t('common.next')}
+                                    </Text>
                                 </Pressable>
                             </>
                         )}
@@ -284,16 +387,28 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                     style={styles.previousButton}
                                     onPress={handlePrevious}
                                 >
-                                    <Text style={styles.previousButtonText}>{t('meditation.changeDuration')}</Text>
+                                    <Text style={styles.previousButtonText}>
+                                        {t('meditation.changeDuration')}
+                                    </Text>
                                 </Pressable>
 
                                 <Pressable
-                                    style={[styles.nextButton, soundType === null && styles.nextButtonDisabled]}
+                                    style={[
+                                        styles.nextButton,
+                                        soundType === null &&
+                                            styles.nextButtonDisabled,
+                                    ]}
                                     disabled={soundType === null}
                                     onPress={handleStart}
                                 >
-                                    <IconSymbol size={20} name="play" color={colors.white} />
-                                    <Text style={styles.nextButtonText}>{t('meditation.start')}</Text>
+                                    <IconSymbol
+                                        size={20}
+                                        name="play"
+                                        color={colors.white}
+                                    />
+                                    <Text style={styles.nextButtonText}>
+                                        {t('meditation.start')}
+                                    </Text>
                                 </Pressable>
                             </>
                         )}
@@ -305,7 +420,6 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
 }
 
 const styles = StyleSheet.create({
-
     modal: {
         backgroundColor: colors.white,
         padding: 20,
@@ -361,7 +475,7 @@ const styles = StyleSheet.create({
         color: colors.white,
         backgroundColor: colors.primary,
         padding: 15,
-        borderRadius: 10
+        borderRadius: 10,
     },
 
     options: {
@@ -432,7 +546,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'baseline',
         gap: 5,
-        width: '100%'
+        width: '100%',
     },
 
     durationChip: {
@@ -523,7 +637,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingLeft: 4,
         paddingRight: 4,
-        marginTop: 10
+        marginTop: 10,
     },
 
     recommendedLabelText: {

@@ -30,10 +30,22 @@ export function ToolkitCard({ item, onPress }: ToolkitCardProps) {
     return (
         <Pressable
             onPress={handlePress}
-            style={[styles.card, {backgroundColor: isSOS ? colors.red : colors.lightBlue}]}
+            style={[
+                styles.card,
+                { backgroundColor: isSOS ? colors.red : colors.lightBlue },
+            ]}
         >
-            <IconSymbol size={25} name={item.icon as any} color={isSOS ? colors.white : colors.darkBlue}/>
-            <Text style={[styles.title, { color: isSOS ? colors.white : colors.darkBlue }]}>
+            <IconSymbol
+                size={25}
+                name={item.icon as any}
+                color={isSOS ? colors.white : colors.darkBlue}
+            />
+            <Text
+                style={[
+                    styles.title,
+                    { color: isSOS ? colors.white : colors.darkBlue },
+                ]}
+            >
                 {item.title}
             </Text>
         </Pressable>

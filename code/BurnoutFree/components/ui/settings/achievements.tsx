@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
-import { BadgeCircle } from "@/components/ui/badge";
-import { colors } from "@/styles/colors";
+import { StyleSheet, Text, View } from 'react-native';
+import { BadgeCircle } from '@/components/ui/badge';
+import { colors } from '@/styles/colors';
 
 type Achievement = {
     id: string;
@@ -8,7 +8,7 @@ type Achievement = {
     icon: string;
     text: string;
     color: string;
-    direction: "column" | "row";
+    direction: 'column' | 'row';
 };
 
 type AchievementsProps = {
@@ -29,7 +29,12 @@ export function Achievements({ achievements }: AchievementsProps) {
                         direction={achievement.direction}
                     />
 
-                    <Text style={[styles.description, {color: achievement.color}]}>
+                    <Text
+                        style={[
+                            styles.description,
+                            { color: achievement.color },
+                        ]}
+                    >
                         {achievement.text}
                     </Text>
                 </View>
@@ -40,22 +45,22 @@ export function Achievements({ achievements }: AchievementsProps) {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        width: "100%",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        width: '100%',
     },
 
     achievement: {
         flex: 1,
-        alignItems: "center",
+        alignItems: 'center',
     },
 
     description: {
         fontSize: 10,
-        fontWeight: "500",
+        fontWeight: '500',
         color: colors.darkBlue,
-        textAlign: "center",
+        textAlign: 'center',
         paddingHorizontal: 4,
         marginTop: 10,
     },

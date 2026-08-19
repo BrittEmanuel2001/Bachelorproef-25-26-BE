@@ -8,9 +8,13 @@ type ToolCardProps = {
     item: ToolkitItem;
     onPress?: () => void;
     color?: string;
-}
+};
 
-export function ToolCard({ item, onPress, color = colors.primary }: ToolCardProps) {
+export function ToolCard({
+    item,
+    onPress,
+    color = colors.primary,
+}: ToolCardProps) {
     function handlePress() {
         if (onPress) {
             onPress();
@@ -22,15 +26,29 @@ export function ToolCard({ item, onPress, color = colors.primary }: ToolCardProp
     return (
         <Pressable
             onPress={handlePress}
-            style={[styles.card, {backgroundColor: color}]}
+            style={[styles.card, { backgroundColor: color }]}
         >
             {color === colors.gray && (
                 <View style={styles.proBadge}>
                     <Text style={styles.proText}>PRO</Text>
                 </View>
             )}
-            <IconSymbol size={25} name={item.icon as any} color={color === colors.gray ? colors.darkGray : colors.white}/>
-            <Text style={[styles.title, {color: color === colors.gray ? colors.darkGray : colors.white}]}>
+            <IconSymbol
+                size={25}
+                name={item.icon as any}
+                color={color === colors.gray ? colors.darkGray : colors.white}
+            />
+            <Text
+                style={[
+                    styles.title,
+                    {
+                        color:
+                            color === colors.gray
+                                ? colors.darkGray
+                                : colors.white,
+                    },
+                ]}
+            >
                 {item.title}
             </Text>
         </Pressable>

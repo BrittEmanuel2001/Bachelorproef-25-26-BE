@@ -29,10 +29,7 @@ export function OptionSelector({
                 const isSelected = selectedOption === option.id;
 
                 return (
-                    <View
-                        key={option.id}
-                        style={styles.optionItem}
-                    >
+                    <View key={option.id} style={styles.optionItem}>
                         <Pressable
                             disabled={disabled}
                             onPress={() => onSelect?.(option.id)}
@@ -71,10 +68,7 @@ export function OptionSelector({
 
                         {isSelected && (
                             <Text
-                                style={[
-                                    styles.label,
-                                    { color: option.color },
-                                ]}
+                                style={[styles.label, { color: option.color }]}
                             >
                                 {option.label}
                             </Text>

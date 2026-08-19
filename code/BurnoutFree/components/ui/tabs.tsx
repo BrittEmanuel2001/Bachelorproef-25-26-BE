@@ -1,4 +1,4 @@
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import { Pressable, Text, View, StyleSheet } from 'react-native';
 import { colors } from '@/styles/colors';
 
 type Tab = {
@@ -26,9 +26,7 @@ export function Tabs({ tabs, activeTab, onChange }: TabsProps) {
                         onPress={() => onChange(tab.key)}
                         style={[
                             styles.tab,
-                            isActive
-                                ? styles.activeTab
-                                : styles.inactiveTab,
+                            isActive ? styles.activeTab : styles.inactiveTab,
                             isFirst && styles.firstTab,
                             isLast && styles.lastTab,
                         ]}

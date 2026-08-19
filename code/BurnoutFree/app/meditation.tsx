@@ -3,17 +3,22 @@ import { Modal, Pressable, StyleSheet, Text, View, Image } from 'react-native';
 import { useFocusEffect, router, useLocalSearchParams } from 'expo-router';
 
 import { colors } from '@/styles/colors';
-import { MeditationModal, MeditationData } from '@/components/ui/meditatie/meditation-modal';
+import {
+    MeditationModal,
+    MeditationData,
+} from '@/components/ui/meditatie/meditation-modal';
 import { MeditationExercise } from '@/components/ui/meditatie/meditation-exercise';
 import { KnowledgeCard } from '@/components/ui/kennis/knowledge-card';
 
 export default function MeditationScreen() {
     const params = useLocalSearchParams();
     const [meditationVisible, setMeditationVisible] = useState(false);
-    const [meditationData, setMeditationData] = useState<MeditationData | null>(null);
+    const [meditationData, setMeditationData] = useState<MeditationData | null>(
+        null,
+    );
     const [showCompletion, setShowCompletion] = useState(false);
 
-    // Alleen de instellingenmodal openen wanneer er nog geen 
+    // Alleen de instellingenmodal openen wanneer er nog geen
     // actieve meditatie is. Skip als er parameters zijn meegegeven.
     useFocusEffect(
         useCallback(() => {
@@ -27,7 +32,7 @@ export default function MeditationScreen() {
                     setMeditationVisible(true);
                 }
             }
-        }, [meditationData, showCompletion, params])
+        }, [meditationData, showCompletion, params]),
     );
 
     function closeMeditation() {
@@ -80,7 +85,6 @@ export default function MeditationScreen() {
             >
                 <View style={styles.completionModal}>
                     <View style={styles.completionContent}>
-
                         <View style={styles.completionContent}>
                             <Image
                                 source={require('@/assets/images/Coach_Bubbles_Variant4.png')}
@@ -88,17 +92,20 @@ export default function MeditationScreen() {
                                 resizeMode="contain"
                             />
 
-                            <Text style={styles.completionTitle}>Helemaal klaar!</Text>
+                            <Text style={styles.completionTitle}>
+                                Helemaal klaar!
+                            </Text>
 
                             <Text style={styles.completionText}>
-                                Je gaf je gedachten even ruimte,
-                                mooi gedaan!
+                                Je gaf je gedachten even ruimte, mooi gedaan!
                             </Text>
 
                             <KnowledgeCard
                                 moduleTitle="Wist je dat?"
-                                lessonTitle={"Je niet altijd meteen een effect hoeft te voelen? Elke sessie is een moment waarop je even tijd voor jezelf neemt."}
-                                backgroundImage={require("@/assets/images/mountains.png")}
+                                lessonTitle={
+                                    'Je niet altijd meteen een effect hoeft te voelen? Elke sessie is een moment waarop je even tijd voor jezelf neemt.'
+                                }
+                                backgroundImage={require('@/assets/images/mountains.png')}
                                 overlayColor={colors.brightPurple}
                             />
                         </View>
@@ -107,9 +114,10 @@ export default function MeditationScreen() {
                             style={styles.completionButton}
                             onPress={handleCompletionClose}
                         >
-                            <Text style={styles.completionButtonText}>Sluiten</Text>
+                            <Text style={styles.completionButtonText}>
+                                Sluiten
+                            </Text>
                         </Pressable>
-
                     </View>
                 </View>
             </Modal>
@@ -118,7 +126,6 @@ export default function MeditationScreen() {
 }
 
 const styles = StyleSheet.create({
-
     completionModal: {
         flex: 1,
         backgroundColor: colors.white,
@@ -134,7 +141,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 50,
-        marginTop: 20
+        marginTop: 20,
     },
 
     completionTitle: {
@@ -154,7 +161,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         maxWidth: 250,
         paddingHorizontal: 20,
-        marginBottom: 25
+        marginBottom: 25,
     },
 
     completionButton: {
@@ -176,6 +183,6 @@ const styles = StyleSheet.create({
     completionImage: {
         width: 180,
         height: 180,
-        marginBottom: -5
+        marginBottom: -5,
     },
 });

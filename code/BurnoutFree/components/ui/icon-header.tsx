@@ -1,11 +1,5 @@
 import { ReactNode, useState } from 'react';
-import {
-    Modal,
-    Pressable,
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
+import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { colors } from '@/styles/colors';
@@ -16,27 +10,28 @@ type IconHeaderProps = {
     infoText?: ReactNode;
 };
 
-export function IconHeader({
-    title,
-    icon,
-    infoText,
-}: IconHeaderProps) {
+export function IconHeader({ title, icon, infoText }: IconHeaderProps) {
     const [showInfo, setShowInfo] = useState(false);
 
     return (
         <>
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <IconSymbol size={22} name={icon as any} color={colors.black} />
+                    <IconSymbol
+                        size={22}
+                        name={icon as any}
+                        color={colors.black}
+                    />
                     <Text style={styles.title}>{title}</Text>
                 </View>
 
                 {infoText && (
-                    <Pressable
-                        onPress={() => setShowInfo(true)}
-                        hitSlop={8}
-                    >
-                        <IconSymbol size={20} name="info.fill" color={colors.darkBlue} />
+                    <Pressable onPress={() => setShowInfo(true)} hitSlop={8}>
+                        <IconSymbol
+                            size={20}
+                            name="info.fill"
+                            color={colors.darkBlue}
+                        />
                     </Pressable>
                 )}
             </View>
@@ -58,7 +53,11 @@ export function IconHeader({
                                     onPress={() => setShowInfo(false)}
                                     hitSlop={10}
                                 >
-                                    <IconSymbol size={25} name="xmark" color={colors.darkBlue}/>
+                                    <IconSymbol
+                                        size={25}
+                                        name="xmark"
+                                        color={colors.darkBlue}
+                                    />
                                 </Pressable>
                             </View>
 

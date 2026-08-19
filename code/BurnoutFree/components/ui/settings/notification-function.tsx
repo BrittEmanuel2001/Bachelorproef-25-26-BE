@@ -40,7 +40,12 @@ export function NotificationFunction({
                                     {times.map((time, index) => (
                                         <Text key={time}>
                                             {index > 0 && (
-                                                <Text style={styles.timeSeparator}> | </Text>
+                                                <Text
+                                                    style={styles.timeSeparator}
+                                                >
+                                                    {' '}
+                                                    |{' '}
+                                                </Text>
                                             )}
                                             {time}
                                         </Text>
@@ -59,10 +64,7 @@ export function NotificationFunction({
 
                 <Pressable
                     onPress={onToggle}
-                    style={[
-                        styles.toggle,
-                        enabled && styles.toggleEnabled,
-                    ]}
+                    style={[styles.toggle, enabled && styles.toggleEnabled]}
                 >
                     <View
                         style={[
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        marginBottom: 10
+        marginBottom: 10,
     },
 
     iconSquare: {
@@ -99,26 +101,26 @@ const styles = StyleSheet.create({
 
     deleteIcon: {
         marginLeft: 'auto',
-        paddingRight: 10
+        paddingRight: 10,
     },
 
     contactName: {
         fontSize: 14,
         fontWeight: 600,
-        marginBottom: 2
+        marginBottom: 2,
     },
 
     contactNumber: {
         fontSize: 14,
         color: colors.darkMutedBlue,
-        fontWeight: 600
+        fontWeight: 600,
     },
 
     times: {
         marginTop: 5,
         alignItems: 'center',
         flexDirection: 'row',
-        gap: 8
+        gap: 8,
     },
 
     timeBadge: {
@@ -130,12 +132,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         paddingRight: 12,
-        gap: 5
+        gap: 5,
     },
 
     time: {
         color: colors.white,
-        fontSize: 12
+        fontSize: 12,
     },
 
     timeSeparator: {

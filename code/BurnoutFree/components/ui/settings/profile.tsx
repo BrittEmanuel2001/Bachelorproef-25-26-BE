@@ -1,4 +1,12 @@
-import { Modal, Pressable, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import {
+    Modal,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+    Image,
+    ScrollView,
+} from 'react-native';
 import { QuoteCard } from '../quote-card';
 import { Achievements } from './achievements';
 
@@ -12,46 +20,46 @@ type ProfileProps = {
 };
 
 const achievements = [
-  {
-    id: "1",
-    value: 3,
-    text: "3 dagen actief met mijn dagboek",
-    icon: "journal.fill",
-    color: colors.mutedPurple,
-    direction: "column" as const,
-  },
-  {
-    id: "2",
-    value: 1,
-    text: "Eerste ademhalingsoefening gedaan",
-    icon: "leaf.fill",
-    color: colors.mutedGreen,
-    direction: "column" as const,
-  },
-  {
-    id: "3",
-    value: 1,
-    text: "Eerste module doorgenomen",
-    icon: "book.fill",
-    color: colors.mutedBlue,
-    direction: "column" as const,
-  },
-  {
-    id: "4",
-    value: 10,
-    text: "10 ademhalingsoefeningen gedaan",
-    icon: "leaf.fill",
-    color: colors.mutedPurple,
-    direction: "row" as const,
-  },
-  {
-    id: "5",
-    value: 10,
-    text: "10 dagen actief met mijn dagboek",
-    icon: "journal.fill",
-    color: colors.mutedGreen,
-    direction: "row" as const,
-  },
+    {
+        id: '1',
+        value: 3,
+        text: '3 dagen actief met mijn dagboek',
+        icon: 'journal.fill',
+        color: colors.mutedPurple,
+        direction: 'column' as const,
+    },
+    {
+        id: '2',
+        value: 1,
+        text: 'Eerste ademhalingsoefening gedaan',
+        icon: 'leaf.fill',
+        color: colors.mutedGreen,
+        direction: 'column' as const,
+    },
+    {
+        id: '3',
+        value: 1,
+        text: 'Eerste module doorgenomen',
+        icon: 'book.fill',
+        color: colors.mutedBlue,
+        direction: 'column' as const,
+    },
+    {
+        id: '4',
+        value: 10,
+        text: '10 ademhalingsoefeningen gedaan',
+        icon: 'leaf.fill',
+        color: colors.mutedPurple,
+        direction: 'row' as const,
+    },
+    {
+        id: '5',
+        value: 10,
+        text: '10 dagen actief met mijn dagboek',
+        icon: 'journal.fill',
+        color: colors.mutedGreen,
+        direction: 'row' as const,
+    },
 ];
 
 export function Profile({ visible, onClose }: ProfileProps) {
@@ -67,11 +75,19 @@ export function Profile({ visible, onClose }: ProfileProps) {
                 {/* Buttons */}
                 <View style={styles.actionButtons}>
                     <Pressable onPress={onClose}>
-                        <IconSymbol size={22} name="arrow.left" color={colors.darkBlue} />
+                        <IconSymbol
+                            size={22}
+                            name="arrow.left"
+                            color={colors.darkBlue}
+                        />
                     </Pressable>
 
                     <Pressable onPress={() => {}}>
-                        <IconSymbol size={22} name="gear.fill" color={colors.darkBlue} />
+                        <IconSymbol
+                            size={22}
+                            name="gear.fill"
+                            color={colors.darkBlue}
+                        />
                     </Pressable>
                 </View>
 
@@ -88,7 +104,9 @@ export function Profile({ visible, onClose }: ProfileProps) {
                     <View style={styles.profileCard}>
                         <View style={styles.profileCardText}>
                             <Text style={styles.profileCardName}>Britt</Text>
-                            <Text style={styles.profileCardUsername}>Greenleaf88</Text>
+                            <Text style={styles.profileCardUsername}>
+                                Greenleaf88
+                            </Text>
                         </View>
 
                         <Image
@@ -143,10 +161,10 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
 
-    actionButtons: { 
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
+    actionButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         width: '100%',
         marginBottom: 20,
     },
@@ -178,12 +196,12 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         height: 140,
         borderRadius: 20,
-        overflow: 'hidden', 
+        overflow: 'hidden',
         padding: 20,
         position: 'relative',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        marginBottom: 35
+        marginBottom: 35,
     },
 
     profileCardText: {
@@ -221,6 +239,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         marginBottom: 15,
-        gap: 10
+        gap: 10,
     },
 });

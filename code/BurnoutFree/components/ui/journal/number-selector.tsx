@@ -21,11 +21,7 @@ export function NumberSelector({
                 style={styles.button}
                 onPress={() => onChange(Math.max(min, value - 1))}
             >
-                <IconSymbol
-                    size={16}
-                    name="minus"
-                    color={colors.darkBlue}
-                />
+                <IconSymbol size={16} name="minus" color={colors.darkBlue} />
             </Pressable>
 
             <View style={styles.valueContainer}>
@@ -37,11 +33,7 @@ export function NumberSelector({
                 style={styles.button}
                 onPress={() => onChange(Math.min(max, value + 1))}
             >
-                <IconSymbol
-                    size={16}
-                    name="plus"
-                    color={colors.darkBlue}
-                />
+                <IconSymbol size={16} name="plus" color={colors.darkBlue} />
             </Pressable>
         </View>
     );
@@ -63,7 +55,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.gray,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 5
+        marginBottom: 5,
     },
 
     valueContainer: {

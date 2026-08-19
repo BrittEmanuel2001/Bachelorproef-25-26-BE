@@ -1,22 +1,26 @@
-import { useState, useEffect } from "react";
-import { Image, Text, View, StyleSheet, Pressable } from "react-native";
-import { router } from "expo-router";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useState, useEffect } from 'react';
+import { Image, Text, View, StyleSheet, Pressable } from 'react-native';
+import { router } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors } from '@/styles/colors';
-import { ReflectionModal, ReflectionData } from "@/components/ui/journal/reflection-modal";
-import { CheckupCard } from "../check-up-card";
-import { IconSymbol } from "../icon-symbol";
-import { KnowledgeCard } from "../kennis/knowledge-card";
-import { JournalEntry } from "./journal-entry";
+import {
+    ReflectionModal,
+    ReflectionData,
+} from '@/components/ui/journal/reflection-modal';
+import { CheckupCard } from '../check-up-card';
+import { IconSymbol } from '../icon-symbol';
+import { KnowledgeCard } from '../kennis/knowledge-card';
+import { JournalEntry } from './journal-entry';
 import { useTranslation } from '@/utils/i18n';
 
-const JOURNAL_ENTRIES_KEY = "journal-entries";
+const JOURNAL_ENTRIES_KEY = 'journal-entries';
 
 export function TodayContent() {
     const { t } = useTranslation();
     const [reflectionVisible, setReflectionVisible] = useState(false);
     const [reflectionStep, setReflectionStep] = useState(1);
-    const [todayReflection, setTodayReflection] = useState<ReflectionData | null>(null);
+    const [todayReflection, setTodayReflection] =
+        useState<ReflectionData | null>(null);
 
     const [entryVisible, setEntryVisible] = useState(false);
 
@@ -37,13 +41,13 @@ export function TodayContent() {
             }
 
             const entries: ReflectionData[] = JSON.parse(stored);
-            const today = new Date().toISOString().split("T")[0];
-            const todayEntry = entries.find(e => e.date === today);
+            const today = new Date().toISOString().split('T')[0];
+            const todayEntry = entries.find((e) => e.date === today);
 
             if (todayEntry) setTodayReflection(todayEntry);
             else setTodayReflection(null);
         } catch (error) {
-            console.error("Kon journal niet laden:", error);
+            console.error('Kon journal niet laden:', error);
         }
     }
 
@@ -69,58 +73,66 @@ export function TodayContent() {
         try {
             const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
             const entries: ReflectionData[] = stored ? JSON.parse(stored) : [];
-            await AsyncStorage.setItem(JOURNAL_ENTRIES_KEY, JSON.stringify(entries));
+            await AsyncStorage.setItem(
+                JOURNAL_ENTRIES_KEY,
+                JSON.stringify(entries),
+            );
 
             setTodayReflection(data);
             setReflectionVisible(false);
             setReflectionStep(1);
         } catch (error) {
-            console.error("Kon journal niet opslaan:", error);
+            console.error('Kon journal niet opslaan:', error);
         }
     }
 
-    {/* Voor test en demo purpose */}
+    {
+        /* Voor test en demo purpose */
+    }
     async function clearReflection() {
         try {
             const stored = await AsyncStorage.getItem(JOURNAL_ENTRIES_KEY);
             if (stored) {
                 const entries: ReflectionData[] = JSON.parse(stored);
-                const today = new Date().toISOString().split("T")[0];
-                const filteredEntries = entries.filter(e => e.date !== today);
-                await AsyncStorage.setItem(JOURNAL_ENTRIES_KEY, JSON.stringify(filteredEntries));
+                const today = new Date().toISOString().split('T')[0];
+                const filteredEntries = entries.filter((e) => e.date !== today);
+                await AsyncStorage.setItem(
+                    JOURNAL_ENTRIES_KEY,
+                    JSON.stringify(filteredEntries),
+                );
             }
-            
+
             setTodayReflection(null);
         } catch (error) {
-            console.error("Kon reflectie niet wissen:", error);
+            console.error('Kon reflectie niet wissen:', error);
         }
     }
 
     return (
         <>
             <View style={styles.todayContent}>
-
                 {!todayReflection ? (
                     <>
                         <Image
                             source={
                                 isEvening
-                                    ? require("@/assets/images/Maantje.png")
-                                    : require("@/assets/images/Zonnetje.png")
+                                    ? require('@/assets/images/Maantje.png')
+                                    : require('@/assets/images/Zonnetje.png')
                             }
                             style={styles.image}
                             resizeMode="contain"
                         />
 
                         <Text style={styles.todayTitle}>
-                            {isEvening ? t('journal.evening') : t('journal.morning')}
+                            {isEvening
+                                ? t('journal.evening')
+                                : t('journal.morning')}
                         </Text>
 
                         <Text style={styles.todaySubtitle}>
                             {isEvening
                                 ? t('journal.eveningText')
-                                : t('journal.morningText')
-                            }
+                                : t('journal.morningText')}
                         </Text>
 
                         <Pressable
@@ -136,42 +148,54 @@ export function TodayContent() {
                         </Pressable>
                     </>
                 ) : (
-                    <View style={{width:'100%'}}>
-                        <View style={{marginBottom:-15}}>
+                    <View style={{ width: '100%' }}>
+                        <View style={{ marginBottom: -15 }}>
                             <CheckupCard
                                 subtitle={t('today.stressSubtitle')}
                                 title={t('today.stressText')}
-                                image={require("@/assets/images/Coach_Bubbles_Variant5.png")}
+                                image={require('@/assets/images/Coach_Bubbles_Variant5.png')}
                                 button={{
                                     text: t('today.startExercise'),
-                                    onPress: () => router.push('/meditation?duration=3&sound=forest'),
+                                    onPress: () =>
+                                        router.push(
+                                            '/meditation?duration=3&sound=forest',
+                                        ),
                                     icon: 'leaf.fill',
                                 }}
                             />
                         </View>
 
-                        <Pressable 
+                        <Pressable
                             style={styles.actionButton}
                             onPress={() => setEntryVisible(true)}
                         >
-                            <IconSymbol size={22} name="journal.fill" color={colors.black} />
-                            <Text style={styles.actionButtonText}>{t('today.myAnswers')}</Text>
+                            <IconSymbol
+                                size={22}
+                                name="journal.fill"
+                                color={colors.black}
+                            />
+                            <Text style={styles.actionButtonText}>
+                                {t('today.myAnswers')}
+                            </Text>
                         </Pressable>
 
                         <KnowledgeCard
                             moduleTitle={t('home.stress101')}
                             module="1"
                             lessonTitle={t('home.stressLesson')}
-                            backgroundImage={require("@/assets/images/bookBackground.png")}
-                            onPress={() => {router.replace('/kennis')}}
+                            backgroundImage={require('@/assets/images/bookBackground.png')}
+                            onPress={() => {
+                                router.replace('/kennis');
+                            }}
                         />
 
                         <Pressable onPress={clearReflection}>
-                            <Text style={{color: colors.red}}>Leegmaken voor demo</Text>
+                            <Text style={{ color: colors.red }}>
+                                Leegmaken voor demo
+                            </Text>
                         </Pressable>
                     </View>
                 )}
-
             </View>
 
             <ReflectionModal
@@ -196,7 +220,7 @@ export function TodayContent() {
 const styles = StyleSheet.create({
     todayContent: {
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
     },
 
     image: {
@@ -241,7 +265,7 @@ const styles = StyleSheet.create({
     actionButton: {
         backgroundColor: colors.lightBlue,
         padding: 20,
-        paddingHorizontal: 25, 
+        paddingHorizontal: 25,
         borderRadius: 15,
         flexDirection: 'row',
         alignItems: 'center',
@@ -252,5 +276,5 @@ const styles = StyleSheet.create({
     actionButtonText: {
         fontSize: 14,
         fontWeight: 600,
-    }
+    },
 });

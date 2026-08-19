@@ -8,21 +8,27 @@ type EmergencyContactProps = {
     phoneNumber: string;
 };
 
-export function EmergencyContact({
-    name,
-    phoneNumber,
-}: EmergencyContactProps) {
+export function EmergencyContact({ name, phoneNumber }: EmergencyContactProps) {
     return (
         <>
             <View style={styles.contactContainer}>
                 <View style={styles.iconSquare}>
-                    <IconSymbol size={22} name={"user.fill"} color={colors.mutedPurple} />
+                    <IconSymbol
+                        size={22}
+                        name={'user.fill'}
+                        color={colors.mutedPurple}
+                    />
                 </View>
                 <View style={styles.contactInfo}>
                     <Text style={styles.contactName}>{name}</Text>
                     <Text style={styles.contactNumber}>{phoneNumber}</Text>
                 </View>
-                <IconSymbol size={16} name={"trash"} color={colors.red} style={styles.deleteIcon} />
+                <IconSymbol
+                    size={16}
+                    name={'trash'}
+                    color={colors.red}
+                    style={styles.deleteIcon}
+                />
             </View>
         </>
     );
@@ -33,7 +39,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         width: '100%',
-        marginBottom: 10
+        marginBottom: 10,
     },
 
     iconSquare: {
@@ -51,18 +57,18 @@ const styles = StyleSheet.create({
 
     deleteIcon: {
         marginLeft: 'auto',
-        paddingRight: 10
+        paddingRight: 10,
     },
 
     contactName: {
         fontSize: 14,
         fontWeight: 600,
-        marginBottom: 2
+        marginBottom: 2,
     },
 
     contactNumber: {
         fontSize: 14,
         color: colors.darkMutedBlue,
-        fontWeight: 600
-    }
+        fontWeight: 600,
+    },
 });

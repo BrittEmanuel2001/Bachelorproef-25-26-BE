@@ -36,10 +36,7 @@ const optionColors = {
     },
 };
 
-export function OptionSelector({
-    value,
-    onChange,
-}: OptionSelectorProps) {
+export function OptionSelector({ value, onChange }: OptionSelectorProps) {
     return (
         <View style={styles.options}>
             {options.map((option) => {
@@ -91,7 +88,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 20
+        marginBottom: 20,
     },
 
     optionText: {

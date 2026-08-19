@@ -1,5 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View, Image } from 'react-native';
+import {
+    Animated,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+    Image,
+} from 'react-native';
 
 import { colors } from '@/styles/colors';
 import { MeditationSoundType, MEDITATION_SOUNDS } from './meditation-modal';
@@ -11,8 +18,11 @@ type MeditationExerciseProps = {
     onFinish: (completed: boolean) => void;
 };
 
-export function MeditationExercise({duration, soundType, onFinish}: MeditationExerciseProps) {
-
+export function MeditationExercise({
+    duration,
+    soundType,
+    onFinish,
+}: MeditationExerciseProps) {
     const [remainingSeconds, setRemainingSeconds] = useState(duration * 60);
     const scale = useRef(new Animated.Value(0.7)).current;
     const sound = MEDITATION_SOUNDS.find((item) => item.value === soundType);
@@ -44,29 +54,26 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
 
     // Ademhaling
     useEffect(() => {
-
         let cancelled = false;
 
         const breathe = () => {
-
             if (cancelled) return;
             // Inademen
             setIsBreathingIn(true);
 
             Animated.timing(scale, {
-                toValue: 1.2, 
-                duration: 5000, 
+                toValue: 1.2,
+                duration: 5000,
                 useNativeDriver: true,
             }).start(({ finished }) => {
-
                 if (!finished || cancelled) return;
                 // Uitademen
                 setIsBreathingIn(false);
 
                 Animated.timing(scale, {
-                    toValue: 1, 
-                    duration: 5000, 
-                    useNativeDriver: true
+                    toValue: 1,
+                    duration: 5000,
+                    useNativeDriver: true,
                 }).start(({ finished }) => {
                     if (!finished || cancelled) return;
                     breathe();
@@ -76,9 +83,9 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
 
         breathe();
 
-        return () => { 
-            cancelled = true; 
-            scale.stopAnimation(); 
+        return () => {
+            cancelled = true;
+            scale.stopAnimation();
         };
     }, [scale]);
 
@@ -88,21 +95,35 @@ export function MeditationExercise({duration, soundType, onFinish}: MeditationEx
                 <Text style={styles.title}>Meditatie</Text>
                 {sound && (
                     <View style={styles.soundChip}>
-                        <IconSymbol name={soundType === 'quiet' ? 'mute.fill' : 'music.fill'} size={12} color={colors.darkBlue} />
+                        <IconSymbol
+                            name={
+                                soundType === 'quiet'
+                                    ? 'mute.fill'
+                                    : 'music.fill'
+                            }
+                            size={12}
+                            color={colors.darkBlue}
+                        />
                         <Text style={styles.soundText}>{sound.label}</Text>
                     </View>
                 )}
             </View>
-            
+
             {/* Breathing circle */}
             <View style={styles.breathingContainer}>
-
-                <Animated.View style={[styles.outerCircle, {transform: [{ scale }]}]}/>
-                <Animated.View style={[styles.innerCircle, {transform: [{ scale }]}]}/>
-                <Animated.View style={[styles.primaryCircle, {transform: [{ scale }]}]}/>
+                <Animated.View
+                    style={[styles.outerCircle, { transform: [{ scale }] }]}
+                />
+                <Animated.View
+                    style={[styles.innerCircle, { transform: [{ scale }] }]}
+                />
+                <Animated.View
+                    style={[styles.primaryCircle, { transform: [{ scale }] }]}
+                />
 
                 <Image
-                    source={isBreathingIn
+                    source={
+                        isBreathingIn
                             ? require('@/assets/images/Coach_Bubbles_BreathingIn.png')
                             : require('@/assets/images/Coach_Bubbles_BreathingOut.png')
                     }

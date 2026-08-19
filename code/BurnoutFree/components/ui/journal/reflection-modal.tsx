@@ -1,4 +1,13 @@
-import { Modal, Pressable, StyleSheet, Text, TextInput, View, ScrollView, Image } from 'react-native';
+import {
+    Modal,
+    Pressable,
+    StyleSheet,
+    Text,
+    TextInput,
+    View,
+    ScrollView,
+    Image,
+} from 'react-native';
 import { useState } from 'react';
 import { router } from 'expo-router';
 
@@ -7,9 +16,13 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { ProgressBar } from '@/components/ui/journal/progress-bar';
 import { OptionSelector, SelectorOption } from './option-selector';
 import { NumberSelector } from './number-selector';
-import { KnowledgeCard } from "@/components/ui/kennis/knowledge-card";
+import { KnowledgeCard } from '@/components/ui/kennis/knowledge-card';
 
-import { moodOptions, energyOptions, stressOptions } from "@/utils/reflection-options";
+import {
+    moodOptions,
+    energyOptions,
+    stressOptions,
+} from '@/utils/reflection-options';
 
 type ReflectionModalProps = {
     visible: boolean;
@@ -32,8 +45,15 @@ export type ReflectionData = {
     balanceNote: string;
 };
 
-export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onNext, onPrevious, onComplete }: ReflectionModalProps) {
-
+export function ReflectionModal({
+    visible,
+    currentStep,
+    totalSteps,
+    onClose,
+    onNext,
+    onPrevious,
+    onComplete,
+}: ReflectionModalProps) {
     const [showExitConfirmation, setShowExitConfirmation] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [showCompletionModal, setShowCompletionModal] = useState(false);
@@ -43,8 +63,12 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
     const [balanceNote, setBalanceNote] = useState('');
     const [sleepHours, setSleepHours] = useState(7);
 
-    const [selectedOptions, setSelectedOptions] = useState<Record<number, number | null>>({
-        1: null, 2: null, 3: null
+    const [selectedOptions, setSelectedOptions] = useState<
+        Record<number, number | null>
+    >({
+        1: null,
+        2: null,
+        3: null,
     });
 
     function isStepComplete() {
@@ -55,16 +79,12 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
             case 2:
                 // Energie + aantal uur slaap verplicht
-                return (
-                    selectedOptions[2] !== null &&
-                    sleepHours >= 0
-                );
+                return selectedOptions[2] !== null && sleepHours >= 0;
 
             case 3:
                 // Stressniveau + tekst verplicht
                 return (
-                    selectedOptions[3] !== null &&
-                    stressNote.trim().length > 0
+                    selectedOptions[3] !== null && stressNote.trim().length > 0
                 );
 
             case 4:
@@ -95,7 +115,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
     function handleFinish() {
         const reflectionData: ReflectionData = {
-            date: new Date().toISOString().split("T")[0],
+            date: new Date().toISOString().split('T')[0],
             mood: selectedOptions[1],
             energy: selectedOptions[2],
             sleepHours,
@@ -127,7 +147,6 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                 onRequestClose={() => setShowExitConfirmation(true)}
             >
                 <View style={styles.modal}>
-
                     {/* Terug */}
                     <View style={styles.topBar}>
                         <Pressable
@@ -160,10 +179,10 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                     {/* Header */}
                     <View style={styles.header}>
                         <Text style={styles.title}>
-                            {currentStep === 1 && ('Stemming')}
-                            {currentStep === 2 && ('Energie check-up')}
-                            {currentStep === 3 && ('Stressniveau')}
-                            {currentStep === 4 && ('Mindset shift')}
+                            {currentStep === 1 && 'Stemming'}
+                            {currentStep === 2 && 'Energie check-up'}
+                            {currentStep === 3 && 'Stressniveau'}
+                            {currentStep === 4 && 'Mindset shift'}
                         </Text>
                         <Text style={styles.subtitle}>Reflectie</Text>
                     </View>
@@ -178,7 +197,9 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                     <View style={styles.content}>
                         {currentStep === 1 && (
                             <View>
-                                <Text style={styles.contentSubTitle}>Stemming</Text>
+                                <Text style={styles.contentSubTitle}>
+                                    Stemming
+                                </Text>
                                 <OptionSelector
                                     options={moodOptions}
                                     selectedOption={selectedOptions[1]}
@@ -193,14 +214,23 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                                 contentContainerStyle={styles.stepScrollContent}
                             >
                                 <View style={styles.settingBlock}>
-                                    <Text style={styles.contentSubTitle}>Energie niveau</Text>
+                                    <Text style={styles.contentSubTitle}>
+                                        Energie niveau
+                                    </Text>
                                     <OptionSelector
                                         options={energyOptions}
                                         selectedOption={selectedOptions[2]}
                                         onSelect={selectOption}
                                     />
                                 </View>
-                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Hoe heb je geslapen?</Text>
+                                <Text
+                                    style={[
+                                        styles.contentSubTitle,
+                                        { marginTop: 30, marginBottom: 20 },
+                                    ]}
+                                >
+                                    Hoe heb je geslapen?
+                                </Text>
 
                                 <NumberSelector
                                     value={sleepHours}
@@ -227,14 +257,23 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                                 contentContainerStyle={styles.stepScrollContent}
                             >
                                 <View style={styles.settingBlock}>
-                                    <Text style={styles.contentSubTitle}>Stressniveau</Text>
+                                    <Text style={styles.contentSubTitle}>
+                                        Stressniveau
+                                    </Text>
                                     <OptionSelector
                                         options={stressOptions}
                                         selectedOption={selectedOptions[3]}
                                         onSelect={selectOption}
                                     />
                                 </View>
-                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Wat houdt je op dit moment bezig?</Text>
+                                <Text
+                                    style={[
+                                        styles.contentSubTitle,
+                                        { marginTop: 30, marginBottom: 20 },
+                                    ]}
+                                >
+                                    Wat houdt je op dit moment bezig?
+                                </Text>
                                 <TextInput
                                     value={stressNote}
                                     onChangeText={setStressNote}
@@ -253,11 +292,19 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                                 contentContainerStyle={styles.stepScrollContent}
                             >
                                 <Text style={styles.infoText}>
-                                    Soms voelt een gedachte zwaarder dan hij is. Door 
-                                    er even met wat meer afstand naar te kijken, 
-                                    ontstaat er ruimte voor een andere kijk.
+                                    Soms voelt een gedachte zwaarder dan hij is.
+                                    Door er even met wat meer afstand naar te
+                                    kijken, ontstaat er ruimte voor een andere
+                                    kijk.
                                 </Text>
-                                <Text style={[styles.contentSubTitle, {marginTop: 30, marginBottom: 20}]}>Balanceer je gedachte</Text>
+                                <Text
+                                    style={[
+                                        styles.contentSubTitle,
+                                        { marginTop: 30, marginBottom: 20 },
+                                    ]}
+                                >
+                                    Balanceer je gedachte
+                                </Text>
                                 <TextInput
                                     value={balanceNote}
                                     onChangeText={setBalanceNote}
@@ -288,12 +335,19 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                         )}
 
                         <Pressable
-                            style={[styles.nextButton, !isStepComplete() && styles.nextButtonDisabled,]}
+                            style={[
+                                styles.nextButton,
+                                !isStepComplete() && styles.nextButtonDisabled,
+                            ]}
                             onPress={() => {
                                 if (!isStepComplete()) return;
                                 if (currentStep === totalSteps) {
                                     const stressLevel = selectedOptions[3];
-                                    if (stressLevel !== null && stressLevel >= 3) setShowCompletionModal(true);
+                                    if (
+                                        stressLevel !== null &&
+                                        stressLevel >= 3
+                                    )
+                                        setShowCompletionModal(true);
                                     else {
                                         handleFinish();
                                         router.replace('/journal');
@@ -304,8 +358,16 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                             }}
                             disabled={!isStepComplete()}
                         >
-                            <Text style={[styles.nextButtonText, !isStepComplete() && styles.nextButtonTextDisabled,]}>
-                                {currentStep === totalSteps ? 'Opslaan' : 'Volgende'}
+                            <Text
+                                style={[
+                                    styles.nextButtonText,
+                                    !isStepComplete() &&
+                                        styles.nextButtonTextDisabled,
+                                ]}
+                            >
+                                {currentStep === totalSteps
+                                    ? 'Opslaan'
+                                    : 'Volgende'}
                             </Text>
                         </Pressable>
                     </View>
@@ -321,27 +383,34 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
             >
                 <View style={styles.overlay}>
                     <View style={styles.confirmationCard}>
-
                         {/* Header */}
                         <View style={styles.confirmationHeader}>
-                            <Text style={styles.confirmationTitle}>Even checken voordat je gaat</Text>
+                            <Text style={styles.confirmationTitle}>
+                                Even checken voordat je gaat
+                            </Text>
                         </View>
 
                         {/* Content */}
                         <View style={styles.confirmationContent}>
                             <Text style={styles.confirmationText}>
                                 Je dagboek bevat nog niet-opgeslagen
-                                wijzigingen. Wil je de pagina verlaten
-                                zonder deze op te slaan?
+                                wijzigingen. Wil je de pagina verlaten zonder
+                                deze op te slaan?
                             </Text>
                         </View>
 
                         {/* Buttons */}
                         <View style={styles.confirmationButtons}>
-                            <Pressable style={styles.yesButton} onPress={handleClose}>
+                            <Pressable
+                                style={styles.yesButton}
+                                onPress={handleClose}
+                            >
                                 <Text style={styles.yesButtonText}>Ja</Text>
                             </Pressable>
-                            <Pressable style={styles.noButton} onPress={() => setShowExitConfirmation(false)}>
+                            <Pressable
+                                style={styles.noButton}
+                                onPress={() => setShowExitConfirmation(false)}
+                            >
                                 <Text style={styles.noButtonText}>Nee</Text>
                             </Pressable>
                         </View>
@@ -358,12 +427,9 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
             >
                 <View style={styles.infoOverlay}>
                     <View style={styles.infoCard}>
-
                         {/* Header */}
                         <View style={styles.infoHeader}>
-                            <Text style={styles.infoTitle}>
-                                Mindset shift
-                            </Text>
+                            <Text style={styles.infoTitle}>Mindset shift</Text>
 
                             <Pressable
                                 onPress={() => setShowInfo(false)}
@@ -379,24 +445,29 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
 
                         {/* Content */}
                         <View style={styles.infoContent}>
-                            <Text style={[styles.modalText, {marginTop: 0}]}>
-                                Soms helpt het om even vanuit een ander perspectief naar een zorg te kijken.
-                                Niet om je gevoel te veranderen, maar om er wat meer ruimte omheen te creëren.
+                            <Text style={[styles.modalText, { marginTop: 0 }]}>
+                                Soms helpt het om even vanuit een ander
+                                perspectief naar een zorg te kijken. Niet om je
+                                gevoel te veranderen, maar om er wat meer ruimte
+                                omheen te creëren.
                             </Text>
 
                             <Text style={styles.modalText}>
                                 Gedachte:{' '}
                                 <Text style={styles.quoteText}>
-                                    “Ik heb nog zoveel werk voor deze deadline. Ik ga dit nooit op tijd af krijgen.”
+                                    “Ik heb nog zoveel werk voor deze deadline.
+                                    Ik ga dit nooit op tijd af krijgen.”
                                 </Text>
                             </Text>
 
                             <Text style={styles.modalText}>
                                 Shift:{' '}
                                 <Text style={styles.quoteText}>
-                                    “Ik heb nog veel te doen en dat voelt overweldigend. Dat betekent niet dat de
-                                    deadline onhaalbaar is. Door te kijken naar wat eerst nodig is, kan er weer
-                                    wat overzicht ontstaan.”
+                                    “Ik heb nog veel te doen en dat voelt
+                                    overweldigend. Dat betekent niet dat de
+                                    deadline onhaalbaar is. Door te kijken naar
+                                    wat eerst nodig is, kan er weer wat
+                                    overzicht ontstaan.”
                                 </Text>
                             </Text>
                         </View>
@@ -425,15 +496,15 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                         </Text>
 
                         <Text style={styles.completionText}>
-                            Je stress lijkt momenteel hoog. 
-                            Een korte oefening kan helpen om je 
-                            lichaam wat rustiger te laten voelen.
+                            Je stress lijkt momenteel hoog. Een korte oefening
+                            kan helpen om je lichaam wat rustiger te laten
+                            voelen.
                         </Text>
 
                         <KnowledgeCard
                             moduleTitle="Ademhalingsoefening"
-                            lessonTitle={"Boxbreathing"}
-                            backgroundImage={require("@/assets/images/ocean.png")}
+                            lessonTitle={'Boxbreathing'}
+                            backgroundImage={require('@/assets/images/ocean.png')}
                             overlayColor={colors.primary}
                             moduleIcon="leaf.fill"
                             onPress={() => {
@@ -450,9 +521,7 @@ export function ReflectionModal({ visible, currentStep, totalSteps, onClose, onN
                             router.replace('/journal');
                         }}
                     >
-                        <Text style={styles.completionButtonText}>
-                            Sluiten
-                        </Text>
+                        <Text style={styles.completionButtonText}>Sluiten</Text>
                     </Pressable>
                 </View>
             </Modal>
@@ -504,7 +573,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         marginBottom: 30,
-        marginTop: 20
+        marginTop: 20,
     },
 
     previousButton: {
@@ -759,7 +828,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         maxWidth: 320,
         paddingHorizontal: 20,
-        marginBottom: 20
+        marginBottom: 20,
     },
 
     completionButton: {

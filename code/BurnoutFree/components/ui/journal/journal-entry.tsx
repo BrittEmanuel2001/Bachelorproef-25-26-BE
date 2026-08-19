@@ -1,9 +1,20 @@
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/styles/colors";
-import { IconSymbol } from "../icon-symbol";
-import { ReflectionData } from "./reflection-modal";
-import { OptionSelector } from "./option-selector";
-import { moodOptions, energyOptions, stressOptions } from "@/utils/reflection-options";
+import {
+    Modal,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
+import { colors } from '@/styles/colors';
+import { IconSymbol } from '../icon-symbol';
+import { ReflectionData } from './reflection-modal';
+import { OptionSelector } from './option-selector';
+import {
+    moodOptions,
+    energyOptions,
+    stressOptions,
+} from '@/utils/reflection-options';
 import { useTranslation } from '@/utils/i18n';
 
 type JournalEntryProps = {
@@ -23,14 +34,13 @@ export function JournalEntry({
         return null;
     }
 
-    const formattedDate = new Date(`${reflection.date}T00:00:00`).toLocaleDateString(
-        locale,
-        {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-        }
-    );
+    const formattedDate = new Date(
+        `${reflection.date}T00:00:00`,
+    ).toLocaleDateString(locale, {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+    });
 
     return (
         <Modal
@@ -47,12 +57,14 @@ export function JournalEntry({
                     style={styles.backButton}
                     hitSlop={8}
                 >
-                    <IconSymbol size={22} name="arrow.left" color={colors.darkBlue} />
+                    <IconSymbol
+                        size={22}
+                        name="arrow.left"
+                        color={colors.darkBlue}
+                    />
                 </Pressable>
 
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                >
+                <ScrollView showsVerticalScrollIndicator={false}>
                     {/* Titel */}
                     <View style={styles.header}>
                         <Text style={styles.title}>{t('journal.entry')}</Text>
@@ -61,7 +73,9 @@ export function JournalEntry({
 
                     {/* Stemming */}
                     <View style={styles.section}>
-                        <Text style={[styles.label, {marginBottom: 0}]}>{t('journal.mood')}</Text>
+                        <Text style={[styles.label, { marginBottom: 0 }]}>
+                            {t('journal.mood')}
+                        </Text>
                         <OptionSelector
                             options={moodOptions}
                             selectedOption={reflection.mood}
@@ -71,31 +85,43 @@ export function JournalEntry({
 
                     {/* Energie niveau */}
                     <View style={styles.section}>
-                        <Text style={[styles.label, {marginBottom: 0}]}>{t('journal.energy')}</Text>
+                        <Text style={[styles.label, { marginBottom: 0 }]}>
+                            {t('journal.energy')}
+                        </Text>
                         <OptionSelector
                             options={energyOptions}
                             selectedOption={reflection.energy}
                             disabled
                         />
 
-                        <Text style={[styles.label, {marginTop: 30}]}>{t('journal.sleep')}</Text>
-                        {reflection.sleepHours !== null && reflection.sleepHours !== undefined ? (
+                        <Text style={[styles.label, { marginTop: 30 }]}>
+                            {t('journal.sleep')}
+                        </Text>
+                        {reflection.sleepHours !== null &&
+                        reflection.sleepHours !== undefined ? (
                             <Text style={styles.sleepHours}>
                                 {reflection.sleepHours}
-                                <Text style={styles.sleepHoursUnit}> {t('journal.hour')}</Text>
+                                <Text style={styles.sleepHoursUnit}>
+                                    {' '}
+                                    {t('journal.hour')}
+                                </Text>
                             </Text>
                         ) : (
-                            <Text style={styles.answer}>{t('journal.noAnswer')}</Text>
+                            <Text style={styles.answer}>
+                                {t('journal.noAnswer')}
+                            </Text>
                         )}
                         {reflection.sleepNote && (
                             <View style={styles.noteSection}>
-                                <Text style={styles.answer}>{reflection.sleepNote}</Text>
+                                <Text style={styles.answer}>
+                                    {reflection.sleepNote}
+                                </Text>
                             </View>
                         )}
                     </View>
 
                     {/* Stress */}
-                    <View style={[styles.section, {borderBottomWidth: 0}]}>
+                    <View style={[styles.section, { borderBottomWidth: 0 }]}>
                         <Text style={styles.label}>{t('journal.stress')}</Text>
                         <OptionSelector
                             options={stressOptions}
@@ -104,14 +130,25 @@ export function JournalEntry({
                         />
                         {reflection.stressNote && (
                             <View style={styles.noteSection}>
-                                <Text style={styles.answer}>{reflection.stressNote}</Text>
+                                <Text style={styles.answer}>
+                                    {reflection.stressNote}
+                                </Text>
                             </View>
                         )}
                         {reflection.balanceNote && (
                             <View>
-                                <Text style={[styles.sublabel]}>{t('journal.balancedThought')}</Text>
-                                <View style={[styles.noteSection, {marginTop: 0}]}>
-                                    <Text style={styles.answer}>{reflection.balanceNote}</Text>
+                                <Text style={[styles.sublabel]}>
+                                    {t('journal.balancedThought')}
+                                </Text>
+                                <View
+                                    style={[
+                                        styles.noteSection,
+                                        { marginTop: 0 },
+                                    ]}
+                                >
+                                    <Text style={styles.answer}>
+                                        {reflection.balanceNote}
+                                    </Text>
                                 </View>
                             </View>
                         )}
@@ -143,7 +180,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
     },
 
     subtitle: {
@@ -154,7 +191,7 @@ const styles = StyleSheet.create({
     },
 
     date: {
-        textAlign: "center",
+        textAlign: 'center',
         color: colors.darkMutedBlue,
         fontSize: 13,
         marginBottom: 30,
@@ -169,7 +206,7 @@ const styles = StyleSheet.create({
 
     question: {
         fontSize: 14,
-        fontWeight: "700",
+        fontWeight: '700',
         color: colors.darkBlue,
         marginBottom: 8,
     },

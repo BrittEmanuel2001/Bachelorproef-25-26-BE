@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, View, Pressable, ImageSourcePropType } from 'react-native';
+import {
+    Image,
+    StyleSheet,
+    Text,
+    View,
+    Pressable,
+    ImageSourcePropType,
+} from 'react-native';
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 
@@ -11,36 +18,41 @@ type CheckupCardProps = {
         icon?: string;
         onPress?: () => void;
     };
-}
+};
 
-export function CheckupCard({title, subtitle, image, button}: CheckupCardProps) {
+export function CheckupCard({
+    title,
+    subtitle,
+    image,
+    button,
+}: CheckupCardProps) {
     return (
         <View style={styles.card}>
-            <View style={styles.content}> 
+            <View style={styles.content}>
                 <Text style={styles.subtitle}>{subtitle}</Text>
-                <Text style={styles.title}>{title}</Text> 
-                <Pressable 
-                    onPress={button.onPress}
-                    style={styles.button}
-                > 
-                    {button.icon && (<IconSymbol size={20} name={button.icon} color={colors.primary}/>)}
-                    <Text style={styles.buttonText}>{button.text}</Text> 
-                </Pressable> 
+                <Text style={styles.title}>{title}</Text>
+                <Pressable onPress={button.onPress} style={styles.button}>
+                    {button.icon && (
+                        <IconSymbol
+                            size={20}
+                            name={button.icon}
+                            color={colors.primary}
+                        />
+                    )}
+                    <Text style={styles.buttonText}>{button.text}</Text>
+                </Pressable>
             </View>
-            <Image
-                source={image}
-                style={styles.backgroundImage}
-            />
+            <Image source={image} style={styles.backgroundImage} />
         </View>
     );
 }
 
-const styles = StyleSheet.create({ 
-    card: { 
+const styles = StyleSheet.create({
+    card: {
         minHeight: 140,
-        borderRadius: 20, 
-        overflow: 'hidden', 
-        marginBottom: 30, 
+        borderRadius: 20,
+        overflow: 'hidden',
+        marginBottom: 30,
         backgroundColor: colors.primary,
         position: 'relative',
         padding: 25,
@@ -53,10 +65,10 @@ const styles = StyleSheet.create({
         width: 200,
         resizeMode: 'contain',
     },
-    content: { 
+    content: {
         width: '70%',
         zIndex: 1,
-    }, 
+    },
     subtitle: {
         color: colors.white,
         fontSize: 11,
@@ -70,18 +82,18 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginBottom: 20,
     },
-    button: { 
-        alignSelf: 'flex-start', 
+    button: {
+        alignSelf: 'flex-start',
         flexDirection: 'row',
         alignItems: 'center',
-        paddingHorizontal: 15, 
-        paddingVertical: 10, 
-        borderRadius: 10, 
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
         gap: 8,
-        backgroundColor: colors.darkBlue 
+        backgroundColor: colors.darkBlue,
     },
-    buttonText: { 
-        color: colors.white, 
-        fontWeight: '500', 
-    }, 
+    buttonText: {
+        color: colors.white,
+        fontWeight: '500',
+    },
 });

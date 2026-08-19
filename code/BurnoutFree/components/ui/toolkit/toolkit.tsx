@@ -1,7 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useCallback, useState } from 'react';
 import { useFocusEffect } from 'expo-router';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View,} from 'react-native';
+import {
+    Modal,
+    Pressable,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
 
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '../icon-symbol';
@@ -10,7 +17,7 @@ import { ToolCard } from './tools-card';
 
 /* Selected toolkit items */
 const STORAGE_KEY = '@toolkit_items';
-const DEFAULT_ITEMS = ['breathing','meditate','focus','sos'];
+const DEFAULT_ITEMS = ['breathing', 'meditate', 'focus', 'sos'];
 const AVAILABLE_ITEMS: ToolkitItem[] = [
     {
         id: 'breathing',
@@ -47,7 +54,7 @@ const AVAILABLE_ITEMS: ToolkitItem[] = [
         title: 'Pro functie',
         icon: 'circle.question',
         route: '#',
-    }
+    },
 ];
 
 export function Toolkit() {
@@ -56,32 +63,41 @@ export function Toolkit() {
     const [editMode, setEditMode] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
-    {/* Laad logica */}
+    {
+        /* Laad logica */
+    }
     const loadToolkit = useCallback(async () => {
         try {
             const stored = await AsyncStorage.getItem(STORAGE_KEY);
             if (stored) setSelectedItems(JSON.parse(stored));
         } catch (error) {
-            console.error('Kan de toolkit momenteel niet laden. Probeer later opnieuw.', error);
+            console.error(
+                'Kan de toolkit momenteel niet laden. Probeer later opnieuw.',
+                error,
+            );
         }
     }, []);
 
     useFocusEffect(
         useCallback(() => {
             loadToolkit();
-        }, [loadToolkit])
+        }, [loadToolkit]),
     );
 
-    {/* Save logica */}
+    {
+        /* Save logica */
+    }
     async function saveToolkit(items: string[]) {
         try {
-            await AsyncStorage.setItem(STORAGE_KEY,JSON.stringify(items));
+            await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(items));
         } catch (error) {
             console.error('Kan de toolkit momenteel niet opslaan.', error);
         }
     }
 
-    {/* Edit logica */}
+    {
+        /* Edit logica */
+    }
     function toggleItem(id: string) {
         setEditingItems((current) => {
             const exists = current.includes(id);
@@ -93,11 +109,11 @@ export function Toolkit() {
     }
 
     const selectedToolkitItems = AVAILABLE_ITEMS.filter((item) =>
-        selectedItems.includes(item.id)
+        selectedItems.includes(item.id),
     );
 
     const editingToolkitItems = AVAILABLE_ITEMS.filter((item) =>
-        editingItems.includes(item.id)
+        editingItems.includes(item.id),
     );
 
     return (
@@ -106,13 +122,18 @@ export function Toolkit() {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.heading}>Jouw toolkit</Text>
-                    <Pressable 
-                        onPress={() => { 
+                    <Pressable
+                        onPress={() => {
                             setEditingItems(selectedItems);
-                            setEditMode(true); 
+                            setEditMode(true);
                             setModalVisible(true);
-                        }}>
-                        <IconSymbol size={15} name="pen.fill" color={colors.darkBlue} />
+                        }}
+                    >
+                        <IconSymbol
+                            size={15}
+                            name="pen.fill"
+                            color={colors.darkBlue}
+                        />
                     </Pressable>
                 </View>
                 <ScrollView
@@ -121,10 +142,7 @@ export function Toolkit() {
                     contentContainerStyle={styles.grid}
                 >
                     {selectedToolkitItems.map((item) => (
-                        <ToolkitCard
-                            key={item.id}
-                            item={item}
-                        />
+                        <ToolkitCard key={item.id} item={item} />
                     ))}
                 </ScrollView>
             </View>
@@ -141,7 +159,6 @@ export function Toolkit() {
                 }}
             >
                 <View style={styles.modal}>
-                    
                     {/* Header */}
                     <Pressable
                         onPress={() => {
@@ -149,9 +166,13 @@ export function Toolkit() {
                             setModalVisible(false);
                             setEditMode(false);
                         }}
-                        style={{marginBottom: 20}}
+                        style={{ marginBottom: 20 }}
                     >
-                        <IconSymbol size={22} name="arrow.left" color={colors.darkBlue}/>
+                        <IconSymbol
+                            size={22}
+                            name="arrow.left"
+                            color={colors.darkBlue}
+                        />
                     </Pressable>
                     <View style={styles.modalHeader}>
                         <Text style={styles.modalTitle}>Toolkit aanpassen</Text>
@@ -173,7 +194,11 @@ export function Toolkit() {
                                     onPress={() => toggleItem(item.id)}
                                 />
                                 <View style={styles.closeIcon}>
-                                    <IconSymbol size={10} name="xmark" color={colors.white} />
+                                    <IconSymbol
+                                        size={10}
+                                        name="xmark"
+                                        color={colors.white}
+                                    />
                                 </View>
                             </View>
                         ))}
@@ -184,38 +209,46 @@ export function Toolkit() {
 
                     <ScrollView
                         showsVerticalScrollIndicator={false}
-                        style={{paddingTop: 20}}
+                        style={{ paddingTop: 20 }}
                     >
                         <View style={styles.twoColGrid}>
-                            {AVAILABLE_ITEMS
-                                .filter((item) => !editingItems.includes(item.id))
-                                .map((item) => {
-                                    const buttonColors = [
-                                        colors.primary,
-                                        colors.green,
-                                        colors.purple,
-                                    ];
-                                    const nonSosItems = AVAILABLE_ITEMS.filter(
-                                        (availableItem) => !editingItems.includes(availableItem.id) && availableItem.id !== 'sos'
-                                    );
-                                    const colorIndex = nonSosItems.findIndex(
-                                        (availableItem) => availableItem.id === item.id
-                                    );
+                            {AVAILABLE_ITEMS.filter(
+                                (item) => !editingItems.includes(item.id),
+                            ).map((item) => {
+                                const buttonColors = [
+                                    colors.primary,
+                                    colors.green,
+                                    colors.purple,
+                                ];
+                                const nonSosItems = AVAILABLE_ITEMS.filter(
+                                    (availableItem) =>
+                                        !editingItems.includes(
+                                            availableItem.id,
+                                        ) && availableItem.id !== 'sos',
+                                );
+                                const colorIndex = nonSosItems.findIndex(
+                                    (availableItem) =>
+                                        availableItem.id === item.id,
+                                );
 
-                                    const color = item.id === 'sos'
-                                    ? colors.red : item.id === 'pro-example' 
-                                    ? colors.gray : buttonColors[colorIndex % buttonColors.length];
+                                const color =
+                                    item.id === 'sos'
+                                        ? colors.red
+                                        : item.id === 'pro-example'
+                                          ? colors.gray
+                                          : buttonColors[
+                                                colorIndex % buttonColors.length
+                                            ];
 
-                                    return (
-                                        <ToolCard
-                                            key={item.id}
-                                            item={item}
-                                            onPress={() => toggleItem(item.id)}
-                                            color={color}
-                                        />
-                                    )
-                                })
-                            }
+                                return (
+                                    <ToolCard
+                                        key={item.id}
+                                        item={item}
+                                        onPress={() => toggleItem(item.id)}
+                                        color={color}
+                                    />
+                                );
+                            })}
                         </View>
                     </ScrollView>
 
@@ -229,9 +262,7 @@ export function Toolkit() {
                             setEditMode(false);
                         }}
                     >
-                        <Text style={styles.doneButtonText}>
-                            Klaar
-                        </Text>
+                        <Text style={styles.doneButtonText}>Klaar</Text>
                     </Pressable>
                 </View>
             </Modal>
@@ -279,16 +310,16 @@ const styles = StyleSheet.create({
     },
 
     modalTitle: {
-        fontSize: 24, 
+        fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
     },
 
     modalSubTitle: {
-        fontSize: 14, 
-        color: colors.darkMutedBlue, 
+        fontSize: 14,
+        color: colors.darkMutedBlue,
         fontWeight: 'bold',
-        marginBottom: 20
+        marginBottom: 20,
     },
 
     selectedGrid: {
@@ -332,7 +363,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.red,
         borderWidth: 2,
         borderColor: colors.white,
-    }, 
+    },
 
     twoColGrid: {
         flexDirection: 'row',

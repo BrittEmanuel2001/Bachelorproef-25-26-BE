@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Text, View, ScrollView, StyleSheet, Pressable } from "react-native";
+import { useState } from 'react';
+import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
-import { Tabs } from "@/components/ui/tabs";
+import { Tabs } from '@/components/ui/tabs';
 import { useTranslation } from '@/utils/i18n';
 
 export default function Index() {
@@ -22,15 +22,32 @@ export default function Index() {
     ];
 
     return (
-        <ScrollView 
+        <ScrollView
             style={styles.container}
             contentContainerStyle={styles.content}
         >
-            <View style={{paddingHorizontal: 20}}>
+            <View style={{ paddingHorizontal: 20 }}>
                 {/* Titel */}
                 <SettingButtons />
-                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>{t('section.your')}</Text>
-                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>{t('knowledge.title')}</Text>
+                <Text
+                    style={{
+                        fontSize: 14,
+                        color: colors.darkMutedBlue,
+                        fontWeight: 'bold',
+                        marginTop: -25,
+                    }}
+                >
+                    {t('section.your')}
+                </Text>
+                <Text
+                    style={{
+                        fontSize: 24,
+                        fontWeight: 'bold',
+                        marginBottom: 25,
+                    }}
+                >
+                    {t('knowledge.title')}
+                </Text>
 
                 {/* Tabs */}
                 <Tabs

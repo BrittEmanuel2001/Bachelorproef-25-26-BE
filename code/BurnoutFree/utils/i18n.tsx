@@ -1,8 +1,16 @@
 import { getLocales } from 'expo-localization';
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useState,
+    type ReactNode,
+} from 'react';
 
 type Language = 'nl' | 'en';
-type TranslationValue = string | ((params: Record<string, string | number>) => string);
+type TranslationValue =
+    string | ((params: Record<string, string | number>) => string);
 
 type TranslationDictionary = Record<string, TranslationValue>;
 
@@ -19,7 +27,8 @@ const translations: Record<Language, TranslationDictionary> = {
         'home.reflect': 'Even reflecteren',
         'home.stress101': 'Stress 101',
         'home.stressLesson': 'De ene stress is de andere niet',
-        'home.quote': 'Rust is geen beloning voor hard werken. Het is een basis om goed te kunnen leven.',
+        'home.quote':
+            'Rust is geen beloning voor hard werken. Het is een basis om goed te kunnen leven.',
         'section.your': 'Jouw',
         'development.myMoments': 'Mijn momenten',
         'development.together': 'Samen op pad',
@@ -51,10 +60,13 @@ const translations: Record<Language, TranslationDictionary> = {
         'journal.balancedThought': 'Gebalanceerde gedachte',
         'journal.morning': 'Goede morgen!',
         'journal.evening': 'Goedenavond!',
-        'journal.eveningText': 'Hoe was je dag vandaag? Neem rustig even de tijd om terug te kijken op wat je hebt meegemaakt.',
-        'journal.morningText': 'Hoe gaat het vandaag met je?\nLaten we rustig even stilstaan bij\nhoe je je voelt.',
+        'journal.eveningText':
+            'Hoe was je dag vandaag? Neem rustig even de tijd om terug te kijken op wat je hebt meegemaakt.',
+        'journal.morningText':
+            'Hoe gaat het vandaag met je?\nLaten we rustig even stilstaan bij\nhoe je je voelt.',
         'today.stressSubtitle': 'Verhoogd stressniveau',
-        'today.stressText': 'Je antwoorden wijzen op verhoogde spanning. Een korte ademhalingsoefening kan helpen om even die rust terug te vinden.',
+        'today.stressText':
+            'Je antwoorden wijzen op verhoogde spanning. Een korte ademhalingsoefening kan helpen om even die rust terug te vinden.',
         'today.startExercise': 'Start oefening',
         'today.myAnswers': 'Naar mijn antwoorden',
         'journal.search': 'Zoeken',
@@ -107,7 +119,8 @@ const translations: Record<Language, TranslationDictionary> = {
         'home.reflect': 'Take a moment to reflect',
         'home.stress101': 'Stress 101',
         'home.stressLesson': 'Not all stress is the same',
-        'home.quote': 'Rest is not a reward for hard work. It is a foundation for living well.',
+        'home.quote':
+            'Rest is not a reward for hard work. It is a foundation for living well.',
         'section.your': 'Your',
         'development.myMoments': 'My moments',
         'development.together': 'Together on the way',
@@ -139,10 +152,13 @@ const translations: Record<Language, TranslationDictionary> = {
         'journal.balancedThought': 'Balanced thought',
         'journal.morning': 'Good morning!',
         'journal.evening': 'Good evening!',
-        'journal.eveningText': 'How was your day? Take a moment to look back at what you experienced.',
-        'journal.morningText': 'How are you doing today?\nLet us take a moment to notice\nhow you feel.',
+        'journal.eveningText':
+            'How was your day? Take a moment to look back at what you experienced.',
+        'journal.morningText':
+            'How are you doing today?\nLet us take a moment to notice\nhow you feel.',
         'today.stressSubtitle': 'Elevated stress level',
-        'today.stressText': 'Your answers suggest increased tension. A short breathing exercise may help you find some calm again.',
+        'today.stressText':
+            'Your answers suggest increased tension. A short breathing exercise may help you find some calm again.',
         'today.startExercise': 'Start exercise',
         'today.myAnswers': 'View my answers',
         'journal.search': 'Search',
@@ -210,7 +226,8 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
             language,
             locale,
             t: (key: string) => {
-                const translation = translations[language][key] ?? translations.nl[key] ?? key;
+                const translation =
+                    translations[language][key] ?? translations.nl[key] ?? key;
                 return typeof translation === 'function'
                     ? translation({})
                     : translation;
@@ -218,13 +235,19 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
         };
     }, [language]);
 
-    return <TranslationContext.Provider value={value}>{children}</TranslationContext.Provider>;
+    return (
+        <TranslationContext.Provider value={value}>
+            {children}
+        </TranslationContext.Provider>
+    );
 }
 
 export function useTranslation() {
     const context = useContext(TranslationContext);
     if (!context) {
-        throw new Error('useTranslation must be used inside TranslationProvider');
+        throw new Error(
+            'useTranslation must be used inside TranslationProvider',
+        );
     }
     return context;
 }

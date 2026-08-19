@@ -7,10 +7,7 @@ type ProgressBarProps = {
     totalSteps: number;
 };
 
-export function ProgressBar({
-    currentStep,
-    totalSteps,
-}: ProgressBarProps) {
+export function ProgressBar({ currentStep, totalSteps }: ProgressBarProps) {
     return (
         <View style={styles.container}>
             {Array.from({ length: totalSteps }).map((_, index) => {
@@ -35,21 +32,12 @@ type AnimatedStepProps = {
     totalSteps: number;
 };
 
-function AnimatedStep({
-    step,
-    currentStep,
-    totalSteps,
-}: AnimatedStepProps) {
+function AnimatedStep({ step, currentStep, totalSteps }: AnimatedStepProps) {
     const progress = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
         Animated.timing(progress, {
-            toValue:
-                step < currentStep
-                    ? 1
-                    : step === currentStep
-                        ? 0.5
-                        : 0,
+            toValue: step < currentStep ? 1 : step === currentStep ? 0.5 : 0,
             duration: 350,
             useNativeDriver: false,
         }).start();
@@ -57,11 +45,7 @@ function AnimatedStep({
 
     const backgroundColor = progress.interpolate({
         inputRange: [0, 0.5, 1],
-        outputRange: [
-            colors.gray,
-            colors.primary,
-            colors.darkBlue,
-        ],
+        outputRange: [colors.gray, colors.primary, colors.darkBlue],
     });
 
     return (
