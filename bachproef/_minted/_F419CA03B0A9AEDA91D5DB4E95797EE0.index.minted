@@ -1,13 +1,17 @@
 {
   "jobname": "EmanuelBrittBP",
   "md5": "F419CA03B0A9AEDA91D5DB4E95797EE0",
-  "timestamp": "20260818115125",
+  "timestamp": "20260819164442",
   "cachefiles": [
     "4602DF7D58DD70347DA9FFC0E1530163.highlight.minted",
+    "818B80D09DE1CCDE41B107DBAC2F0923.highlight.minted",
+    "9443AA7209659AA625E41FDD15436FDB.highlight.minted",
     "C112C61B55FB9CEA340721E04F5DEEA3.highlight.minted",
+    "C8626840E3F935DE942AFB0D37183B51.highlight.minted",
     "D87E78D32E896BCBBB7B2CCEB5F9819B.highlight.minted",
     "E3D3B11C6E8867D9D2ECA15A92C0FA41.highlight.minted",
     "E4D5AA56E738D24533A7A54AED8D7BD9.highlight.minted",
+    "E7B8D3C1000384ED30FB0DA6CBC24600.highlight.minted",
     "_F419CA03B0A9AEDA91D5DB4E95797EE0.index.minted",
     "solarized-light.style.minted"
   ]

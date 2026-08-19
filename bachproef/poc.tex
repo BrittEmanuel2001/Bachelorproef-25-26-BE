@@ -1709,6 +1709,92 @@ De schermen maken hierdoor gebruik van eenzelfde abstracte benaming, terwijl de 
 
 \newpage
 
+\subsubsection{Foutafhandeling meldingrechten}
+\label{sec:foutafhandeling-code}
+
+\vspace{1em}
+
+In de oorspronkelijke applicatie werd bij het weigeren van notificatierechten een technische foutmelding \texttt{ns\_denied} weergegeven (zie \ref{fig:burnout-free-6}). Dit gaf de gebruiker weinig informatie over het probleem. Dit werd in de PoC opgelost door de notificatierechten expliciet te controleren en fouten af te handelen.
+
+Met behulp van \texttt{expo-notifications} wordt eerst nagegaan of de applicatie toestemming heeft om notificaties te versturen. Indien nodig wordt de gebruiker om toestemming gevraagd. 
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        const currentPermissions = await Notifications.getPermissionsAsync();
+        
+        const permissions = currentPermissions.granted
+        ? currentPermissions
+        : await Notifications.requestPermissionsAsync();
+        
+        return (
+            permissions.granted ||
+            permissions.ios?.status === Notifications.IosAuthorizationStatus.PROVISIONAL
+        );
+    \end{minted}
+    \caption[Controleren en aanvragen van notificatierechten]
+    {Controleren en indien nodig aanvragen van notificatierechten voor notificaties.}
+    \label{lst:melding-toestemming}
+\end{listing}
+
+Wanneer het controleren of aanvragen van de rechten mislukt, wordt de fout intern opgevangen. Wanneer notificaties vervolgens niet kunnen worden ingepland, worden de bijhorende toggles uitgeschakeld en krijgt de gebruiker een duidelijke melding met een mogelijke oplossing. Deze aanpak vervangt de oorspronkelijke technische foutmelding door een begrijpelijke gebruikersmelding en zorgt ervoor dat de applicatie ook zonder notificaties verder gebruikt kan worden.
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        try {
+            // controleren en aanvragen van notificatierechten
+        } catch (error) {
+            console.warn('Notificaties zijn niet beschikbaar.', error);
+            return false;
+        }
+    \end{minted}
+    \caption[Afhandelen van fouten bij notificatierechten]
+    {Intern opvangen van fouten bij het controleren of aanvragen van notificatierechten.}
+    \label{lst:melding-error}
+\end{listing}
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        if (!scheduled) {
+            setAnonSupportEnabled(false);
+            setJournalEnabled(false);
+            setBreathingEnabled(false);
+            setMeditationEnabled(false);
+            
+            Alert.alert(
+                'Notificaties niet beschikbaar',
+                'Geef BurnoutFree toestemming in de instellingen van je gsm. Je kan de app verder blijven gebruiken zonder notificaties.',
+            );
+        }
+    \end{minted}
+    \caption[Uitschakelen van notificatie-instellingen bij fouten]
+    {Uitschakelen van notificatie-instellingen en tonen van een duidelijke melding wanneer notificaties niet beschikbaar zijn.}
+    \label{lst:melding-alert}
+\end{listing}
+
+\vspace{1em}
+
+\subsubsection{i18n}
+\label{sec:i18n-code}
+
+\vspace{1em}
+
+In de \acrshort{poc} werd ook aandacht besteed aan het beperken van onnodige interactiestappen. Zo ondersteunt de \acrshort{poc} zowel Nederlands als Engels, waarbij de taal automatisch wordt bepaald op basis van de systeemtaal van het toestel. Hiervoor wordt de Expo-bibliotheek \texttt{expo-localization} gebruikt. Indien de systeemtaal niet wordt herkend als Engels, wordt Nederlands als standaardtaal gebruikt. Hierdoor hoeft de gebruiker tijdens de onboarding geen afzonderlijke taalkeuze te maken.
+
+\begin{listing}[H]
+    \begin{minted}{typescript}
+        function getSystemLanguage(): Language {
+            return getLocales()[0]?.languageCode === 'en' ? 'en' : 'nl';
+        }
+    \end{minted}
+    \caption[Automatische selectie van de systeemtaal]
+    {Automatische selectie van de applicatietaal op basis van de systeemtaal van het toestel.}
+    \label{lst:i18n}
+\end{listing}
+
+Deze aanpak vermindert een extra keuzestap en sluit daarmee aan bij het principe om de interactielast voor de gebruiker zo laag mogelijk te houden.
+
+\newpage
+
 \subsubsection{Screenshots}
 \label{sec:screenshots-code}
 

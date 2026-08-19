@@ -1,4 +1,5 @@
 import {
+    Alert,
     Modal,
     Pressable,
     StyleSheet,
@@ -6,7 +7,7 @@ import {
     View,
     ScrollView,
 } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { colors } from '@/styles/colors';
@@ -17,6 +18,7 @@ import { EmergencyContact } from './emergency-contact';
 import { NotificationFunction } from './notification-function';
 
 import { saveSupportLevel } from '@/utils/user-preferences';
+import { cancelDemoNotification, scheduleDemoNotification, scheduleDemoNotifications } from '@/utils/notifications';
 
 type SettingsProps = {
     visible: boolean;
@@ -29,7 +31,6 @@ function isValidPhoneNumber(value: string): boolean {
     }
 
     const cleanedValue = value.replace(/[\s().-]/g, '');
-
     return /^\+?[0-9]{8,15}$/.test(cleanedValue);
 }
 
@@ -64,7 +65,7 @@ const notificationProfiles: Record<string, NotificationProfile> = {
     low_low: {
         anonSupport: false,
         journal: [],
-        breathing: [{ hour: 14, minute: 0 }],
+        breathing: [],
         meditation: [],
     },
 
@@ -153,10 +154,10 @@ const notificationProfiles: Record<string, NotificationProfile> = {
 
 export function Settings({ visible, onClose }: SettingsProps) {
     const [supportLevel, setSupportLevel] = useState<'low' | 'medium' | 'high'>(
-        'medium',
+        'low',
     );
     const [reminderNeed, setReminderNeed] = useState<'low' | 'medium' | 'high'>(
-        'medium',
+        'low',
     );
     const emergencyContactPhoneNumber = '+32 123 456 789';
     const isEmergencyContactValid = isValidPhoneNumber(
@@ -189,8 +190,12 @@ export function Settings({ visible, onClose }: SettingsProps) {
 
     const profileKey = `${supportLevel}_${reminderNeed}`;
     const notificationProfile = notificationProfiles[profileKey];
+    const previousProfileKey = useRef(profileKey);
 
     useEffect(() => {
+        const profileChanged = previousProfileKey.current !== profileKey;
+        previousProfileKey.current = profileKey;
+
         setAnonSupportEnabled(notificationProfile.anonSupport);
 
         setJournalEnabled(notificationProfile.journal.length > 0);
@@ -201,10 +206,80 @@ export function Settings({ visible, onClose }: SettingsProps) {
 
         setMeditationEnabled(notificationProfile.meditation.length > 0);
         setMeditationTimes(notificationProfile.meditation);
-    }, [profileKey]);
+
+        if (!profileChanged) {
+            return;
+        }
+
+        const profileNotifications = [
+            notificationProfile.anonSupport
+                ? { key: 'encouragements', name: 'Anonieme aanmoedigingen' }
+                : null,
+            notificationProfile.journal.length > 0
+                ? { key: 'journal', name: 'Dagboek' }
+                : null,
+            notificationProfile.breathing.length > 0
+                ? { key: 'breathing', name: 'Ademhalingspauze' }
+                : null,
+            notificationProfile.meditation.length > 0
+                ? { key: 'meditation', name: 'Meditatie' }
+                : null,
+        ].filter((notification): notification is { key: string; name: string } =>
+            notification !== null,
+        );
+
+        if (profileNotifications.length === 0) {
+            return;
+        }
+
+        scheduleDemoNotifications(profileNotifications).then((scheduled) => {
+            if (!scheduled) {
+
+                setAnonSupportEnabled(false);
+                setJournalEnabled(false);
+                setBreathingEnabled(false);
+                setMeditationEnabled(false);
+
+                Alert.alert(
+                    'Notificaties niet beschikbaar',
+                    'Geef BurnoutFree toestemming in de instellingen van je gsm. Je kan de app verder blijven gebruiken zonder notificaties.',
+                );
+            }
+        });
+    }, [
+        profileKey,
+        notificationProfile.anonSupport,
+        notificationProfile.breathing,
+        notificationProfile.journal,
+        notificationProfile.meditation,
+    ]);
 
     function formatTime(time: NotificationTime): string {
         return `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}`;
+    }
+
+    async function handleNotificationToggle(
+        key: string,
+        name: string,
+        enabled: boolean,
+        setEnabled: (value: boolean) => void,
+    ) {
+        if (enabled) {
+            await cancelDemoNotification(key);
+            setEnabled(false);
+            return;
+        }
+
+        const scheduled = await scheduleDemoNotification(key, name);
+        if (scheduled) {
+            setEnabled(true);
+            return;
+        }
+
+        Alert.alert(
+            'Notificaties niet beschikbaar',
+            'Geef BurnoutFree toestemming in de instellingen van je gsm. Je kan de app verder blijven gebruiken zonder notificaties.',
+        );
     }
 
     return (
@@ -307,7 +382,12 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             icon="hand.heart.fill"
                             enabled={anonSupportEnabled}
                             onToggle={() =>
-                                setAnonSupportEnabled(!anonSupportEnabled)
+                                handleNotificationToggle(
+                                    'encouragements',
+                                    'Anonieme aanmoedigingen',
+                                    anonSupportEnabled,
+                                    setAnonSupportEnabled,
+                                )
                             }
                         />
 
@@ -316,7 +396,14 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             icon="journal.fill"
                             times={journalTimes.map(formatTime)}
                             enabled={journalEnabled}
-                            onToggle={() => setJournalEnabled(!journalEnabled)}
+                            onToggle={() =>
+                                handleNotificationToggle(
+                                    'journal',
+                                    'Dagboek',
+                                    journalEnabled,
+                                    setJournalEnabled,
+                                )
+                            }
                         />
 
                         <NotificationFunction
@@ -325,7 +412,12 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             times={breathingTimes.map(formatTime)}
                             enabled={breathingEnabled}
                             onToggle={() =>
-                                setBreathingEnabled(!breathingEnabled)
+                                handleNotificationToggle(
+                                    'breathing',
+                                    'Ademhalingspauze',
+                                    breathingEnabled,
+                                    setBreathingEnabled,
+                                )
                             }
                         />
 
@@ -335,7 +427,12 @@ export function Settings({ visible, onClose }: SettingsProps) {
                             times={meditationTimes.map(formatTime)}
                             enabled={meditationEnabled}
                             onToggle={() =>
-                                setMeditationEnabled(!meditationEnabled)
+                                handleNotificationToggle(
+                                    'meditation',
+                                    'Meditatie',
+                                    meditationEnabled,
+                                    setMeditationEnabled,
+                                )
                             }
                         />
                     </View>

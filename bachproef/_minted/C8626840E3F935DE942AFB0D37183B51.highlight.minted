@@ -1,0 +1,12 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{currentPermissions}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{await}\PYG{+w}{ }\PYG{n+nx}{Notifications}\PYG{p}{.}\PYG{n+nx}{getPermissionsAsync}\PYG{p}{();}
+
+\PYG{k+kd}{const}\PYG{+w}{ }\PYG{n+nx}{permissions}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nx}{currentPermissions}\PYG{p}{.}\PYG{n+nx}{granted}
+\PYG{o}{?}\PYG{+w}{ }\PYG{n+nx}{currentPermissions}
+\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{await}\PYG{+w}{ }\PYG{n+nx}{Notifications}\PYG{p}{.}\PYG{n+nx}{requestPermissionsAsync}\PYG{p}{();}
+
+\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n+nx}{permissions}\PYG{p}{.}\PYG{n+nx}{granted}\PYG{+w}{ }\PYG{o}{||}
+\PYG{+w}{    }\PYG{n+nx}{permissions}\PYG{p}{.}\PYG{n+nx}{ios}\PYG{o}{?}\PYG{p}{.}\PYG{n+nx}{status}\PYG{+w}{ }\PYG{o}{===}\PYG{+w}{ }\PYG{n+nx}{Notifications}\PYG{p}{.}\PYG{n+nx}{IosAuthorizationStatus}\PYG{p}{.}\PYG{n+nx}{PROVISIONAL}
+\PYG{p}{);}
+\end{MintedVerbatim}
