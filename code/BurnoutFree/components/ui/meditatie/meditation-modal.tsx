@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { colors } from '@/styles/colors';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { getSupportLevel, SupportLevel } from '@/utils/user-preferences';
+import { useTranslation } from '@/utils/i18n';
 
 export const MEDITATION_DURATIONS = [
     {
@@ -84,6 +85,7 @@ type MeditationModalProps = {
 };
 
 export function MeditationModal({ visible, onClose, onStart }: MeditationModalProps) {
+    const { t } = useTranslation();
 
     const [currentStep, setCurrentStep] = useState(1);
     const [supportLevel, setSupportLevel] = useState<SupportLevel>('medium');
@@ -158,8 +160,8 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                             <IconSymbol size={40} name="spa.fill" color={colors.darkBlue}/>
                         </View>
                         <View>
-                            <Text style={styles.title}>Meditatie</Text>
-                            <Text style={styles.subtitle}>Laat je gedachten tot stilte komen</Text>
+                            <Text style={styles.title}>{t('meditation.title')}</Text>
+                            <Text style={styles.subtitle}>{t('meditation.subtitle')}</Text>
                         </View>
                     </View>
 
@@ -168,7 +170,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                         {currentStep === 1 && (
                             <View>
                                 <View>
-                                    <Text style={styles.contentSubTitle}>Hoe lang wil je mediteren?</Text>
+                                    <Text style={styles.contentSubTitle}>{t('meditation.duration')}</Text>
                                 </View>
 
                                 <View style={styles.options}>
@@ -180,7 +182,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                                 {isRecommended && (
                                                     <View style={styles.recommendedLabel}>
                                                         <Text style={styles.recommendedLabelText}>
-                                                            Mijn aanrader
+                                                            {t('meditation.recommended')}
                                                         </Text>
                                                         <Image
                                                             source={require('@/assets/images/Coach_Bubbles_Variant3.png')}
@@ -204,7 +206,9 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                                 >
                                                     {/* Chip */}
                                                     <View style={[styles.durationChip, {backgroundColor: durationOption.chipColor}]}>
-                                                        <Text style={styles.durationChipText}>{durationOption.label}</Text>
+                                                        <Text style={styles.durationChipText}>
+                                                            {t(`meditation.${durationOption.value === 1 ? 'quick' : durationOption.value === 3 ? 'mini' : durationOption.value === 5 ? 'medium' : 'full'}`)}
+                                                        </Text>
                                                     </View>
 
                                                     {/* Duration */}
@@ -240,7 +244,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                         {currentStep === 2 && (
                             <View>
                                 <View>
-                                    <Text style={styles.contentSubTitle}>Welk geluid maakt je rustig?</Text>
+                                    <Text style={styles.contentSubTitle}>{t('meditation.sound')}</Text>
                                 </View>
                                 <View style={styles.options}>
                                     {MEDITATION_SOUNDS.map((option) => (
@@ -253,7 +257,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                                 <IconSymbol size={28} name={option.icon} color={option.color} />
                                             </View>
                                             <Text style={[styles.optionText,soundType === option.value && styles.optionTextSelected]}>
-                                                {option.label}
+                                                {t(`meditation.${option.value === 'quiet' ? 'silence' : option.value}`)}
                                             </Text>
                                         </Pressable>
                                     ))}
@@ -270,7 +274,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                     style={styles.previousButton}
                                     onPress={handleNext}
                                 >
-                                    <Text style={styles.previousButtonText}>Volgende</Text>
+                                    <Text style={styles.previousButtonText}>{t('common.next')}</Text>
                                 </Pressable>
                             </>
                         )}
@@ -280,7 +284,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                     style={styles.previousButton}
                                     onPress={handlePrevious}
                                 >
-                                    <Text style={styles.previousButtonText}>Wijzig duur</Text>
+                                    <Text style={styles.previousButtonText}>{t('meditation.changeDuration')}</Text>
                                 </Pressable>
 
                                 <Pressable
@@ -289,7 +293,7 @@ export function MeditationModal({ visible, onClose, onStart }: MeditationModalPr
                                     onPress={handleStart}
                                 >
                                     <IconSymbol size={20} name="play" color={colors.white} />
-                                    <Text style={styles.nextButtonText}>Start mijn sessie</Text>
+                                    <Text style={styles.nextButtonText}>{t('meditation.start')}</Text>
                                 </Pressable>
                             </>
                         )}

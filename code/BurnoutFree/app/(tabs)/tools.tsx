@@ -4,6 +4,7 @@ import { SettingButtons } from '@/components/ui/settings/setting-buttons';
 import { Toolkit } from '@/components/ui/toolkit/toolkit';
 import { ToolkitItem } from "@/components/ui/toolkit/toolkit-card";
 import { ToolCard } from "@/components/ui/toolkit/tools-card";
+import { useTranslation } from '@/utils/i18n';
 
 const AVAILABLE_ITEMS: ToolkitItem[] = [
     {
@@ -45,6 +46,12 @@ const AVAILABLE_ITEMS: ToolkitItem[] = [
 ];
 
 export default function Index() {
+    const { t } = useTranslation();
+    const availableItems = AVAILABLE_ITEMS.map((item) => ({
+        ...item,
+        title: t(`tool.${item.id === 'coping-cards' ? 'copingCards' : item.id === 'pro-example' ? 'pro' : item.id}`),
+    }));
+
   return (
     <ScrollView
           style={styles.container}
@@ -53,7 +60,7 @@ export default function Index() {
     >
       <View style={{paddingHorizontal: 20}}>
         <SettingButtons />
-        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 30, marginTop: -6}}>Tools</Text>
+        <Text style={{fontSize: 24, fontWeight: 'bold', paddingBottom: 30, marginTop: -6}}>{t('tools.title')}</Text>
       </View>
 
       {/* toolkit */}
@@ -61,9 +68,9 @@ export default function Index() {
 
       {/* aanbod */}
       <View style={{paddingHorizontal: 20, paddingTop: 10, paddingBottom: 30}}>
-        <Text style={styles.heading}>Ons aanbod</Text>
+        <Text style={styles.heading}>{t('tools.offer')}</Text>
         <View style={styles.twoColGrid}>
-          {AVAILABLE_ITEMS
+          {availableItems
               .map((item) => {
                   const buttonColors = [
                       colors.primary,
@@ -71,7 +78,7 @@ export default function Index() {
                       colors.purple,
                   ];
 
-                  const nonSpecialItems = AVAILABLE_ITEMS.filter(
+                  const nonSpecialItems = availableItems.filter(
                     (item) => item.id !== "sos" && item.id !== "pro-example"
                   );
 

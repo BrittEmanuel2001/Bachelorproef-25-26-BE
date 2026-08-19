@@ -8,10 +8,12 @@ import { CheckupCard } from "../check-up-card";
 import { IconSymbol } from "../icon-symbol";
 import { KnowledgeCard } from "../kennis/knowledge-card";
 import { JournalEntry } from "./journal-entry";
+import { useTranslation } from '@/utils/i18n';
 
 const JOURNAL_ENTRIES_KEY = "journal-entries";
 
 export function TodayContent() {
+    const { t } = useTranslation();
     const [reflectionVisible, setReflectionVisible] = useState(false);
     const [reflectionStep, setReflectionStep] = useState(1);
     const [todayReflection, setTodayReflection] = useState<ReflectionData | null>(null);
@@ -111,13 +113,13 @@ export function TodayContent() {
                         />
 
                         <Text style={styles.todayTitle}>
-                            {isEvening ? "Goedenavond!" : "Goede morgen!"}
+                            {isEvening ? t('journal.evening') : t('journal.morning')}
                         </Text>
 
                         <Text style={styles.todaySubtitle}>
                             {isEvening
-                                ? "Hoe was je dag vandaag? Neem rustig even de tijd om terug te kijken op wat je hebt meegemaakt."
-                                : "Hoe gaat het vandaag met je?\nLaten we rustig even stilstaan bij\nhoe je je voelt."
+                                ? t('journal.eveningText')
+                                : t('journal.morningText')
                             }
                         </Text>
 
@@ -129,7 +131,7 @@ export function TodayContent() {
                             hitSlop={8}
                         >
                             <Text style={styles.buttonText}>
-                                Reflecteer
+                                {t('home.reflect')}
                             </Text>
                         </Pressable>
                     </>
@@ -137,11 +139,11 @@ export function TodayContent() {
                     <View style={{width:'100%'}}>
                         <View style={{marginBottom:-15}}>
                             <CheckupCard
-                                subtitle="Verhoogd stressniveau"
-                                title="Je antwoorden wijzen op verhoogde spanning. Een korte ademhalingsoefening kan helpen om even die rust terug te vinden."
+                                subtitle={t('today.stressSubtitle')}
+                                title={t('today.stressText')}
                                 image={require("@/assets/images/Coach_Bubbles_Variant5.png")}
                                 button={{
-                                    text: "Start oefening",
+                                    text: t('today.startExercise'),
                                     onPress: () => router.push('/meditation?duration=3&sound=forest'),
                                     icon: 'leaf.fill',
                                 }}
@@ -153,13 +155,13 @@ export function TodayContent() {
                             onPress={() => setEntryVisible(true)}
                         >
                             <IconSymbol size={22} name="journal.fill" color={colors.black} />
-                            <Text style={styles.actionButtonText}>Naar mijn antwoorden</Text>
+                            <Text style={styles.actionButtonText}>{t('today.myAnswers')}</Text>
                         </Pressable>
 
                         <KnowledgeCard
-                            moduleTitle="Stress 101"
+                            moduleTitle={t('home.stress101')}
                             module="1"
-                            lessonTitle={"De ene stress is de andere niet"}
+                            lessonTitle={t('home.stressLesson')}
                             backgroundImage={require("@/assets/images/bookBackground.png")}
                             onPress={() => {router.replace('/kennis')}}
                         />

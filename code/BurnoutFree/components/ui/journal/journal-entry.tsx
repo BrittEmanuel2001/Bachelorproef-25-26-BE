@@ -4,6 +4,7 @@ import { IconSymbol } from "../icon-symbol";
 import { ReflectionData } from "./reflection-modal";
 import { OptionSelector } from "./option-selector";
 import { moodOptions, energyOptions, stressOptions } from "@/utils/reflection-options";
+import { useTranslation } from '@/utils/i18n';
 
 type JournalEntryProps = {
     visible: boolean;
@@ -16,13 +17,14 @@ export function JournalEntry({
     onClose,
     reflection,
 }: JournalEntryProps) {
+    const { t, locale } = useTranslation();
 
     if (!reflection) {
         return null;
     }
 
     const formattedDate = new Date(`${reflection.date}T00:00:00`).toLocaleDateString(
-        'nl-NL',
+        locale,
         {
             day: 'numeric',
             month: 'long',
@@ -53,13 +55,13 @@ export function JournalEntry({
                 >
                     {/* Titel */}
                     <View style={styles.header}>
-                        <Text style={styles.title}>Dagboeknotitie</Text>
+                        <Text style={styles.title}>{t('journal.entry')}</Text>
                         <Text style={styles.subtitle}>{formattedDate}</Text>
                     </View>
 
                     {/* Stemming */}
                     <View style={styles.section}>
-                        <Text style={[styles.label, {marginBottom: 0}]}>Stemming</Text>
+                        <Text style={[styles.label, {marginBottom: 0}]}>{t('journal.mood')}</Text>
                         <OptionSelector
                             options={moodOptions}
                             selectedOption={reflection.mood}
@@ -69,21 +71,21 @@ export function JournalEntry({
 
                     {/* Energie niveau */}
                     <View style={styles.section}>
-                        <Text style={[styles.label, {marginBottom: 0}]}>Energie niveau</Text>
+                        <Text style={[styles.label, {marginBottom: 0}]}>{t('journal.energy')}</Text>
                         <OptionSelector
                             options={energyOptions}
                             selectedOption={reflection.energy}
                             disabled
                         />
 
-                        <Text style={[styles.label, {marginTop: 30}]}>Slaap</Text>
+                        <Text style={[styles.label, {marginTop: 30}]}>{t('journal.sleep')}</Text>
                         {reflection.sleepHours !== null && reflection.sleepHours !== undefined ? (
                             <Text style={styles.sleepHours}>
                                 {reflection.sleepHours}
-                                <Text style={styles.sleepHoursUnit}> uur</Text>
+                                <Text style={styles.sleepHoursUnit}> {t('journal.hour')}</Text>
                             </Text>
                         ) : (
-                            <Text style={styles.answer}>Geen antwoord ingevuld</Text>
+                            <Text style={styles.answer}>{t('journal.noAnswer')}</Text>
                         )}
                         {reflection.sleepNote && (
                             <View style={styles.noteSection}>
@@ -94,7 +96,7 @@ export function JournalEntry({
 
                     {/* Stress */}
                     <View style={[styles.section, {borderBottomWidth: 0}]}>
-                        <Text style={styles.label}>Stress</Text>
+                        <Text style={styles.label}>{t('journal.stress')}</Text>
                         <OptionSelector
                             options={stressOptions}
                             selectedOption={reflection.stress}
@@ -107,7 +109,7 @@ export function JournalEntry({
                         )}
                         {reflection.balanceNote && (
                             <View>
-                                <Text style={[styles.sublabel]}>Gebalanceerde gedachte</Text>
+                                <Text style={[styles.sublabel]}>{t('journal.balancedThought')}</Text>
                                 <View style={[styles.noteSection, {marginTop: 0}]}>
                                     <Text style={styles.answer}>{reflection.balanceNote}</Text>
                                 </View>

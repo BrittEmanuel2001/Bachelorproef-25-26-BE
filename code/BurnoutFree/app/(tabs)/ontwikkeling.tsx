@@ -3,19 +3,21 @@ import { Text, View, ScrollView, StyleSheet, Pressable } from "react-native";
 import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
 import { Tabs } from "@/components/ui/tabs";
+import { useTranslation } from '@/utils/i18n';
 
 export default function Index() {
+    const { t } = useTranslation();
 
     const [activeTab, setActiveTab] = useState('my-moments');
 
     const tabs = [
         {
             key: 'my-moments',
-            label: 'Mijn momenten',
+            label: t('development.myMoments'),
         },
         {
             key: 'together',
-            label: 'Samen op pad',
+            label: t('development.together'),
         },
     ];
 
@@ -27,8 +29,8 @@ export default function Index() {
             <View style={{paddingHorizontal: 20}}>
                 {/* Titel */}
                 <SettingButtons />
-                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
-                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>Ontwikkeling</Text>
+                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>{t('section.your')}</Text>
+                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>{t('tab.development')}</Text>
 
                 {/* Tabs */}
                 <Tabs
@@ -39,9 +41,9 @@ export default function Index() {
 
                 <View style={styles.tabContent}>
                     {activeTab === 'my-moments' ? (
-                        <Text>Content van mijn momenten</Text>
+                        <Text>{t('development.myMomentsContent')}</Text>
                     ) : (
-                        <Text>Content van samen op pad</Text>
+                        <Text>{t('development.togetherContent')}</Text>
                     )}
                 </View>
             </View>

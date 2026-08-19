@@ -4,6 +4,7 @@ import { Achievements } from './achievements';
 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { colors } from '@/styles/colors';
+import { useTranslation } from '@/utils/i18n';
 
 type ProfileProps = {
     visible: boolean;

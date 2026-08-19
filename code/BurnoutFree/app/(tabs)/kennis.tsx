@@ -3,19 +3,21 @@ import { Text, View, ScrollView, StyleSheet, Pressable } from "react-native";
 import { colors } from '@/styles/colors';
 import { SettingButtons } from '@/components/ui/settings/setting-buttons';
 import { Tabs } from "@/components/ui/tabs";
+import { useTranslation } from '@/utils/i18n';
 
 export default function Index() {
+    const { t } = useTranslation();
 
     const [activeTab, setActiveTab] = useState('all');
 
     const tabs = [
         {
             key: 'all',
-            label: 'Alles',
+            label: t('knowledge.all'),
         },
         {
             key: 'collection',
-            label: 'Mijn verzameling',
+            label: t('knowledge.collection'),
         },
     ];
 
@@ -27,8 +29,8 @@ export default function Index() {
             <View style={{paddingHorizontal: 20}}>
                 {/* Titel */}
                 <SettingButtons />
-                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>Jouw</Text>
-                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>Kennishoek</Text>
+                <Text style={{fontSize: 14, color: colors.darkMutedBlue, fontWeight: 'bold', marginTop: -25}}>{t('section.your')}</Text>
+                <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 25}}>{t('knowledge.title')}</Text>
 
                 {/* Tabs */}
                 <Tabs
@@ -39,9 +41,9 @@ export default function Index() {
 
                 <View style={styles.tabContent}>
                     {activeTab === 'all' ? (
-                        <Text>Alle cursussen</Text>
+                        <Text>{t('knowledge.allCourses')}</Text>
                     ) : (
-                        <Text>Mijn cursussen</Text>
+                        <Text>{t('knowledge.myCourses')}</Text>
                     )}
                 </View>
             </View>
