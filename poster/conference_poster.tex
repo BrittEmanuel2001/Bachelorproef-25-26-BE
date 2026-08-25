@@ -5,82 +5,138 @@
 % Aangepast voor gebruik aan HOGENT door Jens Buysse en Bert Van Vreckem
 
 \documentclass[a0,portrait]{hogent-poster}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz} 
+\usetikzlibrary{positioning,fit,arrows.meta}
 
 % Info over de opleiding
 \course{Bachelorproef}
 \studyprogramme{toegepaste informatica}
-\academicyear{2022-2023}
+\academicyear{2025-2026}
 \institution{Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent}
 
 % Info over de bachelorproef
-\title{Titel van uw bachelorproef}
-\subtitle{Ondertitel (eventueel)}
-\author{Voornaam Naam}
-\email{voornaam.familienaam@student.hogent.be}
-\supervisor{Voornaam Naam}
-\cosupervisor{Voornaam Naam (Bedrijf)}
+\title{Burn-outpreventie bij Vlaamse twintigers: een vergelijkende studie van bestaande apps en vertaling naar ontwerpprincipes voor een stressreducerende applicatie}
+\subtitle{}
+\author{Britt Emanuel}
+\email{britt.emanuel@student.hogent.be}
+\supervisor{Chloé De Leenheer}
+\cosupervisor{Katrijn Van den Broeck (Akompanje)}
 
 % Indien ingevuld, wordt deze informatie toegevoegd aan het einde van de
 % abstract. Zet in commentaar als je dit niet wilt.
-\specialisation{Systeem- en Netwerkbeheer}
-\keywords{Lambda-calculus, Scheme}
-\projectrepo{https://github.com/user/repo}
+\specialisation{Full stack developer}
+\keywords{M-health, Cognitieve belasting, Stressreducerend ontwerp }
+\projectrepo{}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-It's only a model.
-You don't vote for kings. Who's that then? We found them. Ni! Ni! Ni! Ni!
-The nose? On second thoughts, let's not go there. It is a silly place. Bloody Peasant! And the hat. She's a witch! Where'd you get the coconuts?
+Deze bachelorproef onderzoekt hoe digitale toepassingen kunnen bijdragen aan stress- en burn-outpreventie bij Vlaamse twintigers. Via een literatuurstudie, een expertinterview en een requirementsanalyse werden concrete ontwerpprincipes opgesteld voor stressreducerende ontwerp. Vervolgens werd een vergelijkende studie van bestaande mentale gezondheidsapps uitgevoerd om deze ontwerpprincipes te toetsen en aanvullende inzichten te verzamelen die konden worden meegenomen in de verdere analyse en ontwikkeling van de Proof-of-Concept. Op basis van deze inzichten werd een cross-platform Proof-of-Concept ontwikkeld. Het onderzoek toont aan dat naast de inhoud van een mentale gezondheidsapp ook aandacht voor psychologische basisbehoeften, personalisatie, eenvoud, beperkte cognitieve belasting en controle over digitale prikkels belangrijke factoren zijn voor een stressreducerende gebruikerservaring.
 \end{abstract}
 
 \begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
 
 \section{Introductie}
 
-Be quiet! Found them? In Mercia?! The coconut's tropical! But you are dressed as one… Well, what do you want? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
+\vspace{1em}
 
-Well, what do you want? It's only a model. Camelot! We found them. We shall say `Ni' again to you, if you do not appease us.
+Vandaag de dag blijft het aantal jongvolwassenen dat te maken krijgt met stress en burn-out alsmaar toenemen. Volgens cijfers van het RIZIV steeg het aantal personen jonger dan 30 jaar dat langdurig arbeidsongeschikt is door burn-out van 825 in 2018 naar 1.707 in 2023, een toename van 107\%.
 
-The nose? Shut up! Burn her! I am your king. You don't vote for kings.
+\vspace{1em}
 
-You can't expect to wield supreme power just `cause some watery tart threw a sword at you! Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+Om hierop in te spelen en ondersteuning toegankelijker te maken, ontwikkelden steeds meer developers digitale toepassingen voor mentaal welzijn. Dit leidde tot een sterk groeiend aanbod: in 2019 waren er al meer dan 1.400 mentale gezondheidsapps beschikbaar. Voor een generatie die dagelijks met digitale technologie omgaat, lijken deze toepassingen een laagdrempelige manier om ondersteuning te bieden bij stress en burn-outpreventie. Toch blijft de burn-outproblematiek bij jongvolwassenen toenemen, wat de vraag oproept in welke mate bestaande apps daadwerkelijk aansluiten bij hun noden.
 
-Why do you think that she is a witch? We want a shrubbery!! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+\vspace{1em}
 
-\section{Experimenten}
+\begin{tcolorbox}[
+    width=\columnwidth,
+    colback=green!10,
+    colframe=green,
+    boxrule=1pt,
+    arc=6pt,
+    outer arc=6pt,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    enhanced
+]
+    \medium
+    \textbf{Onderzoeksvraag}: 
+    Hoe kunnen apps voor stress- en burn-outpreventie het mentale welzijn van Vlaamse twintigers verbeteren, door middel van inzichten uit een analyse van bestaande apps te vertalen naar concrete ontwerpprincipes en functionaliteiten voor een proof-of-concept app?
+\end{tcolorbox}
 
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
+\vspace{1em}
 
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
+Binnen het \textbf{probleemdomein} werd onderzocht welke noden en risicofactoren Vlaamse twintigers ervaren, waar bestaande apps tekortschieten en welke functionaliteiten en ontwerpprincipes worden toegepast.
 
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
+\vspace{1em}
 
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
+Binnen het \textbf{oplossingsdomein} werd gekeken naar essentiële requirements, UI/UX-elementen, cognitieve belasting, notificaties en gamification, en hoe deze kunnen worden vertaald naar een stressreducerend ontwerp.
 
-\section{Sectie met figuur}
+\vspace{1em}
 
-De {\LaTeX} figure-omgeving bepaalt zelf waar een afbeelding komt en dat is meestal niet op de plek in de tekst waar de figure-omgeving gedefinieerd wordt. Als je wilt forceren dat afbeeldingen toch in de flow van de tekst blijven, dan kan je dat zoals hieronder:
+\section{Methodologie}
+
+\vspace{1em}
 
 \begin{center}
-  \captionsetup{type=figure}
-  \includegraphics[width=1.0\linewidth]{grail}
-  \captionof{figure}{He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say `Ni' again to you, if you do not appease us}
+    \captionsetup{type=figure}
+    \includegraphics[width=0.9\linewidth]{methodologie_schema}
+    \captionof{figure}{Overzicht van de verschillende methodologische fases en hun onderlinge samenhang.}
 \end{center}
 
-Let er wel op dat dit tot problemen met bladschikking kan leiden.
+\columnbreak
 
-\section{Conclusies}
 
-Don't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
+\section{Resultaten}
 
-\section{Toekomstig onderzoek}
+% vermelding uiteindelijke ontwerpprincipes (19!)
+% vermelding PoC (mockups -> code)
+% vermelding wat er bleek uit de evaluatie 
+% (docenten zijn fan van schema's en cijfertjes enzo.... ma idk hoe)
 
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
+...
 
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
+\section{Conclusie \& toekomstig onderzoek}
+
+\vspace{1em}
+
+Het onderzoek toont aan dat een stressreducerende mentale gezondheidsapp niet enkel moet focussen op de aangeboden interventies, maar ook op \textbf{hoe deze worden aangeboden}. De analyse resulteerde in \textbf{19 ontwerpprincipes} die inzetten op het volgen van psychologische basisbehoeften, personalisatie, een lage cognitieve belasting, beperkte digitale interrupties en ondersteunende communicatie.
+
+\vspace{1em}
+
+Deze ontwerpprincipes blijken \textbf{bruikbaar als praktisch kader} voor het ontwerpen en beoordelen van stressreducerende digitale toepassingen. De PoC illustreert hoe onder andere gepersonaliseerde onboarding, oefeningen, zelfreflectie, psycho-educatie en instelbare notificaties hierin kunnen worden geïntegreerd.
+
+\vspace{1em}
+
+\begin{tcolorbox}[
+    width=\columnwidth,
+    colback=hogent-blue!10,
+    colframe=hogent-blue,
+    boxrule=1pt,
+    arc=6pt,
+    outer arc=6pt,
+    left=20pt,
+    right=20pt,
+    top=15pt,
+    bottom=15pt,
+    enhanced
+    ]
+    \medium
+    \textbf{Vervolgonderzoek} is nodig om na te gaan of de ontwerpprincipes duidelijk, eenduidig en toepasbaar zijn voor andere ontwikkelaars, door ze door meerdere ontwikkelaars te laten gebruiken en evalueren. Daarnaast kan een verbeterde versie van een app langdurig met Vlaamse twintigers worden getest om te onderzoeken of deze daadwerkelijk bijdraagt aan het verminderen van chronische overspanning. Bovendien kan worden onderzocht of de ontwerpprincipes ook buiten m-health toepasbaar zijn.
+\end{tcolorbox}
+
+
+
+\section{Referenties}
+
+...
+
+
 
 \end{multicols}
 \end{document}
